@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { useMediaQuery } from 'react-responsive';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Select, TextInput, Button } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import ChannelCard from '../ui/ChannelCard.tsx';
 import type { Channel, ChannelsProps } from '@/types/channel.ts';
 import formatNumberShort from '@/utils/formatNumberShort.ts';
@@ -22,8 +14,8 @@ import channelsCol from '@/fixtures/channelsCollection.ts';
 const defaultChannels = channelsCol;
 
 const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1023px)');
   const countries: string[] = [
     ...new Set(channels.map(({ country }) => country)),
   ];
@@ -59,30 +51,20 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
           </h1>
         </div>
         <div className="pt-10 flex flex-col md:flex-row items-center justify-center gap-5">
-          <Select>
-            <SelectTrigger className="w-[250px] lg:w-[300px] text-sm md:text-base">
-              <SelectValue placeholder="Выберите страну" />
-            </SelectTrigger>
-            <SelectContent>
-              {countries.map((country) => (
-                <SelectItem
-                  key={country}
-                  value={`${country}`}
-                >{`${country}`}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Input
-            className="w-[250px] lg:w-[450px] text-sm md:text-base"
+          <Select
+            placeholder="Выберите страну"
+            data={countries.map((country) => ({
+              value: country,
+              label: country,
+            }))}
+            w={250}
+          />
+          <TextInput
+            w={250}
             type="search"
             placeholder="Поиск по подборкам"
           />
-          <Button
-            variant="outline"
-            className="cursor-pointer w-[250px] md:w-[100px]"
-          >
-            Найти
-          </Button>
+          <Button variant="outline">Найти</Button>
         </div>
         <ul className="flex flex-col flex-wrap md:flex-nowrap md:flex-row items-center justify-center gap-5 py-10">
           {channels.slice(0, 3).map((channel) => (
