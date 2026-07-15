@@ -1,22 +1,15 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/index.css'
-import App from './app/App.tsx'
 import 'vite/modulepreload-polyfill'
 import { createInertiaApp } from '@inertiajs/react'
 import { InertiaProgress } from '@inertiajs/progress'
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
 
 document.addEventListener('DOMContentLoaded', () => {
   InertiaProgress.init();
 
   createInertiaApp({
-    resolve: (name: string) => {
+    resolve: (name: string): any => {
       switch (name) {
         case 'Home':
           return import('./components/pages/Home.tsx');
@@ -45,7 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     setup({ el, App, props }) {
       const root = createRoot(el);
-      root.render(<App {...props} />);
+      root.render(
+        <StrictMode>
+          <App {...props} />
+        </StrictMode>
+      );
     },
   });
 });
