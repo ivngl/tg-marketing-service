@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Bars3Icon } from '@heroicons/react/24/outline';
+import { Menu, Burger, Group, Box, Stack, Anchor, Text } from '@mantine/core';
+import { IconMenu2, IconUser } from '@tabler/icons-react';
 import Tooltip from '@/components/ui/Tooltip';
 import AppLink from '../ui/AppLink';
 
@@ -49,65 +50,53 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="w-full bg-white border-1">
-      <div className="w-full mx-auto max-w-7xl flex">
-        <div className="w-full px-4 flex items-center justify-between">
-          <AppLink
-            to="/"
-            className="text-xl font-bold"
-            variant="text"
-            scheme="default"
-          >
-            PriceAggregator — B2B Сравнение
-          </AppLink>
+    <Box component="header" w="100%" style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+      <Group w="100%" maw={1280} mx="auto" px="md" justify="space-between">
+        <AppLink to="/" variant="text" scheme="default" fw={700} size="md">
+          PriceAggregator — B2B Сравнение
+        </AppLink>
+
+        <Group visibleFrom="md" gap="lg">
+          {menuItems.map(({ to, label }) => (
+            <AppLink key={to} to={to} variant="text" scheme="default" onClick={closeMenu}>
+              {label}
+            </AppLink>
+          ))}
+        </Group>
+
+        <Group gap="sm" hiddenFrom="md">
           <Tooltip text="Меню">
-            <button onClick={toggleMenu} className="md:hidden">
-              <Bars3Icon className="h-6 w-6" />
-            </button>
+            <Burger opened={isMenuOpen} onClick={toggleMenu} size="sm" />
           </Tooltip>
-          <Tooltip text="Профиль">
-            <button
-              onClick={toggleProfileMenu}
-              className="flex items-center md:hidden"
-            >
-              Профиль ▾
-            </button>
-          </Tooltip>
-        </div>
-        <div className={`relative ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
-          <nav className="flex flex-col md:flex-row md:justify-center space-y-2 md:space-y-0 md:space-x-4 p-4 bg-gray-100 md:bg-transparent">
-            {menuItems.map(({ to, label }) => (
-              <AppLink
-                key={to}
-                to={to}
-                className="block"
-                onClick={closeMenu}
-                variant="text"
-                scheme="default"
-              >
-                {label}
-              </AppLink>
-            ))}
-          </nav>
-        </div>
-        {isProfileOpen && (
-          <div
-            id="profile-menu"
-            className="absolute right-0 mt-2 bg-white border rounded shadow-lg"
-          >
-            <ul>
+          <Menu opened={isProfileOpen} onClose={closeProfileMenu}>
+            <Menu.Target>
+              <Tooltip text="Профиль">
+                <Anchor component="button" onClick={toggleProfileMenu}>
+                  <IconUser size={20} />
+                </Anchor>
+              </Tooltip>
+            </Menu.Target>
+            <Menu.Dropdown>
               {profileMenuItems.map(({ to, label }) => (
-                <li>
-                  <AppLink key={to} to={to}>
-                    {label}
-                  </AppLink>
-                </li>
+                <Menu.Item key={to} component={AppLink} to={to}>
+                  {label}
+                </Menu.Item>
               ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </header>
+            </Menu.Dropdown>
+          </Menu>
+        </Group>
+      </Group>
+
+      {isMenuOpen && (
+        <Stack gap="xs" p="md" hiddenFrom="md" bg="gray.1">
+          {menuItems.map(({ to, label }) => (
+            <AppLink key={to} to={to} variant="text" scheme="default" onClick={closeMenu}>
+              {label}
+            </AppLink>
+          ))}
+        </Stack>
+      )}
+    </Box>
   );
 };
 

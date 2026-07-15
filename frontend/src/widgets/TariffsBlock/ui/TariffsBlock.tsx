@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { Title, Text, Container, SimpleGrid } from '@mantine/core';
 import type { TariffsBlockProps } from '../model/types';
 import { useTariffsBlock } from '../model/useTariffsBlock';
 import { TariffCard } from './TariffCard';
 
 export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariffs }) => {
   const { tariffs: tariffFromPage } = useTariffsBlock();
-
   const tariffs = propsTariffs ?? tariffFromPage;
 
   const [activeTariffId, setActiveTariffId] = useState<number>(
@@ -15,14 +15,14 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
   if (!tariffs || tariffs.length === 0) return null;
 
   return (
-    <section className="w-full bg-[#FEFEFE] py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-black text-center mb-4">Тарифы</h2>
-        <p className="text-center text-[#6D7F96] text-base mb-12 max-w-2xl mx-auto">
+    <section style={{ width: '100%', backgroundColor: '#FEFEFE', padding: 64 }}>
+      <Container size="xl" px="md">
+        <Title order={2} ta="center" mb="sm">Тарифы</Title>
+        <Text ta="center" c="dimmed" mb={48} maw={640} mx="auto">
           Начните бесплатно. Обновляйтесь по мере роста команды и запросов.
-        </p>
+        </Text>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl">
           {tariffs.map((tariff) => (
             <TariffCard
               key={tariff.id}
@@ -31,8 +31,8 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
               onClick={() => setActiveTariffId(tariff.id)}
             />
           ))}
-        </div>
-      </div>
+        </SimpleGrid>
+      </Container>
     </section>
   );
 };

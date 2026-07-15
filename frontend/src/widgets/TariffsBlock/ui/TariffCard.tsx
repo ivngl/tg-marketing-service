@@ -1,4 +1,6 @@
 import React from 'react';
+import { Card, Group, Text, Title, Badge, Stack, Button, Box, ThemeIcon, SimpleGrid } from '@mantine/core';
+import { IconCheck } from '@tabler/icons-react';
 import type { Tariff } from '../model/types';
 
 export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
@@ -11,59 +13,59 @@ export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
   isHighlighted,
   onClick,
 }) => {
-  const isPrimary = isHighlighted;
-
   return (
-    <div
+    <Card
       onClick={onClick}
-      className={`
-        border rounded-xl p-5 flex flex-col gap-2 cursor-pointer
-        bg-white
-        transition-shadow transform hover:scale-[1.02] hover:shadow-lg
-        ${isPrimary ? '!border-[#155CFA] shadow-md' : 'border-gray-200'}
-      `}
+      withBorder
+      p="lg"
+      radius="xl"
+      style={{
+        cursor: 'pointer',
+        borderColor: isHighlighted ? '#155CFA' : undefined,
+        boxShadow: isHighlighted ? '0 2px 8px rgba(21,92,250,0.15)' : undefined,
+        transition: 'transform 150ms ease, box-shadow 150ms ease',
+      }}
+      styles={{
+        root: {
+          '&:hover': { transform: 'scale(1.02)', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' },
+        },
+      }}
     >
-      <div className="flex items-center justify-between">
-        <h3 className="text-xl font-bold text-black">{name}</h3>
+      <Group justify="space-between" align="center">
+        <Title order={3}>{name}</Title>
         {label && (
-          <span className="px-2 py-1 text-xs rounded-md bg-[#EEF5FE] text-[#155CFA] font-medium">
+          <Badge variant="light" color="blue.6" size="sm">
             {label}
-          </span>
+          </Badge>
         )}
-      </div>
+      </Group>
 
-      <p className="text-sm text-[#6D7F96] mt-0.5">{description}</p>
+      <Text size="sm" c="dimmed" mt={2}>{description}</Text>
 
-      <div className="mt-1 flex items-end gap-1">
-        <span className="text-3xl font-bold text-black leading-none">
-          {price.split('/')[0]}
-        </span>
-        <span className="text-sm font-semibold text-[#6D7F96] leading-none">
-          /{price.split('/')[1]}
-        </span>
-      </div>
+      <Group align="baseline" gap={4} mt="sm">
+        <Text fw={700} fz={30} lh={1}>{price.split('/')[0]}</Text>
+        <Text size="sm" fw={600} c="dimmed" lh={1}>/{price.split('/')[1]}</Text>
+      </Group>
 
-      <ul className="flex flex-col gap-1.5 mt-3">
+      <Stack gap={6} mt="md">
         {features.map((f) => (
-          <li key={f.id} className="flex items-center gap-2 text-black text-sm">
-            <span className="w-4 h-4 bg-[#47BD71] rounded-full flex items-center justify-center text-white text-xs">
-              ✓
-            </span>
-            {f.text}
-          </li>
+          <Group key={f.id} gap={8} wrap="nowrap">
+            <ThemeIcon size="sm" radius="xl" color="green.6" variant="filled">
+              <IconCheck size={12} />
+            </ThemeIcon>
+            <Text size="sm">{f.text}</Text>
+          </Group>
         ))}
-      </ul>
+      </Stack>
 
-      <button
-        className={`
-          mt-4 w-full py-2 rounded-lg border text-sm
-          ${isPrimary
-            ? '!bg-[#155CFA] !text-white !border-[#155CFA]'
-            : 'bg-white text-black border-gray-300'}
-        `}
+      <Button
+        mt="md"
+        fullWidth
+        variant={isHighlighted ? 'filled' : 'outline'}
+        color={isHighlighted ? 'blue.6' : 'gray'}
       >
         {button.label}
-      </button>
-    </div>
+      </Button>
+    </Card>
   );
 };

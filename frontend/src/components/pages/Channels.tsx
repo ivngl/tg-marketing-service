@@ -1,14 +1,20 @@
 import React from 'react';
 import {
   Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+  TextInput,
+  Button,
+  Title,
+  Box,
+  Stack,
+  Group,
+  SimpleGrid,
+  Paper,
+  Badge,
+  Text,
+  Container,
+} from '@mantine/core';
 import { useMediaQuery } from 'react-responsive';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { IconCheck } from '@tabler/icons-react';
 import ChannelCard from '../ui/ChannelCard.tsx';
 import type { Channel, ChannelsProps } from '@/types/channel.ts';
 import formatNumberShort from '@/utils/formatNumberShort.ts';
@@ -50,133 +56,96 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
       ? isVerifChannels.slice(0, isMobile ? 2 : 4)
       : isVerifChannels.slice(0, 6);
 
+  const [countryValue, setCountryValue] = React.useState<string | null>(null);
+
   return (
-    <div className="w-full bg-gray-50 flex justify-center">
-      <div className="max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-7xl mx-auto py-20 px-5">
-        <div className="flex justify-center">
-          <h1 className="text-xl md:text-2xl lg:text-4xl font-bold">
-            Каталог подборок Telegram
-          </h1>
-        </div>
-        <div className="pt-10 flex flex-col md:flex-row items-center justify-center gap-5">
-          <Select>
-            <SelectTrigger className="w-[250px] lg:w-[300px] text-sm md:text-base">
-              <SelectValue placeholder="Выберите страну" />
-            </SelectTrigger>
-            <SelectContent>
-              {countries.map((country) => (
-                <SelectItem
-                  key={country}
-                  value={`${country}`}
-                >{`${country}`}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <Input
-            className="w-[250px] lg:w-[450px] text-sm md:text-base"
+    <Box bg="gray.0" style={{ display: 'flex', justifyContent: 'center' }}>
+      <Container size="xl" py={60} px="md">
+        <Group justify="center">
+          <Title order={1} ta="center">Каталог подборок Telegram</Title>
+        </Group>
+
+        <Group pt={40} justify="center" gap="md" wrap="wrap">
+          <Select
+            data={countries.map((c) => ({ value: c, label: c }))}
+            placeholder="Выберите страну"
+            value={countryValue}
+            onChange={setCountryValue}
+            w={isMobile ? 250 : 300}
+          />
+          <TextInput
             type="search"
             placeholder="Поиск по подборкам"
+            w={isMobile ? 250 : undefined}
+            style={{ flex: 1, maxWidth: 450 }}
           />
-          <Button
-            variant="outline"
-            className="cursor-pointer w-[250px] md:w-[100px]"
-          >
+          <Button variant="outline" w={isMobile ? 250 : 100}>
             Найти
           </Button>
-        </div>
-        <ul className="flex flex-col flex-wrap md:flex-nowrap md:flex-row items-center justify-center gap-5 py-10">
+        </Group>
+
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md" py={40}>
           {channels.slice(0, 3).map((channel) => (
-            <li key={channel.id} className="w-70 md:w-1/3 xl:w-100">
-              <ChannelCard channel={channel} height="25" />
-            </li>
+            <Box key={channel.id}>
+              <ChannelCard channel={channel} />
+            </Box>
           ))}
-        </ul>
-        <div className="flex flex-col my-5 items-center md:items-start">
-          <div className="flex gap-3 items-center justify-start pb-5">
-            <h2 className="text-md md:text-xl lg:text-2xl font-bold ">
-              Верифицированные подборки
-            </h2>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="size-5 md:size-6 text-blue-500"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div className="w-full p-5 h-55 py-5 border flex flex-col md:flex-row items-center justify-center gap-5 bg-background rounded-md shadow-md">
-            <ul className="w-full grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        </SimpleGrid>
+
+        <Stack align="flex-start" my="md">
+          <Group gap="sm" pb="md">
+            <Title order={2}>Верифицированные подборки</Title>
+            <IconCheck size={24} color="var(--mantine-color-blue-5)" />
+          </Group>
+          <Paper withBorder p="md" radius="md" w="100%">
+            <SimpleGrid cols={{ base: 1, lg: 3 }} spacing="md">
               {channelsForVerif.map((channel) => (
-                <li key={channel.id} className="flex-1 w-60 md:w-70 lg:w-full">
-                  <ChannelCard channel={channel} height="20" />
-                </li>
+                <ChannelCard key={channel.id} channel={channel} />
               ))}
-            </ul>
-          </div>
-        </div>
-        <div className="flex flex-col my-5 items-center md:items-start">
-          <div className="flex gap-3 items-center py-5">
-            <h2 className="text-md md:text-xl lg:text-2xl font-bold">
-              Все категории
-            </h2>
-          </div>
-          <div className="w-full p-5 h-55 py-5 border flex flex-col md:flex-row items-center justify-center gap-5 bg-background rounded-md shadow-md">
-            <ul className="w-full grid grid-cols-1 md:grid-cols-4 gap-3">
+            </SimpleGrid>
+          </Paper>
+        </Stack>
+
+        <Stack align="flex-start" my="md">
+          <Group gap="sm" py="md">
+            <Title order={2}>Все категории</Title>
+          </Group>
+          <Paper withBorder p="md" radius="md" w="100%">
+            <SimpleGrid cols={{ base: 1, md: 4 }} spacing="md">
               {categories.map(({ category, count }) => (
-                <li key={category} className="flex-1">
-                  <div
-                    className={`h-10 flex items-center justify-between p-2 px-5 gap-2 border bg-background rounded-md shadow-xs flex-nowrap`}
-                  >
-                    <a href="" className="font-medium truncate">
-                      {category}
-                    </a>
-                    <p className="text-xs text-gray-500">
-                      {formatNumberShort(count)}
-                    </p>
-                  </div>
-                </li>
+                <Paper key={category} withBorder p="sm" radius="md">
+                  <Group justify="space-between" wrap="nowrap">
+                    <Text fw={500} truncate="end" component="a" href="">{category}</Text>
+                    <Text size="xs" c="dimmed">{formatNumberShort(count)}</Text>
+                  </Group>
+                </Paper>
               ))}
-            </ul>
-          </div>
-        </div>
-        <ul>
+            </SimpleGrid>
+          </Paper>
+        </Stack>
+
+        <Stack>
           {channelsByCategory.map(([category, chList]) => (
-            <li key={category}>
-              <div className="flex flex-col my-5 items-center md:items-start">
-                <div className="w-full flex flex-row items-center justify-between py-5">
-                  <h3 className="text-md md:text-xl lg:text-2xl font-bold">
-                    {category}
-                  </h3>
-                  <a href="" className="text-sm font-semibold px-3">
-                    Ещё
-                  </a>
-                </div>
-                <div className="w-full p-5 h-50 md:h-30 py-5 border flex flex-col md:flex-row items-center justify-center gap-5 bg-background rounded-md shadow-md">
-                  <ul className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                    {isMobile || isTablet
-                      ? chList.slice(0, isMobile ? 2 : 3).map((channel) => (
-                          <li key={channel.id} className="w-60 md:w-full">
-                            <ChannelCard channel={channel} height="20" />
-                          </li>
-                        ))
-                      : chList.slice(0, 4).map((channel) => (
-                          <li key={channel.id} className="w-60 md:w-full">
-                            <ChannelCard channel={channel} height="20" />
-                          </li>
-                        ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
+            <Stack key={category} align="flex-start" my="md">
+              <Group justify="space-between" w="100" py="md">
+                <Title order={2}>{category}</Title>
+                <Text size="sm" fw={600} component="a" href="" px="sm">Ещё</Text>
+              </Group>
+              <Paper withBorder p="md" radius="md" w="100%">
+                <SimpleGrid cols={{ base: 1, md: 3, lg: 4 }} spacing="md">
+                  {(isMobile || isTablet
+                    ? chList.slice(0, isMobile ? 2 : 3)
+                    : chList.slice(0, 4)
+                  ).map((channel) => (
+                    <ChannelCard key={channel.id} channel={channel} />
+                  ))}
+                </SimpleGrid>
+              </Paper>
+            </Stack>
           ))}
-        </ul>
-      </div>
-    </div>
+        </Stack>
+      </Container>
+    </Box>
   );
 };
 

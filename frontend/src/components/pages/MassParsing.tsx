@@ -1,12 +1,11 @@
-// парсинг каталога
-
 import React from 'react';
+import { Title, Text } from '@mantine/core';
 
 const MassParsing: React.FC = () => {
   return (
     <div>
-      <h1 className='py-5 text-4xl font-bold'>Массовый парсинг каталога</h1>
-      <p>Здесь будет функциональность для массового парсинга каталога.</p>
+      <Title order={1} py="md">Массовый парсинг каталога</Title>
+      <Text>Здесь будет функциональность для массового парсинга каталога.</Text>
     </div>
   );
 };

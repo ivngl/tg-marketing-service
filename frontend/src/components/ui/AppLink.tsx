@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
+import { Anchor } from '@mantine/core';
 
 type Size = 'sm' | 'md' | 'lg';
-type Scheme = 'primary' | 'accent' | 'danger' | 'default';
 
 interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size'> {
   to: string;
@@ -13,27 +13,21 @@ interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size'> {
   variant?: 'solid' | 'outline' | 'text';
   leftIcon?: React.ReactElement;
   rightIcon?: React.ReactElement;
-  scheme?: Scheme;
+  scheme?: 'primary' | 'accent' | 'danger' | 'default';
   children?: React.ReactNode;
 }
 
-const sizeClasses: Record<Size, string> = {
-  sm: 'text-sm py-1 px-3',
-  md: 'text-base py-2 px-4',
-  lg: 'text-lg py-3 px-6',
+const mantineSize: Record<Size, 'sm' | 'md' | 'lg'> = {
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg',
 };
 
-const schemeClasses: Record<Scheme, string> = {
-  primary: 'text-white bg-blue-600 hover:bg-blue-700',
-  accent: 'text-white bg-purple-600 hover:bg-purple-700',
-  danger: 'text-white bg-red-600 hover:bg-red-700',
-  default: 'text-gray-700 hover:text-gray-900',
-};
-
-const variantClasses: Record<'solid' | 'outline' | 'text', string> = {
-  solid: '',
-  outline: 'border border-current bg-transparent',
-  text: 'bg-transparent',
+const schemeColor: Record<string, string | undefined> = {
+  primary: 'blue.6',
+  accent: 'violet.6',
+  danger: 'red.6',
+  default: undefined,
 };
 
 const AppLink: React.FC<AppLinkProps> = ({
@@ -46,28 +40,25 @@ const AppLink: React.FC<AppLinkProps> = ({
   rightIcon,
   scheme = 'default',
   children,
-  className = '',
   onClick,
   ...rest
 }) => {
-  const baseClass = `
-    inline-flex items-center justify-center cursor-pointer select-none
-    transition-colors duration-200
-    ${sizeClasses[size]} ${schemeClasses[scheme]} ${variantClasses[variant]}
-    ${isDisabled ? 'opacity-50 pointer-events-none' : ''}
-  `;
-
   return (
-    <Link
+    <Anchor
+      component={Link}
       to={to}
-      className={`${baseClass} ${className}`}
+      size={mantineSize[size]}
+      underline={variant === 'text' ? 'hover' : 'never'}
+      c={schemeColor[scheme]}
+      fw={scheme !== 'default' ? 500 : undefined}
+      disabled={isDisabled}
       onClick={isDisabled ? undefined : onClick}
+      leftSection={leftIcon}
+      rightSection={rightIcon}
       {...rest}
     >
-      {leftIcon && <span className="mr-2">{leftIcon}</span>}
       {label || children}
-      {rightIcon && <span className="ml-2">{rightIcon}</span>}
-    </Link>
+    </Anchor>
   );
 };
 

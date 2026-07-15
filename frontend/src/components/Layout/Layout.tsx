@@ -1,12 +1,15 @@
 import React from 'react';
 import Header from './Header';
+import { Box } from '@mantine/core';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div>
+    <Box>
       <Header />
-      <main className='w-full'>{children}</main>
-    </div>
+      <Box component="main" w="100%">
+        {children}
+      </Box>
+    </Box>
   );
 };
 

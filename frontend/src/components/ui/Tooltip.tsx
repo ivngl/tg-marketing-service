@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tooltip as MantineTooltip } from '@mantine/core';
 
 interface TooltipProps {
   text: string;
@@ -7,12 +8,9 @@ interface TooltipProps {
 
 const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
   return (
-    <div className="relative group">
+    <MantineTooltip label={text}>
       {children}
-      <div className="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 hidden group-hover:block bg-gray-700 text-white text-xs rounded py-1 px-2">
-        {text}
-      </div>
-    </div>
+    </MantineTooltip>
   );
 };
 

@@ -1,10 +1,11 @@
 import React from "react";
+import { Title, Container } from "@mantine/core";
 
 const Home: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto">
-      <h1 className='py-5 text-4xl font-bold'>Главная страница</h1>
-    </div>
+    <Container size="xl" py="xl">
+      <Title order={1}>Главная страница</Title>
+    </Container>
   );
 };
 
