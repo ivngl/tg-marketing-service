@@ -216,10 +216,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [str(BASE_DIR / "frontend" / "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -243,10 +242,14 @@ INERTIA_LAYOUT = "base.html"
 CSRF_HEADER_NAME = "HTTP_X_XSRF_TOKEN"
 CSRF_COOKIE_NAME = "XSRF-TOKEN"
 
-# При переходе на инерцию раскоментировать
-# STATICFILES_DIRS = [
-#    BASE_DIR / "frontend" / "public",
-# ]
+# Dev: explicit HTTP-only — prevents browser auto-upgrade to HTTPS
+if DEBUG:
+    SECURE_SSL_REDIRECT = False
+    SECURE_HSTS_SECONDS = 0
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+    SECURE_HSTS_PRELOAD = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
 # Django-Vite settings
 DJANGO_VITE = {
@@ -254,6 +257,8 @@ DJANGO_VITE = {
         "dev_mode": DEBUG,
         "dev_server_host": "localhost",
         "dev_server_port": 5173,
+        "static_url_prefix": "../",
+        "manifest_path": os.path.join(STATIC_ROOT, "manifest.json"),
     },
 }
 
