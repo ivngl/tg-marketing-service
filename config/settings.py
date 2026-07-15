@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     "inertia",
     "widget_tweaks",
     "django_bootstrap5",
+    "django_vite",
     "django.contrib.sites",
     "allauth",
     "allauth.account",
@@ -247,6 +248,14 @@ CSRF_COOKIE_NAME = "XSRF-TOKEN"
 #    BASE_DIR / "frontend" / "public",
 # ]
 
+# Django-Vite settings
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": DEBUG,
+        "dev_server_host": "localhost",
+        "dev_server_port": 5173,
+    },
+}
 
 LOGGING = {
     "version": 1,
