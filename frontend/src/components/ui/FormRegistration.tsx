@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import PasswordRecovery from '../modals/PasswordRecovery';
 import { useForm } from 'react-hook-form';
-import { router } from '@inertiajs/react';
+import { Inertia } from '@inertiajs/inertia';
 import { SocialIcon } from 'react-social-icons';
 
 interface FormData {
@@ -31,7 +31,7 @@ const FormRegistration: React.FC = () => {
   };
 
   const onSubmit = (data: FormData) => {
-    router.post('/users', data as Record<string, any>, {
+    Inertia.post('/users', data as Record<string, any>, {
       onSuccess: (page) => {
         console.log('Успешный ответ от сервера:', page);
       },
