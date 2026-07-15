@@ -1,149 +1,127 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import {
-  Select,
-  TextInput,
-  Button,
-  Title,
-  Box,
-  Stack,
-  Group,
-  SimpleGrid,
-  Paper,
   Badge,
-  Text,
+  Box,
   Container,
+  Group,
+  SegmentedControl,
+  SimpleGrid,
+  Text,
+  TextInput,
+  Title,
 } from '@mantine/core';
-import { useMediaQuery } from 'react-responsive';
-import { IconCheck } from '@tabler/icons-react';
-import ChannelCard from '../ui/ChannelCard.tsx';
-import type { Channel, ChannelsProps } from '@/types/channel.ts';
-import formatNumberShort from '@/utils/formatNumberShort.ts';
-import {
-  reduceChannelsByCategory,
-  countChannelsByCategory,
-  mapCategoryCountEntry,
-} from '@/utils/reduceChannels.ts';
-import channelsCol from '@/fixtures/channelsCollection.ts';
+import { IconSearch } from '@tabler/icons-react';
+import ChannelCard from '../ui/ChannelCard';
+import type { ChannelsProps } from '@/types/channel';
+import channelsCol from '@/fixtures/channelsCollection';
 
 const defaultChannels = channelsCol;
 
+type TypeFilter = 'all' | 'channel' | 'group';
+
 const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const countries: string[] = [
-    ...new Set(channels.map(({ country }) => country)),
-  ];
+  const [query, setQuery] = useState('');
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>('all');
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const channelsByCategory = Object.entries(
-    channels.reduce<Record<string, Channel[]>>(reduceChannelsByCategory, {})
-  );
+  const categories = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const ch of channels) {
+      map.set(ch.category, (map.get(ch.category) ?? 0) + 1);
+    }
+    return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+  }, [channels]);
 
-  const categoriesCountObj = channels.reduce(countChannelsByCategory, {});
+  const filtered = useMemo(() => {
+    let result = channels;
 
-  const categoriesCounter = Object.entries(categoriesCountObj).map(
-    mapCategoryCountEntry
-  );
+    if (typeFilter !== 'all') {
+      result = result.filter((ch) => ch.type === typeFilter);
+    }
 
-  const categories =
-    isMobile || isTablet
-      ? categoriesCounter.slice(0, isMobile ? 3 : 12)
-      : categoriesCounter.slice(0, 12);
+    if (activeCategory) {
+      result = result.filter((ch) => ch.category === activeCategory);
+    }
 
-  const isVerifChannels = channels.filter((channel) => channel.verified);
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      result = result.filter(
+        (ch) =>
+          ch.name.toLowerCase().includes(q) ||
+          ch.username.toLowerCase().includes(q) ||
+          ch.category.toLowerCase().includes(q)
+      );
+    }
 
-  const channelsForVerif =
-    isMobile || isTablet
-      ? isVerifChannels.slice(0, isMobile ? 2 : 4)
-      : isVerifChannels.slice(0, 6);
-
-  const [countryValue, setCountryValue] = React.useState<string | null>(null);
+    return result;
+  }, [channels, typeFilter, activeCategory, query]);
 
   return (
-    <Box bg="gray.0" style={{ display: 'flex', justifyContent: 'center' }}>
-      <Container size="xl" py={60} px="md">
-        <Group justify="center">
-          <Title order={1} ta="center">Каталог подборок Telegram</Title>
+    <Box bg="gray.0" mih="100vh">
+      <Container size="xl" py={40} px="md">
+        <Group justify="space-between" mb="md">
+          <Title order={1}>Каталог каналов и групп</Title>
+          <Text c="dimmed" size="sm">
+            Найдено: {filtered.length} из {channels.length}
+          </Text>
         </Group>
 
-        <Group pt={40} justify="center" gap="md" wrap="wrap">
-          <Select
-            data={countries.map((c) => ({ value: c, label: c }))}
-            placeholder="Выберите страну"
-            value={countryValue}
-            onChange={setCountryValue}
-            w={isMobile ? 250 : 300}
-          />
+        <Group mb="md" gap="md" wrap="wrap" align="center">
           <TextInput
-            type="search"
-            placeholder="Поиск по подборкам"
-            w={isMobile ? 250 : undefined}
-            style={{ flex: 1, maxWidth: 450 }}
+            placeholder="Поиск по названию, @username или категории"
+            leftSection={<IconSearch size={16} />}
+            value={query}
+            onChange={(e) => setQuery(e.currentTarget.value)}
+            style={{ flex: 1, minWidth: 250, maxWidth: 450 }}
           />
-          <Button variant="outline" w={isMobile ? 250 : 100}>
-            Найти
-          </Button>
+          <SegmentedControl
+            data={[
+              { label: 'Все', value: 'all' },
+              { label: 'Каналы', value: 'channel' },
+              { label: 'Группы', value: 'group' },
+            ]}
+            value={typeFilter}
+            onChange={(val) => setTypeFilter(val as TypeFilter)}
+          />
         </Group>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md" py={40}>
-          {channels.slice(0, 3).map((channel) => (
-            <Box key={channel.id}>
-              <ChannelCard channel={channel} />
-            </Box>
+        <Group gap="xs" mb="lg" wrap="wrap">
+          <Badge
+            size="lg"
+            radius="sm"
+            variant={activeCategory === null ? 'filled' : 'light'}
+            color={activeCategory === null ? 'blue' : 'gray'}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setActiveCategory(null)}
+          >
+            Все
+          </Badge>
+          {categories.map(([cat, count]) => (
+            <Badge
+              key={cat}
+              size="lg"
+              radius="sm"
+              variant={activeCategory === cat ? 'filled' : 'light'}
+              color={activeCategory === cat ? 'blue' : 'gray'}
+              style={{ cursor: 'pointer' }}
+              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+            >
+              {cat} ({count})
+            </Badge>
           ))}
-        </SimpleGrid>
+        </Group>
 
-        <Stack align="flex-start" my="md">
-          <Group gap="sm" pb="md">
-            <Title order={2}>Верифицированные подборки</Title>
-            <IconCheck size={24} color="var(--mantine-color-blue-5)" />
-          </Group>
-          <Paper withBorder p="md" radius="md" w="100%">
-            <SimpleGrid cols={{ base: 1, lg: 3 }} spacing="md">
-              {channelsForVerif.map((channel) => (
-                <ChannelCard key={channel.id} channel={channel} />
-              ))}
-            </SimpleGrid>
-          </Paper>
-        </Stack>
-
-        <Stack align="flex-start" my="md">
-          <Group gap="sm" py="md">
-            <Title order={2}>Все категории</Title>
-          </Group>
-          <Paper withBorder p="md" radius="md" w="100%">
-            <SimpleGrid cols={{ base: 1, md: 4 }} spacing="md">
-              {categories.map(({ category, count }) => (
-                <Paper key={category} withBorder p="sm" radius="md">
-                  <Group justify="space-between" wrap="nowrap">
-                    <Text fw={500} truncate="end" component="a" href="">{category}</Text>
-                    <Text size="xs" c="dimmed">{formatNumberShort(count)}</Text>
-                  </Group>
-                </Paper>
-              ))}
-            </SimpleGrid>
-          </Paper>
-        </Stack>
-
-        <Stack>
-          {channelsByCategory.map(([category, chList]) => (
-            <Stack key={category} align="flex-start" my="md">
-              <Group justify="space-between" w="100" py="md">
-                <Title order={2}>{category}</Title>
-                <Text size="sm" fw={600} component="a" href="" px="sm">Ещё</Text>
-              </Group>
-              <Paper withBorder p="md" radius="md" w="100%">
-                <SimpleGrid cols={{ base: 1, md: 3, lg: 4 }} spacing="md">
-                  {(isMobile || isTablet
-                    ? chList.slice(0, isMobile ? 2 : 3)
-                    : chList.slice(0, 4)
-                  ).map((channel) => (
-                    <ChannelCard key={channel.id} channel={channel} />
-                  ))}
-                </SimpleGrid>
-              </Paper>
-            </Stack>
-          ))}
-        </Stack>
+        {filtered.length === 0 ? (
+          <Text c="dimmed" ta="center" py="xl" size="lg">
+            Ничего не найдено
+          </Text>
+        ) : (
+          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={16}>
+            {filtered.map((channel) => (
+              <ChannelCard key={channel.id} channel={channel} />
+            ))}
+          </SimpleGrid>
+        )}
       </Container>
     </Box>
   );

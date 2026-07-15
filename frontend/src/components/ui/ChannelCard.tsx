@@ -1,26 +1,128 @@
 import React from 'react';
-import { Card, Group, Text, Avatar, Box } from '@mantine/core';
+import { Avatar, Badge, Card, Group, Text } from '@mantine/core';
+import { IconCheck } from '@tabler/icons-react';
 import type { Channel } from '@/types/channel';
+import formatNumberShort from '@/utils/formatNumberShort';
 
-interface ChannelProps {
+interface ChannelCardProps {
   channel: Channel;
-  height?: string;
 }
 
-const ChannelCard: React.FC<ChannelProps> = ({ channel }) => {
-  const { name, subscribers, imageUrl } = channel;
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+
+const gradients: Record<string, [string, string]> = {
+  'Технологии': ['#229ED9', '#6741d9'],
+  'Криптовалюты': ['#f76707', '#e8590c'],
+  'Маркетинг': ['#12b886', '#0ca678'],
+  'Психология': ['#f783ac', '#e64980'],
+  'Бизнес': ['#229ED9', '#12b886'],
+  'Спорт': ['#f76707', '#229ED9'],
+  'Книги': ['#6741d9', '#f783ac'],
+};
+
+const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
+  const {
+    name,
+    username,
+    type,
+    subscribers,
+    category,
+    verified,
+    imageUrl,
+    er,
+    growth30d,
+  } = channel;
+
+  const [from, to] = gradients[category] ?? ['#229ED9', '#6741d9'];
+
   return (
-    <Card padding="sm" radius="md" withBorder>
-      <Group justify="space-between" wrap="nowrap">
-        <Avatar src={imageUrl} size="md" radius="md" />
-        <Box style={{ flex: 1, minWidth: 0 }}>
-          <Text fw={700} size="md" truncate="end">{name}</Text>
+    <Card
+      padding="sm"
+      radius="md"
+      withBorder
+      style={{ cursor: 'pointer', transition: 'transform 150ms, box-shadow 150ms' }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-2px)';
+        e.currentTarget.style.boxShadow = '0 8px 24px rgba(16,18,22,.10)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = 'none';
+      }}
+    >
+      <Group gap="sm" wrap="nowrap" mb="sm">
+        <Avatar
+          size={46}
+          radius={12}
+          variant="gradient"
+          gradient={{ from, to, deg: 135 }}
+          src={imageUrl || undefined}
+        >
+          {initials(name)}
+        </Avatar>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <Group gap={4} wrap="nowrap">
+            <Text fw={800} size="15px" truncate="end">
+              {name}
+            </Text>
+            {verified && (
+              <IconCheck
+                size={14}
+                color="var(--mantine-color-blue-5)"
+                style={{ flexShrink: 0 }}
+              />
+            )}
+          </Group>
           <Text size="xs" c="dimmed" truncate="end">
-            {new Intl.NumberFormat('ru-RU').format(subscribers)} подписчиков
+            {username}
           </Text>
-        </Box>
-        <Text size="sm" component="a" href="#" visibleFrom="xl">
-          Открыть
+        </div>
+      </Group>
+
+      <Group gap="xs" mb="sm">
+        <Badge
+          size="sm"
+          radius="sm"
+          variant="light"
+          color={type === 'channel' ? 'green' : 'grape'}
+          style={
+            type === 'channel'
+              ? { backgroundColor: '#e6fcf5', color: '#0ca678' }
+              : { backgroundColor: '#f3f0ff', color: '#6741d9' }
+          }
+        >
+          {type === 'channel' ? 'Канал' : 'Группа'}
+        </Badge>
+        <Badge
+          size="sm"
+          radius="sm"
+          variant="light"
+          style={{ backgroundColor: '#E7F5FB', color: '#1B87BC' }}
+        >
+          {category}
+        </Badge>
+      </Group>
+
+      <Group gap="md" wrap="nowrap">
+        <Text size="xs" c="dimmed">
+          {formatNumberShort(subscribers)} подписчиков
+        </Text>
+        <Text size="xs" fw={600} c="green">
+          ER {er.toFixed(1)}%
+        </Text>
+        <Text
+          size="xs"
+          fw={600}
+          c={growth30d >= 0 ? 'green' : 'red'}
+        >
+          {growth30d >= 0 ? '+' : ''}
+          {growth30d.toFixed(1)}%
         </Text>
       </Group>
     </Card>
