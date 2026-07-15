@@ -3,11 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import 'vite/modulepreload-polyfill'
 import { createInertiaApp } from '@inertiajs/react'
-import { InertiaProgress } from '@inertiajs/progress'
 
 document.addEventListener('DOMContentLoaded', () => {
-  InertiaProgress.init();
-
   createInertiaApp({
     resolve: (name: string): any => {
       switch (name) {
