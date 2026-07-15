@@ -4,7 +4,7 @@ import './styles/index.css'
 import App from './app/App.tsx'
 import 'vite/modulepreload-polyfill'
 import { createInertiaApp } from '@inertiajs/react'
-import { InertiaProgress } from '@inertiajs/progress'
+import { InertiaProgress } from '@inertiajs/react'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
