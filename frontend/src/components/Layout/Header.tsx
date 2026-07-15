@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Burger, Group, Box, Stack, Anchor, Text } from '@mantine/core';
-import { IconMenu2, IconUser } from '@tabler/icons-react';
+import { Menu, Burger, Group, Box, Stack, Anchor } from '@mantine/core';
+import { IconUser } from '@tabler/icons-react';
 import Tooltip from '@/components/ui/Tooltip';
 import AppLink from '../ui/AppLink';
 
@@ -9,16 +9,15 @@ const Header: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
-    { to: '/compare-pages', label: 'Сравнить две страницы' },
-    { to: '/compare-products', label: 'Сравнить несколько товаров' },
-    { to: '/mass-parsing', label: 'Массовый парсинг каталога' },
     { to: '/channels', label: 'Каталог каналов' },
+    { to: '/compare', label: 'Сравнение' },
+    { to: '/ai-cabinet', label: 'AI-кабинет' },
     { to: '/auth', label: 'Войти' },
   ];
   const profileMenuItems = [
     { to: '/profile', label: 'Профиль' },
     { to: '/settings', label: 'Настройки' },
-    { to: '/logout', label: 'Выход' },
+    { to: '/auth', label: 'Выход' },
   ];
 
   const toggleProfileMenu = () => setProfileOpen(!isProfileOpen);
@@ -27,24 +26,16 @@ const Header: React.FC = () => {
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const profileMenu = document.getElementById('profile-menu');
-      if (profileMenu && !profileMenu.contains(event.target as Node)) {
-        closeProfileMenu();
-      }
-    };
-
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeProfileMenu();
+        closeMenu();
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
   }, []);
@@ -52,8 +43,8 @@ const Header: React.FC = () => {
   return (
     <Box component="header" w="100%" style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
       <Group w="100%" maw={1280} mx="auto" px="md" justify="space-between">
-        <AppLink to="/" variant="text" scheme="default" fw={700} size="md">
-          PriceAggregator — B2B Сравнение
+        <AppLink to="/" variant="text" scheme="default" size="md">
+          TG Pulse
         </AppLink>
 
         <Group visibleFrom="md" gap="lg">

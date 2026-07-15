@@ -1,45 +1,31 @@
 import React from 'react';
 import { TextInput, PasswordInput, Button, Checkbox, Stack, Divider, Group, Text, Title, Anchor } from '@mantine/core';
-import { useForm } from 'react-hook-form';
-import { Inertia } from '@inertiajs/inertia';
+import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';
 
-interface FormData {
-  email: string;
-  password: string;
-  remember?: boolean;
-}
-
 const FormRegistration: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
-
-  console.log(errors);
+  const form = useForm({
+    initialValues: { email: '', password: '', remember: false },
+    validate: {
+      email: (val) => (!val || !/^\S+@\S+\.\S+$/.test(val) ? 'Некорректный email' : null),
+      password: (val) => (!val || val.length < 6 ? 'Минимум 6 символов' : null),
+    },
+  });
 
   const [showModal, setShowModal] = React.useState(false);
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
 
-  const onSubmit = (data: FormData) => {
-    Inertia.post('/users', data as Record<string, any>, {
-      onSuccess: (page) => {
-        console.log('Успешный ответ от сервера:', page);
-      },
-      onError: (errors) => {
-        console.log('Ошибки формы:', errors);
-      },
-    });
+  const onSubmit = (values: { email: string; password: string; remember: boolean }) => {
+    console.log('Login:', values.email);
   };
 
   return (
     <>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={form.onSubmit(onSubmit)}
         style={{ maxWidth: 380, margin: 'auto', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 20 }}
       >
         <Stack gap="md">
@@ -57,18 +43,18 @@ const FormRegistration: React.FC = () => {
           <Divider label="или" labelPosition="center" />
 
           <TextInput
-            {...register('email', { required: 'This is required.' })}
+            {...form.getInputProps('email')}
             type="email"
             placeholder="E-mail"
           />
 
           <PasswordInput
-            {...register('password', { required: 'This is required.' })}
+            {...form.getInputProps('password')}
             placeholder="Пароль"
           />
 
           <Checkbox
-            {...register('remember')}
+            {...form.getInputProps('remember', { type: 'checkbox' })}
             label="Запомнить меня"
           />
 

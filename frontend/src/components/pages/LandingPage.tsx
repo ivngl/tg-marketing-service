@@ -69,6 +69,7 @@ const LandingPage: React.FC = () => {
                   size="lg"
                   variant="outline"
                   color="tgblue"
+                  onClick={() => navigate('/channels')}
                 >
                   Добавить свой канал
                 </Button>
@@ -126,7 +127,7 @@ const LandingPage: React.FC = () => {
         <FaqBlock />
       </section>
 
-      <Box component="footer" p="xl" ta="center" c="dimmed" size="sm">
+      <Box component="footer" p="xl" ta="center" c="dimmed">
         <Text size="sm">
           TG Pulse — Аналитика Telegram-каналов с AI
         </Text>

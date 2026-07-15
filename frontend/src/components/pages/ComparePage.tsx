@@ -15,24 +15,43 @@ import channelsCol from '@/fixtures/channelsCollection';
 
 const channels = channelsCol.slice(0, 3);
 
-const metrics = [
-  { key: 'subscribers', label: 'Подписчики', format: (v: number) => formatNumberShort(v) },
-  { key: 'er', label: 'ER', format: (v: number) => `${v.toFixed(1)}%` },
-  { key: 'growth30d', label: 'Прирост 30д', format: (v: number) => `${v >= 0 ? '+' : ''}${v.toFixed(1)}%` },
-] as const;
-
 function formatNumberShort(n: number): string {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
   if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
   return String(n);
 }
 
+interface MetricDef {
+  key: string;
+  label: string;
+  format: (v: number) => string;
+}
+
+const metrics: MetricDef[] = [
+  { key: 'subscribers', label: 'Подписчики', format: (v) => formatNumberShort(v) },
+  { key: 'er', label: 'ER', format: (v) => `${v.toFixed(1)}%` },
+  { key: 'growth30d', label: 'Прирост 30д', format: (v) => `${v >= 0 ? '+' : ''}${v.toFixed(1)}%` },
+  { key: 'avgReach', label: 'Средний охват', format: (v) => formatNumberShort(v) },
+  { key: 'reachPerSub', label: 'Охват/подписчик', format: (v) => `${v.toFixed(1)}%` },
+];
+
 const ComparePage: React.FC = () => {
+  const getVal = (ch: (typeof channels)[number], key: string): number => {
+    const map: Record<string, number> = {
+      subscribers: ch.subscribers,
+      er: ch.er,
+      growth30d: ch.growth30d,
+      avgReach: Math.round(ch.subscribers * 0.27),
+      reachPerSub: ch.er * 0.85,
+    };
+    return map[key] ?? 0;
+  };
+
   const getBest = (key: string) => {
     let bestIdx = 0;
     let bestVal = -Infinity;
     channels.forEach((ch, i) => {
-      const val = (ch as unknown as Record<string, number>)[key] ?? 0;
+      const val = getVal(ch, key);
       if (val > bestVal) {
         bestVal = val;
         bestIdx = i;
@@ -86,7 +105,7 @@ const ComparePage: React.FC = () => {
                     {channels.map((ch, i) => (
                       <Table.Td key={ch.id}>
                         <Group gap="xs">
-                          {m.format((ch as unknown as Record<string, number>)[m.key] ?? 0)}
+                          {m.format(getVal(ch, m.key))}
                           {i === bestIdx && (
                             <Badge size="xs" variant="filled" color="green" leftSection={<IconTrophy size={10} />}>
                               лучший
@@ -107,7 +126,7 @@ const ComparePage: React.FC = () => {
             AI-вердикт
           </Title>
           <Text size="sm" c="dimmed">
-            Для рекламы лучше всего подходит канал «{channels[0].name}» — у него highest вовлечённость
+            Для рекламы лучше всего подходит канал «{channels[0].name}» — у него наивысшая вовлечённость
             и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
           </Text>
         </Card>

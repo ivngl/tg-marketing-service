@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Stack, Container, Title } from '@mantine/core';
+import { Accordion, Container, Title } from '@mantine/core';
 import type { FaqBlockProps } from '../model/types';
 import { useFaqBlock } from '../model/useFaqBlock';
 
@@ -14,7 +14,7 @@ export const FaqBlock: React.FC<FaqBlockProps> = ({ faqs: propsFaqs }) => {
       <Container size="md" px="md">
         <Title order={2} ta="center" mb="lg">Частые вопросы</Title>
 
-        <Accordion variant="separated" radius="md" withBorder>
+        <Accordion variant="separated" radius="md">
           {faqs.map((faq) => (
             <Accordion.Item key={faq.id} value={String(faq.id)}>
               <Accordion.Control>{faq.question}</Accordion.Control>

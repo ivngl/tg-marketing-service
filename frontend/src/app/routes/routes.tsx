@@ -12,7 +12,7 @@ import LegalPage from '@/components/pages/LegalPage';
 import NotFoundPage from '@/components/pages/NotFoundPage';
 import AdminPage from '@/components/pages/AdminPage';
 import Auth from '@/components/pages/Auth';
-import { UserProfilePage } from '@/pages/UserProfilePage/ui/UserProfilePage';
+import UserProfilePage from '@/pages/UserProfilePage/ui/UserProfilePage';
 import channelsCol from '@/fixtures/channelsCollection';
 
 const routes = [

@@ -15,6 +15,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { AreaChart } from '@mantine/charts';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import channelsCol from '@/fixtures/channelsCollection';
@@ -26,6 +27,16 @@ const kpis = [
   { label: 'Ср. охват', value: '38 200', delta: '+4.1%', positive: true },
   { label: 'ER', value: '26.9%', delta: '−1.2%', positive: false },
   { label: 'Индекс цитирования', value: '184', delta: '+9', positive: true },
+];
+
+const growthData = [
+  { date: '01.06', подписчики: 134200 },
+  { date: '05.06', подписчики: 135800 },
+  { date: '10.06', подписчики: 136400 },
+  { date: '15.06', подписчики: 137900 },
+  { date: '20.06', подписчики: 139100 },
+  { date: '25.06', подписчики: 140300 },
+  { date: '30.06', подписчики: 142340 },
 ];
 
 const posts = [
@@ -102,21 +113,19 @@ const DashboardPage: React.FC = () => {
             <Title order={3} mb="md">
               Рост подписчиков
             </Title>
-            <Paper
-              p="xl"
-              radius="md"
-              style={{
-                height: 200,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'var(--mantine-color-gray-0)',
-              }}
-            >
-              <Text c="dimmed" size="sm">
-                График роста (AreaChart)
-              </Text>
-            </Paper>
+            <AreaChart
+              h={200}
+              data={growthData}
+              dataKey="date"
+              series={[{ name: 'подписчики', color: 'tgblue.5' }]}
+              curveType="monotone"
+              withGradient
+              withYAxis={false}
+              withXAxis
+              withTooltip
+              withDots={false}
+              strokeWidth={2}
+            />
           </Card>
 
           <Card p="md" radius="md" withBorder>

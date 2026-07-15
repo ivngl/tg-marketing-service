@@ -111,7 +111,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
 
       <Group gap="md" wrap="nowrap">
         <Text size="xs" c="dimmed">
-          {formatNumberShort(subscribers)} подписчиков
+          {formatNumberShort(subscribers)} {type === 'channel' ? 'подписчиков' : 'участников'}
         </Text>
         <Text size="xs" fw={600} c="green">
           ER {er.toFixed(1)}%

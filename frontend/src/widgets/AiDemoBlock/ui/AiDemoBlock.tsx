@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, Stack, Group, Box } from '@mantine/core';
+import { Container, Title, Group, Box } from '@mantine/core';
 import { AiDemoText } from './AiDemoText';
 import { AiDemoWindow } from './AiDemoWindow';
 import { useAiDemo } from '../model/useAiDemo';

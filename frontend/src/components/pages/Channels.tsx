@@ -24,16 +24,21 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
   const [typeFilter, setTypeFilter] = useState<TypeFilter>('all');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
+  const sortedChannels = useMemo(
+    () => [...channels].sort((a, b) => b.subscribers - a.subscribers),
+    [channels],
+  );
+
   const categories = useMemo(() => {
     const map = new Map<string, number>();
-    for (const ch of channels) {
+    for (const ch of sortedChannels) {
       map.set(ch.category, (map.get(ch.category) ?? 0) + 1);
     }
     return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
-  }, [channels]);
+  }, [sortedChannels]);
 
   const filtered = useMemo(() => {
-    let result = channels;
+    let result = sortedChannels;
 
     if (typeFilter !== 'all') {
       result = result.filter((ch) => ch.type === typeFilter);
@@ -54,7 +59,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
     }
 
     return result;
-  }, [channels, typeFilter, activeCategory, query]);
+  }, [sortedChannels, typeFilter, activeCategory, query]);
 
   return (
     <Box bg="gray.0" mih="100vh">

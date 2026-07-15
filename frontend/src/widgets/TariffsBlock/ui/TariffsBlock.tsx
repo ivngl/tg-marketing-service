@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Title, Text, Container, SimpleGrid } from '@mantine/core';
+import { Title, Text, Container, SimpleGrid, SegmentedControl, Group } from '@mantine/core';
 import type { TariffsBlockProps } from '../model/types';
 import { useTariffsBlock } from '../model/useTariffsBlock';
 import { TariffCard } from './TariffCard';
@@ -11,6 +11,7 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
   const [activeTariffId, setActiveTariffId] = useState<number>(
     tariffs?.find((t) => t.isHighlighted)?.id || tariffs?.[0]?.id || 0
   );
+  const [period, setPeriod] = useState<'month' | 'year'>('month');
 
   if (!tariffs || tariffs.length === 0) return null;
 
@@ -18,9 +19,20 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
     <section style={{ width: '100%', backgroundColor: '#FEFEFE', padding: 64 }}>
       <Container size="xl" px="md">
         <Title order={2} ta="center" mb="sm">Тарифы</Title>
-        <Text ta="center" c="dimmed" mb={48} maw={640} mx="auto">
+        <Text ta="center" c="dimmed" mb="md" maw={640} mx="auto">
           Начните бесплатно. Обновляйтесь по мере роста команды и запросов.
         </Text>
+
+        <Group justify="center" mb={48}>
+          <SegmentedControl
+            value={period}
+            onChange={(val) => setPeriod(val as 'month' | 'year')}
+            data={[
+              { label: 'Ежемесячно', value: 'month' },
+              { label: 'Ежегодно', value: 'year' },
+            ]}
+          />
+        </Group>
 
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl">
           {tariffs.map((tariff) => (
@@ -29,6 +41,7 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
               {...tariff}
               isHighlighted={tariff.id === activeTariffId}
               onClick={() => setActiveTariffId(tariff.id)}
+              period={period}
             />
           ))}
         </SimpleGrid>

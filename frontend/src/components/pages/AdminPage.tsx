@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Avatar,
   Badge,
@@ -16,7 +16,18 @@ import {
 } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
 
-const moderationQueue = [
+const categoryOptions = ['Технологии', 'Бизнес', 'Спорт', 'Криптовалюты', 'Маркетинг'];
+
+interface ModerationItem {
+  id: number;
+  name: string;
+  username: string;
+  addedBy: string;
+  date: string;
+  category: string;
+}
+
+const moderationInitial: ModerationItem[] = [
   { id: 1, name: '@newtech', username: '@newtech', addedBy: 'user123', date: '2 часа назад', category: '' },
   { id: 2, name: '@sportnews', username: '@sportnews', addedBy: 'user456', date: '5 часов назад', category: '' },
 ];
@@ -27,7 +38,35 @@ const channels = [
   { id: 3, name: 'Marketing Hub', username: '@marketinghub', category: 'Маркетинг', verified: false, subscribers: 45000 },
 ];
 
+const blogArticles = [
+  { id: 1, title: 'Как выбрать Telegram-канал для рекламы', status: 'Опубликовано', date: '15 июля 2026' },
+  { id: 2, title: 'Тренды Telegram-маркетинга в 2026', status: 'Опубликовано', date: '12 июля 2026' },
+  { id: 3, title: 'AI-инструменты для блогеров', status: 'Черновик', date: '10 июля 2026' },
+];
+
+const collectionsData = [
+  { id: 1, name: 'Лучшие IT-каналы', count: 12, status: 'Активна' },
+  { id: 2, name: 'Криптовалюты', count: 8, status: 'Активна' },
+  { id: 3, name: 'Маркетинг и продажи', count: 10, status: 'Архив' },
+];
+
 const AdminPage: React.FC = () => {
+  const [moderation, setModeration] = useState<ModerationItem[]>(moderationInitial);
+
+  const updateCategory = (id: number, category: string | null) => {
+    setModeration((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, category: category ?? '' } : item))
+    );
+  };
+
+  const approveItem = (id: number) => {
+    setModeration((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const rejectItem = (id: number) => {
+    setModeration((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <Box bg="gray.0" mih="100vh">
       <Container size="xl" py={40} px="md">
@@ -43,7 +82,7 @@ const AdminPage: React.FC = () => {
             <Tabs.Tab value="moderation">
               Модерация{' '}
               <Badge size="xs" ml="xs" variant="filled" color="red">
-                {moderationQueue.length}
+                {moderation.length}
               </Badge>
             </Tabs.Tab>
             <Tabs.Tab value="channels">Каналы и группы</Tabs.Tab>
@@ -67,7 +106,7 @@ const AdminPage: React.FC = () => {
                   </Table.Tr>
                 </Table.Thead>
                 <Table.Tbody>
-                  {moderationQueue.map((item) => (
+                  {moderation.map((item) => (
                     <Table.Tr key={item.id}>
                       <Table.Td>
                         <Group gap="xs">
@@ -85,23 +124,43 @@ const AdminPage: React.FC = () => {
                       <Table.Td>
                         <Select
                           placeholder="Выберите"
-                          data={['Технологии', 'Бизнес', 'Спорт', 'Криптовалюты', 'Маркетинг']}
+                          data={categoryOptions}
                           size="xs"
                           w={140}
+                          value={item.category || null}
+                          onChange={(val) => updateCategory(item.id, val)}
                         />
                       </Table.Td>
                       <Table.Td>
                         <Group gap="xs">
-                          <Button size="xs" variant="filled" color="green" disabled={!item.category}>
+                          <Button
+                            size="xs"
+                            variant="filled"
+                            color="green"
+                            disabled={!item.category}
+                            onClick={() => approveItem(item.id)}
+                          >
                             Одобрить
                           </Button>
-                          <Button size="xs" variant="light" color="red">
+                          <Button
+                            size="xs"
+                            variant="light"
+                            color="red"
+                            onClick={() => rejectItem(item.id)}
+                          >
                             Отклонить
                           </Button>
                         </Group>
                       </Table.Td>
                     </Table.Tr>
                   ))}
+                  {moderation.length === 0 && (
+                    <Table.Tr>
+                      <Table.Td colSpan={5}>
+                        <Text c="dimmed" ta="center" py="md">Очередь модерации пуста</Text>
+                      </Table.Td>
+                    </Table.Tr>
+                  )}
                 </Table.Tbody>
               </Table>
             </Card>
@@ -141,7 +200,7 @@ const AdminPage: React.FC = () => {
                       <Table.Td>
                         <Select
                           defaultValue={ch.category}
-                          data={['Технологии', 'Бизнес', 'Спорт', 'Криптовалюты', 'Маркетинг']}
+                          data={categoryOptions}
                           size="xs"
                           w={140}
                         />
@@ -165,7 +224,32 @@ const AdminPage: React.FC = () => {
                   Новая статья
                 </Button>
               </Group>
-              <Text c="dimmed">Статьи блога будут отображаться здесь.</Text>
+              <Table striped highlightOnHover>
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Заголовок</Table.Th>
+                    <Table.Th>Статус</Table.Th>
+                    <Table.Th>Дата</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>
+                  {blogArticles.map((article) => (
+                    <Table.Tr key={article.id}>
+                      <Table.Td fw={500}>{article.title}</Table.Td>
+                      <Table.Td>
+                        <Badge
+                          size="sm"
+                          variant="light"
+                          color={article.status === 'Опубликовано' ? 'green' : 'gray'}
+                        >
+                          {article.status}
+                        </Badge>
+                      </Table.Td>
+                      <Table.Td c="dimmed">{article.date}</Table.Td>
+                    </Table.Tr>
+                  ))}
+                </Table.Tbody>
+              </Table>
             </Card>
           </Tabs.Panel>
 
@@ -177,7 +261,32 @@ const AdminPage: React.FC = () => {
                   Новая подборка
                 </Button>
               </Group>
-              <Text c="dimmed">Подборки каналов будут отображаться здесь.</Text>
+              <Table striped highlightOnHover>
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Название</Table.Th>
+                    <Table.Th>Каналов</Table.Th>
+                    <Table.Th>Статус</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>
+                  {collectionsData.map((col) => (
+                    <Table.Tr key={col.id}>
+                      <Table.Td fw={500}>{col.name}</Table.Td>
+                      <Table.Td>{col.count}</Table.Td>
+                      <Table.Td>
+                        <Badge
+                          size="sm"
+                          variant="light"
+                          color={col.status === 'Активна' ? 'green' : 'gray'}
+                        >
+                          {col.status}
+                        </Badge>
+                      </Table.Td>
+                    </Table.Tr>
+                  ))}
+                </Table.Tbody>
+              </Table>
             </Card>
           </Tabs.Panel>
         </Tabs>

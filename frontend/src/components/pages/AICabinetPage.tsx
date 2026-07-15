@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Badge,
   Box,
@@ -58,8 +58,31 @@ const quickQuestions = [
   'Анализ конкурентов',
 ];
 
+const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+const hours = Array.from({ length: 24 }, (_, i) => i);
+
+const heatmapData: Record<string, Record<number, number>> = {
+  Пн: { 9: 3, 10: 5, 12: 7, 14: 6, 17: 8, 19: 9, 20: 10, 21: 8 },
+  Вт: { 10: 4, 12: 6, 14: 5, 17: 7, 19: 8, 20: 9, 21: 7 },
+  Ср: { 9: 4, 10: 6, 12: 8, 14: 7, 17: 9, 19: 10, 20: 10, 21: 9 },
+  Чт: { 10: 5, 12: 7, 14: 6, 17: 8, 19: 9, 20: 8, 21: 7 },
+  Пт: { 10: 4, 12: 6, 14: 5, 17: 6, 19: 7, 20: 8, 21: 6 },
+  Сб: { 11: 3, 13: 4, 15: 5, 17: 5, 19: 6, 20: 7 },
+  Вс: { 12: 3, 14: 4, 16: 5, 18: 5, 20: 6, 21: 5 },
+};
+
+const getHeatColor = (value: number) => {
+  if (value === 0) return 'var(--mantine-color-gray-1)';
+  if (value <= 3) return 'var(--mantine-color-tgblue-1)';
+  if (value <= 5) return 'var(--mantine-color-tgblue-2)';
+  if (value <= 7) return 'var(--mantine-color-tgblue-3)';
+  if (value <= 9) return 'var(--mantine-color-tgblue-4)';
+  return 'var(--mantine-color-tgblue-5)';
+};
+
 const AICabinetPage: React.FC = () => {
   const navigate = useNavigate();
+  const [questionText, setQuestionText] = useState('');
 
   return (
     <Box bg="gray.0" mih="100vh">
@@ -103,6 +126,7 @@ const AICabinetPage: React.FC = () => {
                         size="xs"
                         variant="filled"
                         color="tgpurple"
+                        onClick={() => console.log('Write post:', idea.title)}
                       >
                         Написать
                       </Button>
@@ -138,7 +162,7 @@ const AICabinetPage: React.FC = () => {
                 ))}
               </Stack>
               <Group mt="md" gap="sm">
-                <Button size="xs" variant="light" color="tgblue">
+                <Button size="xs" variant="light" color="tgblue" onClick={() => console.log('Add competitor')}>
                   + Добавить
                 </Button>
                 <Button
@@ -149,6 +173,54 @@ const AICabinetPage: React.FC = () => {
                 >
                   Сравнить все каналы
                 </Button>
+              </Group>
+            </Card>
+
+            <Card withBorder p="lg" radius="md">
+              <Title order={3} mb="md">
+                Лучшее время для публикаций
+              </Title>
+              <Text size="xs" c="dimmed" mb="sm">
+                Тепловая карта активности подписчиков по дням и часам
+              </Text>
+              <Box style={{ overflowX: 'auto' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '32px repeat(24, 1fr)', gap: 2, minWidth: 500 }}>
+                  <div />
+                  {hours.filter((h) => h >= 8 && h <= 22).map((h) => (
+                    <div key={h} style={{ textAlign: 'center', fontSize: 10, color: 'var(--mantine-color-dimmed)' }}>
+                      {h}
+                    </div>
+                  ))}
+                  {daysOfWeek.map((day) => (
+                    <React.Fragment key={day}>
+                      <div style={{ fontSize: 10, color: 'var(--mantine-color-dimmed)', display: 'flex', alignItems: 'center' }}>
+                        {day}
+                      </div>
+                      {hours.filter((h) => h >= 8 && h <= 22).map((h) => {
+                        const val = heatmapData[day]?.[h] ?? 0;
+                        return (
+                          <div
+                            key={`${day}-${h}`}
+                            style={{
+                              backgroundColor: getHeatColor(val),
+                              borderRadius: 3,
+                              aspectRatio: '1',
+                              minWidth: 12,
+                            }}
+                            title={`${day} ${h}:00 — ${val > 0 ? `${val}/10 активность` : 'нет данных'}`}
+                          />
+                        );
+                      })}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </Box>
+              <Group mt="sm" gap="xs">
+                <Text size="xs" c="dimmed">Меньше</Text>
+                {[0, 3, 5, 7, 9, 10].map((v) => (
+                  <div key={v} style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: getHeatColor(v) }} />
+                ))}
+                <Text size="xs" c="dimmed">Больше</Text>
               </Group>
             </Card>
           </Stack>
@@ -181,18 +253,33 @@ const AICabinetPage: React.FC = () => {
               </Title>
               <Group gap="xs" mb="md" wrap="wrap">
                 {quickQuestions.map((q) => (
-                  <Badge key={q} size="md" variant="light" color="tgpurple" style={{ cursor: 'pointer' }}>
+                  <Badge
+                    key={q}
+                    size="md"
+                    variant="light"
+                    color="tgpurple"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setQuestionText(q)}
+                  >
                     {q}
                   </Badge>
                 ))}
               </Group>
               <TextInput
                 placeholder="Задайте вопрос..."
+                value={questionText}
+                onChange={(e) => setQuestionText(e.currentTarget.value)}
                 rightSection={
                   <IconSend
                     size={16}
                     style={{ cursor: 'pointer' }}
                     color="var(--mantine-color-tgpurple-5)"
+                    onClick={() => {
+                      if (questionText.trim()) {
+                        console.log('AI question:', questionText);
+                        setQuestionText('');
+                      }
+                    }}
                   />
                 }
               />

@@ -1,18 +1,36 @@
 import React from 'react';
-import { Card, Group, Text, Title, Badge, Stack, Button, Box, ThemeIcon, SimpleGrid } from '@mantine/core';
+import { Card, Group, Text, Title, Badge, Stack, Button, ThemeIcon } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import type { Tariff } from '../model/types';
 
-export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
+interface TariffCardProps extends Tariff {
+  onClick?: () => void;
+  period?: 'month' | 'year';
+}
+
+const monthlyPrices: Record<number, number> = {
+  1: 0,
+  2: 990,
+  3: 2990,
+};
+
+export const TariffCard: React.FC<TariffCardProps> = ({
+  id,
   name,
   label,
   description,
-  price,
   features,
   button,
   isHighlighted,
   onClick,
+  period = 'month',
 }) => {
+  const monthly = monthlyPrices[id] ?? 0;
+  const displayPrice = period === 'year' && monthly > 0
+    ? Math.round(monthly * 0.8)
+    : monthly;
+  const suffix = period === 'year' ? '/мес (год)' : '/мес';
+
   return (
     <Card
       onClick={onClick}
@@ -21,7 +39,7 @@ export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
       radius="xl"
       style={{
         cursor: 'pointer',
-        borderColor: isHighlighted ? '#155CFA' : undefined,
+        borderColor: isHighlighted ? 'var(--mantine-color-tgblue-5)' : undefined,
         boxShadow: isHighlighted ? '0 2px 8px rgba(21,92,250,0.15)' : undefined,
         transition: 'transform 150ms ease, box-shadow 150ms ease',
       }}
@@ -34,7 +52,7 @@ export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
       <Group justify="space-between" align="center">
         <Title order={3}>{name}</Title>
         {label && (
-          <Badge variant="light" color="blue.6" size="sm">
+          <Badge variant="light" color="tgblue" size="sm">
             {label}
           </Badge>
         )}
@@ -43,8 +61,12 @@ export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
       <Text size="sm" c="dimmed" mt={2}>{description}</Text>
 
       <Group align="baseline" gap={4} mt="sm">
-        <Text fw={700} fz={30} lh={1}>{price.split('/')[0]}</Text>
-        <Text size="sm" fw={600} c="dimmed" lh={1}>/{price.split('/')[1]}</Text>
+        <Text fw={700} fz={30} lh={1}>
+          {displayPrice === 0 ? '0' : `${displayPrice} ₽`}
+        </Text>
+        <Text size="sm" fw={600} c="dimmed" lh={1}>
+          {suffix}
+        </Text>
       </Group>
 
       <Stack gap={6} mt="md">
@@ -62,7 +84,7 @@ export const TariffCard: React.FC<Tariff & { onClick?: () => void }> = ({
         mt="md"
         fullWidth
         variant={isHighlighted ? 'filled' : 'outline'}
-        color={isHighlighted ? 'blue.6' : 'gray'}
+        color={isHighlighted ? 'tgblue' : 'gray'}
       >
         {button.label}
       </Button>

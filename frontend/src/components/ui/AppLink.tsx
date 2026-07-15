@@ -5,7 +5,7 @@ import { Anchor } from '@mantine/core';
 
 type Size = 'sm' | 'md' | 'lg';
 
-interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size'> {
+interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size' | 'className'> {
   to: string;
   label?: string | React.ReactElement;
   size?: Size;
@@ -15,6 +15,7 @@ interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size'> {
   rightIcon?: React.ReactElement;
   scheme?: 'primary' | 'accent' | 'danger' | 'default';
   children?: React.ReactNode;
+  className?: string;
 }
 
 const mantineSize: Record<Size, 'sm' | 'md' | 'lg'> = {
@@ -41,23 +42,33 @@ const AppLink: React.FC<AppLinkProps> = ({
   scheme = 'default',
   children,
   onClick,
+  style,
   ...rest
 }) => {
+  const content = label || children;
+
   return (
     <Anchor
       component={Link}
-      to={to}
+      to={isDisabled ? '#' : to}
       size={mantineSize[size]}
       underline={variant === 'text' ? 'hover' : 'never'}
       c={schemeColor[scheme]}
       fw={scheme !== 'default' ? 500 : undefined}
-      disabled={isDisabled}
       onClick={isDisabled ? undefined : onClick}
-      leftSection={leftIcon}
-      rightSection={rightIcon}
+      style={{
+        pointerEvents: isDisabled ? 'none' : undefined,
+        opacity: isDisabled ? 0.5 : undefined,
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 6,
+        ...style,
+      }}
       {...rest}
     >
-      {label || children}
+      {leftIcon}
+      {content}
+      {rightIcon}
     </Anchor>
   );
 };

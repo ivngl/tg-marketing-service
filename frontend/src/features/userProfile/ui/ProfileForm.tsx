@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, Button, Title, Text, Paper, Stack, Group, SimpleGrid } from '@mantine/core';
+import { TextInput, Button, Title, Text, Paper, Stack, Group } from '@mantine/core';
 import { useUserProfileForm } from '../model/useUserProfileForm';
 
 export const ProfileForm: React.FC = () => {

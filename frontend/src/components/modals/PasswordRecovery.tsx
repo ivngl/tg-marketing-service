@@ -1,6 +1,6 @@
 import React from 'react';
-import { Modal, TextInput, Button, Stack, Text, Title } from '@mantine/core';
-import { useForm } from 'react-hook-form';
+import { Modal, TextInput, Button, Stack, Text, Group } from '@mantine/core';
+import { useForm } from '@mantine/form';
 
 interface PasswordRecoveryProps {
   isVisible: boolean;
@@ -8,15 +8,25 @@ interface PasswordRecoveryProps {
 }
 
 const PasswordRecovery: React.FC<PasswordRecoveryProps> = ({ isVisible, onClose }) => {
-  const { register } = useForm();
+  const form = useForm({
+    initialValues: { email: '' },
+    validate: {
+      email: (val) => (!val || !/^\S+@\S+\.\S+$/.test(val) ? 'Некорректный email' : null),
+    },
+  });
+
+  const handleSubmit = (values: { email: string }) => {
+    console.log('Password recovery:', values.email);
+    onClose();
+  };
 
   return (
     <Modal opened={isVisible} onClose={onClose} title="Восстановление пароля" centered>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={form.onSubmit(handleSubmit)}>
         <Stack gap="md">
           <Text size="sm">Введите ваш email</Text>
           <TextInput
-            {...register('email', { required: 'This is required.' })}
+            {...form.getInputProps('email')}
             type="email"
             placeholder="E-mail"
           />

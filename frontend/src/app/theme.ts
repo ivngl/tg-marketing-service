@@ -62,7 +62,7 @@ export const theme: MantineThemeOverride = {
       '#f08c00',
       '#e8590c',
       '#d9480f',
-      '#c92a2a',
+      '#b35c00',
     ],
   },
   fontFamily: "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
