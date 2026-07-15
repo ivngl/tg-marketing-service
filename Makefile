@@ -8,7 +8,8 @@ collectstatic:
 	uv run python manage.py collectstatic --noinput
 
 dev:
-	uv run python manage.py runserver
+	uv run python manage.py runserver &
+	cd frontend && npm run dev
 
 prod-run:
 	uv run gunicorn -b 0.0.0.0:$(PORT) config.wsgi
@@ -39,4 +40,12 @@ test:
 
 install:
 	uv sync
-.PHONY: install
+	cd frontend && npm install
+
+install-backend:
+	uv sync
+
+install-frontend:
+	cd frontend && npm install
+
+.PHONY: install install-backend install-frontend
