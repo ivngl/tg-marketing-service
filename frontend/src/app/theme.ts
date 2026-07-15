@@ -1,0 +1,134 @@
+import type { MantineThemeOverride } from '@mantine/core';
+
+export const theme: MantineThemeOverride = {
+  primaryColor: 'tgblue',
+  primaryShade: { light: 5, dark: 5 },
+  colors: {
+    tgblue: [
+      '#E7F5FB',
+      '#d0ebf9',
+      '#9ddeed',
+      '#5cc8e0',
+      '#33b5d5',
+      '#229ED9',
+      '#1B87BC',
+      '#1662a3',
+      '#124f85',
+      '#0f3d68',
+    ],
+    tgpurple: [
+      '#faf9ff',
+      '#f3f0ff',
+      '#e6e0fb',
+      '#d0bdf4',
+      '#b699ec',
+      '#9775e3',
+      '#7c5cdb',
+      '#7048e8',
+      '#6741d9',
+      '#5334b5',
+    ],
+    tggreen: [
+      '#f4fbf6',
+      '#e6fcf5',
+      '#c3fae8',
+      '#96f2d7',
+      '#63e6be',
+      '#38d9a9',
+      '#20c997',
+      '#12b886',
+      '#0ca678',
+      '#099268',
+    ],
+    tgred: [
+      '#fff5f5',
+      '#ffe3e3',
+      '#ffc9c9',
+      '#ffa8a8',
+      '#ff8787',
+      '#ff6b6b',
+      '#f85149',
+      '#f03e3e',
+      '#e03131',
+      '#c92a2a',
+    ],
+    tgorange: [
+      '#fff9f0',
+      '#fff4e6',
+      '#ffe8cc',
+      '#ffd8a8',
+      '#ffc078',
+      '#ffa94d',
+      '#f08c00',
+      '#e8590c',
+      '#d9480f',
+      '#c92a2a',
+    ],
+  },
+  fontFamily: "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  headings: {
+    fontFamily: "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    sizes: {
+      h1: { fontSize: '44px', fontWeight: '800', lineHeight: '1.2' },
+      h2: { fontSize: '24px', fontWeight: '800', lineHeight: '1.3' },
+      h3: { fontSize: '16px', fontWeight: '700', lineHeight: '1.4' },
+      h4: { fontSize: '14px', fontWeight: '700', lineHeight: '1.4' },
+    },
+  },
+  fontSizes: {
+    xs: '11px',
+    sm: '12.5px',
+    md: '14px',
+    lg: '16px',
+    xl: '20px',
+  },
+  radius: {
+    xs: '4px',
+    sm: '6px',
+    md: '12px',
+    lg: '16px',
+    xl: '99px',
+  },
+  shadows: {
+    xs: '0 1px 2px rgba(16,18,22,.04)',
+    sm: '0 1px 3px rgba(16,18,22,.06)',
+    md: '0 4px 12px rgba(16,18,22,.08)',
+    lg: '0 8px 24px rgba(16,18,22,.10)',
+    xl: '0 24px 70px rgba(0,0,0,.3)',
+  },
+  spacing: {
+    xs: '4px',
+    sm: '8px',
+    md: '16px',
+    lg: '24px',
+    xl: '32px',
+  },
+  components: {
+    Button: {
+      defaultProps: {
+        radius: 'md',
+      },
+    },
+    Card: {
+      defaultProps: {
+        radius: 'md',
+        withBorder: true,
+      },
+    },
+    Badge: {
+      defaultProps: {
+        radius: 'sm',
+      },
+    },
+    TextInput: {
+      defaultProps: {
+        radius: 'md',
+      },
+    },
+    Select: {
+      defaultProps: {
+        radius: 'md',
+      },
+    },
+  },
+};
