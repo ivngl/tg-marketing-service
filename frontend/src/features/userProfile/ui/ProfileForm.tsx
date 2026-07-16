@@ -20,9 +20,9 @@ export const ProfileForm: React.FC = () => {
           onSubmit={handleSubmit}
           style={{ flex: '2 1 0', minWidth: 0 }}
         >
-          <Paper withBorder p="lg" radius="sm">
+          <Paper p="lg" radius="sm">
             <Title order={3} mb="md" ta="left">Информация о профиле</Title>
-            <Stack gap="md">
+            <Stack>
               <Group grow wrap="wrap">
                 <TextInput
                   label="Имя"
@@ -59,19 +59,19 @@ export const ProfileForm: React.FC = () => {
           </Paper>
         </form>
 
-        <Paper withBorder p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
+        <Paper p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Подписка Pro</Title>
           <Text color="dimmed">Заглушка для формы подписки.</Text>
         </Paper>
       </Group>
 
       <Group grow wrap="wrap">
-        <Paper withBorder p="lg" radius="sm" style={{ flex: '2 1 0', minWidth: 0 }}>
+        <Paper p="lg" radius="sm" style={{ flex: '2 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Уведомления</Title>
           <Text color="dimmed">Заглушка для формы уведомлений.</Text>
         </Paper>
 
-        <Paper withBorder p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
+        <Paper p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Статистика использования</Title>
           <Text color="dimmed">Заглушка для статистики.</Text>
         </Paper>

@@ -95,7 +95,7 @@ const AICabinetPage: React.FC = () => {
   return (
     <PageShell>
         <Group gap="sm" mb="lg">
-          <ThemeIcon size={36} radius="md" variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
+          <ThemeIcon size={36} variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
             <IconSparkles size={20} />
           </ThemeIcon>
           <Title order={1}>AI-кабинет автора</Title>
@@ -104,11 +104,11 @@ const AICabinetPage: React.FC = () => {
         <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg">
           <Stack gap="lg">
             <SectionCard title="О чём написать на этой неделе">
-              <Stack gap="md">
+              <Stack>
                 {ideas.map((idea) => (
-                  <Paper key={idea.title} p="md" radius="md" withBorder>
+                  <Paper key={idea.title} p="md">
                     <Group gap="sm" mb="xs">
-                      <ThemeIcon size={28} variant="light" color="tgpurple">
+                      <ThemeIcon size={28} color="tgpurple">
                         <idea.icon size={16} />
                       </ThemeIcon>
                       <Text fw={700} size="sm">
@@ -121,7 +121,7 @@ const AICabinetPage: React.FC = () => {
                     <Group justify="space-between">
                       <Group gap="xs">
                         {idea.chips.map((chip) => (
-                          <Badge key={chip} size="xs" variant="light" color="gray">
+                          <Badge key={chip} size="xs" color="gray">
                             {chip}
                           </Badge>
                         ))}
@@ -140,7 +140,7 @@ const AICabinetPage: React.FC = () => {
               </Stack>
             </SectionCard>
 
-            <Card withBorder p="lg" radius="md">
+            <Card p="lg">
               <Title order={3} mb="md">
                 Конкуренты
               </Title>
@@ -156,7 +156,7 @@ const AICabinetPage: React.FC = () => {
                       </Text>
                       <Badge
                         size="xs"
-                        variant="light"
+                       
                         color={c.delta >= 0 ? 'green' : 'red'}
                       >
                         {c.delta >= 0 ? '+' : ''}{c.delta}%
@@ -166,7 +166,7 @@ const AICabinetPage: React.FC = () => {
                 ))}
               </Stack>
               <Group mt="md" gap="sm">
-                <Button size="xs" variant="light" color="tgblue" onClick={() => console.log('Add competitor')}>
+                <Button size="xs" color="tgblue" onClick={() => console.log('Add competitor')}>
                   + Добавить
                 </Button>
                 <Button
@@ -246,7 +246,7 @@ const AICabinetPage: React.FC = () => {
                   <Badge
                     key={q}
                     size="md"
-                    variant="light"
+                   
                     color="tgpurple"
                     style={{ cursor: 'pointer' }}
                     onClick={() => setQuestionText(q)}

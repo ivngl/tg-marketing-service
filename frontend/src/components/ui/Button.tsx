@@ -25,8 +25,6 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', ...props })
       <MantineButton
         variant={mapped.variant}
         color={mapped.color}
-        radius="md"
-        fw={600}
         {...(props as MantineButtonProps)}
       />
     );
@@ -35,8 +33,6 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', ...props })
   return (
     <MantineButton
       variant={variant as MantineButtonProps['variant']}
-      radius="md"
-      fw={600}
       {...(props as MantineButtonProps)}
     />
   );

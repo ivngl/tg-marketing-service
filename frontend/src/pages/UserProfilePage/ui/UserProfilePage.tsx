@@ -37,12 +37,12 @@ const UserProfilePage: React.FC = () => {
               </div>
             </Group>
             <Group gap="sm">
-              <Button size="sm" variant="light" color="tgblue" leftSection={<IconEdit size={14} />}>
+              <Button size="sm" color="tgblue" leftSection={<IconEdit size={14} />}>
                 Редактировать
               </Button>
               <Button
                 size="sm"
-                variant="light"
+               
                 color="red"
                 leftSection={<IconLogout size={14} />}
                 onClick={() => navigate('/auth')}
@@ -54,7 +54,7 @@ const UserProfilePage: React.FC = () => {
 
           <SectionCard
             title="Подписка"
-            action={<Badge size="lg" variant="light" color="gray">Free</Badge>}
+            action={<Badge size="lg" color="gray">Free</Badge>}
           >
             <Card p="md" radius="md" style={{ backgroundColor: 'var(--mantine-color-tgblue-0)' }} mb="md">
               <Text size="sm" fw={600} mb="xs">Получите больше возможностей</Text>
@@ -73,7 +73,7 @@ const UserProfilePage: React.FC = () => {
           <SectionCard
             title="Мои каналы и группы"
             action={
-              <Button size="xs" variant="light" color="tgblue" leftSection={<IconPlus size={12} />}>
+              <Button size="xs" color="tgblue" leftSection={<IconPlus size={12} />}>
                 Добавить
               </Button>
             }
@@ -82,7 +82,7 @@ const UserProfilePage: React.FC = () => {
           </SectionCard>
 
           <SectionCard title="Уведомления">
-            <Stack gap="md">
+            <Stack>
               <Group justify="space-between">
                 <Text size="sm">Email-уведомления</Text>
                 <Switch size="sm" defaultChecked />

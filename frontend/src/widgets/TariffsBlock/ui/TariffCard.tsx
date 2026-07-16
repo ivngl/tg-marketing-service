@@ -57,7 +57,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
         </div>
       )}
 
-      <Stack gap="md" style={{ flex: 1 }}>
+      <Stack style={{ flex: 1 }}>
         <Text size="md" fw={800} color="primary">{name}</Text>
 
         <Stack gap={2}>

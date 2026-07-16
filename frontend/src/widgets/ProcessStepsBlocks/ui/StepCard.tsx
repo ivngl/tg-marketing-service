@@ -4,9 +4,9 @@ import type { StepCardProps } from '../model/types';
 
 export const StepCard: React.FC<StepCardProps> = ({ title, description, number }) => {
   return (
-    <Card withBorder p={{ base: 'md', md: 'lg' }} radius="xl" shadow="sm">
-      <Stack gap="md">
-        <ThemeIcon size={48} radius="xl" variant="light" color="blue.6">
+    <Card withBorder p={{ base: 'md', md: 'lg' }} shadow="sm">
+      <Stack>
+        <ThemeIcon size={48} variant="light" color="blue.6">
           <Text fw={700} fz="md">{number}</Text>
         </ThemeIcon>
 

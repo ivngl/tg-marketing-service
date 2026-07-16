@@ -17,7 +17,7 @@ export const AiDemoText: React.FC<AiDemoTextProps> = (props) => {
   } = props;
 
   return (
-    <Stack gap="md">
+    <Stack>
       {description && (
         <Text color="dimmed">{description}</Text>
       )}

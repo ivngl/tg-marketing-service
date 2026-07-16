@@ -64,7 +64,7 @@ const PostPage: React.FC = () => {
             <Title order={3} mb="md">
               Разбивка реакций
             </Title>
-            <Stack gap="md">
+            <Stack>
               {reactions.map((r) => (
                 <div key={r.label}>
                   <Group justify="space-between" mb={4}>
@@ -86,7 +86,7 @@ const PostPage: React.FC = () => {
             </Stack>
             <Group justify="space-between" mt="md" pt="md" style={{ borderTop: '1px solid var(--mantine-color-gray-2)' }}>
               <Text fw={600}>ER</Text>
-              <Badge size="lg" variant="light" color="green">
+              <Badge size="lg" color="green">
                 31.2%
               </Badge>
             </Group>

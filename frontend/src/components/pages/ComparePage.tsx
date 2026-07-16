@@ -67,7 +67,7 @@ const ComparePage: React.FC = () => {
 
         <Group gap="sm" mb="lg">
           {channels.map((ch) => (
-            <Badge key={ch.id} size="lg" variant="light" color="tgblue" leftSection={
+            <Badge key={ch.id} size="lg" color="tgblue" leftSection={
               <BrandAvatar name={ch.name} size={18} />
             }>
               {ch.name}

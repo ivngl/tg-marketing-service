@@ -125,7 +125,25 @@ export const theme: MantineThemeOverride = {
     Button: {
       defaultProps: {
         radius: 'md',
+        size: 'md',
       },
+      styles: (_theme, props) => ({
+        root: {
+          fontWeight: 600,
+          ...(props.variant === 'default' ? {
+            backgroundColor: _theme.colors.gray[0],
+            borderColor: _theme.colors.gray[3],
+            color: _theme.colors.primary[5],
+          } : {}),
+          ...(props.variant === 'subtle' ? {
+            color: _theme.colors.tgblue[7],
+          } : {}),
+          ...(props.variant === 'outline' ? {
+            borderColor: _theme.colors.tgblue[3],
+            color: _theme.colors.tgblue[7],
+          } : {}),
+        },
+      }),
     },
     Card: {
       defaultProps: {
@@ -134,9 +152,31 @@ export const theme: MantineThemeOverride = {
         withBorder: true,
       },
     },
+    Container: {
+      defaultProps: {
+        size: 'xl',
+      },
+    },
+    Stack: {
+      defaultProps: {
+        gap: 'md',
+      },
+    },
+    Paper: {
+      defaultProps: {
+        withBorder: true,
+        radius: 'md',
+      },
+    },
     Badge: {
       defaultProps: {
         radius: 'sm',
+        variant: 'light',
+      },
+    },
+    ThemeIcon: {
+      defaultProps: {
+        radius: 'xl',
       },
     },
     TextInput: {

@@ -3,7 +3,7 @@ import { Title, Container } from "@mantine/core";
 
 const Home: React.FC = () => {
   return (
-    <Container size="xl" py="xl">
+    <Container py="xl">
       <Title order={1}>Главная страница</Title>
     </Container>
   );

@@ -59,14 +59,14 @@ const LandingPage: React.FC = () => {
     <Box bg="gray.0" mih="100vh">
       {/* HERO SECTION */}
       <Box component="section" bg="white" py={80} style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
-        <Container size="xl">
+        <Container>
           <Group gap={60} align="center" wrap="wrap">
             <Stack style={{ flex: '1.1 1 0', minWidth: 320 }} gap="xl">
               <Badge
                 variant="light"
                 color="tgblue"
                 size="lg"
-                radius="xl"
+               
                 styles={{
                   root: {
                     textTransform: 'none',
@@ -102,11 +102,6 @@ const LandingPage: React.FC = () => {
                   variant="default"
                   size="md"
                   onClick={() => navigate('/channels')}
-                  style={{
-                    backgroundColor: 'var(--mantine-color-gray-0)',
-                    borderColor: 'var(--mantine-color-gray-3)',
-                    color: 'var(--mantine-color-primary-5)',
-                  }}
                 >
                   Каталог каналов
                 </Button>
@@ -139,7 +134,7 @@ const LandingPage: React.FC = () => {
               >
                 <Group justify="space-between" mb="lg">
                   <Group gap={6}>
-                    <ThemeIcon size={22} radius="xl" color="tgblue">
+                    <ThemeIcon size={22} color="tgblue">
                       <IconSparkles size={12} />
                     </ThemeIcon>
                     <Text size="md" fw={700} color="primary">
@@ -151,7 +146,7 @@ const LandingPage: React.FC = () => {
                   </Text>
                 </Group>
 
-                <Stack gap="md">
+                <Stack>
                   <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
                     <Text size="xs" color="secondary" lh={1.4}>
                       Разборы кейсов дают <span style={{ fontWeight: 700 }}>+34%</span> реакций. Запланируйте один на этой неделе.
@@ -185,7 +180,7 @@ const LandingPage: React.FC = () => {
       </Box>
 
       <Box component="section" bg="gray.0" py={80}>
-        <Container size="xl">
+        <Container>
           <Stack gap={10} align="center" mb={50}>
             <Title order={2} ta="center">
               Всё, что умеет tgstats — и AI сверху
@@ -239,11 +234,11 @@ export default LandingPage;
 const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
   return (
     <Box component="footer" bg="gray.0" py={60} style={{ borderTop: '1px solid var(--mantine-color-gray-3)' }}>
-      <Container size="xl">
+      <Container>
         <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing={40}>
-          <Stack gap="md">
+          <Stack>
             <Group gap="xs">
-              <ThemeIcon size={24} radius="xl" color="tgblue">
+              <ThemeIcon size={24} color="tgblue">
                 <span style={{ fontSize: 'var(--mantine-font-size-xs)', fontWeight: 800 }}>t</span>
               </ThemeIcon>
               <Text fw={800} size="lg" color="primary">tgpulse</Text>

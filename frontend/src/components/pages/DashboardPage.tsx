@@ -59,7 +59,7 @@ const DashboardPage: React.FC = () => {
                 {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
               </Group>
               <Text size="sm" color="dimmed">
-                {channel.username} · <Badge size="xs" variant="light">{channel.category}</Badge>
+                {channel.username} · <Badge size="xs">{channel.category}</Badge>
               </Text>
             </div>
           </Group>
@@ -136,7 +136,7 @@ const DashboardPage: React.FC = () => {
               </InsightCard>
             </Stack>
             <Button
-              variant="light"
+             
               color="tgblue"
               size="sm"
               mt="md"
@@ -178,7 +178,7 @@ const DashboardPage: React.FC = () => {
                   <Table.Td ta="right">
                     <Badge
                       size="sm"
-                      variant="light"
+                     
                       color={post.er >= 25 ? 'green' : post.er >= 15 ? 'yellow' : 'red'}
                     >
                       {post.er}%

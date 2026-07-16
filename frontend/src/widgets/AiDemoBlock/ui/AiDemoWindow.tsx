@@ -7,7 +7,7 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
   const { demoTitle } = props;
 
   return (
-    <Paper withBorder p="md" radius="xl" style={{ flex: 1, minHeight: '15rem', display: 'flex' }}>
+    <Paper p="md" radius="xl" style={{ flex: 1, minHeight: '15rem', display: 'flex' }}>
       <div
         style={{
           width: '100%',

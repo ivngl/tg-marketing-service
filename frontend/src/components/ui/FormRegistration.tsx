@@ -30,7 +30,7 @@ const FormRegistration: React.FC = () => {
         onSubmit={form.onSubmit(onSubmit)}
         style={{ maxWidth: 380, margin: 'auto', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 20 }}
       >
-        <Stack gap="md">
+        <Stack>
           <div style={{ textAlign: 'center' }}>
             <Title order={2} fw={700}>Войти в систему</Title>
             <Text color="dimmed">Используйте привычный способ входа</Text>

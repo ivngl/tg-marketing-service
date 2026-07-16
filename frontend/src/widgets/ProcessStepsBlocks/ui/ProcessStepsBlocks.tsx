@@ -10,7 +10,7 @@ export const ProcessStepsBlocks: React.FC<ProcessStepsBlocksProps> = ({ steps: p
 
   return (
     <section style={{ width: '100%', backgroundColor: '#F8F9FB', padding: 48 }}>
-      <Container size="xl" px="md">
+      <Container px="md">
         <Title order={2} fw={700} mb="xl" ta="left">Как это работает</Title>
 
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">

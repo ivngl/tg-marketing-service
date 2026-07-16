@@ -9,7 +9,7 @@ export const AiDemoBlock: React.FC = () => {
 
   return (
     <section style={{ width: '100%', padding: 40 }}>
-      <Container size="xl" px="md">
+      <Container px="md">
         <Group align="stretch" gap="xl" wrap="wrap">
           <Box style={{ flex: '1 1 0', minWidth: 300 }}>
             <Title order={2} mb="md">ИИ-помощник редактора</Title>

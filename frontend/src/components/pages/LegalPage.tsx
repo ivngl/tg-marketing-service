@@ -26,7 +26,7 @@ const LegalPage: React.FC = () => {
           mb="lg"
           fullWidth
         />
-        <Paper withBorder p="lg" radius="md">
+        <Paper p="lg">
           {tab === 'privacy' && (
             <>
               <Title order={3} mb="md">Политика конфиденциальности</Title>

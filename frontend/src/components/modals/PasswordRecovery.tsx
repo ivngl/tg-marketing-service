@@ -24,7 +24,7 @@ const PasswordRecovery: React.FC<PasswordRecoveryProps> = ({ isVisible, onClose 
   return (
     <Modal opened={isVisible} onClose={onClose} title="Восстановление пароля" centered>
       <form onSubmit={form.onSubmit(handleSubmit)}>
-        <Stack gap="md">
+        <Stack>
           <Text size="sm">Введите ваш email</Text>
           <TextInput
             {...form.getInputProps('email')}
