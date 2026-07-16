@@ -66,7 +66,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
           </Text>
         </Stack>
 
-        <Stack gap="sm" mt="md" mb={isHighlighted ? 'xl' : undefined}>
+        <Stack gap="sm" mt="md" mb="xl">
           {features.map((feat) => (
             <Group key={feat.id} gap={8} wrap="nowrap" align="flex-start">
               <Text style={{ fontSize: '12.5px', color: '#10B981', fontWeight: 650 }}>✓</Text>
@@ -76,20 +76,19 @@ export const TariffCard: React.FC<TariffCardProps> = ({
         </Stack>
       </Stack>
 
-      {isHighlighted && (
-        <Button
-          size="md"
-          color="tgblue"
-          style={{
-            fontWeight: 700,
-            height: '44px',
-            borderRadius: '8px',
-            marginTop: 'auto',
-          }}
-        >
-          {button.label}
-        </Button>
-      )}
+      <Button
+        size="md"
+        color="tgblue"
+        style={{
+          fontWeight: 700,
+          height: '44px',
+          borderRadius: '8px',
+          marginTop: 'auto',
+          visibility: isHighlighted ? 'visible' : 'hidden',
+        }}
+      >
+        {button.label}
+      </Button>
     </Card>
   );
 };
