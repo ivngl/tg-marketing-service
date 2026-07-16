@@ -6,6 +6,7 @@ import {
   IconSparkles, IconBooks, IconNews, IconUser, IconSearch,
   IconSettings, IconLogout,
 } from '@tabler/icons-react';
+import classes from './Layout.module.css';
 
 const navItems = [
   { label: 'Главная', path: '/', icon: IconHome },
@@ -50,11 +51,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       padding="md"
       mode="static"
     >
-      <AppShell.Header style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+      <AppShell.Header className={classes.header}>
         <Group h="100%" px="md" justify="space-between">
           <Group gap="sm">
             <Burger opened={navbarOpened} onClick={() => setNavbarOpened(!navbarOpened)} hiddenFrom="md" size="sm" />
-            <Text fw={700} size="lg" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
+            <Text fw={700} size="lg" className={classes.clickable} onClick={() => navigate('/')}>
               TG Pulse
             </Text>
           </Group>
@@ -67,15 +68,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: 2 }}>
+        <div className={classes.navMain}>
           {navItems.map(renderItem)}
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <div className={classes.navBottom}>
           {bottomItems.map(renderItem)}
         </div>
       </AppShell.Navbar>
 
-      <AppShell.Main style={{ backgroundColor: 'var(--mantine-color-gray-0)' }}>
+      <AppShell.Main className={classes.main}>
         {children}
       </AppShell.Main>
     </AppShell>

@@ -20,6 +20,7 @@ import {
 } from '@tabler/icons-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import classes from './LandingPage.module.css';
 
 const stats = [
   { value: '2.4M', label: 'каналов в базе' },
@@ -58,10 +59,10 @@ const LandingPage: React.FC = () => {
   return (
     <Box bg="gray.0" mih="100vh">
       {/* HERO SECTION */}
-      <Box component="section" bg="white" py={80} style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+      <Box component="section" bg="white" py={80} className={classes.heroSection}>
         <Container>
           <Group gap={60} align="center" wrap="wrap">
-            <Stack style={{ flex: '1.1 1 0', minWidth: 320 }} gap="xl">
+            <Stack className={classes.heroStack} gap="xl">
               <Badge
                 variant="light"
                 color="tgblue"
@@ -86,9 +87,9 @@ const LandingPage: React.FC = () => {
                 больше, чем вы сами
               </Title>
 
-              <Text size="lg" c="dimmed" lh={1.5} maw={500}>
+              <Text size="lg" c="dimmed" maw={500}>
                 Статистика, охваты и реакции каждого поста — и AI, который подсказывает,{' '}
-                <span style={{ fontWeight: 700, color: 'var(--mantine-color-primary-5)' }}>о чём писать дальше</span>, чтобы расти быстрее.
+                <span className={classes.boldPrimary}>о чём писать дальше</span>, чтобы расти быстрее.
               </Text>
 
               <Group gap="md">
@@ -110,7 +111,7 @@ const LandingPage: React.FC = () => {
               <Group gap={48} mt="lg">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <Text fw={800} c="primary" lh={1.1} style={{ fontSize: '32px' }}>
+                    <Text fw={800} c="primary" lh={1.1} fz="32px">
                       {stat.value}
                     </Text>
                     <Text size="sm" c="dimmed" mt="xs">
@@ -120,17 +121,11 @@ const LandingPage: React.FC = () => {
                 ))}
               </Group>
             </Stack>
-            <Box style={{ flex: '0.9 1 0', minWidth: 320 }}>
+            <Box className={classes.heroRight}>
               <Card
                 padding="lg"
                 radius="lg"
-                style={{
-                  border: '1px solid var(--mantine-color-gray-3)',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.06)',
-                  width: '100%',
-                  maxWidth: '430px',
-                  marginLeft: 'auto',
-                }}
+                className={classes.heroCard}
               >
                 <Group justify="space-between" mb="lg">
                   <Group gap={6}>
@@ -149,13 +144,13 @@ const LandingPage: React.FC = () => {
                 <Stack>
                   <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
                     <Text size="xs" c="secondary" lh={1.4}>
-                      Разборы кейсов дают <span style={{ fontWeight: 700 }}>+34%</span> реакций. Запланируйте один на этой неделе.
+                      Разборы кейсов дают <span className={classes.bold}>+34%</span> реакций. Запланируйте один на этой неделе.
                     </Text>
                   </InsightCard>
 
                   <InsightCard color="blue" label="ТРЕНД">
                     <Text size="xs" c="secondary" lh={1.4}>
-                      Тема <span style={{ fontWeight: 700 }}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
+                      Тема <span className={classes.bold}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
                     </Text>
                   </InsightCard>
 
@@ -167,7 +162,7 @@ const LandingPage: React.FC = () => {
                           «Как AI-агенты меняют онбординг»
                         </Text>
                         <Text size="xs" fw={600} c="tggreen.7">
-                          Прогноз ~48K охват <span style={{ color: 'var(--mantine-color-muted-5)', fontWeight: 400 }}>• чт 19:30</span>
+                          Прогноз ~48K охват <span className={classes.boldMuted}>• чт 19:30</span>
                         </Text>
                       </Box>
                     </Group>
@@ -185,7 +180,7 @@ const LandingPage: React.FC = () => {
             <Title order={2} ta="center">
               Всё, что умеет tgstats — и AI сверху
             </Title>
-            <Text c="dimmed" ta="center" maw={600} style={{ fontSize: '15px' }}>
+            <Text c="dimmed" ta="center" maw={600} fz="15px">
               Полная статистика каналов плюс рекомендательный слой на искусственном интеллекте
             </Text>
           </Stack>
@@ -196,26 +191,21 @@ const LandingPage: React.FC = () => {
                 key={f.title}
                 padding="lg"
                 radius="lg"
-                style={{
-                  border: '1px solid var(--mantine-color-gray-3)',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.02)',
-                }}
+                className={classes.heroFeatureCard}
               >
                 <ThemeIcon
                   size={48}
                   radius="md"
-                  style={{
-                    backgroundColor: f.iconBg,
-                    color: f.iconColor,
-                    marginBottom: '20px',
-                  }}
+                  bg={f.iconBg}
+                  c={f.iconColor}
+                  className={classes.heroFeatureIcon}
                 >
                   <f.icon size={24} />
                 </ThemeIcon>
                 <Title order={3} mb="xs">
                   {f.title}
                 </Title>
-                <Text size="sm" c="dimmed" lh={1.5}>
+                <Text size="sm" c="dimmed">
                   {f.description}
                 </Text>
               </Card>
@@ -233,17 +223,17 @@ export default LandingPage;
 
 const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
   return (
-    <Box component="footer" bg="gray.0" py={60} style={{ borderTop: '1px solid var(--mantine-color-gray-3)' }}>
+    <Box component="footer" bg="gray.0" py={60} className={classes.footerSection}>
       <Container>
         <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing={40}>
           <Stack>
             <Group gap="xs">
               <ThemeIcon size={24} color="tgblue">
-                <span style={{ fontSize: 'var(--mantine-font-size-xs)', fontWeight: 800 }}>t</span>
+                <span className={classes.footerLogoText}>t</span>
               </ThemeIcon>
               <Text fw={800} size="lg" c="primary">tgpulse</Text>
             </Group>
-            <Text size="sm" c="dimmed" lh={1.5} maw={240}>
+            <Text size="sm" c="dimmed" maw={240}>
               Аналитика Telegram-каналов с искусственным интеллектом. Знайте о своём канале больше, чем вы сами.
             </Text>
           </Stack>
@@ -253,7 +243,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             <Text
               size="sm"
               color="dimmed"
-              style={{ cursor: 'pointer' }}
+              className={classes.clickable}
               onClick={() => navigate('/channels')}
             >
               Каталог каналов
@@ -261,7 +251,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             <Text
               size="sm"
               color="dimmed"
-              style={{ cursor: 'pointer' }}
+              className={classes.clickable}
               onClick={() => navigate('/collections')}
             >
               Подборки
@@ -273,7 +263,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             <Text
               size="sm"
               color="dimmed"
-              style={{ cursor: 'pointer' }}
+              className={classes.clickable}
               onClick={() => navigate('/blog')}
             >
               Блог
@@ -281,7 +271,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             <Text
               size="sm"
               color="dimmed"
-              style={{ cursor: 'pointer' }}
+              className={classes.clickable}
               onClick={() => navigate('/')}
             >
               О сервисе
@@ -293,7 +283,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             <Text
               size="sm"
               color="dimmed"
-              style={{ cursor: 'pointer' }}
+              className={classes.clickable}
               onClick={() => navigate('/legal')}
             >
               Конфиденциальность
@@ -301,7 +291,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             <Text
               size="sm"
               color="dimmed"
-              style={{ cursor: 'pointer' }}
+              className={classes.clickable}
               onClick={() => navigate('/legal')}
             >
               Соглашение

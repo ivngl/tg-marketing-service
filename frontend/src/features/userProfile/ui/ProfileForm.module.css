@@ -1,0 +1,14 @@
+.form {
+  flex: 2 1 0;
+  min-width: 0;
+}
+
+.colWide {
+  flex: 2 1 0;
+  min-width: 0;
+}
+
+.colNarrow {
+  flex: 1 1 0;
+  min-width: 0;
+}

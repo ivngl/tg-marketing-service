@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Title, Container, SimpleGrid } from '@mantine/core';
+import classes from './TariffsBlock.module.css';
 import type { TariffsBlockProps } from '../model/types';
 import { useTariffsBlock } from '../model/useTariffsBlock';
 import { TariffCard } from './TariffCard';
@@ -15,13 +16,13 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
   if (!tariffs || tariffs.length === 0) return null;
 
   return (
-    <Box component="section" bg="white" py={80} style={{ borderTop: '1px solid var(--mantine-color-gray-3)', borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+    <Box component="section" bg="white" py={80} className={classes.section}>
       <Container>
-        <Title order={2} fw={800} c="primary" ta="center" mb={60} style={{ fontSize: '32px' }}>
+        <Title order={2} fw={800} c="primary" ta="center" mb={60} fz="32px">
           Тарифы
         </Title>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} style={{ alignItems: 'stretch' }}>
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} className={classes.grid}>
           {tariffs.map((tariff) => (
             <TariffCard
               key={tariff.id}

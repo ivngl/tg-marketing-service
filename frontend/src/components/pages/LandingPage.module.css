@@ -1,0 +1,57 @@
+.heroSection {
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+}
+
+.heroStack {
+  flex: 1.1 1 0;
+  min-width: 320px;
+}
+
+.heroCard {
+  border: 1px solid var(--mantine-color-gray-3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 430px;
+  margin-left: auto;
+}
+
+.heroRight {
+  flex: 0.9 1 0;
+  min-width: 320px;
+}
+
+.heroFeatureCard {
+  border: 1px solid var(--mantine-color-gray-3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.heroFeatureIcon {
+  margin-bottom: 20px;
+}
+
+.footerSection {
+  border-top: 1px solid var(--mantine-color-gray-3);
+}
+
+.footerLogoText {
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 800;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.boldPrimary {
+  font-weight: 700;
+  color: var(--mantine-color-primary-5);
+}
+
+.boldMuted {
+  color: var(--mantine-color-muted-5);
+  font-weight: 400;
+}

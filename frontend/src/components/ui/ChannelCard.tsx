@@ -3,6 +3,7 @@ import { Text, Avatar, Badge, Card, Group } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import type { Channel } from '@/types/channel';
 import formatNumberShort from '@/utils/formatNumberShort';
+import classes from './ChannelCard.module.css';
 
 interface ChannelCardProps {
   channel: Channel;
@@ -46,15 +47,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
       padding="sm"
       radius="md"
       withBorder
-      style={{ cursor: 'pointer', transition: 'transform 150ms, box-shadow 150ms' }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-2px)';
-        e.currentTarget.style.boxShadow = '0 8px 24px rgba(16,18,22,.10)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = 'none';
-      }}
+      className={classes.card}
     >
       <Group gap="sm" wrap="nowrap" mb="sm">
         <Avatar
@@ -66,16 +59,16 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
         >
           {initials(name)}
         </Avatar>
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className={classes.channelInfo}>
           <Group gap={4} wrap="nowrap">
-            <Text fw={800} size="15px" truncate="end">
+            <Text fw={800} className={classes.channelName} truncate="end">
               {name}
             </Text>
             {verified && (
               <IconCheck
                 size={14}
                 color="var(--mantine-color-blue-5)"
-                style={{ flexShrink: 0 }}
+                className={classes.verifiedIcon}
               />
             )}
           </Group>

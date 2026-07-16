@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, Box, Container, Group, Title, Button } from '@mantine/core';
 import { brandGradient } from '@/app/constants';
 import { useNavigate } from 'react-router-dom';
+import classes from './NotFoundPage.module.css';
 
 const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,18 +11,14 @@ const NotFoundPage: React.FC = () => {
     <Box
       bg="gray.0"
       mih="100vh"
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      className={classes.page}
     >
       <Container size="sm" ta="center">
         <Title
           order={1}
+          className={classes.title}
           style={{
-            fontSize: '120px',
-            fontWeight: 800,
             background: `linear-gradient(${brandGradient.deg}deg, ${brandGradient.from}, ${brandGradient.to})`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            lineHeight: 1,
           }}
           mb="md"
         >

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { GroupProps } from '@mantine/core';
 import { Text, Box, Card, Group, Title } from '@mantine/core';
+import classes from './GradientCard.module.css';
 
 interface GradientCardProps {
   gradient: [string, string];
@@ -34,19 +35,13 @@ export const GradientCard: React.FC<GradientCardProps> = ({
       p={0}
       radius={radius}
       withBorder
-      style={{ cursor: onClick ? 'pointer' : undefined, overflow: 'hidden' }}
+      className={onClick ? classes.card : undefined}
       onClick={onClick}
     >
       <Box
         p="lg"
-        style={{
-          background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`,
-          color: '#fff',
-          minHeight,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-        }}
+        className={classes.gradient}
+        style={{ background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`, minHeight }}
       >
         <Group justify="space-between" mb="xs" wrap="nowrap">
           <Title order={titleOrder} c="white">{title}</Title>

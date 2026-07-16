@@ -1,0 +1,8 @@
+.section {
+  border-top: 1px solid var(--mantine-color-gray-3);
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+}
+
+.grid {
+  align-items: stretch;
+}

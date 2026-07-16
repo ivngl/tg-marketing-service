@@ -15,6 +15,7 @@ import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconEdit, IconLogout, IconPlus } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+import classes from './UserProfilePage.module.css';
 
 const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const UserProfilePage: React.FC = () => {
             title="Подписка"
             action={<Badge size="lg" color="gray">Free</Badge>}
           >
-            <Card p="md" radius="md" style={{ backgroundColor: 'var(--mantine-color-tgblue-0)' }} mb="md">
+            <Card p="md" radius="md" className={classes.tintedCard} mb="md">
               <Text size="sm" fw={600} mb="xs">Получите больше возможностей</Text>
               <Text size="xs" c="dimmed" mb="sm">AI-инсайты, сравнение каналов, экспорт данных</Text>
               <Button size="sm" variant="filled" color="tgblue" onClick={() => navigate('/')}>

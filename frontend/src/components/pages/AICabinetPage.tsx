@@ -18,6 +18,7 @@ import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+import classes from './AICabinetPage.module.css';
 
 const ideas = [
   {
@@ -184,17 +185,17 @@ const AICabinetPage: React.FC = () => {
               <Text size="xs" c="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
-              <Box style={{ overflowX: 'auto' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '32px repeat(24, 1fr)', gap: 2, minWidth: 500 }}>
+              <Box className={classes.heatmapScroll}>
+                <div className={classes.heatmapGrid}>
                   <div />
                   {hours.filter((h) => h >= 8 && h <= 22).map((h) => (
-                    <div key={h} style={{ textAlign: 'center', fontSize: 10, color: 'var(--mantine-color-dimmed)' }}>
+                    <div key={h} className={classes.heatmapHour}>
                       {h}
                     </div>
                   ))}
                   {daysOfWeek.map((day) => (
                     <React.Fragment key={day}>
-                      <div style={{ fontSize: 10, color: 'var(--mantine-color-dimmed)', display: 'flex', alignItems: 'center' }}>
+                      <div className={classes.heatmapDay}>
                         {day}
                       </div>
                       {hours.filter((h) => h >= 8 && h <= 22).map((h) => {
@@ -202,12 +203,8 @@ const AICabinetPage: React.FC = () => {
                         return (
                           <div
                             key={`${day}-${h}`}
-                            style={{
-                              backgroundColor: getHeatColor(val),
-                              borderRadius: 3,
-                              aspectRatio: '1',
-                              minWidth: 12,
-                            }}
+                            className={classes.heatmapCell}
+                            style={{ backgroundColor: getHeatColor(val) }}
                             title={`${day} ${h}:00 — ${val > 0 ? `${val}/10 активность` : 'нет данных'}`}
                           />
                         );
@@ -219,7 +216,7 @@ const AICabinetPage: React.FC = () => {
               <Group mt="sm" gap="xs">
                 <Text size="xs" c="dimmed">Меньше</Text>
                 {[0, 3, 5, 7, 9, 10].map((v) => (
-                  <div key={v} style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: getHeatColor(v) }} />
+                  <div key={v} className={classes.heatmapLegendCell} style={{ backgroundColor: getHeatColor(v) }} />
                 ))}
                 <Text size="xs" c="dimmed">Больше</Text>
               </Group>
@@ -248,7 +245,7 @@ const AICabinetPage: React.FC = () => {
                     size="md"
                    
                     color="tgpurple"
-                    style={{ cursor: 'pointer' }}
+                    className={classes.clickable}
                     onClick={() => setQuestionText(q)}
                   >
                     {q}
@@ -262,7 +259,7 @@ const AICabinetPage: React.FC = () => {
                 rightSection={
                   <IconSend
                     size={16}
-                    style={{ cursor: 'pointer' }}
+                    className={classes.clickable}
                     color="var(--mantine-color-tgpurple-5)"
                     onClick={() => {
                       if (questionText.trim()) {

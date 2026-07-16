@@ -1,0 +1,24 @@
+.header {
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+}
+
+.navMain {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+.navBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.main {
+  background-color: var(--mantine-color-gray-0);
+}
+
+.clickable {
+  cursor: pointer;
+}

@@ -207,6 +207,23 @@ export const theme: MantineThemeOverride = {
         radius: 'xl',
       },
     },
+    Text: {
+      styles: {
+        root: {
+          lineHeight: '1.5',
+        },
+      },
+    },
+    SimpleGrid: {
+      defaultProps: {
+        spacing: 'lg',
+      },
+    },
+    Group: {
+      defaultProps: {
+        gap: 'sm',
+      },
+    },
     TextInput: {
       defaultProps: {
         radius: 'md',

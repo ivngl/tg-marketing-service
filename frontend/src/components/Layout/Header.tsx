@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, Burger, Group, Box, Stack, Anchor, Tooltip } from '@mantine/core';
 import { IconUser } from '@tabler/icons-react';
 import AppLink from '../ui/AppLink';
+import classes from './Header.module.css';
 
 const Header: React.FC = () => {
   const [isProfileOpen, setProfileOpen] = useState(false);
@@ -40,7 +41,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <Box component="header" w="100%" style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
+    <Box component="header" w="100%" className={classes.header}>
       <Group w="100%" maw={1280} mx="auto" px="md" justify="space-between">
         <AppLink to="/" variant="text" scheme="default" size="md">
           TG Pulse

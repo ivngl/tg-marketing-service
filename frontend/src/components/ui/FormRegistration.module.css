@@ -1,0 +1,18 @@
+.form {
+  max-width: 380px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.socialIcon {
+  height: 40px;
+  width: 40px;
+}

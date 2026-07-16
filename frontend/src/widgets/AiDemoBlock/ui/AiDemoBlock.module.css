@@ -1,0 +1,15 @@
+.section {
+  width: 100%;
+  padding: 40px;
+}
+
+.leftBox {
+  flex: 1 1 0;
+  min-width: 300px;
+}
+
+.rightBox {
+  flex: 1 1 0;
+  min-width: 300px;
+  display: flex;
+}

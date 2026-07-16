@@ -19,6 +19,7 @@ import { AreaChart } from '@mantine/charts';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import channelsCol from '@/fixtures/channelsCollection';
+import classes from './DashboardPage.module.css';
 
 const channel = channelsCol[0];
 
@@ -167,7 +168,7 @@ const DashboardPage: React.FC = () => {
               {posts.map((post) => (
                 <Table.Tr
                   key={post.title}
-                  style={{ cursor: 'pointer' }}
+                  className={classes.tableRow}
                   onClick={() => navigate('/post')}
                 >
                   <Table.Td>{post.title}</Table.Td>

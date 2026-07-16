@@ -3,13 +3,14 @@ import { Title, Container, SimpleGrid } from '@mantine/core';
 import { StepCard } from './StepCard';
 import type { ProcessStepsBlocksProps } from '../model/types';
 import { useProcessSteps } from '../model/useProcessSteps';
+import classes from './ProcessStepsBlocks.module.css';
 
 export const ProcessStepsBlocks: React.FC<ProcessStepsBlocksProps> = ({ steps: propsSteps }) => {
   const { steps: stepsFromPage } = useProcessSteps();
   const steps = propsSteps ?? stepsFromPage;
 
   return (
-    <section style={{ width: '100%', backgroundColor: '#F8F9FB', padding: 48 }}>
+    <section className={classes.section}>
       <Container px="md">
         <Title order={2} fw={700} mb="xl" ta="left">Как это работает</Title>
 

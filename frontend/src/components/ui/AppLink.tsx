@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
 import { Anchor } from '@mantine/core';
+import classes from './AppLink.module.css';
 
 type Size = 'sm' | 'md' | 'lg';
 
@@ -56,14 +57,8 @@ const AppLink: React.FC<AppLinkProps> = ({
       c={schemeColor[scheme]}
       fw={scheme !== 'default' ? 500 : undefined}
       onClick={isDisabled ? undefined : onClick}
-      style={{
-        pointerEvents: isDisabled ? 'none' : undefined,
-        opacity: isDisabled ? 0.5 : undefined,
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 6,
-        ...style,
-      }}
+      className={isDisabled ? classes.link : classes.linkEnabled}
+      style={style}
       {...rest}
     >
       {leftIcon}

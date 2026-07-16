@@ -2,6 +2,7 @@ import React from 'react';
 import { Accordion, Container, Title } from '@mantine/core';
 import type { FaqBlockProps } from '../model/types';
 import { useFaqBlock } from '../model/useFaqBlock';
+import classes from './FaqBlock.module.css';
 
 export const FaqBlock: React.FC<FaqBlockProps> = ({ faqs: propsFaqs }) => {
   const { faqs: faqsFromPage } = useFaqBlock();
@@ -10,7 +11,7 @@ export const FaqBlock: React.FC<FaqBlockProps> = ({ faqs: propsFaqs }) => {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section style={{ backgroundColor: '#F8F9FB', padding: 48 }}>
+    <section className={classes.section}>
       <Container size="md" px="md">
         <Title order={2} ta="center" mb="lg">Частые вопросы</Title>
 

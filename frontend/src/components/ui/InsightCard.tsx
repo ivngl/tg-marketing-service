@@ -1,5 +1,6 @@
 import React from 'react';
 import { Paper, Text } from '@mantine/core';
+import classes from './InsightCard.module.css';
 
 type InsightColor = 'green' | 'blue' | 'purple' | 'orange';
 
@@ -23,16 +24,14 @@ export const InsightCard: React.FC<InsightCardProps> = ({ color, label, children
     <Paper
       p="sm"
       radius="md"
-      style={{
-        borderLeft: `4px solid ${palette.border}`,
-        backgroundColor: palette.bg,
-        borderRadius: '0 8px 8px 0',
-      }}
+      className={classes.card}
+      style={{ borderLeftColor: palette.border, backgroundColor: palette.bg }}
     >
       {label && (
         <Text
-          style={{ fontSize: '10px', fontWeight: 800, color: palette.text, letterSpacing: '0.5px' }}
+          className={classes.label}
           mb={4}
+          style={{ color: palette.text }}
         >
           {label}
         </Text>

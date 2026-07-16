@@ -3,6 +3,7 @@ import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title,
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';
+import classes from './FormRegistration.module.css';
 
 const FormRegistration: React.FC = () => {
   const form = useForm({
@@ -26,18 +27,18 @@ const FormRegistration: React.FC = () => {
     <>
       <form
         onSubmit={form.onSubmit(onSubmit)}
-        style={{ maxWidth: 380, margin: 'auto', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 20 }}
+        className={classes.form}
       >
         <Stack>
-          <div style={{ textAlign: 'center' }}>
+          <div className={classes.title}>
             <Title order={2} fw={700}>Войти в систему</Title>
             <Text c="dimmed">Используйте привычный способ входа</Text>
           </div>
 
           <Group justify="center" gap="sm">
-            <Anchor href="#"><SocialIcon network="yandex" style={{ height: 40, width: 40 }} /></Anchor>
-            <Anchor href="#"><SocialIcon network="vk" style={{ height: 40, width: 40 }} /></Anchor>
-            <Anchor href="#"><SocialIcon network="github" style={{ height: 40, width: 40 }} /></Anchor>
+            <Anchor href="#"><SocialIcon network="yandex" className={classes.socialIcon} /></Anchor>
+            <Anchor href="#"><SocialIcon network="vk" className={classes.socialIcon} /></Anchor>
+            <Anchor href="#"><SocialIcon network="github" className={classes.socialIcon} /></Anchor>
           </Group>
 
           <Divider label="или" labelPosition="center" />

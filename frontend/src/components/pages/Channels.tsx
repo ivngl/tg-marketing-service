@@ -10,6 +10,7 @@ import {
   Title,
 } from '@mantine/core';
 import React, { useMemo, useState } from 'react';
+import classes from './Channels.module.css';
 import { IconSearch } from '@tabler/icons-react';
 import ChannelCard from '../ui/ChannelCard';
 import type { ChannelsProps } from '@/types/channel';
@@ -76,7 +77,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
             leftSection={<IconSearch size={16} />}
             value={query}
             onChange={(e) => setQuery(e.currentTarget.value)}
-            style={{ flex: 1, minWidth: 250, maxWidth: 450 }}
+            className={classes.searchInput}
           />
           <SegmentedControl
             data={[
@@ -95,7 +96,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
             radius="sm"
             variant={activeCategory === null ? 'filled' : 'light'}
             color={activeCategory === null ? 'blue' : 'gray'}
-            style={{ cursor: 'pointer' }}
+            className={classes.filterBadge}
             onClick={() => setActiveCategory(null)}
           >
             Все
@@ -107,7 +108,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
               radius="sm"
               variant={activeCategory === cat ? 'filled' : 'light'}
               color={activeCategory === cat ? 'blue' : 'gray'}
-              style={{ cursor: 'pointer' }}
+              className={classes.filterBadge}
               onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
             >
               {cat} ({count})
