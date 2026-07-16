@@ -1,93 +1,94 @@
 import React from 'react';
-import { Card, Group, Text, Title, Badge, Stack, Button, ThemeIcon } from '@mantine/core';
-import { IconCheck } from '@tabler/icons-react';
+import { Card, Group, Text, Stack, Button } from '@mantine/core';
 import type { Tariff } from '../model/types';
 
 interface TariffCardProps extends Tariff {
   onClick?: () => void;
-  period?: 'month' | 'year';
 }
 
-const monthlyPrices: Record<number, number> = {
-  1: 0,
-  2: 990,
-  3: 2990,
-};
-
 export const TariffCard: React.FC<TariffCardProps> = ({
-  id,
   name,
-  label,
-  description,
+  period,
+  monthlyPrice,
   features,
   button,
   isHighlighted,
   onClick,
-  period = 'month',
 }) => {
-  const monthly = monthlyPrices[id] ?? 0;
-  const displayPrice = period === 'year' && monthly > 0
-    ? Math.round(monthly * 0.8)
-    : monthly;
-  const suffix = period === 'year' ? '/мес (год)' : '/мес';
-
   return (
     <Card
       onClick={onClick}
-      withBorder
-      p="lg"
-      radius="xl"
+      padding="xl"
+      radius="lg"
       style={{
+        backgroundColor: '#FFFFFF',
+        border: isHighlighted ? '2px solid #229ED9' : '1px solid #E9ECEF',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        position: 'relative',
+        overflow: 'visible',
         cursor: 'pointer',
-        borderColor: isHighlighted ? 'var(--mantine-color-tgblue-5)' : undefined,
-        boxShadow: isHighlighted ? '0 2px 8px rgba(21,92,250,0.15)' : undefined,
-        transition: 'transform 150ms ease, box-shadow 150ms ease',
-      }}
-      styles={{
-        root: {
-          '&:hover': { transform: 'scale(1.02)', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' },
-        },
+        boxShadow: isHighlighted ? '0 12px 24px rgba(34, 158, 217, 0.08)' : undefined,
+        transition: 'border 150ms ease, box-shadow 150ms ease',
       }}
     >
-      <Group justify="space-between" align="center">
-        <Title order={3}>{name}</Title>
-        {label && (
-          <Badge variant="light" color="tgblue" size="sm">
-            {label}
-          </Badge>
-        )}
-      </Group>
+      {isHighlighted && (
+        <div
+          style={{
+            position: 'absolute',
+            top: '-14px',
+            left: '80px',
+            transform: 'translateX(-50%)',
+            backgroundColor: '#229ED9',
+            color: '#FFFFFF',
+            padding: '4px 14px',
+            borderRadius: '12px',
+            fontSize: '11px',
+            fontWeight: 800,
+            zIndex: 2,
+          }}
+        >
+          Популярный
+        </div>
+      )}
 
-      <Text size="sm" c="dimmed" mt={2}>{description}</Text>
+      <Stack gap="md" style={{ flex: 1 }}>
+        <Text style={{ fontSize: '14px', fontWeight: 800, color: '#111' }}>{name}</Text>
 
-      <Group align="baseline" gap={4} mt="sm">
-        <Text fw={700} fz={30} lh={1}>
-          {displayPrice === 0 ? '0' : `${displayPrice} ₽`}
-        </Text>
-        <Text size="sm" fw={600} c="dimmed" lh={1}>
-          {suffix}
-        </Text>
-      </Group>
+        <Stack gap={2}>
+          <Text style={{ fontSize: '34px', fontWeight: 800, color: '#111', lineHeight: 1.1 }}>
+            {monthlyPrice === 0 ? '0 ₽' : `${monthlyPrice} ₽`}
+          </Text>
+          <Text style={{ fontSize: '12px', color: '#A0AEC0' }}>
+            {period}
+          </Text>
+        </Stack>
 
-      <Stack gap={6} mt="md">
-        {features.map((f) => (
-          <Group key={f.id} gap={8} wrap="nowrap">
-            <ThemeIcon size="sm" radius="xl" color="green.6" variant="filled">
-              <IconCheck size={12} />
-            </ThemeIcon>
-            <Text size="sm">{f.text}</Text>
-          </Group>
-        ))}
+        <Stack gap="sm" mt="md" mb={isHighlighted ? 'xl' : undefined}>
+          {features.map((feat) => (
+            <Group key={feat.id} gap={8} wrap="nowrap" align="flex-start">
+              <Text style={{ fontSize: '12.5px', color: '#10B981', fontWeight: 650 }}>✓</Text>
+              <Text style={{ fontSize: '13px', color: '#4A5568' }}>{feat.text}</Text>
+            </Group>
+          ))}
+        </Stack>
       </Stack>
 
-      <Button
-        mt="md"
-        fullWidth
-        variant={isHighlighted ? 'filled' : 'outline'}
-        color={isHighlighted ? 'tgblue' : 'gray'}
-      >
-        {button.label}
-      </Button>
+      {isHighlighted && (
+        <Button
+          size="md"
+          color="tgblue"
+          style={{
+            fontWeight: 700,
+            height: '44px',
+            borderRadius: '8px',
+            marginTop: 'auto',
+          }}
+        >
+          {button.label}
+        </Button>
+      )}
     </Card>
   );
 };

@@ -14,6 +14,8 @@ export interface Tariff {
   label?: string;
   description: string;
   price: string;
+  period: string;
+  monthlyPrice: number;
   features: TariffFeature[];
   button: TariffButton;
   isHighlighted?: boolean;

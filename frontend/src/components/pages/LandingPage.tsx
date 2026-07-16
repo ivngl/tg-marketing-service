@@ -1,4 +1,4 @@
-import React from 'react';
+import { TariffsBlock } from '@/widgets/TariffsBlock';
 import {
   Badge,
   Box,
@@ -12,12 +12,13 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
-import { useNavigate } from 'react-router-dom';
 import {
+  IconPresentationAnalytics,
   IconScale,
   IconSparkles,
-  IconPresentationAnalytics,
 } from '@tabler/icons-react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const stats = [
   { value: '2.4M', label: 'каналов в базе' },
@@ -269,129 +270,13 @@ const LandingPage: React.FC = () => {
           </SimpleGrid>
         </Container>
       </section>
-
-
-
-      <TariffsBlockCustom navigate={navigate} />
-
+      <TariffsBlock />
       <FooterCustom navigate={navigate} />
     </Box>
   );
 };
 
 export default LandingPage;
-
-const tariffPlans = [
-  {
-    name: 'Free',
-    price: '0 ₽',
-    period: 'навсегда',
-    features: ['Базовая статистика', '5 AI-разборов / мес', 'Каталог каналов'],
-  },
-  {
-    name: 'Pro',
-    price: '990 ₽',
-    period: 'в месяц',
-    features: ['Всё из Free', 'Безлимит AI-разборов', 'Контент-план на неделю', 'Сравнение до 5 каналов', 'Экспорт отчётов'],
-    highlighted: true,
-  },
-  {
-    name: 'Agency',
-    price: '4 900 ₽',
-    period: 'в месяц',
-    features: ['Всё из Pro', 'До 50 каналов', 'API-доступ', 'Командный доступ'],
-  }
-];
-
-const TariffsBlockCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
-  return (
-    <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF', borderTop: '1px solid #E9ECEF', borderBottom: '1px solid #E9ECEF' }}>
-      <Container size="xl">
-        <Title order={2} style={{ fontSize: '32px', fontWeight: 800, color: '#111', textAlign: 'center', marginBottom: '60px' }}>
-          Тарифы
-        </Title>
-
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} style={{ alignItems: 'stretch' }}>
-          {tariffPlans.map((tariff) => (
-            <Card
-              key={tariff.name}
-              padding="xl"
-              radius="lg"
-              style={{
-                backgroundColor: '#FFFFFF',
-                border: tariff.highlighted ? '2px solid #229ED9' : '1px solid #E9ECEF',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'visible',
-                boxShadow: tariff.highlighted ? '0 12px 24px rgba(34, 158, 217, 0.08)' : undefined,
-              }}
-            >
-              {tariff.highlighted && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '-14px',
-                    left: '80px',
-                    transform: 'translateX(-50%)',
-                    backgroundColor: '#229ED9',
-                    color: '#FFFFFF',
-                    padding: '4px 14px',
-                    borderRadius: '12px',
-                    fontSize: '11px',
-                    fontWeight: 800,
-                    zIndex: 2,
-                  }}
-                >
-                  Популярный
-                </div>
-              )}
-
-              <Stack gap="md" style={{ flex: 1 }}>
-                <Text style={{ fontSize: '14px', fontWeight: 800, color: '#111' }}>{tariff.name}</Text>
-
-                <Stack gap={2}>
-                  <Text style={{ fontSize: '34px', fontWeight: 800, color: '#111', lineHeight: 1.1 }}>
-                    {tariff.price}
-                  </Text>
-                  <Text style={{ fontSize: '12px', color: '#A0AEC0' }}>
-                    {tariff.period}
-                  </Text>
-                </Stack>
-
-                <Stack gap="sm" mt="md" mb={tariff.highlighted ? 'xl' : undefined}>
-                  {tariff.features.map((feat) => (
-                    <Group key={feat} gap={8} wrap="nowrap" align="flex-start">
-                      <Text style={{ fontSize: '12.5px', color: '#10B981', fontWeight: 650 }}>✓</Text>
-                      <Text style={{ fontSize: '13px', color: '#4A5568' }}>{feat}</Text>
-                    </Group>
-                  ))}
-                </Stack>
-              </Stack>
-
-              {tariff.highlighted && (
-                <Button
-                  size="md"
-                  color="tgblue"
-                  onClick={() => navigate('/channels')}
-                  style={{
-                    fontWeight: 700,
-                    height: '44px',
-                    borderRadius: '8px',
-                    marginTop: 'auto',
-                  }}
-                >
-                  Выбрать Pro
-                </Button>
-              )}
-            </Card>
-          ))}
-        </SimpleGrid>
-      </Container>
-    </section>
-  );
-};
 
 const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
   return (
