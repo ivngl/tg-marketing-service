@@ -63,7 +63,7 @@ export const GradientCard: React.FC<GradientCardProps> = ({
             </Group>
           )}
           {children && (
-            <Text size="sm" variant="dimmed">{children}</Text>
+            <Text size="sm" color="dimmed">{children}</Text>
           )}
         </Box>
       )}

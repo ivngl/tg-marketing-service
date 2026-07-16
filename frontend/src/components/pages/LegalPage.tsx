@@ -30,7 +30,7 @@ const LegalPage: React.FC = () => {
           {tab === 'privacy' && (
             <>
               <Title order={3} mb="md">Политика конфиденциальности</Title>
-              <Text size="sm" variant="dimmed">
+              <Text size="sm" color="dimmed">
                 Мы собираем и обрабатываем персональные данные пользователей
                 исключительно для целей предоставления сервиса аналитики
                 Telegram-каналов. Мы не передаём данные третьим лицам без
@@ -41,7 +41,7 @@ const LegalPage: React.FC = () => {
           {tab === 'terms' && (
             <>
               <Title order={3} mb="md">Пользовательское соглашение</Title>
-              <Text size="sm" variant="dimmed">
+              <Text size="sm" color="dimmed">
                 Используя сервис TG Pulse, вы соглашаетесь с данными условиями.
                 Сервис предоставляет инструменты аналитики Telegram-каналов
                 «как есть» без гарантий точности данных.
@@ -51,7 +51,7 @@ const LegalPage: React.FC = () => {
           {tab === 'offer' && (
             <>
               <Title order={3} mb="md">Публичная оферта</Title>
-              <Text size="sm" variant="dimmed">
+              <Text size="sm" color="dimmed">
                 Настоящая оферта адресована физическим и юридическим лицам
                 и определяет условия предоставления платных услуг сервиса
                 TG Pulse на условиях подписки.

@@ -61,19 +61,19 @@ export const ProfileForm: React.FC = () => {
 
         <Paper withBorder p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Подписка Pro</Title>
-          <Text variant="dimmed">Заглушка для формы подписки.</Text>
+          <Text color="dimmed">Заглушка для формы подписки.</Text>
         </Paper>
       </Group>
 
       <Group grow wrap="wrap">
         <Paper withBorder p="lg" radius="sm" style={{ flex: '2 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Уведомления</Title>
-          <Text variant="dimmed">Заглушка для формы уведомлений.</Text>
+          <Text color="dimmed">Заглушка для формы уведомлений.</Text>
         </Paper>
 
         <Paper withBorder p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Статистика использования</Title>
-          <Text variant="dimmed">Заглушка для статистики.</Text>
+          <Text color="dimmed">Заглушка для статистики.</Text>
         </Paper>
       </Group>
     </Stack>

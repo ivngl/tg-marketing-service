@@ -49,8 +49,8 @@ const BlogPage: React.FC = () => {
               minHeight={100}
               meta={
                 <>
-                  <Text size="xs" variant="dimmed">{post.date}</Text>
-                  <Text size="xs" variant="dimmed">{post.readTime} чтения</Text>
+                  <Text size="xs" color="dimmed">{post.date}</Text>
+                  <Text size="xs" color="dimmed">{post.readTime} чтения</Text>
                 </>
               }
             />

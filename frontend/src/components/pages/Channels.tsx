@@ -64,7 +64,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
     <PageShell>
         <Group justify="space-between" mb="md">
           <Title order={1}>Каталог каналов и групп</Title>
-          <Text variant="dimmed" size="sm">
+          <Text color="dimmed" size="sm">
             Найдено: {filtered.length} из {channels.length}
           </Text>
         </Group>
@@ -115,7 +115,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
         </Group>
 
         {filtered.length === 0 ? (
-          <Text variant="dimmed" ta="center" py="xl" size="lg">
+          <Text color="dimmed" ta="center" py="xl" size="lg">
             Ничего не найдено
           </Text>
         ) : (

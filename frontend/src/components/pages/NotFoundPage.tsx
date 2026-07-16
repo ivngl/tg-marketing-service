@@ -29,7 +29,7 @@ const NotFoundPage: React.FC = () => {
         >
           404
         </Title>
-        <Text size="lg" variant="dimmed" mb="lg">
+        <Text size="lg" color="dimmed" mb="lg">
           Страница не найдена
         </Text>
         <Group justify="center" gap="md">

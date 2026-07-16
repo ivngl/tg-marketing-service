@@ -115,7 +115,7 @@ const AICabinetPage: React.FC = () => {
                         {idea.title}
                       </Text>
                     </Group>
-                    <Text size="xs" variant="dimmed" mb="xs">
+                    <Text size="xs" color="dimmed" mb="xs">
                       {idea.reason}
                     </Text>
                     <Group justify="space-between">
@@ -151,7 +151,7 @@ const AICabinetPage: React.FC = () => {
                       {c.name}
                     </Text>
                     <Group gap="xs">
-                      <Text size="xs" variant="dimmed">
+                      <Text size="xs" color="dimmed">
                         ER {c.er}%
                       </Text>
                       <Badge
@@ -181,7 +181,7 @@ const AICabinetPage: React.FC = () => {
             </Card>
 
             <SectionCard title="Лучшее время для публикаций">
-              <Text size="xs" variant="dimmed" mb="sm">
+              <Text size="xs" color="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
               <Box style={{ overflowX: 'auto' }}>
@@ -217,11 +217,11 @@ const AICabinetPage: React.FC = () => {
                 </div>
               </Box>
               <Group mt="sm" gap="xs">
-                <Text size="xs" variant="dimmed">Меньше</Text>
+                <Text size="xs" color="dimmed">Меньше</Text>
                 {[0, 3, 5, 7, 9, 10].map((v) => (
                   <div key={v} style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: getHeatColor(v) }} />
                 ))}
-                <Text size="xs" variant="dimmed">Больше</Text>
+                <Text size="xs" color="dimmed">Больше</Text>
               </Group>
             </SectionCard>
           </Stack>

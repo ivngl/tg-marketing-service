@@ -1,12 +1,15 @@
 import type { MantineThemeOverride } from '@mantine/core';
 
+const solid = (hex: string) =>
+  Array(10).fill(hex) as [string, string, string, string, string, string, string, string, string, string];
+
 export const theme: MantineThemeOverride = {
   primaryColor: 'tgblue',
   primaryShade: { light: 5, dark: 5 },
   colors: {
-    headingText: ['#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113'],
-    bodyText: ['#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748'],
-    captionText: ['#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568'],
+    primary: solid('#111113'),
+    secondary: solid('#2D3748'),
+    muted: solid('#4A5568'),
     gray: [
       '#F8F9FB',
       '#F1F3F5',

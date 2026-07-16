@@ -71,7 +71,7 @@ const AdminPage: React.FC = () => {
         <Title order={1} mb="xs">
           Админ-панель
         </Title>
-        <Text variant="dimmed" mb="lg">
+        <Text color="dimmed" mb="lg">
           Только для администраторов сервиса
         </Text>
 
@@ -108,7 +108,7 @@ const AdminPage: React.FC = () => {
                           <BrandAvatar name={item.name} size={28} />
                           <div>
                             <Text size="sm" fw={600}>{item.name}</Text>
-                            <Text size="xs" variant="dimmed">{item.username}</Text>
+                            <Text size="xs" color="dimmed">{item.username}</Text>
                           </div>
                         </Group>
                       </Table.Td>
@@ -150,7 +150,7 @@ const AdminPage: React.FC = () => {
                   {moderation.length === 0 && (
                     <Table.Tr>
                       <Table.Td colSpan={5}>
-                        <Text variant="dimmed" ta="center" py="md">Очередь модерации пуста</Text>
+                        <Text color="dimmed" ta="center" py="md">Очередь модерации пуста</Text>
                       </Table.Td>
                     </Table.Tr>
                   )}
@@ -185,7 +185,7 @@ const AdminPage: React.FC = () => {
                           <BrandAvatar name={ch.name} size={28} />
                           <div>
                             <Text size="sm" fw={600}>{ch.name}</Text>
-                            <Text size="xs" variant="dimmed">{ch.username}</Text>
+                            <Text size="xs" color="dimmed">{ch.username}</Text>
                           </div>
                         </Group>
                       </Table.Td>

@@ -38,7 +38,7 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
           px={16}
           pb={12}
           pt={4}
-          variant="dimmed"
+          color="dimmed"
           ta="left"
         >
           {answer}

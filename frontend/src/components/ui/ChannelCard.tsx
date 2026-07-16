@@ -80,7 +80,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
               />
             )}
           </Group>
-          <Text size="xs" variant="dimmed" truncate="end">
+          <Text size="xs" color="dimmed" truncate="end">
             {username}
           </Text>
         </div>
@@ -106,7 +106,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
       </Group>
 
       <Group gap="md" wrap="nowrap">
-        <Text size="xs" variant="dimmed">
+        <Text size="xs" color="dimmed">
           {formatNumberShort(subscribers)} {type === 'channel' ? 'подписчиков' : 'участников'}
         </Text>
         <Text size="xs" fw={600} c="green">

@@ -20,7 +20,7 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
           backgroundColor: '#F8F9FB',
         }}
       >
-        <Text fz={48} variant="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
+        <Text fz={48} color="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
       </div>
     </Paper>
   );

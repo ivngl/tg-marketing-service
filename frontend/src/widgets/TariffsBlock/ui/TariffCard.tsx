@@ -58,10 +58,10 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       )}
 
       <Stack gap="md" style={{ flex: 1 }}>
-        <Text size="md" fw={800} variant="primary">{name}</Text>
+        <Text size="md" fw={800} color="primary">{name}</Text>
 
         <Stack gap={2}>
-          <Text fw={800} variant="primary" lh={1.1} style={{ fontSize: '34px' }}>
+          <Text fw={800} color="primary" lh={1.1} style={{ fontSize: '34px' }}>
             {monthlyPrice === 0 ? '0 ₽' : `${monthlyPrice} ₽`}
           </Text>
           <Text size="xs" c="gray.5">
@@ -73,7 +73,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
           {features.map((feat) => (
             <Group key={feat.id} gap={8} wrap="nowrap" align="flex-start">
               <Text size="sm" fw={600} c="#10B981">✓</Text>
-              <Text size="sm" variant="muted">{feat.text}</Text>
+              <Text size="sm" color="muted">{feat.text}</Text>
             </Group>
           ))}
         </Stack>

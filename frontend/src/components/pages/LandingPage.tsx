@@ -86,14 +86,13 @@ const LandingPage: React.FC = () => {
                 больше, чем вы сами
               </Title>
 
-              <Text size="lg" variant="dimmed" lh={1.5} maw={500}>
+              <Text size="lg" color="dimmed" lh={1.5} maw={500}>
                 Статистика, охваты и реакции каждого поста — и AI, который подсказывает,{' '}
-                <span style={{ fontWeight: 700, color: 'var(--mantine-color-headingText-5)' }}>о чём писать дальше</span>, чтобы расти быстрее.
+                <span style={{ fontWeight: 700, color: 'var(--mantine-color-primary-5)' }}>о чём писать дальше</span>, чтобы расти быстрее.
               </Text>
 
               <Group gap="md">
                 <Button
-                  variant="primary"
                   size="md"
                   onClick={() => navigate('/channels')}
                 >
@@ -106,7 +105,7 @@ const LandingPage: React.FC = () => {
                   style={{
                     backgroundColor: 'var(--mantine-color-gray-0)',
                     borderColor: 'var(--mantine-color-gray-3)',
-                    color: 'var(--mantine-color-headingText-5)',
+                    color: 'var(--mantine-color-primary-5)',
                   }}
                 >
                   Каталог каналов
@@ -116,10 +115,10 @@ const LandingPage: React.FC = () => {
               <Group gap={48} mt="lg">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <Text fw={800} variant="primary" lh={1.1} style={{ fontSize: '32px' }}>
+                    <Text fw={800} color="primary" lh={1.1} style={{ fontSize: '32px' }}>
                       {stat.value}
                     </Text>
-                    <Text size="sm" variant="dimmed" mt="xs">
+                    <Text size="sm" color="dimmed" mt="xs">
                       {stat.label}
                     </Text>
                   </div>
@@ -143,7 +142,7 @@ const LandingPage: React.FC = () => {
                     <ThemeIcon size={22} radius="xl" color="tgblue">
                       <IconSparkles size={12} />
                     </ThemeIcon>
-                    <Text size="md" fw={700} variant="primary">
+                    <Text size="md" fw={700} color="primary">
                       AI-помощник редактора
                     </Text>
                   </Group>
@@ -154,13 +153,13 @@ const LandingPage: React.FC = () => {
 
                 <Stack gap="md">
                   <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
-                    <Text size="xs" variant="secondary" lh={1.4}>
+                    <Text size="xs" color="secondary" lh={1.4}>
                       Разборы кейсов дают <span style={{ fontWeight: 700 }}>+34%</span> реакций. Запланируйте один на этой неделе.
                     </Text>
                   </InsightCard>
 
                   <InsightCard color="blue" label="ТРЕНД">
-                    <Text size="xs" variant="secondary" lh={1.4}>
+                    <Text size="xs" color="secondary" lh={1.4}>
                       Тема <span style={{ fontWeight: 700 }}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
                     </Text>
                   </InsightCard>
@@ -169,11 +168,11 @@ const LandingPage: React.FC = () => {
                     <Group gap={6} align="flex-start" wrap="nowrap">
                       <Text size="lg">🎯</Text>
                       <Box>
-                        <Text size="sm" fw={700} variant="primary" mb={2}>
+                        <Text size="sm" fw={700} color="primary" mb={2}>
                           «Как AI-агенты меняют онбординг»
                         </Text>
                         <Text size="xs" fw={600} c="tggreen.7">
-                          Прогноз ~48K охват <span style={{ color: 'var(--mantine-color-captionText-5)', fontWeight: 400 }}>• чт 19:30</span>
+                          Прогноз ~48K охват <span style={{ color: 'var(--mantine-color-muted-5)', fontWeight: 400 }}>• чт 19:30</span>
                         </Text>
                       </Box>
                     </Group>
@@ -191,7 +190,7 @@ const LandingPage: React.FC = () => {
             <Title order={2} ta="center">
               Всё, что умеет tgstats — и AI сверху
             </Title>
-            <Text variant="dimmed" ta="center" maw={600} style={{ fontSize: '15px' }}>
+            <Text color="dimmed" ta="center" maw={600} style={{ fontSize: '15px' }}>
               Полная статистика каналов плюс рекомендательный слой на искусственном интеллекте
             </Text>
           </Stack>
@@ -221,7 +220,7 @@ const LandingPage: React.FC = () => {
                 <Title order={3} mb="xs">
                   {f.title}
                 </Title>
-                <Text size="sm" variant="dimmed" lh={1.5}>
+                <Text size="sm" color="dimmed" lh={1.5}>
                   {f.description}
                 </Text>
               </Card>
@@ -247,18 +246,18 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
               <ThemeIcon size={24} radius="xl" color="tgblue">
                 <span style={{ fontSize: 'var(--mantine-font-size-xs)', fontWeight: 800 }}>t</span>
               </ThemeIcon>
-              <Text fw={800} size="lg" variant="primary">tgpulse</Text>
+              <Text fw={800} size="lg" color="primary">tgpulse</Text>
             </Group>
-            <Text size="sm" variant="dimmed" lh={1.5} maw={240}>
+            <Text size="sm" color="dimmed" lh={1.5} maw={240}>
               Аналитика Telegram-каналов с искусственным интеллектом. Знайте о своём канале больше, чем вы сами.
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text fw={800} size="md" variant="primary">Продукт</Text>
+            <Text fw={800} size="md" color="primary">Продукт</Text>
             <Text
               size="sm"
-              variant="dimmed"
+              color="dimmed"
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/channels')}
             >
@@ -266,7 +265,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             </Text>
             <Text
               size="sm"
-              variant="dimmed"
+              color="dimmed"
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/collections')}
             >
@@ -275,10 +274,10 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
           </Stack>
 
           <Stack gap="sm">
-            <Text fw={800} size="md" variant="primary">Компания</Text>
+            <Text fw={800} size="md" color="primary">Компания</Text>
             <Text
               size="sm"
-              variant="dimmed"
+              color="dimmed"
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/blog')}
             >
@@ -286,7 +285,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             </Text>
             <Text
               size="sm"
-              variant="dimmed"
+              color="dimmed"
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
             >
@@ -295,10 +294,10 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
           </Stack>
 
           <Stack gap="sm">
-            <Text fw={800} size="md" variant="primary">Правовое</Text>
+            <Text fw={800} size="md" color="primary">Правовое</Text>
             <Text
               size="sm"
-              variant="dimmed"
+              color="dimmed"
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/legal')}
             >
@@ -306,7 +305,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
             </Text>
             <Text
               size="sm"
-              variant="dimmed"
+              color="dimmed"
               style={{ cursor: 'pointer' }}
               onClick={() => navigate('/legal')}
             >

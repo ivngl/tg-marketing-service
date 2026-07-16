@@ -33,7 +33,7 @@ const FormRegistration: React.FC = () => {
         <Stack gap="md">
           <div style={{ textAlign: 'center' }}>
             <Title order={2} fw={700}>Войти в систему</Title>
-            <Text variant="dimmed">Используйте привычный способ входа</Text>
+            <Text color="dimmed">Используйте привычный способ входа</Text>
           </div>
 
           <Group justify="center" gap="sm">

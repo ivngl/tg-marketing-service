@@ -17,7 +17,7 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
   return (
     <Box component="section" bg="white" py={80} style={{ borderTop: '1px solid var(--mantine-color-gray-3)', borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
       <Container size="xl">
-        <Title order={2} fw={800} c="headingText" ta="center" mb={60} style={{ fontSize: '32px' }}>
+        <Title order={2} fw={800} c="primary" ta="center" mb={60} style={{ fontSize: '32px' }}>
           Тарифы
         </Title>
 

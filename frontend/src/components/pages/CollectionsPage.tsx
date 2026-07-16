@@ -28,8 +28,8 @@ const CollectionsPage: React.FC = () => {
               metaJustify="space-between"
               meta={
                 <>
-                  <Text size="xs" variant="dimmed">Куратор: {col.curator}</Text>
-                  <Text size="xs" variant="dimmed">{col.count} каналов</Text>
+                  <Text size="xs" color="dimmed">Куратор: {col.curator}</Text>
+                  <Text size="xs" color="dimmed">{col.count} каналов</Text>
                 </>
               }
               onClick={() => navigate(`/collections/${col.id}`)}

@@ -19,7 +19,7 @@ export const AiDemoText: React.FC<AiDemoTextProps> = (props) => {
   return (
     <Stack gap="md">
       {description && (
-        <Text variant="dimmed">{description}</Text>
+        <Text color="dimmed">{description}</Text>
       )}
 
       <Stack gap={8}>
@@ -28,7 +28,7 @@ export const AiDemoText: React.FC<AiDemoTextProps> = (props) => {
             <ThemeIcon size="sm" color="green.6" variant="subtle">
               <IconCheck size={18} />
             </ThemeIcon>
-            <Text size="sm" variant="dimmed">{f.text}</Text>
+            <Text size="sm" color="dimmed">{f.text}</Text>
           </Group>
         ))}
       </Stack>

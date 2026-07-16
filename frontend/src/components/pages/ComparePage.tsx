@@ -119,7 +119,7 @@ const ComparePage: React.FC = () => {
           <Title order={3} mb="sm">
             AI-вердикт
           </Title>
-          <Text size="sm" variant="dimmed">
+          <Text size="sm" color="dimmed">
             Для рекламы лучше всего подходит канал «{channels[0].name}» — у него наивысшая вовлечённость
             и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
           </Text>
