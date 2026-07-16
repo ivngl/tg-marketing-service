@@ -69,9 +69,9 @@ export const theme: MantineThemeOverride = {
   headings: {
     fontFamily: "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     sizes: {
-      h1: { fontSize: '44px', fontWeight: '800', lineHeight: '1.2' },
-      h2: { fontSize: '24px', fontWeight: '800', lineHeight: '1.3' },
-      h3: { fontSize: '16px', fontWeight: '700', lineHeight: '1.4' },
+      h1: { fontSize: '46px', fontWeight: '850', lineHeight: '1.15' },
+      h2: { fontSize: '32px', fontWeight: '800', lineHeight: '1.3' },
+      h3: { fontSize: '16px', fontWeight: '800', lineHeight: '1.4' },
       h4: { fontSize: '14px', fontWeight: '700', lineHeight: '1.4' },
     },
   },
@@ -85,7 +85,7 @@ export const theme: MantineThemeOverride = {
   radius: {
     xs: '4px',
     sm: '6px',
-    md: '12px',
+    md: '8px',
     lg: '16px',
     xl: '99px',
   },
@@ -111,7 +111,8 @@ export const theme: MantineThemeOverride = {
     },
     Card: {
       defaultProps: {
-        radius: 'md',
+        radius: 'lg',
+        padding: 'lg',
         withBorder: true,
       },
     },

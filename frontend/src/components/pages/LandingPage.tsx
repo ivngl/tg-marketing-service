@@ -80,7 +80,7 @@ const LandingPage: React.FC = () => {
                 ✦ Аналитика Telegram с искусственным интеллектом
               </Badge>
 
-              <Title order={1} style={{ fontSize: '46px', fontWeight: 850, lineHeight: 1.15, color: '#111' }}>
+              <Title order={1}>
                 Знайте о своём канале
                 <br />
                 больше, чем вы сами
@@ -96,7 +96,6 @@ const LandingPage: React.FC = () => {
                   variant="primary"
                   size="md"
                   onClick={() => navigate('/channels')}
-                  style={{ height: '46px', padding: '0 24px', borderRadius: '8px' }}
                 >
                   Добавить свой канал
                 </Button>
@@ -105,9 +104,6 @@ const LandingPage: React.FC = () => {
                   size="md"
                   onClick={() => navigate('/channels')}
                   style={{
-                    height: '46px',
-                    padding: '0 24px',
-                    borderRadius: '8px',
                     backgroundColor: '#F8F9FB',
                     borderColor: '#E9ECEF',
                     color: '#111',
@@ -193,7 +189,7 @@ const LandingPage: React.FC = () => {
       <section style={{ padding: '80px 0', backgroundColor: '#F8F9FB' }}>
         <Container size="xl">
           <Stack gap={10} align="center" mb={50}>
-            <Title order={2} style={{ fontSize: '32px', fontWeight: 800, color: '#111', textAlign: 'center' }}>
+            <Title order={2} style={{ textAlign: 'center' }}>
               Всё, что умеет tgstats — и AI сверху
             </Title>
             <Text style={{ fontSize: '15px', color: '#687588', textAlign: 'center', maxWidth: '600px' }}>
@@ -224,7 +220,7 @@ const LandingPage: React.FC = () => {
                 >
                   <f.icon size={24} />
                 </ThemeIcon>
-                <Title order={3} style={{ fontSize: '16px', fontWeight: 800, color: '#111', marginBottom: '8px' }}>
+                <Title order={3} style={{ marginBottom: '8px' }}>
                   {f.title}
                 </Title>
                 <Text style={{ fontSize: '13px', color: '#687588', lineHeight: 1.5 }}>
