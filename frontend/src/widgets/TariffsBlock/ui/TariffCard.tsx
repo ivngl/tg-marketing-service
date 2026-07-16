@@ -13,6 +13,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
   features,
   button,
   isHighlighted,
+  isPopular,
   onClick,
 }) => {
   return (
@@ -33,7 +34,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
         transition: 'border 150ms ease, box-shadow 150ms ease',
       }}
     >
-      {isHighlighted && (
+      {isPopular && (
         <div
           style={{
             position: 'absolute',

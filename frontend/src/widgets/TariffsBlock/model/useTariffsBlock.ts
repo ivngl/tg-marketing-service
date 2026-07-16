@@ -24,6 +24,7 @@ const tariffsFixture: Tariff[] = [
     ],
     button: { label: 'Выбрать Pro', variant: 'primary' },
     isHighlighted: true,
+    isPopular: true,
   },
   {
     id: 3, name: 'Agency', label: undefined, description: 'Для агентств и команд, работающих с множеством каналов',

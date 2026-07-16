@@ -19,6 +19,7 @@ export interface Tariff {
   features: TariffFeature[];
   button: TariffButton;
   isHighlighted?: boolean;
+  isPopular?: boolean;
 }
 
 export interface TariffsBlockProps {
