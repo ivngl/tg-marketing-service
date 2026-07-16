@@ -1,7 +1,6 @@
 import React from 'react';
 import { Avatar } from '@mantine/core';
-
-const brandGradient = { from: '#229ED9', to: '#6741d9', deg: 135 };
+import { brandGradient } from '@/app/constants';
 
 interface BrandAvatarProps {
   name: string;

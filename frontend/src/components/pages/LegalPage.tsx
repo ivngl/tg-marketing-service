@@ -1,19 +1,17 @@
 import React from 'react';
 import {
-  Box,
-  Container,
   Paper,
   SegmentedControl,
   Text,
   Title,
 } from '@mantine/core';
+import { PageShell } from '@/components/ui/PageShell';
 
 const LegalPage: React.FC = () => {
   const [tab, setTab] = React.useState('privacy');
 
   return (
-    <Box bg="gray.0" mih="100vh">
-      <Container size="md" py={40} px="md">
+    <PageShell size="md">
         <Title order={1} mb="lg">
           Правовая информация
         </Title>
@@ -61,8 +59,7 @@ const LegalPage: React.FC = () => {
             </>
           )}
         </Paper>
-      </Container>
-    </Box>
+      </PageShell>
   );
 };
 

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {
   Badge,
-  Box,
-  Container,
   Group,
   Select,
   Switch,
@@ -14,6 +12,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { SectionCard } from '@/components/ui/SectionCard';
+import { PageShell } from '@/components/ui/PageShell';
 import { IconPlus } from '@tabler/icons-react';
 
 const categoryOptions = ['Технологии', 'Бизнес', 'Спорт', 'Криптовалюты', 'Маркетинг'];
@@ -68,8 +67,7 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <Box bg="gray.0" mih="100vh">
-      <Container size="xl" py={40} px="md">
+    <PageShell>
         <Title order={1} mb="xs">
           Админ-панель
         </Title>
@@ -286,8 +284,7 @@ const AdminPage: React.FC = () => {
             </SectionCard>
           </Tabs.Panel>
         </Tabs>
-      </Container>
-    </Box>
+      </PageShell>
   );
 };
 

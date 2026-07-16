@@ -1,4 +1,5 @@
 import React from 'react';
+import type { GroupProps } from '@mantine/core';
 import { Box, Card, Group, Text, Title } from '@mantine/core';
 
 interface GradientCardProps {
@@ -6,7 +7,11 @@ interface GradientCardProps {
   title: string;
   titleOrder?: 1 | 2 | 3 | 4 | 5 | 6;
   minHeight?: number;
+  radius?: 'sm' | 'md' | 'lg' | 'xl';
+  featured?: React.ReactNode;
+  content?: React.ReactNode;
   meta?: React.ReactNode;
+  metaJustify?: GroupProps['justify'];
   children?: React.ReactNode;
   onClick?: () => void;
 }
@@ -16,14 +21,18 @@ export const GradientCard: React.FC<GradientCardProps> = ({
   title,
   titleOrder = 3,
   minHeight = 120,
+  radius = 'md',
+  featured,
+  content,
   meta,
+  metaJustify,
   children,
   onClick,
 }) => {
   return (
     <Card
       p={0}
-      radius="md"
+      radius={radius}
       withBorder
       style={{ cursor: onClick ? 'pointer' : undefined, overflow: 'hidden' }}
       onClick={onClick}
@@ -39,12 +48,16 @@ export const GradientCard: React.FC<GradientCardProps> = ({
           justifyContent: 'flex-end',
         }}
       >
-        <Title order={titleOrder} c="white">{title}</Title>
+        <Group justify="space-between" mb="xs" wrap="nowrap">
+          <Title order={titleOrder} c="white">{title}</Title>
+          {featured}
+        </Group>
+        {content}
       </Box>
       {(meta || children) && (
         <Box p="md">
           {meta && (
-            <Group gap="md" mb={children ? 'xs' : 0}>
+            <Group gap="md" justify={metaJustify} mb={children ? 'xs' : 0}>
               {meta}
             </Group>
           )}

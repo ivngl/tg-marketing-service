@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   Badge,
-  Box,
   Card,
-  Container,
   Group,
   SegmentedControl,
   SimpleGrid,
@@ -15,6 +13,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
+import { PageShell } from '@/components/ui/PageShell';
 import { AreaChart } from '@mantine/charts';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
@@ -50,8 +49,7 @@ const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box bg="gray.0" mih="100vh">
-      <Container size="xl" py={40} px="md">
+    <PageShell>
         <Group justify="space-between" mb="md">
           <Group gap="md">
             <BrandAvatar name={channel.name} size={58} />
@@ -191,8 +189,7 @@ const DashboardPage: React.FC = () => {
             </Table.Tbody>
           </Table>
         </Card>
-      </Container>
-    </Box>
+      </PageShell>
   );
 };
 

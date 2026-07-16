@@ -3,7 +3,6 @@ import {
   Badge,
   Box,
   Card,
-  Container,
   Group,
   Paper,
   SimpleGrid,
@@ -16,6 +15,7 @@ import {
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
+import { PageShell } from '@/components/ui/PageShell';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -93,8 +93,7 @@ const AICabinetPage: React.FC = () => {
   const [questionText, setQuestionText] = useState('');
 
   return (
-    <Box bg="gray.0" mih="100vh">
-      <Container size="xl" py={40} px="md">
+    <PageShell>
         <Group gap="sm" mb="lg">
           <ThemeIcon size={36} radius="md" variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
             <IconSparkles size={20} />
@@ -277,8 +276,7 @@ const AICabinetPage: React.FC = () => {
             </SectionCard>
           </Stack>
         </SimpleGrid>
-      </Container>
-    </Box>
+      </PageShell>
   );
 };
 

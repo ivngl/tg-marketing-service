@@ -3,13 +3,13 @@ import { Button as MantineButton } from '@mantine/core';
 import type { ButtonProps as MantineButtonProps } from '@mantine/core';
 
 type SemanticVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'default';
-type ButtonVariant = SemanticVariant | MantineButtonProps['variant'];
 
-interface ButtonProps extends Omit<MantineButtonProps, 'variant' | 'color'> {
-  variant?: ButtonVariant;
-}
+type ButtonProps = React.ComponentProps<'button'> &
+  Omit<MantineButtonProps, 'variant' | keyof React.ComponentProps<'button'>> & {
+    variant?: SemanticVariant | MantineButtonProps['variant'];
+  };
 
-const semanticMap: Record<SemanticVariant, { variant: MantineButtonProps['variant']; color: MantineButtonProps['color'] }> = {
+const semanticMap: Record<SemanticVariant, { variant: NonNullable<MantineButtonProps['variant']>; color: MantineButtonProps['color'] }> = {
   primary: { variant: 'filled', color: 'tgblue' },
   secondary: { variant: 'outline', color: 'tgblue' },
   ghost: { variant: 'subtle', color: 'tgblue' },
@@ -27,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', ...props })
         color={mapped.color}
         radius="md"
         fw={600}
-        {...props}
+        {...(props as MantineButtonProps)}
       />
     );
   }
@@ -37,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', ...props })
       variant={variant as MantineButtonProps['variant']}
       radius="md"
       fw={600}
-      {...props}
+      {...(props as MantineButtonProps)}
     />
   );
 };

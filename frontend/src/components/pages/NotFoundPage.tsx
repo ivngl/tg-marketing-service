@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Group, Text, Title } from '@mantine/core';
 import { Button } from '@/components/ui/Button';
+import { brandGradient } from '@/app/constants';
 import { useNavigate } from 'react-router-dom';
 
 const NotFoundPage: React.FC = () => {
@@ -18,7 +19,7 @@ const NotFoundPage: React.FC = () => {
           style={{
             fontSize: '120px',
             fontWeight: 800,
-            background: 'linear-gradient(135deg, #229ED9, #6741d9)',
+            background: `linear-gradient(${brandGradient.deg}deg, ${brandGradient.from}, ${brandGradient.to})`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             lineHeight: 1,

@@ -1,6 +1,7 @@
 import { TariffsBlock } from '@/widgets/TariffsBlock';
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
+import { footerLinkStyle, footerHeadingStyle } from '@/app/constants';
 import {
   Badge,
   Box,
@@ -257,48 +258,48 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
           </Stack>
 
           <Stack gap="sm">
-            <Text style={{ fontWeight: 800, fontSize: '14px', color: '#111' }}>Продукт</Text>
+            <Text style={footerHeadingStyle}>Продукт</Text>
             <Text
               onClick={() => navigate('/channels')}
-              style={{ fontSize: '13px', color: '#687588', cursor: 'pointer' }}
+              style={footerLinkStyle}
             >
               Каталог каналов
             </Text>
             <Text
               onClick={() => navigate('/collections')}
-              style={{ fontSize: '13px', color: '#687588', cursor: 'pointer' }}
+              style={footerLinkStyle}
             >
               Подборки
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text style={{ fontWeight: 800, fontSize: '14px', color: '#111' }}>Компания</Text>
+            <Text style={footerHeadingStyle}>Компания</Text>
             <Text
               onClick={() => navigate('/blog')}
-              style={{ fontSize: '13px', color: '#687588', cursor: 'pointer' }}
+              style={footerLinkStyle}
             >
               Блог
             </Text>
             <Text
               onClick={() => navigate('/')}
-              style={{ fontSize: '13px', color: '#687588', cursor: 'pointer' }}
+              style={footerLinkStyle}
             >
               О сервисе
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text style={{ fontWeight: 800, fontSize: '14px', color: '#111' }}>Правовое</Text>
+            <Text style={footerHeadingStyle}>Правовое</Text>
             <Text
               onClick={() => navigate('/legal')}
-              style={{ fontSize: '13px', color: '#687588', cursor: 'pointer' }}
+              style={footerLinkStyle}
             >
               Конфиденциальность
             </Text>
             <Text
               onClick={() => navigate('/legal')}
-              style={{ fontSize: '13px', color: '#687588', cursor: 'pointer' }}
+              style={footerLinkStyle}
             >
               Соглашение
             </Text>

@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Box,
   Card,
-  Container,
   Group,
   Progress,
   Badge,
@@ -13,6 +11,7 @@ import {
 } from '@mantine/core';
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
+import { PageShell } from '@/components/ui/PageShell';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,8 +26,7 @@ const PostPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box bg="gray.0" mih="100vh">
-      <Container size="xl" py={40} px="md">
+    <PageShell>
         <Button
           variant="subtle"
           color="tgblue"
@@ -118,8 +116,7 @@ const PostPage: React.FC = () => {
             </Text>
           </InsightCard>
         </SimpleGrid>
-      </Container>
-    </Box>
+      </PageShell>
   );
 };
 

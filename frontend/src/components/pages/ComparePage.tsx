@@ -1,15 +1,14 @@
 import React from 'react';
 import {
   Badge,
-  Box,
   Card,
-  Container,
   Group,
   Table,
   Text,
   Title,
 } from '@mantine/core';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
+import { PageShell } from '@/components/ui/PageShell';
 import { IconTrophy } from '@tabler/icons-react';
 import channelsCol from '@/fixtures/channelsCollection';
 
@@ -61,8 +60,7 @@ const ComparePage: React.FC = () => {
   };
 
   return (
-    <Box bg="gray.0" mih="100vh">
-      <Container size="xl" py={40} px="md">
+    <PageShell>
         <Title order={1} mb="lg">
           Сравнение каналов
         </Title>
@@ -126,8 +124,7 @@ const ComparePage: React.FC = () => {
             и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
           </Text>
         </Card>
-      </Container>
-    </Box>
+      </PageShell>
   );
 };
 
