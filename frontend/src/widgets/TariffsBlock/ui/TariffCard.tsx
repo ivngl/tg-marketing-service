@@ -23,7 +23,9 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       radius="lg"
       style={{
         backgroundColor: '#FFFFFF',
-        border: isHighlighted ? '2px solid #229ED9' : '1px solid #E9ECEF',
+        border: '1px solid #E9ECEF',
+        outline: isHighlighted ? '2px solid #229ED9' : 'none',
+        outlineOffset: '-1px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
