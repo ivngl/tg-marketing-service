@@ -1,8 +1,9 @@
 import { TariffsBlock } from '@/widgets/TariffsBlock';
+import { Button } from '@/components/ui/Button';
+import { InsightCard } from '@/components/ui/InsightCard';
 import {
   Badge,
   Box,
-  Button,
   Card,
   Container,
   Group,
@@ -92,24 +93,18 @@ const LandingPage: React.FC = () => {
 
               <Group gap="md">
                 <Button
+                  variant="primary"
                   size="md"
-                  color="tgblue"
                   onClick={() => navigate('/channels')}
-                  style={{
-                    fontWeight: 600,
-                    height: '46px',
-                    padding: '0 24px',
-                    borderRadius: '8px',
-                  }}
+                  style={{ height: '46px', padding: '0 24px', borderRadius: '8px' }}
                 >
                   Добавить свой канал
                 </Button>
                 <Button
-                  size="md"
                   variant="default"
+                  size="md"
                   onClick={() => navigate('/channels')}
                   style={{
-                    fontWeight: 600,
                     height: '46px',
                     padding: '0 24px',
                     borderRadius: '8px',
@@ -163,49 +158,19 @@ const LandingPage: React.FC = () => {
                 </Group>
 
                 <Stack gap="md">
-                  {/* Recommendation Block */}
-                  <Box
-                    p="sm"
-                    style={{
-                      backgroundColor: '#F4FBF6',
-                      borderLeft: '4px solid #40C057',
-                      borderRadius: '0 8px 8px 0',
-                    }}
-                  >
-                    <Text style={{ fontSize: '10px', fontWeight: 800, color: '#40C057', letterSpacing: '0.5px' }} mb={4}>
-                      РЕКОМЕНДАЦИЯ
-                    </Text>
+                  <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
                     <Text style={{ fontSize: '12px', color: '#2D3748', lineHeight: 1.4 }}>
                       Разборы кейсов дают <span style={{ fontWeight: 700 }}>+34%</span> реакций. Запланируйте один на этой неделе.
                     </Text>
-                  </Box>
+                  </InsightCard>
 
-                  {/* Trend Block */}
-                  <Box
-                    p="sm"
-                    style={{
-                      backgroundColor: '#E7F5FB',
-                      borderLeft: '4px solid #1B87BC',
-                      borderRadius: '0 8px 8px 0',
-                    }}
-                  >
-                    <Text style={{ fontSize: '10px', fontWeight: 800, color: '#1182C5', letterSpacing: '0.5px' }} mb={4}>
-                      ТРЕНД
-                    </Text>
+                  <InsightCard color="blue" label="ТРЕНД">
                     <Text style={{ fontSize: '12px', color: '#2D3748', lineHeight: 1.4 }}>
                       Тема <span style={{ fontWeight: 700 }}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
                     </Text>
-                  </Box>
+                  </InsightCard>
 
-                  {/* Post Card Block */}
-                  <Box
-                    p="sm"
-                    style={{
-                      backgroundColor: '#F3F0FF',
-                      borderLeft: '4px solid #7c5cdb',
-                      borderRadius: '0 8px 8px 0',
-                    }}
-                  >
+                  <InsightCard color="purple">
                     <Group gap={6} align="flex-start" wrap="nowrap">
                       <Text style={{ fontSize: '16px' }}>🎯</Text>
                       <Box>
@@ -217,7 +182,7 @@ const LandingPage: React.FC = () => {
                         </Text>
                       </Box>
                     </Group>
-                  </Box>
+                  </InsightCard>
                 </Stack>
               </Card>
             </Box>
