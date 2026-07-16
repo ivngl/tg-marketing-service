@@ -9,7 +9,7 @@ import {
   Title,
 } from '@mantine/core';
 import { Text } from '@/components/ui/Text';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { PageShell } from '@/components/ui/PageShell';
 import { IconArrowLeft } from '@tabler/icons-react';

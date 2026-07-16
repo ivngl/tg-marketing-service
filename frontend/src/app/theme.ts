@@ -126,24 +126,52 @@ export const theme: MantineThemeOverride = {
       defaultProps: {
         radius: 'md',
         size: 'md',
+        variant: 'primary',
       },
-      styles: (_theme, props) => ({
+      styles: {
         root: {
           fontWeight: 600,
-          ...(props.variant === 'default' ? {
-            backgroundColor: _theme.colors.gray[0],
-            borderColor: _theme.colors.gray[3],
-            color: _theme.colors.primary[5],
-          } : {}),
-          ...(props.variant === 'subtle' ? {
-            color: _theme.colors.tgblue[7],
-          } : {}),
-          ...(props.variant === 'outline' ? {
-            borderColor: _theme.colors.tgblue[3],
-            color: _theme.colors.tgblue[7],
-          } : {}),
         },
-      }),
+      },
+      variants: {
+        primary: (theme) => ({
+          root: {
+            backgroundColor: theme.colors.tgblue[5],
+            color: 'white',
+            '&:hover': { backgroundColor: theme.colors.tgblue[6] },
+          },
+        }),
+        secondary: (theme) => ({
+          root: {
+            border: `1px solid ${theme.colors.tgblue[3]}`,
+            color: theme.colors.tgblue[7],
+            backgroundColor: 'transparent',
+            '&:hover': { backgroundColor: theme.colors.tgblue[0] },
+          },
+        }),
+        ghost: (theme) => ({
+          root: {
+            color: theme.colors.tgblue[7],
+            backgroundColor: 'transparent',
+            '&:hover': { backgroundColor: theme.colors.tgblue[0] },
+          },
+        }),
+        danger: (theme) => ({
+          root: {
+            backgroundColor: theme.colors.tgred[0],
+            color: theme.colors.tgred[6],
+            '&:hover': { backgroundColor: theme.colors.tgred[1] },
+          },
+        }),
+        default: (theme) => ({
+          root: {
+            backgroundColor: theme.colors.gray[0],
+            borderColor: theme.colors.gray[3],
+            color: theme.colors.primary[5],
+            '&:hover': { backgroundColor: theme.colors.gray[1] },
+          },
+        }),
+      },
     },
     Card: {
       defaultProps: {

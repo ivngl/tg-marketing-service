@@ -12,7 +12,7 @@ import {
   Title,
 } from '@mantine/core';
 import { Text } from '@/components/ui/Text';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { PageShell } from '@/components/ui/PageShell';

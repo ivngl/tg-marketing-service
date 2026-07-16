@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Group, Stack } from '@mantine/core';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@mantine/core';
 import { Text } from '@/components/ui/Text';
 import type { Tariff } from '../model/types';
 

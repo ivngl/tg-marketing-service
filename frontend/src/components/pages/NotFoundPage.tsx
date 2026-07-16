@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Container, Group, Title } from '@mantine/core';
 import { Text } from '@/components/ui/Text';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@mantine/core';
 import { brandGradient } from '@/app/constants';
 import { useNavigate } from 'react-router-dom';
 

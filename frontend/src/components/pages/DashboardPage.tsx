@@ -10,7 +10,7 @@ import {
   Title,
 } from '@mantine/core';
 import { Text } from '@/components/ui/Text';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { PageShell } from '@/components/ui/PageShell';
