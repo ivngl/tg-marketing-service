@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Badge,
   Box,
-  Button,
   Card,
   Container,
   Group,
@@ -14,6 +13,9 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
+import { InsightCard } from '@/components/ui/InsightCard';
+import { SectionCard } from '@/components/ui/SectionCard';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -37,6 +39,12 @@ const ideas = [
     chips: ['~35K охват', 'пт 18:00'],
   },
 ];
+
+const insightColorMap: Record<string, 'green' | 'blue' | 'orange' | 'purple'> = {
+  green: 'green',
+  tgblue: 'blue',
+  orange: 'orange',
+};
 
 const insights = [
   { type: 'recommendation', icon: IconBulb, color: 'green', bg: '#e6fcf5', text: 'Публикуйте посты в среду в 19:00 — пик активности' },
@@ -96,10 +104,7 @@ const AICabinetPage: React.FC = () => {
 
         <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg">
           <Stack gap="lg">
-            <Card withBorder p="lg" radius="md">
-              <Title order={3} mb="md">
-                О чём написать на этой неделе
-              </Title>
+            <SectionCard title="О чём написать на этой неделе">
               <Stack gap="md">
                 {ideas.map((idea) => (
                   <Paper key={idea.title} p="md" radius="md" withBorder>
@@ -134,7 +139,7 @@ const AICabinetPage: React.FC = () => {
                   </Paper>
                 ))}
               </Stack>
-            </Card>
+            </SectionCard>
 
             <Card withBorder p="lg" radius="md">
               <Title order={3} mb="md">
@@ -176,10 +181,7 @@ const AICabinetPage: React.FC = () => {
               </Group>
             </Card>
 
-            <Card withBorder p="lg" radius="md">
-              <Title order={3} mb="md">
-                Лучшее время для публикаций
-              </Title>
+            <SectionCard title="Лучшее время для публикаций">
               <Text size="xs" c="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
@@ -222,35 +224,24 @@ const AICabinetPage: React.FC = () => {
                 ))}
                 <Text size="xs" c="dimmed">Больше</Text>
               </Group>
-            </Card>
+            </SectionCard>
           </Stack>
 
           <Stack gap="lg">
-            <Card withBorder p="lg" radius="md">
-              <Title order={3} mb="md">
-                Инсайты недели
-              </Title>
+            <SectionCard title="Инсайты недели">
               <Stack gap="sm">
                 {insights.map((ins, i) => (
-                  <Paper
-                    key={i}
-                    p="sm"
-                    radius="md"
-                    style={{ borderLeft: `3px solid var(--mantine-color-${ins.color}-6)`, backgroundColor: ins.bg }}
-                  >
+                  <InsightCard key={i} color={insightColorMap[ins.color] ?? 'blue'}>
                     <Group gap="xs">
                       <ins.icon size={14} color={`var(--mantine-color-${ins.color}-6)`} />
                       <Text size="sm">{ins.text}</Text>
                     </Group>
-                  </Paper>
+                  </InsightCard>
                 ))}
               </Stack>
-            </Card>
+            </SectionCard>
 
-            <Card withBorder p="lg" radius="md">
-              <Title order={3} mb="md">
-                Спросить AI о канале
-              </Title>
+            <SectionCard title="Спросить AI о канале">
               <Group gap="xs" mb="md" wrap="wrap">
                 {quickQuestions.map((q) => (
                   <Badge
@@ -283,7 +274,7 @@ const AICabinetPage: React.FC = () => {
                   />
                 }
               />
-            </Card>
+            </SectionCard>
           </Stack>
         </SimpleGrid>
       </Container>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Group, Text, Stack, Button } from '@mantine/core';
+import { Card, Group, Text, Stack } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
 import type { Tariff } from '../model/types';
 
 interface TariffCardProps extends Tariff {

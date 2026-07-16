@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  Avatar,
   Badge,
   Box,
-  Button,
   Card,
   Group,
   SimpleGrid,
@@ -12,6 +10,9 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
+import { BrandAvatar } from '@/components/ui/BrandAvatar';
+import { SectionCard } from '@/components/ui/SectionCard';
 import { IconEdit, IconLogout, IconPlus } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,9 +30,7 @@ const UserProfilePage: React.FC = () => {
           <Card withBorder p="lg" radius="md">
             <Title order={3} mb="md">Профиль</Title>
             <Group gap="md" mb="lg">
-              <Avatar size={58} radius="xl" variant="gradient" gradient={{ from: '#229ED9', to: '#6741d9' }}>
-                АИ
-              </Avatar>
+              <BrandAvatar name="Алексей Иванов" size={58} />
               <div>
                 <Title order={4}>Алексей Иванов</Title>
                 <Text size="sm" c="dimmed">alexey@example.com</Text>
@@ -53,11 +52,10 @@ const UserProfilePage: React.FC = () => {
             </Group>
           </Card>
 
-          <Card withBorder p="lg" radius="md">
-            <Group justify="space-between" mb="md">
-              <Title order={3}>Подписка</Title>
-              <Badge size="lg" variant="light" color="gray">Free</Badge>
-            </Group>
+          <SectionCard
+            title="Подписка"
+            action={<Badge size="lg" variant="light" color="gray">Free</Badge>}
+          >
             <Card p="md" radius="md" style={{ backgroundColor: 'var(--mantine-color-tgblue-0)' }} mb="md">
               <Text size="sm" fw={600} mb="xs">Получите больше возможностей</Text>
               <Text size="xs" c="dimmed" mb="sm">AI-инсайты, сравнение каналов, экспорт данных</Text>
@@ -68,22 +66,22 @@ const UserProfilePage: React.FC = () => {
             <Button size="sm" variant="subtle" color="tgblue">
               История платежей
             </Button>
-          </Card>
+          </SectionCard>
         </SimpleGrid>
 
         <SimpleGrid cols={{ base: 1, md: 2 }} mt="lg">
-          <Card withBorder p="lg" radius="md">
-            <Group justify="space-between" mb="md">
-              <Title order={3}>Мои каналы и группы</Title>
+          <SectionCard
+            title="Мои каналы и группы"
+            action={
               <Button size="xs" variant="light" color="tgblue" leftSection={<IconPlus size={12} />}>
                 Добавить
               </Button>
-            </Group>
+            }
+          >
             <Text c="dimmed" size="sm">У вас пока нет добавленных каналов</Text>
-          </Card>
+          </SectionCard>
 
-          <Card withBorder p="lg" radius="md">
-            <Title order={3} mb="md">Уведомления</Title>
+          <SectionCard title="Уведомления">
             <Stack gap="md">
               <Group justify="space-between">
                 <Text size="sm">Email-уведомления</Text>
@@ -98,7 +96,7 @@ const UserProfilePage: React.FC = () => {
                 <Switch size="sm" />
               </Group>
             </Stack>
-          </Card>
+          </SectionCard>
         </SimpleGrid>
       </Box>
     </Box>

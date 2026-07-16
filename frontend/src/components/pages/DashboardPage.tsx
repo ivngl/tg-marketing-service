@@ -1,13 +1,10 @@
 import React from 'react';
 import {
-  Avatar,
   Badge,
   Box,
-  Button,
   Card,
   Container,
   Group,
-  Paper,
   SegmentedControl,
   SimpleGrid,
   Stack,
@@ -15,6 +12,9 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
+import { InsightCard } from '@/components/ui/InsightCard';
+import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { AreaChart } from '@mantine/charts';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
@@ -54,14 +54,7 @@ const DashboardPage: React.FC = () => {
       <Container size="xl" py={40} px="md">
         <Group justify="space-between" mb="md">
           <Group gap="md">
-            <Avatar
-              size={58}
-              radius="xl"
-              variant="gradient"
-              gradient={{ from: '#229ED9', to: '#6741d9', deg: 135 }}
-            >
-              {channel.name[0]}
-            </Avatar>
+            <BrandAvatar name={channel.name} size={58} />
             <div>
               <Group gap={4}>
                 <Title order={2}>{channel.name}</Title>
@@ -133,30 +126,16 @@ const DashboardPage: React.FC = () => {
               AI-советы
             </Title>
             <Stack gap="sm">
-              <Paper
-                p="sm"
-                radius="md"
-                style={{ borderLeft: '3px solid var(--mantine-color-green-6)' }}
-              >
-                <Text size="sm" fw={600} mb={2}>
-                  Рекомендация
-                </Text>
+              <InsightCard color="green" label="Рекомендация">
                 <Text size="xs" c="dimmed">
                   Публикуйте посты в среду в 19:00 — ваша аудитория наиболее активна
                 </Text>
-              </Paper>
-              <Paper
-                p="sm"
-                radius="md"
-                style={{ borderLeft: '3px solid var(--mantine-color-tgblue-5)' }}
-              >
-                <Text size="sm" fw={600} mb={2}>
-                  Тренд
-                </Text>
+              </InsightCard>
+              <InsightCard color="blue" label="Тренд">
                 <Text size="xs" c="dimmed">
                   Вовлечённость выросла на 12% за последние 30 дней
                 </Text>
-              </Paper>
+              </InsightCard>
             </Stack>
             <Button
               variant="light"

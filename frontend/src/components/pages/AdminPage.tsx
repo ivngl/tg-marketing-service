@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import {
-  Avatar,
   Badge,
   Box,
-  Button,
-  Card,
   Container,
   Group,
   Select,
@@ -14,6 +11,9 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
+import { BrandAvatar } from '@/components/ui/BrandAvatar';
+import { SectionCard } from '@/components/ui/SectionCard';
 import { IconPlus } from '@tabler/icons-react';
 
 const categoryOptions = ['Технологии', 'Бизнес', 'Спорт', 'Криптовалюты', 'Маркетинг'];
@@ -91,10 +91,7 @@ const AdminPage: React.FC = () => {
           </Tabs.List>
 
           <Tabs.Panel value="moderation">
-            <Card withBorder p="lg" radius="md">
-              <Title order={3} mb="md">
-                Очередь модерации
-              </Title>
+            <SectionCard title="Очередь модерации">
               <Table striped highlightOnHover>
                 <Table.Thead>
                   <Table.Tr>
@@ -110,9 +107,7 @@ const AdminPage: React.FC = () => {
                     <Table.Tr key={item.id}>
                       <Table.Td>
                         <Group gap="xs">
-                          <Avatar size={28} radius="xl" variant="gradient" gradient={{ from: '#229ED9', to: '#6741d9' }}>
-                            {item.name[1]?.toUpperCase()}
-                          </Avatar>
+                          <BrandAvatar name={item.name} size={28} />
                           <div>
                             <Text size="sm" fw={600}>{item.name}</Text>
                             <Text size="xs" c="dimmed">{item.username}</Text>
@@ -163,17 +158,18 @@ const AdminPage: React.FC = () => {
                   )}
                 </Table.Tbody>
               </Table>
-            </Card>
+            </SectionCard>
           </Tabs.Panel>
 
           <Tabs.Panel value="channels">
-            <Card withBorder p="lg" radius="md">
-              <Group justify="space-between" mb="md">
-                <Title order={3}>Каналы и группы</Title>
+            <SectionCard
+              title="Каналы и группы"
+              action={
                 <Button size="sm" leftSection={<IconPlus size={14} />}>
                   Добавить канал
                 </Button>
-              </Group>
+              }
+            >
               <Table striped highlightOnHover>
                 <Table.Thead>
                   <Table.Tr>
@@ -188,9 +184,7 @@ const AdminPage: React.FC = () => {
                     <Table.Tr key={ch.id}>
                       <Table.Td>
                         <Group gap="xs">
-                          <Avatar size={28} radius="xl" variant="gradient" gradient={{ from: '#229ED9', to: '#6741d9' }}>
-                            {ch.name[0]}
-                          </Avatar>
+                          <BrandAvatar name={ch.name} size={28} />
                           <div>
                             <Text size="sm" fw={600}>{ch.name}</Text>
                             <Text size="xs" c="dimmed">{ch.username}</Text>
@@ -213,17 +207,18 @@ const AdminPage: React.FC = () => {
                   ))}
                 </Table.Tbody>
               </Table>
-            </Card>
+            </SectionCard>
           </Tabs.Panel>
 
           <Tabs.Panel value="blog">
-            <Card withBorder p="lg" radius="md">
-              <Group justify="space-between" mb="md">
-                <Title order={3}>Статьи блога</Title>
+            <SectionCard
+              title="Статьи блога"
+              action={
                 <Button size="sm" leftSection={<IconPlus size={14} />}>
                   Новая статья
                 </Button>
-              </Group>
+              }
+            >
               <Table striped highlightOnHover>
                 <Table.Thead>
                   <Table.Tr>
@@ -250,17 +245,18 @@ const AdminPage: React.FC = () => {
                   ))}
                 </Table.Tbody>
               </Table>
-            </Card>
+            </SectionCard>
           </Tabs.Panel>
 
           <Tabs.Panel value="collections">
-            <Card withBorder p="lg" radius="md">
-              <Group justify="space-between" mb="md">
-                <Title order={3}>Подборки</Title>
+            <SectionCard
+              title="Подборки"
+              action={
                 <Button size="sm" leftSection={<IconPlus size={14} />}>
                   Новая подборка
                 </Button>
-              </Group>
+              }
+            >
               <Table striped highlightOnHover>
                 <Table.Thead>
                   <Table.Tr>
@@ -287,7 +283,7 @@ const AdminPage: React.FC = () => {
                   ))}
                 </Table.Tbody>
               </Table>
-            </Card>
+            </SectionCard>
           </Tabs.Panel>
         </Tabs>
       </Container>

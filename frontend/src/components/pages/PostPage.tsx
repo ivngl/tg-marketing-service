@@ -1,11 +1,9 @@
 import React from 'react';
 import {
   Box,
-  Button,
   Card,
   Container,
   Group,
-  Paper,
   Progress,
   Badge,
   SimpleGrid,
@@ -13,6 +11,8 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
+import { InsightCard } from '@/components/ui/InsightCard';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -99,45 +99,24 @@ const PostPage: React.FC = () => {
           AI-разбор
         </Title>
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
-          <Paper
-            p="lg"
-            radius="md"
-            style={{ backgroundColor: '#e6fcf5' }}
-          >
-            <Title order={4} mb="sm" c="green">
-              Почему зашёл
-            </Title>
+          <InsightCard color="green" label="Почему зашёл">
             <Text size="sm">
               Актуальная тема, эмоциональный заголовок, подробный разбор с
               скриншотами и сравнением с конкурентами.
             </Text>
-          </Paper>
-          <Paper
-            p="lg"
-            radius="md"
-            style={{ backgroundColor: '#fff4e6' }}
-          >
-            <Title order={4} mb="sm" c="orange">
-              Что улучшить
-            </Title>
+          </InsightCard>
+          <InsightCard color="orange" label="Что улучшить">
             <Text size="sm">
               Добавить больше данных и графиков, сократить воду в начале,
               добавить CTA в конце.
             </Text>
-          </Paper>
-          <Paper
-            p="lg"
-            radius="md"
-            style={{ backgroundColor: '#f3f0ff' }}
-          >
-            <Title order={4} mb="sm" c="grape">
-              Похожие идеи
-            </Title>
+          </InsightCard>
+          <InsightCard color="purple" label="Похожие идеи">
             <Text size="sm">
               Обзор Samsung S25 Ultra, Сравнение Android vs iOS 2026,
               Топ-5 аксессуаров для iPhone.
             </Text>
-          </Paper>
+          </InsightCard>
         </SimpleGrid>
       </Container>
     </Box>

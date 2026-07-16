@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Button, Container, Group, Text, Title } from '@mantine/core';
+import { Box, Container, Group, Text, Title } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
 import { useNavigate } from 'react-router-dom';
 
 const NotFoundPage: React.FC = () => {

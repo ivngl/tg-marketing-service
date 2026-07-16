@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, Stack, Group, Button, ThemeIcon } from '@mantine/core';
+import { Text, Stack, Group, ThemeIcon } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
 import { IconSparkles, IconPlayerPlay } from '@tabler/icons-react';
 import { IconCheck } from '@tabler/icons-react';
 import type { AiDemoTextProps } from '../model/types';

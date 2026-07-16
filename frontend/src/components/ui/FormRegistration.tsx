@@ -1,5 +1,6 @@
 import React from 'react';
-import { TextInput, PasswordInput, Button, Checkbox, Stack, Divider, Group, Text, Title, Anchor } from '@mantine/core';
+import { TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Text, Title, Anchor } from '@mantine/core';
+import { Button } from '@/components/ui/Button';
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';

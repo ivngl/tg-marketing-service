@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Avatar,
   Badge,
   Box,
   Card,
@@ -10,6 +9,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { IconTrophy } from '@tabler/icons-react';
 import channelsCol from '@/fixtures/channelsCollection';
 
@@ -70,9 +70,7 @@ const ComparePage: React.FC = () => {
         <Group gap="sm" mb="lg">
           {channels.map((ch) => (
             <Badge key={ch.id} size="lg" variant="light" color="tgblue" leftSection={
-              <Avatar size={18} radius="xl" variant="gradient" gradient={{ from: '#229ED9', to: '#6741d9' }}>
-                {ch.name[0]}
-              </Avatar>
+              <BrandAvatar name={ch.name} size={18} />
             }>
               {ch.name}
             </Badge>
@@ -87,9 +85,7 @@ const ComparePage: React.FC = () => {
                 {channels.map((ch) => (
                   <Table.Th key={ch.id}>
                     <Group gap="xs">
-                      <Avatar size={24} radius="xl" variant="gradient" gradient={{ from: '#229ED9', to: '#6741d9' }}>
-                        {ch.name[0]}
-                      </Avatar>
+                      <BrandAvatar name={ch.name} size={24} />
                       <Text fw={600} size="sm">{ch.name}</Text>
                     </Group>
                   </Table.Th>
