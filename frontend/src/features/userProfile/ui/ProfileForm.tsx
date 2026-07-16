@@ -1,5 +1,6 @@
 import React from 'react';
-import { TextInput, Title, Text, Paper, Stack, Group } from '@mantine/core';
+import { TextInput, Title, Paper, Stack, Group } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { useUserProfileForm } from '../model/useUserProfileForm';
 
@@ -60,19 +61,19 @@ export const ProfileForm: React.FC = () => {
 
         <Paper withBorder p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Подписка Pro</Title>
-          <Text c="dimmed">Заглушка для формы подписки.</Text>
+          <Text variant="dimmed">Заглушка для формы подписки.</Text>
         </Paper>
       </Group>
 
       <Group grow wrap="wrap">
         <Paper withBorder p="lg" radius="sm" style={{ flex: '2 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Уведомления</Title>
-          <Text c="dimmed">Заглушка для формы уведомлений.</Text>
+          <Text variant="dimmed">Заглушка для формы уведомлений.</Text>
         </Paper>
 
         <Paper withBorder p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Статистика использования</Title>
-          <Text c="dimmed">Заглушка для статистики.</Text>
+          <Text variant="dimmed">Заглушка для статистики.</Text>
         </Paper>
       </Group>
     </Stack>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { SimpleGrid, Text } from '@mantine/core';
+import { SimpleGrid } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { useNavigate } from 'react-router-dom';
 import { PageShell } from '@/components/ui/PageShell';
 import { GradientCard } from '@/components/ui/GradientCard';
@@ -27,8 +28,8 @@ const CollectionsPage: React.FC = () => {
               metaJustify="space-between"
               meta={
                 <>
-                  <Text size="xs" c="dimmed">Куратор: {col.curator}</Text>
-                  <Text size="xs" c="dimmed">{col.count} каналов</Text>
+                  <Text size="xs" variant="dimmed">Куратор: {col.curator}</Text>
+                  <Text size="xs" variant="dimmed">{col.count} каналов</Text>
                 </>
               }
               onClick={() => navigate(`/collections/${col.id}`)}

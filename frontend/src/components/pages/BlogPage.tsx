@@ -3,9 +3,9 @@ import {
   Box,
   Group,
   SimpleGrid,
-  Text,
   Title,
 } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { PageShell } from '@/components/ui/PageShell';
 import { GradientCard } from '@/components/ui/GradientCard';
 
@@ -49,8 +49,8 @@ const BlogPage: React.FC = () => {
               minHeight={100}
               meta={
                 <>
-                  <Text size="xs" c="dimmed">{post.date}</Text>
-                  <Text size="xs" c="dimmed">{post.readTime} чтения</Text>
+                  <Text size="xs" variant="dimmed">{post.date}</Text>
+                  <Text size="xs" variant="dimmed">{post.readTime} чтения</Text>
                 </>
               }
             />

@@ -4,10 +4,10 @@ import {
   Group,
   SegmentedControl,
   SimpleGrid,
-  Text,
   TextInput,
   Title,
 } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { PageShell } from '@/components/ui/PageShell';
 import { IconSearch } from '@tabler/icons-react';
 import ChannelCard from '../ui/ChannelCard';
@@ -64,7 +64,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
     <PageShell>
         <Group justify="space-between" mb="md">
           <Title order={1}>Каталог каналов и групп</Title>
-          <Text c="dimmed" size="sm">
+          <Text variant="dimmed" size="sm">
             Найдено: {filtered.length} из {channels.length}
           </Text>
         </Group>
@@ -115,7 +115,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
         </Group>
 
         {filtered.length === 0 ? (
-          <Text c="dimmed" ta="center" py="xl" size="lg">
+          <Text variant="dimmed" ta="center" py="xl" size="lg">
             Ничего не найдено
           </Text>
         ) : (

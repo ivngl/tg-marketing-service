@@ -1,4 +1,5 @@
-import { Box, Collapse, Text, UnstyledButton } from '@mantine/core';
+import { Box, Collapse, UnstyledButton } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import type { FaqAccordionItemProps } from '../model/types';
 
@@ -19,7 +20,7 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
           width: '100%',
           textAlign: 'left',
           padding: '12px 16px',
-          backgroundColor: 'white',
+          backgroundColor: 'var(--mantine-color-white)',
         }}
       >
         <Text fw={700} size="base">
@@ -33,11 +34,12 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
       </UnstyledButton>
       <Collapse expanded={isOpen} transitionDuration={200}>
         <Text
-          size="15px"
+          size="md"
           px={16}
           pb={12}
           pt={4}
-          style={{ color: '#6D7F96', textAlign: 'left' }}
+          variant="dimmed"
+          ta="left"
         >
           {answer}
         </Text>

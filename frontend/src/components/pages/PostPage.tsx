@@ -6,9 +6,9 @@ import {
   Badge,
   SimpleGrid,
   Stack,
-  Text,
   Title,
 } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { PageShell } from '@/components/ui/PageShell';
@@ -42,15 +42,15 @@ const PostPage: React.FC = () => {
             <Title order={3} mb="md">
               Обзор нового iPhone 16 Pro
             </Title>
-            <Text size="sm" c="dimmed" mb="md">
+            <Text size="sm" variant="dimmed" mb="md">
               Apple представила новый iPhone 16 Pro с чипом A18 Pro, титановым корпусом
               и улучшенной камерой. Главные изменения: новый дизайн, увеличенный экран
               и поддержка Apple Intelligence.
             </Text>
             <Group gap="xs" mb="md">
-              <Text size="xs" c="dimmed">#apple</Text>
-              <Text size="xs" c="dimmed">#iphone</Text>
-              <Text size="xs" c="dimmed">#tech</Text>
+              <Text size="xs" variant="dimmed">#apple</Text>
+              <Text size="xs" variant="dimmed">#iphone</Text>
+              <Text size="xs" variant="dimmed">#tech</Text>
             </Group>
             <Group gap="lg">
               <Text size="sm">👁 42.1K</Text>
@@ -71,7 +71,7 @@ const PostPage: React.FC = () => {
                     <Text size="sm">
                       {r.emoji} {r.label}
                     </Text>
-                    <Text size="xs" c="dimmed">
+                    <Text size="xs" variant="dimmed">
                       {r.count} ({r.percent}%)
                     </Text>
                   </Group>

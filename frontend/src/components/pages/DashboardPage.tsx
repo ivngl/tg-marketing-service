@@ -7,9 +7,9 @@ import {
   SimpleGrid,
   Stack,
   Table,
-  Text,
   Title,
 } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
@@ -58,7 +58,7 @@ const DashboardPage: React.FC = () => {
                 <Title order={2}>{channel.name}</Title>
                 {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
               </Group>
-              <Text size="sm" c="dimmed">
+              <Text size="sm" variant="dimmed">
                 {channel.username} · <Badge size="xs" variant="light">{channel.category}</Badge>
               </Text>
             </div>
@@ -82,7 +82,7 @@ const DashboardPage: React.FC = () => {
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="md" mb="lg">
           {kpis.map((kpi) => (
             <Card key={kpi.label} p="md" radius="md" withBorder>
-              <Text size="xs" c="dimmed" mb={4}>
+              <Text size="xs" variant="dimmed" mb={4}>
                 {kpi.label}
               </Text>
               <Text fw={800} size="xl" mb={4}>
@@ -125,12 +125,12 @@ const DashboardPage: React.FC = () => {
             </Title>
             <Stack gap="sm">
               <InsightCard color="green" label="Рекомендация">
-                <Text size="xs" c="dimmed">
+                <Text size="xs" variant="dimmed">
                   Публикуйте посты в среду в 19:00 — ваша аудитория наиболее активна
                 </Text>
               </InsightCard>
               <InsightCard color="blue" label="Тренд">
-                <Text size="xs" c="dimmed">
+                <Text size="xs" variant="dimmed">
                   Вовлечённость выросла на 12% за последние 30 дней
                 </Text>
               </InsightCard>

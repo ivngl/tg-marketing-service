@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, Group, Text, Stack } from '@mantine/core';
+import { Card, Group, Stack } from '@mantine/core';
 import { Button } from '@/components/ui/Button';
+import { Text } from '@/components/ui/Text';
 import type { Tariff } from '../model/types';
 
 interface TariffCardProps extends Tariff {
@@ -23,9 +24,8 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       padding="xl"
       radius="lg"
       style={{
-        backgroundColor: '#FFFFFF',
-        border: '1px solid #E9ECEF',
-        outline: isHighlighted ? '2px solid #229ED9' : 'none',
+        border: `1px solid ${isHighlighted ? 'var(--mantine-color-tgblue-5)' : 'var(--mantine-color-gray-3)'}`,
+        outline: isHighlighted ? '2px solid var(--mantine-color-tgblue-5)' : 'none',
         outlineOffset: '-1px',
         display: 'flex',
         flexDirection: 'column',
@@ -44,11 +44,11 @@ export const TariffCard: React.FC<TariffCardProps> = ({
             top: '-14px',
             left: '80px',
             transform: 'translateX(-50%)',
-            backgroundColor: '#229ED9',
-            color: '#FFFFFF',
+            backgroundColor: 'var(--mantine-color-tgblue-5)',
+            color: 'var(--mantine-color-white)',
             padding: '4px 14px',
             borderRadius: '12px',
-            fontSize: '11px',
+            fontSize: 'var(--mantine-font-size-xs)',
             fontWeight: 800,
             zIndex: 2,
           }}
@@ -58,13 +58,13 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       )}
 
       <Stack gap="md" style={{ flex: 1 }}>
-        <Text style={{ fontSize: '14px', fontWeight: 800, color: '#111' }}>{name}</Text>
+        <Text size="md" fw={800} variant="primary">{name}</Text>
 
         <Stack gap={2}>
-          <Text style={{ fontSize: '34px', fontWeight: 800, color: '#111', lineHeight: 1.1 }}>
+          <Text fw={800} variant="primary" lh={1.1} style={{ fontSize: '34px' }}>
             {monthlyPrice === 0 ? '0 ₽' : `${monthlyPrice} ₽`}
           </Text>
-          <Text style={{ fontSize: '12px', color: '#A0AEC0' }}>
+          <Text size="xs" c="gray.5">
             {period}
           </Text>
         </Stack>
@@ -72,8 +72,8 @@ export const TariffCard: React.FC<TariffCardProps> = ({
         <Stack gap="sm" mt="md" mb="xl">
           {features.map((feat) => (
             <Group key={feat.id} gap={8} wrap="nowrap" align="flex-start">
-              <Text style={{ fontSize: '12.5px', color: '#10B981', fontWeight: 650 }}>✓</Text>
-              <Text style={{ fontSize: '13px', color: '#4A5568' }}>{feat.text}</Text>
+              <Text size="sm" fw={600} c="#10B981">✓</Text>
+              <Text size="sm" variant="muted">{feat.text}</Text>
             </Group>
           ))}
         </Stack>
@@ -82,10 +82,10 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       <Button
         size="md"
         color="tgblue"
+        fw={700}
         style={{
-          fontWeight: 700,
           height: '44px',
-          borderRadius: '8px',
+          borderRadius: 'var(--mantine-radius-md)',
           marginTop: 'auto',
           visibility: isHighlighted ? 'visible' : 'hidden',
         }}

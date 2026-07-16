@@ -1,5 +1,6 @@
 import React from 'react';
-import { Avatar, Badge, Card, Group, Text } from '@mantine/core';
+import { Avatar, Badge, Card, Group } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { IconCheck } from '@tabler/icons-react';
 import type { Channel } from '@/types/channel';
 import formatNumberShort from '@/utils/formatNumberShort';
@@ -79,7 +80,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
               />
             )}
           </Group>
-          <Text size="xs" c="dimmed" truncate="end">
+          <Text size="xs" variant="dimmed" truncate="end">
             {username}
           </Text>
         </div>
@@ -90,12 +91,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
           size="sm"
           radius="sm"
           variant="light"
-          color={type === 'channel' ? 'green' : 'grape'}
-          style={
-            type === 'channel'
-              ? { backgroundColor: '#e6fcf5', color: '#0ca678' }
-              : { backgroundColor: '#f3f0ff', color: '#6741d9' }
-          }
+          color={type === 'channel' ? 'tggreen' : 'tgpurple'}
         >
           {type === 'channel' ? 'Канал' : 'Группа'}
         </Badge>
@@ -103,14 +99,14 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
           size="sm"
           radius="sm"
           variant="light"
-          style={{ backgroundColor: '#E7F5FB', color: '#1B87BC' }}
+          color="tgblue"
         >
           {category}
         </Badge>
       </Group>
 
       <Group gap="md" wrap="nowrap">
-        <Text size="xs" c="dimmed">
+        <Text size="xs" variant="dimmed">
           {formatNumberShort(subscribers)} {type === 'channel' ? 'подписчиков' : 'участников'}
         </Text>
         <Text size="xs" fw={600} c="green">

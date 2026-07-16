@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Container, Group, Text, Title } from '@mantine/core';
+import { Box, Container, Group, Title } from '@mantine/core';
+import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { brandGradient } from '@/app/constants';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +29,7 @@ const NotFoundPage: React.FC = () => {
         >
           404
         </Title>
-        <Text size="lg" c="dimmed" mb="lg">
+        <Text size="lg" variant="dimmed" mb="lg">
           Страница не найдена
         </Text>
         <Group justify="center" gap="md">

@@ -1,7 +1,7 @@
 import { TariffsBlock } from '@/widgets/TariffsBlock';
 import { Button } from '@/components/ui/Button';
 import { InsightCard } from '@/components/ui/InsightCard';
-import { footerLinkStyle, footerHeadingStyle } from '@/app/constants';
+import { Text } from '@/components/ui/Text';
 import {
   Badge,
   Box,
@@ -10,7 +10,6 @@ import {
   Group,
   SimpleGrid,
   Stack,
-  Text,
   ThemeIcon,
   Title,
 } from '@mantine/core';
@@ -57,9 +56,9 @@ const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box style={{ backgroundColor: '#F8F9FB', minHeight: '100vh' }}>
+    <Box bg="gray.0" mih="100vh">
       {/* HERO SECTION */}
-      <section style={{ backgroundColor: '#FFF', padding: '80px 0 60px 0', borderBottom: '1px solid #E9ECEF' }}>
+      <Box component="section" bg="white" py={80} style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}>
         <Container size="xl">
           <Group gap={60} align="center" wrap="wrap">
             <Stack style={{ flex: '1.1 1 0', minWidth: 320 }} gap="xl">
@@ -74,7 +73,7 @@ const LandingPage: React.FC = () => {
                     fontWeight: 600,
                     padding: '8px 16px',
                     height: 'auto',
-                    fontSize: '13px',
+                    fontSize: 'var(--mantine-font-size-sm)',
                   },
                 }}
               >
@@ -87,9 +86,9 @@ const LandingPage: React.FC = () => {
                 больше, чем вы сами
               </Title>
 
-              <Text style={{ fontSize: '16px', color: '#687588', lineHeight: 1.5, maxWidth: 500 }}>
+              <Text size="lg" variant="dimmed" lh={1.5} maw={500}>
                 Статистика, охваты и реакции каждого поста — и AI, который подсказывает,{' '}
-                <span style={{ fontWeight: 700, color: '#111' }}>о чём писать дальше</span>, чтобы расти быстрее.
+                <span style={{ fontWeight: 700, color: 'var(--mantine-color-headingText-5)' }}>о чём писать дальше</span>, чтобы расти быстрее.
               </Text>
 
               <Group gap="md">
@@ -105,9 +104,9 @@ const LandingPage: React.FC = () => {
                   size="md"
                   onClick={() => navigate('/channels')}
                   style={{
-                    backgroundColor: '#F8F9FB',
-                    borderColor: '#E9ECEF',
-                    color: '#111',
+                    backgroundColor: 'var(--mantine-color-gray-0)',
+                    borderColor: 'var(--mantine-color-gray-3)',
+                    color: 'var(--mantine-color-headingText-5)',
                   }}
                 >
                   Каталог каналов
@@ -117,10 +116,10 @@ const LandingPage: React.FC = () => {
               <Group gap={48} mt="lg">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <Text style={{ fontSize: '32px', fontWeight: 800, color: '#111', lineHeight: '1.1' }}>
+                    <Text fw={800} variant="primary" lh={1.1} style={{ fontSize: '32px' }}>
                       {stat.value}
                     </Text>
-                    <Text style={{ fontSize: '13px', color: '#687588', marginTop: '4px' }}>
+                    <Text size="sm" variant="dimmed" mt="xs">
                       {stat.label}
                     </Text>
                   </div>
@@ -132,8 +131,7 @@ const LandingPage: React.FC = () => {
                 padding="lg"
                 radius="lg"
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #E9ECEF',
+                  border: '1px solid var(--mantine-color-gray-3)',
                   boxShadow: '0 20px 40px rgba(0, 0, 0, 0.06)',
                   width: '100%',
                   maxWidth: '430px',
@@ -145,37 +143,37 @@ const LandingPage: React.FC = () => {
                     <ThemeIcon size={22} radius="xl" color="tgblue">
                       <IconSparkles size={12} />
                     </ThemeIcon>
-                    <Text style={{ fontSize: '14px', fontWeight: 750, color: '#111' }}>
+                    <Text size="md" fw={700} variant="primary">
                       AI-помощник редактора
                     </Text>
                   </Group>
-                  <Text style={{ fontSize: '12px', color: '#A0AEC0' }}>
+                  <Text size="xs" c="gray.5">
                     @product_radar
                   </Text>
                 </Group>
 
                 <Stack gap="md">
                   <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
-                    <Text style={{ fontSize: '12px', color: '#2D3748', lineHeight: 1.4 }}>
+                    <Text size="xs" variant="secondary" lh={1.4}>
                       Разборы кейсов дают <span style={{ fontWeight: 700 }}>+34%</span> реакций. Запланируйте один на этой неделе.
                     </Text>
                   </InsightCard>
 
                   <InsightCard color="blue" label="ТРЕНД">
-                    <Text style={{ fontSize: '12px', color: '#2D3748', lineHeight: 1.4 }}>
+                    <Text size="xs" variant="secondary" lh={1.4}>
                       Тема <span style={{ fontWeight: 700 }}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
                     </Text>
                   </InsightCard>
 
                   <InsightCard color="purple">
                     <Group gap={6} align="flex-start" wrap="nowrap">
-                      <Text style={{ fontSize: '16px' }}>🎯</Text>
+                      <Text size="lg">🎯</Text>
                       <Box>
-                        <Text style={{ fontSize: '12.5px', fontWeight: 700, color: '#111' }} mb={2}>
+                        <Text size="sm" fw={700} variant="primary" mb={2}>
                           «Как AI-агенты меняют онбординг»
                         </Text>
-                        <Text style={{ fontSize: '12px', color: '#12b886', fontWeight: 600 }}>
-                          Прогноз ~48K охват <span style={{ color: '#4A5568', fontWeight: 400 }}>• чт 19:30</span>
+                        <Text size="xs" fw={600} c="tggreen.7">
+                          Прогноз ~48K охват <span style={{ color: 'var(--mantine-color-captionText-5)', fontWeight: 400 }}>• чт 19:30</span>
                         </Text>
                       </Box>
                     </Group>
@@ -185,15 +183,15 @@ const LandingPage: React.FC = () => {
             </Box>
           </Group>
         </Container>
-      </section>
+      </Box>
 
-      <section style={{ padding: '80px 0', backgroundColor: '#F8F9FB' }}>
+      <Box component="section" bg="gray.0" py={80}>
         <Container size="xl">
           <Stack gap={10} align="center" mb={50}>
-            <Title order={2} style={{ textAlign: 'center' }}>
+            <Title order={2} ta="center">
               Всё, что умеет tgstats — и AI сверху
             </Title>
-            <Text style={{ fontSize: '15px', color: '#687588', textAlign: 'center', maxWidth: '600px' }}>
+            <Text variant="dimmed" ta="center" maw={600} style={{ fontSize: '15px' }}>
               Полная статистика каналов плюс рекомендательный слой на искусственном интеллекте
             </Text>
           </Stack>
@@ -205,8 +203,7 @@ const LandingPage: React.FC = () => {
                 padding="lg"
                 radius="lg"
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #E9ECEF',
+                  border: '1px solid var(--mantine-color-gray-3)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.02)',
                 }}
               >
@@ -221,17 +218,17 @@ const LandingPage: React.FC = () => {
                 >
                   <f.icon size={24} />
                 </ThemeIcon>
-                <Title order={3} style={{ marginBottom: '8px' }}>
+                <Title order={3} mb="xs">
                   {f.title}
                 </Title>
-                <Text style={{ fontSize: '13px', color: '#687588', lineHeight: 1.5 }}>
+                <Text size="sm" variant="dimmed" lh={1.5}>
                   {f.description}
                 </Text>
               </Card>
             ))}
           </SimpleGrid>
         </Container>
-      </section>
+      </Box>
       <TariffsBlock />
       <FooterCustom navigate={navigate} />
     </Box>
@@ -242,64 +239,76 @@ export default LandingPage;
 
 const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
   return (
-    <Box component="footer" style={{ backgroundColor: '#F8F9FB', padding: '60px 0', borderTop: '1px solid #E9ECEF' }}>
+    <Box component="footer" bg="gray.0" py={60} style={{ borderTop: '1px solid var(--mantine-color-gray-3)' }}>
       <Container size="xl">
         <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing={40}>
           <Stack gap="md">
             <Group gap="xs">
               <ThemeIcon size={24} radius="xl" color="tgblue">
-                <span style={{ fontSize: '11px', fontWeight: 800 }}>t</span>
+                <span style={{ fontSize: 'var(--mantine-font-size-xs)', fontWeight: 800 }}>t</span>
               </ThemeIcon>
-              <Text style={{ fontWeight: 800, fontSize: '16px', color: '#111' }}>tgpulse</Text>
+              <Text fw={800} size="lg" variant="primary">tgpulse</Text>
             </Group>
-            <Text style={{ fontSize: '13px', color: '#687588', lineHeight: 1.5, maxWidth: '240px' }}>
+            <Text size="sm" variant="dimmed" lh={1.5} maw={240}>
               Аналитика Telegram-каналов с искусственным интеллектом. Знайте о своём канале больше, чем вы сами.
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text style={footerHeadingStyle}>Продукт</Text>
+            <Text fw={800} size="md" variant="primary">Продукт</Text>
             <Text
+              size="sm"
+              variant="dimmed"
+              style={{ cursor: 'pointer' }}
               onClick={() => navigate('/channels')}
-              style={footerLinkStyle}
             >
               Каталог каналов
             </Text>
             <Text
+              size="sm"
+              variant="dimmed"
+              style={{ cursor: 'pointer' }}
               onClick={() => navigate('/collections')}
-              style={footerLinkStyle}
             >
               Подборки
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text style={footerHeadingStyle}>Компания</Text>
+            <Text fw={800} size="md" variant="primary">Компания</Text>
             <Text
+              size="sm"
+              variant="dimmed"
+              style={{ cursor: 'pointer' }}
               onClick={() => navigate('/blog')}
-              style={footerLinkStyle}
             >
               Блог
             </Text>
             <Text
+              size="sm"
+              variant="dimmed"
+              style={{ cursor: 'pointer' }}
               onClick={() => navigate('/')}
-              style={footerLinkStyle}
             >
               О сервисе
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text style={footerHeadingStyle}>Правовое</Text>
+            <Text fw={800} size="md" variant="primary">Правовое</Text>
             <Text
+              size="sm"
+              variant="dimmed"
+              style={{ cursor: 'pointer' }}
               onClick={() => navigate('/legal')}
-              style={footerLinkStyle}
             >
               Конфиденциальность
             </Text>
             <Text
+              size="sm"
+              variant="dimmed"
+              style={{ cursor: 'pointer' }}
               onClick={() => navigate('/legal')}
-              style={footerLinkStyle}
             >
               Соглашение
             </Text>

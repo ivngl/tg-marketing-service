@@ -4,6 +4,21 @@ export const theme: MantineThemeOverride = {
   primaryColor: 'tgblue',
   primaryShade: { light: 5, dark: 5 },
   colors: {
+    headingText: ['#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113', '#111113'],
+    bodyText: ['#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748', '#2D3748'],
+    captionText: ['#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568', '#4A5568'],
+    gray: [
+      '#F8F9FB',
+      '#F1F3F5',
+      '#E9ECEF',
+      '#DEE2E6',
+      '#CED4DA',
+      '#ADB5BD',
+      '#868E96',
+      '#495057',
+      '#343A40',
+      '#212529',
+    ],
     tgblue: [
       '#E7F5FB',
       '#d0ebf9',
@@ -77,7 +92,7 @@ export const theme: MantineThemeOverride = {
   },
   fontSizes: {
     xs: '11px',
-    sm: '12.5px',
+    sm: '13px',
     md: '14px',
     lg: '16px',
     xl: '20px',
