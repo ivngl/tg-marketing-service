@@ -77,13 +77,13 @@ const LandingPage: React.FC = () => {
               >
                 ✦ Аналитика Telegram с искусственным интеллектом
               </Badge>
-              
+
               <Title order={1} style={{ fontSize: '46px', fontWeight: 850, lineHeight: 1.15, color: '#111' }}>
                 Знайте о своём канале
                 <br />
                 больше, чем вы сами
               </Title>
-              
+
               <Text style={{ fontSize: '16px', color: '#687588', lineHeight: 1.5, maxWidth: 500 }}>
                 Статистика, охваты и реакции каждого поста — и AI, который подсказывает,{' '}
                 <span style={{ fontWeight: 700, color: '#111' }}>о чём писать дальше</span>, чтобы расти быстрее.
@@ -324,6 +324,7 @@ const TariffsBlockCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 position: 'relative',
+                overflow: 'visible',
                 boxShadow: tariff.highlighted ? '0 12px 24px rgba(34, 158, 217, 0.08)' : undefined,
               }}
             >
@@ -332,7 +333,7 @@ const TariffsBlockCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
                   style={{
                     position: 'absolute',
                     top: '-14px',
-                    left: '50%',
+                    left: '80px',
                     transform: 'translateX(-50%)',
                     backgroundColor: '#229ED9',
                     color: '#FFFFFF',
@@ -349,7 +350,7 @@ const TariffsBlockCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
 
               <Stack gap="md" style={{ flex: 1 }}>
                 <Text style={{ fontSize: '14px', fontWeight: 800, color: '#111' }}>{tariff.name}</Text>
-                
+
                 <Stack gap={2}>
                   <Text style={{ fontSize: '34px', fontWeight: 800, color: '#111', lineHeight: 1.1 }}>
                     {tariff.price}
