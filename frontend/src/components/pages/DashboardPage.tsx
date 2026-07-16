@@ -1,19 +1,20 @@
 import React from 'react';
 import {
   Badge,
+  Box,
+  Button,
   Card,
+  Container,
   Group,
   SegmentedControl,
   SimpleGrid,
   Stack,
   Table,
+  Text,
   Title,
-} from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+} from '@mantine/core';;
 import { InsightCard } from '@/components/ui/InsightCard';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
-import { PageShell } from '@/components/ui/PageShell';
 import { AreaChart } from '@mantine/charts';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
@@ -49,7 +50,7 @@ const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Group justify="space-between" mb="md">
           <Group gap="md">
             <BrandAvatar name={channel.name} size={58} />
@@ -58,7 +59,7 @@ const DashboardPage: React.FC = () => {
                 <Title order={2}>{channel.name}</Title>
                 {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
               </Group>
-              <Text size="sm" color="dimmed">
+              <Text size="sm" c="dimmed">
                 {channel.username} · <Badge size="xs">{channel.category}</Badge>
               </Text>
             </div>
@@ -82,7 +83,7 @@ const DashboardPage: React.FC = () => {
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="md" mb="lg">
           {kpis.map((kpi) => (
             <Card key={kpi.label} p="md" radius="md" withBorder>
-              <Text size="xs" color="dimmed" mb={4}>
+              <Text size="xs" c="dimmed" mb={4}>
                 {kpi.label}
               </Text>
               <Text fw={800} size="xl" mb={4}>
@@ -125,12 +126,12 @@ const DashboardPage: React.FC = () => {
             </Title>
             <Stack gap="sm">
               <InsightCard color="green" label="Рекомендация">
-                <Text size="xs" color="dimmed">
+                <Text size="xs" c="dimmed">
                   Публикуйте посты в среду в 19:00 — ваша аудитория наиболее активна
                 </Text>
               </InsightCard>
               <InsightCard color="blue" label="Тренд">
-                <Text size="xs" color="dimmed">
+                <Text size="xs" c="dimmed">
                   Вовлечённость выросла на 12% за последние 30 дней
                 </Text>
               </InsightCard>
@@ -189,7 +190,7 @@ const DashboardPage: React.FC = () => {
             </Table.Tbody>
           </Table>
         </Card>
-      </PageShell>
+      </Container></Box>
   );
 };
 

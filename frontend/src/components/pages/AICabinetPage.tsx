@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import {
   Badge,
   Box,
+  Button,
   Card,
+  Container,
   Group,
   Paper,
   SimpleGrid,
   Stack,
+  Text,
   TextInput,
   ThemeIcon,
   Title,
-} from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+} from '@mantine/core';;
 import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
-import { PageShell } from '@/components/ui/PageShell';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -93,7 +93,7 @@ const AICabinetPage: React.FC = () => {
   const [questionText, setQuestionText] = useState('');
 
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Group gap="sm" mb="lg">
           <ThemeIcon size={36} variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
             <IconSparkles size={20} />
@@ -115,7 +115,7 @@ const AICabinetPage: React.FC = () => {
                         {idea.title}
                       </Text>
                     </Group>
-                    <Text size="xs" color="dimmed" mb="xs">
+                    <Text size="xs" c="dimmed" mb="xs">
                       {idea.reason}
                     </Text>
                     <Group justify="space-between">
@@ -151,7 +151,7 @@ const AICabinetPage: React.FC = () => {
                       {c.name}
                     </Text>
                     <Group gap="xs">
-                      <Text size="xs" color="dimmed">
+                      <Text size="xs" c="dimmed">
                         ER {c.er}%
                       </Text>
                       <Badge
@@ -181,7 +181,7 @@ const AICabinetPage: React.FC = () => {
             </Card>
 
             <SectionCard title="Лучшее время для публикаций">
-              <Text size="xs" color="dimmed" mb="sm">
+              <Text size="xs" c="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
               <Box style={{ overflowX: 'auto' }}>
@@ -217,11 +217,11 @@ const AICabinetPage: React.FC = () => {
                 </div>
               </Box>
               <Group mt="sm" gap="xs">
-                <Text size="xs" color="dimmed">Меньше</Text>
+                <Text size="xs" c="dimmed">Меньше</Text>
                 {[0, 3, 5, 7, 9, 10].map((v) => (
                   <div key={v} style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: getHeatColor(v) }} />
                 ))}
-                <Text size="xs" color="dimmed">Больше</Text>
+                <Text size="xs" c="dimmed">Больше</Text>
               </Group>
             </SectionCard>
           </Stack>
@@ -276,7 +276,7 @@ const AICabinetPage: React.FC = () => {
             </SectionCard>
           </Stack>
         </SimpleGrid>
-      </PageShell>
+      </Container></Box>
   );
 };
 

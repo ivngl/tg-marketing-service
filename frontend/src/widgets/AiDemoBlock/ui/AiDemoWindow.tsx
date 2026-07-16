@@ -1,6 +1,5 @@
 import React from 'react';
-import { Paper } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
+import { Text, Paper } from '@mantine/core';
 import type { AiDemoBlockProps } from '../model/types';
 
 export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
@@ -20,7 +19,7 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
           backgroundColor: '#F8F9FB',
         }}
       >
-        <Text fz={48} color="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
+        <Text fz={48} c="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
       </div>
     </Paper>
   );

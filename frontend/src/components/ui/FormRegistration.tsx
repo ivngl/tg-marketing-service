@@ -1,7 +1,5 @@
 import React from 'react';
-import { TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Anchor } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Anchor, Button } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';
@@ -33,7 +31,7 @@ const FormRegistration: React.FC = () => {
         <Stack>
           <div style={{ textAlign: 'center' }}>
             <Title order={2} fw={700}>Войти в систему</Title>
-            <Text color="dimmed">Используйте привычный способ входа</Text>
+            <Text c="dimmed">Используйте привычный способ входа</Text>
           </div>
 
           <Group justify="center" gap="sm">

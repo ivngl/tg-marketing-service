@@ -1,12 +1,12 @@
-import React from 'react';
 import {
   Box,
+  Container,
   Group,
   SimpleGrid,
+  Text,
   Title,
 } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { PageShell } from '@/components/ui/PageShell';
+import React from 'react';
 import { GradientCard } from '@/components/ui/GradientCard';
 
 
@@ -18,7 +18,7 @@ const posts = [
 
 const BlogPage: React.FC = () => {
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Title order={1} mb="lg">
           Блог
         </Title>
@@ -49,14 +49,14 @@ const BlogPage: React.FC = () => {
               minHeight={100}
               meta={
                 <>
-                  <Text size="xs" color="dimmed">{post.date}</Text>
-                  <Text size="xs" color="dimmed">{post.readTime} чтения</Text>
+                  <Text size="xs" c="dimmed">{post.date}</Text>
+                  <Text size="xs" c="dimmed">{post.readTime} чтения</Text>
                 </>
               }
             />
           ))}
         </SimpleGrid>
-      </PageShell>
+      </Container></Box>
   );
 };
 

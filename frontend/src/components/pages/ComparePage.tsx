@@ -1,14 +1,15 @@
 import React from 'react';
 import {
   Badge,
+  Box,
   Card,
+  Container,
   Group,
   Table,
+  Text,
   Title,
-} from '@mantine/core';
-import { Text } from '@/components/ui/Text';
+} from '@mantine/core';;
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
-import { PageShell } from '@/components/ui/PageShell';
 import { IconTrophy } from '@tabler/icons-react';
 import channelsCol from '@/fixtures/channelsCollection';
 
@@ -60,7 +61,7 @@ const ComparePage: React.FC = () => {
   };
 
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Title order={1} mb="lg">
           Сравнение каналов
         </Title>
@@ -119,12 +120,12 @@ const ComparePage: React.FC = () => {
           <Title order={3} mb="sm">
             AI-вердикт
           </Title>
-          <Text size="sm" color="dimmed">
+          <Text size="sm" c="dimmed">
             Для рекламы лучше всего подходит канал «{channels[0].name}» — у него наивысшая вовлечённость
             и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
           </Text>
         </Card>
-      </PageShell>
+      </Container></Box>
   );
 };
 

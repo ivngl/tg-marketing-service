@@ -1,6 +1,5 @@
 import React from 'react';
-import { Avatar, Badge, Card, Group } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
+import { Text, Avatar, Badge, Card, Group } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import type { Channel } from '@/types/channel';
 import formatNumberShort from '@/utils/formatNumberShort';
@@ -80,7 +79,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
               />
             )}
           </Group>
-          <Text size="xs" color="dimmed" truncate="end">
+          <Text size="xs" c="dimmed" truncate="end">
             {username}
           </Text>
         </div>
@@ -106,7 +105,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
       </Group>
 
       <Group gap="md" wrap="nowrap">
-        <Text size="xs" color="dimmed">
+        <Text size="xs" c="dimmed">
           {formatNumberShort(subscribers)} {type === 'channel' ? 'подписчиков' : 'участников'}
         </Text>
         <Text size="xs" fw={600} c="green">

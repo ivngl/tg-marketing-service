@@ -1,7 +1,5 @@
 import React from 'react';
-import { Stack, Group, ThemeIcon } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+import { Text, Stack, Group, ThemeIcon, Button } from '@mantine/core';
 import { IconSparkles, IconPlayerPlay } from '@tabler/icons-react';
 import { IconCheck } from '@tabler/icons-react';
 import type { AiDemoTextProps } from '../model/types';
@@ -19,7 +17,7 @@ export const AiDemoText: React.FC<AiDemoTextProps> = (props) => {
   return (
     <Stack>
       {description && (
-        <Text color="dimmed">{description}</Text>
+        <Text c="dimmed">{description}</Text>
       )}
 
       <Stack gap={8}>
@@ -28,7 +26,7 @@ export const AiDemoText: React.FC<AiDemoTextProps> = (props) => {
             <ThemeIcon size="sm" color="green.6" variant="subtle">
               <IconCheck size={18} />
             </ThemeIcon>
-            <Text size="sm" color="dimmed">{f.text}</Text>
+            <Text size="sm" c="dimmed">{f.text}</Text>
           </Group>
         ))}
       </Stack>

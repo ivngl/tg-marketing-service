@@ -1,17 +1,18 @@
 import React from 'react';
 import {
+  Badge,
+  Box,
+  Button,
   Card,
+  Container,
   Group,
   Progress,
-  Badge,
   SimpleGrid,
   Stack,
+  Text,
   Title,
-} from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+} from '@mantine/core';;
 import { InsightCard } from '@/components/ui/InsightCard';
-import { PageShell } from '@/components/ui/PageShell';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,7 +27,7 @@ const PostPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Button
           variant="subtle"
           color="tgblue"
@@ -42,15 +43,15 @@ const PostPage: React.FC = () => {
             <Title order={3} mb="md">
               Обзор нового iPhone 16 Pro
             </Title>
-            <Text size="sm" color="dimmed" mb="md">
+            <Text size="sm" c="dimmed" mb="md">
               Apple представила новый iPhone 16 Pro с чипом A18 Pro, титановым корпусом
               и улучшенной камерой. Главные изменения: новый дизайн, увеличенный экран
               и поддержка Apple Intelligence.
             </Text>
             <Group gap="xs" mb="md">
-              <Text size="xs" color="dimmed">#apple</Text>
-              <Text size="xs" color="dimmed">#iphone</Text>
-              <Text size="xs" color="dimmed">#tech</Text>
+              <Text size="xs" c="dimmed">#apple</Text>
+              <Text size="xs" c="dimmed">#iphone</Text>
+              <Text size="xs" c="dimmed">#tech</Text>
             </Group>
             <Group gap="lg">
               <Text size="sm">👁 42.1K</Text>
@@ -71,7 +72,7 @@ const PostPage: React.FC = () => {
                     <Text size="sm">
                       {r.emoji} {r.label}
                     </Text>
-                    <Text size="xs" color="dimmed">
+                    <Text size="xs" c="dimmed">
                       {r.count} ({r.percent}%)
                     </Text>
                   </Group>
@@ -116,7 +117,7 @@ const PostPage: React.FC = () => {
             </Text>
           </InsightCard>
         </SimpleGrid>
-      </PageShell>
+      </Container></Box>
   );
 };
 

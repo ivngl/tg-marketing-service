@@ -1,14 +1,15 @@
-import React, { useMemo, useState } from 'react';
 import {
   Badge,
+  Box,
+  Container,
   Group,
   SegmentedControl,
   SimpleGrid,
+  Text,
   TextInput,
   Title,
 } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { PageShell } from '@/components/ui/PageShell';
+import React, { useMemo, useState } from 'react';
 import { IconSearch } from '@tabler/icons-react';
 import ChannelCard from '../ui/ChannelCard';
 import type { ChannelsProps } from '@/types/channel';
@@ -61,10 +62,10 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
   }, [sortedChannels, typeFilter, activeCategory, query]);
 
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Group justify="space-between" mb="md">
           <Title order={1}>Каталог каналов и групп</Title>
-          <Text color="dimmed" size="sm">
+          <Text c="dimmed" size="sm">
             Найдено: {filtered.length} из {channels.length}
           </Text>
         </Group>
@@ -115,7 +116,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
         </Group>
 
         {filtered.length === 0 ? (
-          <Text color="dimmed" ta="center" py="xl" size="lg">
+          <Text c="dimmed" ta="center" py="xl" size="lg">
             Ничего не найдено
           </Text>
         ) : (
@@ -125,7 +126,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
             ))}
           </SimpleGrid>
         )}
-      </PageShell>
+      </Container></Box>
   );
 };
 

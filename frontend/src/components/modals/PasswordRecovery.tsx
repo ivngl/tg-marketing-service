@@ -1,6 +1,5 @@
 import React from 'react';
-import { Modal, TextInput, Stack, Text, Group } from '@mantine/core';
-import { Button } from '@mantine/core';
+import { Modal, TextInput, Stack, Text, Group, Button } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 interface PasswordRecoveryProps {

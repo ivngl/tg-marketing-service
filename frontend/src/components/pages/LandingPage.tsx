@@ -1,18 +1,18 @@
-import { TariffsBlock } from '@/widgets/TariffsBlock';
-import { Button } from '@mantine/core';
-import { InsightCard } from '@/components/ui/InsightCard';
-import { Text } from '@/components/ui/Text';
 import {
   Badge,
   Box,
+  Button,
   Card,
   Container,
   Group,
   SimpleGrid,
   Stack,
+  Text,
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { InsightCard } from '@/components/ui/InsightCard';
+import { TariffsBlock } from '@/widgets/TariffsBlock';
 import {
   IconPresentationAnalytics,
   IconScale,
@@ -86,7 +86,7 @@ const LandingPage: React.FC = () => {
                 больше, чем вы сами
               </Title>
 
-              <Text size="lg" color="dimmed" lh={1.5} maw={500}>
+              <Text size="lg" c="dimmed" lh={1.5} maw={500}>
                 Статистика, охваты и реакции каждого поста — и AI, который подсказывает,{' '}
                 <span style={{ fontWeight: 700, color: 'var(--mantine-color-primary-5)' }}>о чём писать дальше</span>, чтобы расти быстрее.
               </Text>
@@ -110,10 +110,10 @@ const LandingPage: React.FC = () => {
               <Group gap={48} mt="lg">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <Text fw={800} color="primary" lh={1.1} style={{ fontSize: '32px' }}>
+                    <Text fw={800} c="primary" lh={1.1} style={{ fontSize: '32px' }}>
                       {stat.value}
                     </Text>
-                    <Text size="sm" color="dimmed" mt="xs">
+                    <Text size="sm" c="dimmed" mt="xs">
                       {stat.label}
                     </Text>
                   </div>
@@ -137,7 +137,7 @@ const LandingPage: React.FC = () => {
                     <ThemeIcon size={22} color="tgblue">
                       <IconSparkles size={12} />
                     </ThemeIcon>
-                    <Text size="md" fw={700} color="primary">
+                    <Text size="md" fw={700} c="primary">
                       AI-помощник редактора
                     </Text>
                   </Group>
@@ -148,13 +148,13 @@ const LandingPage: React.FC = () => {
 
                 <Stack>
                   <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
-                    <Text size="xs" color="secondary" lh={1.4}>
+                    <Text size="xs" c="secondary" lh={1.4}>
                       Разборы кейсов дают <span style={{ fontWeight: 700 }}>+34%</span> реакций. Запланируйте один на этой неделе.
                     </Text>
                   </InsightCard>
 
                   <InsightCard color="blue" label="ТРЕНД">
-                    <Text size="xs" color="secondary" lh={1.4}>
+                    <Text size="xs" c="secondary" lh={1.4}>
                       Тема <span style={{ fontWeight: 700 }}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
                     </Text>
                   </InsightCard>
@@ -163,7 +163,7 @@ const LandingPage: React.FC = () => {
                     <Group gap={6} align="flex-start" wrap="nowrap">
                       <Text size="lg">🎯</Text>
                       <Box>
-                        <Text size="sm" fw={700} color="primary" mb={2}>
+                        <Text size="sm" fw={700} c="primary" mb={2}>
                           «Как AI-агенты меняют онбординг»
                         </Text>
                         <Text size="xs" fw={600} c="tggreen.7">
@@ -185,7 +185,7 @@ const LandingPage: React.FC = () => {
             <Title order={2} ta="center">
               Всё, что умеет tgstats — и AI сверху
             </Title>
-            <Text color="dimmed" ta="center" maw={600} style={{ fontSize: '15px' }}>
+            <Text c="dimmed" ta="center" maw={600} style={{ fontSize: '15px' }}>
               Полная статистика каналов плюс рекомендательный слой на искусственном интеллекте
             </Text>
           </Stack>
@@ -215,7 +215,7 @@ const LandingPage: React.FC = () => {
                 <Title order={3} mb="xs">
                   {f.title}
                 </Title>
-                <Text size="sm" color="dimmed" lh={1.5}>
+                <Text size="sm" c="dimmed" lh={1.5}>
                   {f.description}
                 </Text>
               </Card>
@@ -241,15 +241,15 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
               <ThemeIcon size={24} color="tgblue">
                 <span style={{ fontSize: 'var(--mantine-font-size-xs)', fontWeight: 800 }}>t</span>
               </ThemeIcon>
-              <Text fw={800} size="lg" color="primary">tgpulse</Text>
+              <Text fw={800} size="lg" c="primary">tgpulse</Text>
             </Group>
-            <Text size="sm" color="dimmed" lh={1.5} maw={240}>
+            <Text size="sm" c="dimmed" lh={1.5} maw={240}>
               Аналитика Telegram-каналов с искусственным интеллектом. Знайте о своём канале больше, чем вы сами.
             </Text>
           </Stack>
 
           <Stack gap="sm">
-            <Text fw={800} size="md" color="primary">Продукт</Text>
+            <Text fw={800} size="md" c="primary">Продукт</Text>
             <Text
               size="sm"
               color="dimmed"
@@ -269,7 +269,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
           </Stack>
 
           <Stack gap="sm">
-            <Text fw={800} size="md" color="primary">Компания</Text>
+            <Text fw={800} size="md" c="primary">Компания</Text>
             <Text
               size="sm"
               color="dimmed"
@@ -289,7 +289,7 @@ const FooterCustom: React.FC<{ navigate: any }> = ({ navigate }) => {
           </Stack>
 
           <Stack gap="sm">
-            <Text fw={800} size="md" color="primary">Правовое</Text>
+            <Text fw={800} size="md" c="primary">Правовое</Text>
             <Text
               size="sm"
               color="dimmed"

@@ -1,7 +1,6 @@
 import React from 'react';
 import type { GroupProps } from '@mantine/core';
-import { Box, Card, Group, Title } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
+import { Text, Box, Card, Group, Title } from '@mantine/core';
 
 interface GradientCardProps {
   gradient: [string, string];
@@ -63,7 +62,7 @@ export const GradientCard: React.FC<GradientCardProps> = ({
             </Group>
           )}
           {children && (
-            <Text size="sm" color="dimmed">{children}</Text>
+            <Text size="sm" c="dimmed">{children}</Text>
           )}
         </Box>
       )}

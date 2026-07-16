@@ -2,15 +2,15 @@ import React from 'react';
 import {
   Badge,
   Box,
+  Button,
   Card,
   Group,
   SimpleGrid,
-  Switch,
   Stack,
+  Switch,
+  Text,
   Title,
-} from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+} from '@mantine/core';;
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconEdit, IconLogout, IconPlus } from '@tabler/icons-react';
@@ -24,7 +24,7 @@ const UserProfilePage: React.FC = () => {
       <Box p="md" maw={960} mx="auto">
         <Box mb="md">
           <Title order={2}>Личный кабинет</Title>
-          <Text color="dimmed">Управление аккаунтом и подпиской</Text>
+          <Text c="dimmed">Управление аккаунтом и подпиской</Text>
         </Box>
         <SimpleGrid cols={{ base: 1, md: 2 }}>
           <Card withBorder p="lg" radius="md">
@@ -33,7 +33,7 @@ const UserProfilePage: React.FC = () => {
               <BrandAvatar name="Алексей Иванов" size={58} />
               <div>
                 <Title order={4}>Алексей Иванов</Title>
-                <Text size="sm" color="dimmed">alexey@example.com</Text>
+                <Text size="sm" c="dimmed">alexey@example.com</Text>
               </div>
             </Group>
             <Group gap="sm">
@@ -58,7 +58,7 @@ const UserProfilePage: React.FC = () => {
           >
             <Card p="md" radius="md" style={{ backgroundColor: 'var(--mantine-color-tgblue-0)' }} mb="md">
               <Text size="sm" fw={600} mb="xs">Получите больше возможностей</Text>
-              <Text size="xs" color="dimmed" mb="sm">AI-инсайты, сравнение каналов, экспорт данных</Text>
+              <Text size="xs" c="dimmed" mb="sm">AI-инсайты, сравнение каналов, экспорт данных</Text>
               <Button size="sm" variant="filled" color="tgblue" onClick={() => navigate('/')}>
                 Перейти на Pro
               </Button>
@@ -78,7 +78,7 @@ const UserProfilePage: React.FC = () => {
               </Button>
             }
           >
-            <Text color="dimmed" size="sm">У вас пока нет добавленных каналов</Text>
+            <Text c="dimmed" size="sm">У вас пока нет добавленных каналов</Text>
           </SectionCard>
 
           <SectionCard title="Уведомления">

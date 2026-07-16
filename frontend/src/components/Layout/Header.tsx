@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Burger, Group, Box, Stack, Anchor } from '@mantine/core';
+import { Menu, Burger, Group, Box, Stack, Anchor, Tooltip } from '@mantine/core';
 import { IconUser } from '@tabler/icons-react';
-import Tooltip from '@/components/ui/Tooltip';
 import AppLink from '../ui/AppLink';
 
 const Header: React.FC = () => {
@@ -56,12 +55,12 @@ const Header: React.FC = () => {
         </Group>
 
         <Group gap="sm" hiddenFrom="md">
-          <Tooltip text="Меню">
+          <Tooltip label="Меню">
             <Burger opened={isMenuOpen} onClick={toggleMenu} size="sm" />
           </Tooltip>
           <Menu opened={isProfileOpen} onClose={closeProfileMenu}>
             <Menu.Target>
-              <Tooltip text="Профиль">
+              <Tooltip label="Профиль">
                 <Anchor component="button" onClick={toggleProfileMenu}>
                   <IconUser size={20} />
                 </Anchor>

@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import {
   Badge,
+  Box,
+  Button,
+  Container,
   Group,
   Select,
   Switch,
   Table,
   Tabs,
+  Text,
   Title,
-} from '@mantine/core';
-import { Text } from '@/components/ui/Text';
-import { Button } from '@mantine/core';
+} from '@mantine/core';;
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { SectionCard } from '@/components/ui/SectionCard';
-import { PageShell } from '@/components/ui/PageShell';
 import { IconPlus } from '@tabler/icons-react';
 
 const categoryOptions = ['Технологии', 'Бизнес', 'Спорт', 'Криптовалюты', 'Маркетинг'];
@@ -67,11 +68,11 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <PageShell>
+    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
         <Title order={1} mb="xs">
           Админ-панель
         </Title>
-        <Text color="dimmed" mb="lg">
+        <Text c="dimmed" mb="lg">
           Только для администраторов сервиса
         </Text>
 
@@ -108,7 +109,7 @@ const AdminPage: React.FC = () => {
                           <BrandAvatar name={item.name} size={28} />
                           <div>
                             <Text size="sm" fw={600}>{item.name}</Text>
-                            <Text size="xs" color="dimmed">{item.username}</Text>
+                            <Text size="xs" c="dimmed">{item.username}</Text>
                           </div>
                         </Group>
                       </Table.Td>
@@ -150,7 +151,7 @@ const AdminPage: React.FC = () => {
                   {moderation.length === 0 && (
                     <Table.Tr>
                       <Table.Td colSpan={5}>
-                        <Text color="dimmed" ta="center" py="md">Очередь модерации пуста</Text>
+                        <Text c="dimmed" ta="center" py="md">Очередь модерации пуста</Text>
                       </Table.Td>
                     </Table.Tr>
                   )}
@@ -185,7 +186,7 @@ const AdminPage: React.FC = () => {
                           <BrandAvatar name={ch.name} size={28} />
                           <div>
                             <Text size="sm" fw={600}>{ch.name}</Text>
-                            <Text size="xs" color="dimmed">{ch.username}</Text>
+                            <Text size="xs" c="dimmed">{ch.username}</Text>
                           </div>
                         </Group>
                       </Table.Td>
@@ -284,7 +285,7 @@ const AdminPage: React.FC = () => {
             </SectionCard>
           </Tabs.Panel>
         </Tabs>
-      </PageShell>
+      </Container></Box>
   );
 };
 

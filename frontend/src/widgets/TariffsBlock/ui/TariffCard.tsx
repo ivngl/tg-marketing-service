@@ -1,7 +1,5 @@
 import React from 'react';
-import { Card, Group, Stack } from '@mantine/core';
-import { Button } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
+import { Text, Card, Group, Stack, Button } from '@mantine/core';
 import type { Tariff } from '../model/types';
 
 interface TariffCardProps extends Tariff {
@@ -58,10 +56,10 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       )}
 
       <Stack style={{ flex: 1 }}>
-        <Text size="md" fw={800} color="primary">{name}</Text>
+        <Text size="md" fw={800} c="primary">{name}</Text>
 
         <Stack gap={2}>
-          <Text fw={800} color="primary" lh={1.1} style={{ fontSize: '34px' }}>
+          <Text fw={800} c="primary" lh={1.1} style={{ fontSize: '34px' }}>
             {monthlyPrice === 0 ? '0 ₽' : `${monthlyPrice} ₽`}
           </Text>
           <Text size="xs" c="gray.5">
@@ -73,7 +71,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
           {features.map((feat) => (
             <Group key={feat.id} gap={8} wrap="nowrap" align="flex-start">
               <Text size="sm" fw={600} c="#10B981">✓</Text>
-              <Text size="sm" color="muted">{feat.text}</Text>
+              <Text size="sm" c="muted">{feat.text}</Text>
             </Group>
           ))}
         </Stack>

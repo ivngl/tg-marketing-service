@@ -1,5 +1,4 @@
-import { Box, Collapse, UnstyledButton } from '@mantine/core';
-import { Text } from '@/components/ui/Text';
+import { Text, Box, Collapse, UnstyledButton } from '@mantine/core';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import type { FaqAccordionItemProps } from '../model/types';
 
