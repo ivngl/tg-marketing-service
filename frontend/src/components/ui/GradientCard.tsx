@@ -40,12 +40,11 @@ export const GradientCard: React.FC<GradientCardProps> = ({
       <Box
         p="lg"
         c="white"
-        display="flex"
-        justify="flex-end"
         mih={minHeight}
         style={{
-          background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`,
+          display: 'flex',
           flexDirection: 'column',
+          background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`,
         }}
       >
         <Group justify="space-between" mb="xs" wrap="nowrap">
