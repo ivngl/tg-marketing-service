@@ -15,10 +15,8 @@ export default function CollectionChannelCard(props: {
         <Avatar
           radius="lg"
           color="white"
-          style={{
-            background: props.color,
-            fontWeight: 700,
-          }}
+          bg={props.color}
+          fw={700}
         >
           {props.initials}
         </Avatar>
