@@ -15,7 +15,6 @@ interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size' | 'clas
   rightIcon?: React.ReactElement;
   scheme?: 'primary' | 'accent' | 'danger' | 'default';
   children?: React.ReactNode;
-  className?: string;
 }
 
 const mantineSize: Record<Size, 'sm' | 'md' | 'lg'> = {
@@ -42,7 +41,6 @@ const AppLink: React.FC<AppLinkProps> = ({
   scheme = 'default',
   children,
   onClick,
-  style,
   ...rest
 }) => {
   const content = label || children;
@@ -59,7 +57,7 @@ const AppLink: React.FC<AppLinkProps> = ({
       display="inline-flex"
       align="center"
       gap={6}
-      style={{ ...style, pointerEvents: isDisabled ? 'none' : undefined, opacity: isDisabled ? 0.5 : undefined }}
+      styles={{ root: { pointerEvents: isDisabled ? 'none' : undefined, opacity: isDisabled ? 0.5 : undefined } }}
       {...rest}
     >
       {leftIcon}

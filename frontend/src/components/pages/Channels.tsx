@@ -8,7 +8,6 @@ import {
   Title,
 } from '@mantine/core';
 import React, { useMemo, useState } from 'react';
-import classes from './Channels.module.css';
 import ChannelCard from '../ui/ChannelCard';
 import type { ChannelsProps } from '@/types/channel';
 import channelsCol from '@/fixtures/channelsCollection';
@@ -75,7 +74,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
             radius="sm"
             variant={activeCategory === null ? 'filled' : 'light'}
             color={activeCategory === null ? 'blue' : 'gray'}
-            className={classes.filterBadge}
+            styles={{ root: { cursor: 'pointer' } }}
             onClick={() => setActiveCategory(null)}
           >
             Все
@@ -87,7 +86,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
               radius="sm"
               variant={activeCategory === cat ? 'filled' : 'light'}
               color={activeCategory === cat ? 'blue' : 'gray'}
-              className={classes.filterBadge}
+              styles={{ root: { cursor: 'pointer' } }}
               onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
             >
               {cat} ({count})

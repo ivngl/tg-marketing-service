@@ -3,7 +3,6 @@ import { Container, Title, Group, Box } from '@mantine/core';
 import { AiDemoText } from './AiDemoText';
 import { AiDemoWindow } from './AiDemoWindow';
 import { useAiDemo } from '../model/useAiDemo';
-import classes from './AiDemoBlock.module.css';
 
 export const AiDemoBlock: React.FC = () => {
   const { data, activeButton, handleButtonClick } = useAiDemo();
@@ -12,7 +11,7 @@ export const AiDemoBlock: React.FC = () => {
     <Box component="section" w="100%" p={40}>
       <Container px="md">
         <Group align="stretch" gap="xl" wrap="wrap">
-          <Box className={classes.leftBox}>
+          <Box styles={{ root: { flex: '1 1 0', minWidth: 300 } }}>
             <Title order={2} mb="md">ИИ-помощник редактора</Title>
             <AiDemoText
               {...data}
@@ -21,7 +20,7 @@ export const AiDemoBlock: React.FC = () => {
             />
           </Box>
 
-          <Box className={classes.rightBox}>
+          <Box styles={{ root: { flex: '1 1 0', minWidth: 300, display: 'flex' } }}>
             <AiDemoWindow demoTitle={data.demoTitle} />
           </Box>
         </Group>

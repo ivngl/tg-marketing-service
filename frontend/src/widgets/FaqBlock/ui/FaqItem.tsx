@@ -1,7 +1,6 @@
 import { Text, Box, Collapse, UnstyledButton } from '@mantine/core';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import type { FaqAccordionItemProps } from '../model/types';
-import classes from './FaqItem.module.css';
 
 export const FaqItem: React.FC<FaqAccordionItemProps> = ({
   question,
@@ -10,10 +9,20 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
   onToggle,
 }) => {
   return (
-    <Box className={classes.item}>
+    <Box styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-2)' } }}>
       <UnstyledButton
         onClick={onToggle}
-        className={classes.toggle}
+        styles={{
+          root: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+            textAlign: 'left',
+            padding: '12px 16px',
+            backgroundColor: 'var(--mantine-color-white)',
+          },
+        }}
       >
         <Text fw={700} size="base">
           {question}

@@ -20,7 +20,6 @@ import {
 } from '@tabler/icons-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import classes from './LandingPage.module.css';
 
 const stats = [
   { value: '2.4M', label: 'каналов в базе' },
@@ -59,10 +58,15 @@ const LandingPage: React.FC = () => {
   return (
     <>
       {/* HERO SECTION */}
-      <Box component="section" bg="white" py={80} className={classes.heroSection}>
+      <Box
+        component="section"
+        bg="white"
+        py={80}
+        styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-3)' } }}
+      >
         <Container>
           <Group gap={60} align="center" wrap="wrap">
-            <Stack className={classes.heroStack} gap="xl">
+            <Stack styles={{ root: { flex: '1.1 1 0', minWidth: 320 } }} gap="xl">
               <Badge
                 variant="light"
                 color="tgblue"
@@ -89,7 +93,7 @@ const LandingPage: React.FC = () => {
 
               <Text size="lg" c="dimmed" maw={500}>
                 Статистика, охваты и реакции каждого поста — и AI, который подсказывает,{' '}
-                <span className={classes.boldPrimary}>о чём писать дальше</span>, чтобы расти быстрее.
+                <Text component="span" fw={700} c="primary.5">о чём писать дальше</Text>, чтобы расти быстрее.
               </Text>
 
               <Group gap="md">
@@ -121,11 +125,19 @@ const LandingPage: React.FC = () => {
                 ))}
               </Group>
             </Stack>
-            <Box className={classes.heroRight}>
+            <Box styles={{ root: { flex: '0.9 1 0', minWidth: 320 } }}>
               <Card
                 padding="lg"
                 radius="lg"
-                className={classes.heroCard}
+                styles={{
+                  root: {
+                    border: '1px solid var(--mantine-color-gray-3)',
+                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.06)',
+                    width: '100%',
+                    maxWidth: 430,
+                    marginLeft: 'auto',
+                  },
+                }}
               >
                 <Group justify="space-between" mb="lg">
                   <Group gap={6}>
@@ -144,13 +156,13 @@ const LandingPage: React.FC = () => {
                 <Stack>
                   <InsightCard color="green" label="РЕКОМЕНДАЦИЯ">
                     <Text size="xs" c="secondary" lh={1.4}>
-                      Разборы кейсов дают <span className={classes.bold}>+34%</span> реакций. Запланируйте один на этой неделе.
+                      Разборы кейсов дают <Text component="span" fw={700}>+34%</Text> реакций. Запланируйте один на этой неделе.
                     </Text>
                   </InsightCard>
 
                   <InsightCard color="blue" label="ТРЕНД">
                     <Text size="xs" c="secondary" lh={1.4}>
-                      Тема <span className={classes.bold}>AI-агентов +180%</span> за 30 дней — ниша ещё свободна.
+                      Тема <Text component="span" fw={700}>AI-агентов +180%</Text> за 30 дней — ниша ещё свободна.
                     </Text>
                   </InsightCard>
 
@@ -162,7 +174,7 @@ const LandingPage: React.FC = () => {
                           «Как AI-агенты меняют онбординг»
                         </Text>
                         <Text size="xs" fw={600} c="tggreen.7">
-                          Прогноз ~48K охват <span className={classes.boldMuted}>• чт 19:30</span>
+                          Прогноз ~48K охват <Text component="span" fw={400} c="muted.5">• чт 19:30</Text>
                         </Text>
                       </Box>
                     </Group>
@@ -191,14 +203,19 @@ const LandingPage: React.FC = () => {
                 key={f.title}
                 padding="lg"
                 radius="lg"
-                className={classes.heroFeatureCard}
+                styles={{
+                  root: {
+                    border: '1px solid var(--mantine-color-gray-3)',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.02)',
+                  },
+                }}
               >
                 <ThemeIcon
                   size={48}
                   radius="md"
                   bg={f.iconBg}
                   c={f.iconColor}
-                  className={classes.heroFeatureIcon}
+                  styles={{ root: { marginBottom: 20 } }}
                 >
                   <f.icon size={24} />
                 </ThemeIcon>

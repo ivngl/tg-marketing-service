@@ -3,7 +3,6 @@ import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title,
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';
-import classes from './FormRegistration.module.css';
 
 const FormRegistration: React.FC = () => {
   const form = useForm({
@@ -43,9 +42,9 @@ const FormRegistration: React.FC = () => {
           </Box>
 
           <Group justify="center" gap="sm">
-            <Anchor href="#"><SocialIcon network="yandex" className={classes.socialIcon} /></Anchor>
-            <Anchor href="#"><SocialIcon network="vk" className={classes.socialIcon} /></Anchor>
-            <Anchor href="#"><SocialIcon network="github" className={classes.socialIcon} /></Anchor>
+            <Anchor href="#"><Box w={40} h={40}><SocialIcon network="yandex" /></Box></Anchor>
+            <Anchor href="#"><Box w={40} h={40}><SocialIcon network="vk" /></Box></Anchor>
+            <Anchor href="#"><Box w={40} h={40}><SocialIcon network="github" /></Box></Anchor>
           </Group>
 
           <Divider label="или" labelPosition="center" />

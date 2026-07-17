@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Title, Container, SimpleGrid } from '@mantine/core';
-import classes from './TariffsBlock.module.css';
 import type { TariffsBlockProps } from '../model/types';
 import { useTariffsBlock } from '../model/useTariffsBlock';
 import { TariffCard } from './TariffCard';
@@ -16,7 +15,12 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
   if (!tariffs || tariffs.length === 0) return null;
 
   return (
-    <Box component="section" bg="white" py={80} className={classes.section}>
+    <Box
+      component="section"
+      bg="white"
+      py={80}
+      styles={{ root: { borderTop: '1px solid var(--mantine-color-gray-3)', borderBottom: '1px solid var(--mantine-color-gray-3)' } }}
+    >
       <Container>
         <Title order={2} fw={800} c="primary" ta="center" mb={60} fz="32px">
           Тарифы

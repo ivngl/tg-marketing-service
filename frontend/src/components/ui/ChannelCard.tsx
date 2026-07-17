@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, Avatar, Badge, Card, Group } from '@mantine/core';
+import { Text, Avatar, Badge, Card, Group, Box } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import type { Channel } from '@/types/channel';
 import formatNumberShort from '@/utils/formatNumberShort';
-import classes from './ChannelCard.module.css';
 
 interface ChannelCardProps {
   channel: Channel;
@@ -47,7 +46,16 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
       padding="sm"
       radius="md"
       withBorder
-      className={classes.card}
+      styles={{
+        root: {
+          cursor: 'pointer',
+          transition: 'transform 150ms, box-shadow 150ms',
+          '&:hover': {
+            transform: 'translateY(-2px)',
+            boxShadow: '0 8px 24px rgba(16, 18, 22, 0.10)',
+          },
+        },
+      }}
     >
       <Group gap="sm" wrap="nowrap" mb="sm">
         <Avatar
@@ -59,23 +67,24 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
         >
           {initials(name)}
         </Avatar>
-        <div className={classes.channelInfo}>
+        <Box flex={1} miw={0}>
           <Group gap={4} wrap="nowrap">
-            <Text fw={800} className={classes.channelName} truncate="end">
+            <Text fw={800} fz="15px" truncate="end">
               {name}
             </Text>
             {verified && (
-              <IconCheck
-                size={14}
-                color="var(--mantine-color-blue-5)"
-                className={classes.verifiedIcon}
-              />
+              <Box flexShrink={0}>
+                <IconCheck
+                  size={14}
+                  color="var(--mantine-color-blue-5)"
+                />
+              </Box>
             )}
           </Group>
           <Text size="xs" c="dimmed" truncate="end">
             {username}
           </Text>
-        </div>
+        </Box>
       </Group>
 
       <Group gap="xs" mb="sm">

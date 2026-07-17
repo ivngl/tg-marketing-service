@@ -7,11 +7,7 @@ export default function NotFoundPage() {
       <Title
         order={1}
         c="blue"
-        style={{
-          fontSize: 120,
-          lineHeight: 1,
-          fontWeight: 700,
-        }}
+        styles={{ root: { fontSize: 120, lineHeight: 1, fontWeight: 700 } }}
       >
         404
       </Title>
