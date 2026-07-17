@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, Group, Box } from '@mantine/core';
+import { Container, Title, Group, Box, Flex } from '@mantine/core';
 import { AiDemoText } from './AiDemoText';
 import { AiDemoWindow } from './AiDemoWindow';
 import { useAiDemo } from '../model/useAiDemo';
@@ -20,9 +20,9 @@ export const AiDemoBlock: React.FC = () => {
             />
           </Box>
 
-          <Box flex="1 1 0" miw={300} display="flex">
+          <Flex flex="1 1 0" miw={300}>
             <AiDemoWindow demoTitle={data.demoTitle} />
-          </Box>
+          </Flex>
         </Group>
       </Container>
     </Box>

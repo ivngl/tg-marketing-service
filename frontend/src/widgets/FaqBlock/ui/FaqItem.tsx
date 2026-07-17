@@ -1,4 +1,4 @@
-import { Text, Box, Collapse, UnstyledButton } from '@mantine/core';
+import { Text, Stack, Collapse, UnstyledButton, Flex } from '@mantine/core';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import type { FaqAccordionItemProps } from '../model/types';
 
@@ -9,24 +9,18 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
   onToggle,
 }) => {
   return (
-    <Box style={{ borderBottom: '1px solid var(--mantine-color-gray-2)' }}>
-      <UnstyledButton
-        onClick={onToggle}
-        display="flex"
-        style={{ alignItems: 'center', justifyContent: 'space-between' }}
-        w="100%"
-        ta="left"
-        p="12px 16px"
-        bg="white"
-      >
-        <Text fw={700} size="base">
-          {question}
-        </Text>
-        {isOpen ? (
-          <IconChevronUp size={16} color="var(--mantine-color-gray-7)" />
-        ) : (
-          <IconChevronDown size={16} color="var(--mantine-color-gray-7)" />
-        )}
+    <Stack gap={0} styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-2)' } }}>
+      <UnstyledButton onClick={onToggle} w="100%" ta="left" p="12px 16px" bg="white">
+        <Flex align="center" justify="space-between" w="100%">
+          <Text fw={700} size="base">
+            {question}
+          </Text>
+          {isOpen ? (
+            <IconChevronUp size={16} color="var(--mantine-color-gray-7)" />
+          ) : (
+            <IconChevronDown size={16} color="var(--mantine-color-gray-7)" />
+          )}
+        </Flex>
       </UnstyledButton>
       <Collapse expanded={isOpen} transitionDuration={200}>
         <Text
@@ -40,6 +34,6 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
           {answer}
         </Text>
       </Collapse>
-    </Box>
+    </Stack>
   );
 };

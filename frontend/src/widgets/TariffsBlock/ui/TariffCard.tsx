@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Card, Group, Stack, Button, Box } from '@mantine/core';
+import { Text, Card, Group, Stack, Button, Badge, Flex } from '@mantine/core';
 import type { Tariff } from '../model/types';
 
 interface TariffCardProps extends Tariff {
@@ -21,8 +21,6 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       onClick={onClick}
       padding="xl"
       radius="lg"
-      display="flex"
-      style={{ flexDirection: 'column', justifyContent: 'space-between' }}
       pos="relative"
       styles={{
         root: {
@@ -45,7 +43,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       }}
     >
       {isPopular && (
-        <Box
+        <Badge
           pos="absolute"
           top={-14}
           left={80}
@@ -55,12 +53,13 @@ export const TariffCard: React.FC<TariffCardProps> = ({
           bdrs={12}
           fz="xs"
           fw={800}
-          style={{ transform: 'translateX(-50%)', zIndex: 2 }}
+          styles={{ root: { transform: 'translateX(-50%)', zIndex: 2 } }}
         >
           Популярный
-        </Box>
+        </Badge>
       )}
 
+      <Flex direction="column" justify="space-between" h="100%">
       <Stack flex={1}>
         <Text size="md" fw={800} c="primary">{name}</Text>
 
@@ -93,6 +92,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       >
         {button.label}
       </Button>
+      </Flex>
     </Card>
   );
 };

@@ -12,6 +12,7 @@ import {
   TextInput,
   ThemeIcon,
   Title,
+  UnstyledButton,
   Container,
 } from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
@@ -87,20 +88,6 @@ const getHeatColor = (value: number) => {
   if (value <= 9) return 'var(--mantine-color-tgblue-4)';
   return 'var(--mantine-color-tgblue-5)';
 };
-
-const heatmapCellStyles = (val: number) => ({
-  borderRadius: 3,
-  aspectRatio: '1' as const,
-  minWidth: 12,
-  backgroundColor: getHeatColor(val),
-});
-
-const heatmapLegendCellStyles = (v: number) => ({
-  width: 12,
-  height: 12,
-  borderRadius: 2,
-  backgroundColor: getHeatColor(v),
-});
 
 const AICabinetPage: React.FC = () => {
   const navigate = useNavigate();
@@ -198,11 +185,15 @@ const AICabinetPage: React.FC = () => {
               <Text size="xs" c="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
-              <Box style={{ overflowX: 'auto' }}>
-                <Box
+              <Paper p={0} shadow="none" withBorder={false} bg="transparent" styles={{ root: { overflowX: 'auto' } }}>
+                <Paper
+                  p={0}
+                  shadow="none"
+                  withBorder={false}
+                  bg="transparent"
                   display="grid"
                   miw={500}
-                  style={{ gap: 2, gridTemplateColumns: '32px repeat(24, 1fr)' }}
+                  styles={{ root: { gap: 2, gridTemplateColumns: '32px repeat(24, 1fr)' } }}
                 >
                   <div />
                   {hours.filter((h) => h >= 8 && h <= 22).map((h) => (
@@ -212,27 +203,31 @@ const AICabinetPage: React.FC = () => {
                   ))}
                   {daysOfWeek.map((day) => (
                     <React.Fragment key={day}>
-                      <Box fz="10px" c="dimmed" display="flex" style={{ alignItems: 'center' }}>
-                        {day}
-                      </Box>
+                      <Text fz="10px" c="dimmed">{day}</Text>
                       {hours.filter((h) => h >= 8 && h <= 22).map((h) => {
                         const val = heatmapData[day]?.[h] ?? 0;
                         return (
-                          <Box
+                          <Paper
                             key={`${day}-${h}`}
+                            p={0}
+                            shadow="none"
+                            withBorder={false}
                             title={`${day} ${h}:00 — ${val > 0 ? `${val}/10 активность` : 'нет данных'}`}
-                            style={heatmapCellStyles(val)}
+                            bdrs={3}
+                            miw={12}
+                            bg={getHeatColor(val)}
+                            styles={{ root: { aspectRatio: '1' } }}
                           />
                         );
                       })}
                     </React.Fragment>
                   ))}
-                </Box>
-              </Box>
+                </Paper>
+              </Paper>
               <Group mt="sm" gap="xs">
                 <Text size="xs" c="dimmed">Меньше</Text>
                 {[0, 3, 5, 7, 9, 10].map((v) => (
-                  <Box key={v} style={heatmapLegendCellStyles(v)} />
+                  <Box key={v} w={12} h={12} bdrs={2} bg={getHeatColor(v)} />
                 ))}
                 <Text size="xs" c="dimmed">Больше</Text>
               </Group>
@@ -273,8 +268,8 @@ const AICabinetPage: React.FC = () => {
                 value={questionText}
                 onChange={(e) => setQuestionText(e.currentTarget.value)}
                 rightSection={
-                  <Box
-                    style={{ cursor: 'pointer' }}
+                  <UnstyledButton
+                    styles={{ root: { cursor: 'pointer' } }}
                     onClick={() => {
                       if (questionText.trim()) {
                         console.log('AI question:', questionText);
@@ -286,7 +281,7 @@ const AICabinetPage: React.FC = () => {
                       size={16}
                       color="var(--mantine-color-tgpurple-5)"
                     />
-                  </Box>
+                  </UnstyledButton>
                 }
               />
             </SectionCard>

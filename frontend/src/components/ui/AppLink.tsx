@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
-import { Anchor } from '@mantine/core';
+import { Anchor, Flex } from '@mantine/core';
 
 interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'className'> {
   to: string;
@@ -48,12 +48,13 @@ const AppLink: React.FC<AppLinkProps> = ({
       onClick={isDisabled ? undefined : onClick}
       display="inline-flex"
       opacity={isDisabled ? 0.5 : undefined}
-      style={{ alignItems: 'center', gap: 6, pointerEvents: isDisabled ? 'none' : undefined }}
       {...rest}
     >
-      {leftIcon}
-      {content}
-      {rightIcon}
+      <Flex gap={6} align="center" wrap="nowrap">
+        {leftIcon}
+        {content}
+        {rightIcon}
+      </Flex>
     </Anchor>
   );
 };

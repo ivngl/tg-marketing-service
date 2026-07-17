@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Paper, Box } from '@mantine/core';
+import { Text, Paper, Flex } from '@mantine/core';
 import type { AiDemoBlockProps } from '../model/types';
 
 export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
@@ -11,19 +11,18 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
       radius="xl"
       flex={1}
       mih="15rem"
-      display="flex"
     >
-      <Box
+      <Flex
         w="100%"
         h="100%"
-        display="flex"
-        style={{ alignItems: 'center', justifyContent: 'center' }}
+        justify="center"
+        align="center"
         p={16}
         bg="#F8F9FB"
         bdrs={8}
       >
         <Text fz={48} c="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
-      </Box>
+      </Flex>
     </Paper>
   );
 };

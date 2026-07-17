@@ -73,12 +73,10 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
               {name}
             </Text>
             {verified && (
-              <Box style={{ flexShrink: 0 }}>
-                <IconCheck
-                  size={14}
-                  color="var(--mantine-color-blue-5)"
-                />
-              </Box>
+              <IconCheck
+                size={14}
+                color="var(--mantine-color-blue-5)"
+              />
             )}
           </Group>
           <Text size="xs" c="dimmed" truncate="end">

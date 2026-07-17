@@ -5,6 +5,7 @@ import {
   Card,
   Container,
   Group,
+  Paper,
   SimpleGrid,
   Stack,
   Text,
@@ -58,11 +59,13 @@ const LandingPage: React.FC = () => {
   return (
     <>
       {/* HERO SECTION */}
-      <Box
+      <Paper
         component="section"
         bg="white"
         py={80}
-        style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}
+        shadow="none"
+        withBorder={false}
+        styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-3)' } }}
       >
         <Container>
           <Group gap={60} align="center" wrap="wrap">
@@ -175,7 +178,7 @@ const LandingPage: React.FC = () => {
             </Box>
           </Group>
         </Container>
-      </Box>
+      </Paper>
 
       <Box component="section" bg="gray.0" py={80}>
         <Container>
