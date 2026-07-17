@@ -41,13 +41,11 @@ export const GradientCard: React.FC<GradientCardProps> = ({
         p="lg"
         c="white"
         display="flex"
-        direction="column"
         justify="flex-end"
         mih={minHeight}
-        styles={{
-          root: {
-            background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`,
-          },
+        style={{
+          background: `linear-gradient(135deg, ${gradient[0]}, ${gradient[1]})`,
+          flexDirection: 'column',
         }}
       >
         <Group justify="space-between" mb="xs" wrap="nowrap">
