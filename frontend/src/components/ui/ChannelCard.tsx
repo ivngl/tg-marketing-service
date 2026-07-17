@@ -73,7 +73,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
               {name}
             </Text>
             {verified && (
-              <Box flexShrink={0}>
+              <Box style={{ flexShrink: 0 }}>
                 <IconCheck
                   size={14}
                   color="var(--mantine-color-blue-5)"

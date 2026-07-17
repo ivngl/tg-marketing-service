@@ -7,6 +7,7 @@ import {
   Group,
   SegmentedControl,
   SimpleGrid,
+  Box,
   Stack,
   Table,
   Text,
@@ -58,9 +59,9 @@ const DashboardPage: React.FC = () => {
                 <Title order={2}>{channel.name}</Title>
                 {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
               </Group>
-              <Text size="sm" c="dimmed">
+              <Box c="dimmed" fz="sm">
                 {channel.username} · <Badge size="xs">{channel.category}</Badge>
-              </Text>
+              </Box>
             </div>
           </Group>
           <Group gap="sm">
