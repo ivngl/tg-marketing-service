@@ -1,8 +1,8 @@
 import {
-  Badge,
   Box,
   Card,
   Container,
+  Badge,
   Grid,
   SimpleGrid,
   Stack,
@@ -10,6 +10,7 @@ import {
   Title
 } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
+import SmallArticle from "@/components/ui/SmallArticle";
 
 const articles = [
   {
@@ -38,48 +39,6 @@ const articles = [
   },
 ];
 
-
-
-function SmallArticle({
-  color,
-  category,
-  title,
-  date,
-  time,
-  onClick,
-}: {
-  color: string;
-  category: string;
-  title: string;
-  date: string;
-  time: string;
-  onClick?: () => void;
-}) {
-  return (
-    <Card withBorder radius="lg" padding={0} overflow="hidden" onClick={onClick} style={{ cursor: 'pointer' }}>
-      <Box h={150} bg={color} />
-
-      <Stack p="md" gap="xs">
-        <Badge variant="light" w="fit-content">
-          {category}
-        </Badge>
-
-        <Text fw={700} size="lg">
-          {title}
-        </Text>
-
-        <Text c="dimmed" size="sm">
-          Небольшое описание статьи в несколько строк.
-        </Text>
-
-        <Text size="xs" c="dimmed">
-          {date} • {time}
-        </Text>
-      </Stack>
-    </Card>
-  );
-}
-
 export default function BlogPage() {
   const navigate = useNavigate();
 
@@ -93,7 +52,7 @@ export default function BlogPage() {
           </Text>
         </Box>
 
-          <Card withBorder padding={0} onClick={() => navigate('/blog/kak-ai-pomogaet-avtoram')} style={{ cursor: 'pointer' }}>
+          <Card withBorder padding={0} onClick={() => navigate('/blog/kak-ai-pomogaet-avtoram-rasti-v-2-raza-bystree')} style={{ cursor: 'pointer' }}>
             <Grid gutter={0}>
               <Grid.Col span={{ base: 12, md: 7 }}>
                 <Box
