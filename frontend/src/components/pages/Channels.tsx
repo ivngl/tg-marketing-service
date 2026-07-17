@@ -1,6 +1,5 @@
 import {
   Badge,
-  Box,
   Container,
   Group,
   SegmentedControl,
@@ -63,7 +62,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
   }, [sortedChannels, typeFilter, activeCategory, query]);
 
   return (
-    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
+    <Container py={40} px="md">
         <Group justify="space-between" mb="md">
           <Title order={1}>Каталог каналов и групп</Title>
           <Text c="dimmed" size="sm">
@@ -127,7 +126,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
             ))}
           </SimpleGrid>
         )}
-      </Container></Box>
+    </Container>
   );
 };
 

@@ -57,7 +57,7 @@ const LandingPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box bg="gray.0" mih="100vh">
+    <>
       {/* HERO SECTION */}
       <Box component="section" bg="white" py={80} className={classes.heroSection}>
         <Container>
@@ -67,7 +67,7 @@ const LandingPage: React.FC = () => {
                 variant="light"
                 color="tgblue"
                 size="lg"
-               
+
                 styles={{
                   root: {
                     textTransform: 'none',
@@ -214,7 +214,7 @@ const LandingPage: React.FC = () => {
         </Container>
       </Box>
       <TariffsBlock />
-    </Box>
+    </>
   );
 };
 

@@ -18,7 +18,7 @@ const posts = [
 
 const BlogPage: React.FC = () => {
   return (
-    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
+    <Container py={40} px="md">
         <Title order={1} mb="lg">
           Блог
         </Title>
@@ -51,12 +51,12 @@ const BlogPage: React.FC = () => {
                 <>
                   <Text size="xs" c="dimmed">{post.date}</Text>
                   <Text size="xs" c="dimmed">{post.readTime} чтения</Text>
-                </>
+    </Container>
               }
             />
           ))}
         </SimpleGrid>
-      </Container></Box>
+    </>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from "react";
-import { Title, Container } from "@mantine/core";
+import { Container, Title } from "@mantine/core";
 
 const Home: React.FC = () => {
   return (
-    <Container py="xl">
+    <Container py={40} px="md">
       <Title order={1}>Главная страница</Title>
     </Container>
   );

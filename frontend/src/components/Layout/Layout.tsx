@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { AppShell } from '@mantine/core';
+import { AppShell, Box } from '@mantine/core';
 import { SearchBar } from './SearchBar';
 import { NavBar } from './NavBar';
 import { Footer } from './Footer';
-import classes from './Layout.module.css';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [opened, setOpened] = useState(false);
@@ -23,7 +22,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       <AppShell.Main bg="#f5f7fb">
         <SearchBar opened={opened} onToggle={() => setOpened(!opened)} />
-        {children}
+        <Box bg="gray.0" mih="100vh">
+          {children}
+        </Box>
         <Footer />
       </AppShell.Main>
     </AppShell>

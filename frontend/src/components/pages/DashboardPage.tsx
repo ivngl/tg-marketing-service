@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Badge,
-  Box,
   Button,
   Card,
   Container,
@@ -12,7 +11,7 @@ import {
   Table,
   Text,
   Title,
-} from '@mantine/core';;
+} from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { AreaChart } from '@mantine/charts';
@@ -51,8 +50,8 @@ const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
-        <Group justify="space-between" mb="md">
+    <Container py={40} px="md">
+    <Group justify="space-between" mb="md">
           <Group gap="md">
             <BrandAvatar name={channel.name} size={58} />
             <div>
@@ -138,7 +137,7 @@ const DashboardPage: React.FC = () => {
               </InsightCard>
             </Stack>
             <Button
-             
+
               color="tgblue"
               size="sm"
               mt="md"
@@ -180,7 +179,7 @@ const DashboardPage: React.FC = () => {
                   <Table.Td ta="right">
                     <Badge
                       size="sm"
-                     
+
                       color={post.er >= 25 ? 'green' : post.er >= 15 ? 'yellow' : 'red'}
                     >
                       {post.er}%
@@ -191,7 +190,7 @@ const DashboardPage: React.FC = () => {
             </Table.Tbody>
           </Table>
         </Card>
-      </Container></Box>
+    </Container>
   );
 };
 

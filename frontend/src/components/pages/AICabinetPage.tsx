@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Card,
-  Container,
   Group,
   Paper,
   SimpleGrid,
@@ -13,7 +12,8 @@ import {
   TextInput,
   ThemeIcon,
   Title,
-} from '@mantine/core';;
+  Container,
+} from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
@@ -94,7 +94,7 @@ const AICabinetPage: React.FC = () => {
   const [questionText, setQuestionText] = useState('');
 
   return (
-    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
+    <Container py={40} px="md">
         <Group gap="sm" mb="lg">
           <ThemeIcon size={36} variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
             <IconSparkles size={20} />
@@ -273,7 +273,7 @@ const AICabinetPage: React.FC = () => {
             </SectionCard>
           </Stack>
         </SimpleGrid>
-      </Container></Box>
+    </Container>
   );
 };
 

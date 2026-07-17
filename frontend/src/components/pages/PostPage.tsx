@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Badge,
-  Box,
   Button,
   Card,
   Container,
@@ -11,7 +10,7 @@ import {
   Stack,
   Text,
   Title,
-} from '@mantine/core';;
+} from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +27,7 @@ const PostPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
+    <Container py={40} px="md">
         <Button
           variant="subtle"
           color="tgblue"
@@ -118,7 +117,7 @@ const PostPage: React.FC = () => {
             </Text>
           </InsightCard>
         </SimpleGrid>
-      </Container></Box>
+    </Container>
   );
 };
 

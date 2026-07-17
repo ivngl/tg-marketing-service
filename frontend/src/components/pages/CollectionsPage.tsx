@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, SimpleGrid, Box, Container } from '@mantine/core';
+import { Container, Text, SimpleGrid } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { GradientCard } from '@/components/ui/GradientCard';
 
@@ -14,7 +14,7 @@ const CollectionsPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Box bg="gray.0" mih="100vh"><Container py={40} px="md">
+    <Container py={40} px="md">
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
           {collections.map((col) => (
             <GradientCard
@@ -36,7 +36,7 @@ const CollectionsPage: React.FC = () => {
             </GradientCard>
           ))}
         </SimpleGrid>
-      </Container></Box>
+    </Container>
   );
 };
 
