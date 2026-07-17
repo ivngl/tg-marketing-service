@@ -2,8 +2,8 @@ import { Avatar, Badge, Group, Paper, SimpleGrid, Stack, Text, Title } from '@ma
 
 export function Footer() {
   return (
-      <Paper bg="white" p={48}>
-        <SimpleGrid cols={4}>
+      <Paper bg="white" p={{ base: 24, md: 48 }}>
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }}>
           <Stack gap={6}>
             <Group>
               <Avatar color="blue">t</Avatar>
@@ -40,7 +40,7 @@ export function Footer() {
           </Stack>
         </SimpleGrid>
 
-        <Group justify="space-between" mt={48}>
+        <Group justify="space-between" mt={48} wrap="wrap" gap="md">
           <Text size="sm" c="dimmed">
             © 2026 tgpulse · Прототип
           </Text>
