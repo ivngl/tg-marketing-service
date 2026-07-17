@@ -19,7 +19,11 @@ const menu = [
   { label: 'Админка', path: '/admin', icon: IconSettings },
 ];
 
-export function NavBar() {
+interface NavBarProps {
+  onClose?: () => void;
+}
+
+export function NavBar({ onClose }: NavBarProps) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -47,7 +51,10 @@ export function NavBar() {
                 </ThemeIcon>
               }
               active={active}
-              onClick={() => navigate(item.path)}
+              onClick={() => {
+                navigate(item.path);
+                onClose?.();
+              }}
             />
           );
         })}
