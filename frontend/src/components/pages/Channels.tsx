@@ -5,12 +5,10 @@ import {
   SegmentedControl,
   SimpleGrid,
   Text,
-  TextInput,
   Title,
 } from '@mantine/core';
 import React, { useMemo, useState } from 'react';
 import classes from './Channels.module.css';
-import { IconSearch } from '@tabler/icons-react';
 import ChannelCard from '../ui/ChannelCard';
 import type { ChannelsProps } from '@/types/channel';
 import channelsCol from '@/fixtures/channelsCollection';
@@ -20,7 +18,6 @@ const defaultChannels = channelsCol;
 type TypeFilter = 'all' | 'channel' | 'group';
 
 const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
-  const [query, setQuery] = useState('');
   const [typeFilter, setTypeFilter] = useState<TypeFilter>('all');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
@@ -48,18 +45,8 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
       result = result.filter((ch) => ch.category === activeCategory);
     }
 
-    if (query.trim()) {
-      const q = query.trim().toLowerCase();
-      result = result.filter(
-        (ch) =>
-          ch.name.toLowerCase().includes(q) ||
-          ch.username.toLowerCase().includes(q) ||
-          ch.category.toLowerCase().includes(q)
-      );
-    }
-
     return result;
-  }, [sortedChannels, typeFilter, activeCategory, query]);
+  }, [sortedChannels, typeFilter, activeCategory]);
 
   return (
     <Container py={40} px="md">
@@ -71,13 +58,6 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
         </Group>
 
         <Group mb="md" gap="md" wrap="wrap" align="center">
-          <TextInput
-            placeholder="Поиск по названию, @username или категории"
-            leftSection={<IconSearch size={16} />}
-            value={query}
-            onChange={(e) => setQuery(e.currentTarget.value)}
-            className={classes.searchInput}
-          />
           <SegmentedControl
             data={[
               { label: 'Все', value: 'all' },

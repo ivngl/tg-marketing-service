@@ -9,7 +9,6 @@ import {
 import React from 'react';
 import { GradientCard } from '@/components/ui/GradientCard';
 
-
 const posts = [
   { id: 1, title: 'Как выбрать Telegram-канал для рекламы', date: '15 июля 2026', readTime: '5 мин', gradient: ['#229ED9', '#6741d9'] as [string, string] },
   { id: 2, title: 'Тренды Telegram-маркетинга в 2026', date: '12 июля 2026', readTime: '8 мин', gradient: ['#12b886', '#0ca678'] as [string, string] },
@@ -19,44 +18,44 @@ const posts = [
 const BlogPage: React.FC = () => {
   return (
     <Container py={40} px="md">
-        <Title order={1} mb="lg">
-          Блог
-        </Title>
+      <Title order={1} mb="lg">
+        Блог
+      </Title>
 
-        <Box mb="lg">
+      <Box mb="lg">
+        <GradientCard
+          gradient={posts[0].gradient}
+          title={posts[0].title}
+          titleOrder={2}
+          radius="lg"
+          minHeight={200}
+          content={
+            <Group gap="md">
+              <Text size="sm" c="white" opacity={0.8}>{posts[0].date}</Text>
+              <Text size="sm" c="white" opacity={0.8}>{posts[0].readTime} чтения</Text>
+            </Group>
+          }
+        />
+      </Box>
+
+      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
+        {posts.slice(1).map((post) => (
           <GradientCard
-            gradient={posts[0].gradient}
-            title={posts[0].title}
-            titleOrder={2}
-            radius="lg"
-            minHeight={200}
-            content={
-              <Group gap="md">
-                <Text size="sm" c="white" opacity={0.8}>{posts[0].date}</Text>
-                <Text size="sm" c="white" opacity={0.8}>{posts[0].readTime} чтения</Text>
-              </Group>
+            key={post.id}
+            gradient={post.gradient}
+            title={post.title}
+            titleOrder={4}
+            minHeight={100}
+            meta={
+              <>
+                <Text size="xs" c="dimmed">{post.date}</Text>
+                <Text size="xs" c="dimmed">{post.readTime} чтения</Text>
+              </>
             }
           />
-        </Box>
-
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing="lg">
-          {posts.slice(1).map((post) => (
-            <GradientCard
-              key={post.id}
-              gradient={post.gradient}
-              title={post.title}
-              titleOrder={4}
-              minHeight={100}
-              meta={
-                <>
-                  <Text size="xs" c="dimmed">{post.date}</Text>
-                  <Text size="xs" c="dimmed">{post.readTime} чтения</Text>
+        ))}
+      </SimpleGrid>
     </Container>
-              }
-            />
-          ))}
-        </SimpleGrid>
-    </>
   );
 };
 
