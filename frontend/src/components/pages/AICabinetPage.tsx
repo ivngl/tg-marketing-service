@@ -13,6 +13,7 @@ import {
   ThemeIcon,
   Title,
   UnstyledButton,
+  ScrollArea,
   Container,
 } from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
@@ -185,7 +186,7 @@ const AICabinetPage: React.FC = () => {
               <Text size="xs" c="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
-              <Paper p={0} shadow="none" withBorder={false} bg="transparent" styles={{ root: { overflowX: 'auto' } }}>
+              <ScrollArea>
                 <Paper
                   p={0}
                   shadow="none"
@@ -223,7 +224,7 @@ const AICabinetPage: React.FC = () => {
                     </React.Fragment>
                   ))}
                 </Paper>
-              </Paper>
+              </ScrollArea>
               <Group mt="sm" gap="xs">
                 <Text size="xs" c="dimmed">Меньше</Text>
                 {[0, 3, 5, 7, 9, 10].map((v) => (
@@ -251,16 +252,14 @@ const AICabinetPage: React.FC = () => {
             <SectionCard title="Спросить AI о канале">
               <Group gap="xs" mb="md" wrap="wrap">
                 {quickQuestions.map((q) => (
-                  <Badge
-                    key={q}
-                    size="md"
-
-                    color="tgpurple"
-                    styles={{ root: { cursor: 'pointer' } }}
-                    onClick={() => setQuestionText(q)}
-                  >
-                    {q}
-                  </Badge>
+                  <UnstyledButton key={q} onClick={() => setQuestionText(q)}>
+                    <Badge
+                      size="md"
+                      color="tgpurple"
+                    >
+                      {q}
+                    </Badge>
+                  </UnstyledButton>
                 ))}
               </Group>
               <TextInput
@@ -269,7 +268,6 @@ const AICabinetPage: React.FC = () => {
                 onChange={(e) => setQuestionText(e.currentTarget.value)}
                 rightSection={
                   <UnstyledButton
-                    styles={{ root: { cursor: 'pointer' } }}
                     onClick={() => {
                       if (questionText.trim()) {
                         console.log('AI question:', questionText);

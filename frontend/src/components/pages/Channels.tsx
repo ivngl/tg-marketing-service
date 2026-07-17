@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Text,
   Title,
+  UnstyledButton,
 } from '@mantine/core';
 import React, { useMemo, useState } from 'react';
 import ChannelCard from '../ui/ChannelCard';
@@ -69,28 +70,30 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
         </Group>
 
         <Group gap="xs" mb="lg" wrap="wrap">
-          <Badge
-            size="lg"
-            radius="sm"
-            variant={activeCategory === null ? 'filled' : 'light'}
-            color={activeCategory === null ? 'blue' : 'gray'}
-            styles={{ root: { cursor: 'pointer' } }}
-            onClick={() => setActiveCategory(null)}
-          >
-            Все
-          </Badge>
-          {categories.map(([cat, count]) => (
+          <UnstyledButton onClick={() => setActiveCategory(null)}>
             <Badge
-              key={cat}
               size="lg"
               radius="sm"
-              variant={activeCategory === cat ? 'filled' : 'light'}
-              color={activeCategory === cat ? 'blue' : 'gray'}
-              styles={{ root: { cursor: 'pointer' } }}
+              variant={activeCategory === null ? 'filled' : 'light'}
+              color={activeCategory === null ? 'blue' : 'gray'}
+            >
+              Все
+            </Badge>
+          </UnstyledButton>
+          {categories.map(([cat, count]) => (
+            <UnstyledButton
+              key={cat}
               onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
             >
-              {cat} ({count})
-            </Badge>
+              <Badge
+                size="lg"
+                radius="sm"
+                variant={activeCategory === cat ? 'filled' : 'light'}
+                color={activeCategory === cat ? 'blue' : 'gray'}
+              >
+                {cat} ({count})
+              </Badge>
+            </UnstyledButton>
           ))}
         </Group>
 
