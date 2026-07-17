@@ -12,17 +12,13 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
     <Box styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-2)' } }}>
       <UnstyledButton
         onClick={onToggle}
-        styles={{
-          root: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-            textAlign: 'left',
-            padding: '12px 16px',
-            backgroundColor: 'var(--mantine-color-white)',
-          },
-        }}
+        display="flex"
+        align="center"
+        justify="space-between"
+        w="100%"
+        ta="left"
+        p="12px 16px"
+        bg="white"
       >
         <Text fw={700} size="base">
           {question}

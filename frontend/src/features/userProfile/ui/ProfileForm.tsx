@@ -17,7 +17,8 @@ export const ProfileForm: React.FC = () => {
         <Box
           component="form"
           onSubmit={handleSubmit}
-          styles={{ root: { flex: '2 1 0', minWidth: 0 } }}
+          flex="2 1 0"
+          miw={0}
         >
           <Paper p="lg" radius="sm">
             <Title order={3} mb="md" ta="left">Информация о профиле</Title>
@@ -58,19 +59,19 @@ export const ProfileForm: React.FC = () => {
           </Paper>
         </Box>
 
-        <Paper p="lg" radius="sm" styles={{ root: { flex: '1 1 0', minWidth: 0 } }}>
+        <Paper p="lg" radius="sm" flex="1 1 0" miw={0}>
           <Title order={3} mb="md" ta="left">Подписка Pro</Title>
           <Text c="dimmed">Заглушка для формы подписки.</Text>
         </Paper>
       </Group>
 
       <Group grow wrap="wrap">
-        <Paper p="lg" radius="sm" styles={{ root: { flex: '2 1 0', minWidth: 0 } }}>
+        <Paper p="lg" radius="sm" flex="2 1 0" miw={0}>
           <Title order={3} mb="md" ta="left">Уведомления</Title>
           <Text c="dimmed">Заглушка для формы уведомлений.</Text>
         </Paper>
 
-        <Paper p="lg" radius="sm" styles={{ root: { flex: '1 1 0', minWidth: 0 } }}>
+        <Paper p="lg" radius="sm" flex="1 1 0" miw={0}>
           <Title order={3} mb="md" ta="left">Статистика использования</Title>
           <Text c="dimmed">Заглушка для статистики.</Text>
         </Paper>

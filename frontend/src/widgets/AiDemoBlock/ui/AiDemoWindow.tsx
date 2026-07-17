@@ -9,7 +9,9 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
     <Paper
       p="md"
       radius="xl"
-      styles={{ root: { flex: 1, minHeight: '15rem', display: 'flex' } }}
+      flex={1}
+      mih="15rem"
+      display="flex"
     >
       <Box
         w="100%"
@@ -19,7 +21,7 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
         justify="center"
         p={16}
         bg="#F8F9FB"
-        styles={{ root: { borderRadius: 8 } }}
+        radius={8}
       >
         <Text fz={48} c="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
       </Box>

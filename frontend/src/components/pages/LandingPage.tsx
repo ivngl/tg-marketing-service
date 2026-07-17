@@ -66,21 +66,16 @@ const LandingPage: React.FC = () => {
       >
         <Container>
           <Group gap={60} align="center" wrap="wrap">
-            <Stack styles={{ root: { flex: '1.1 1 0', minWidth: 320 } }} gap="xl">
+            <Stack flex="1.1 1 0" miw={320} gap="xl">
               <Badge
                 variant="light"
                 color="tgblue"
                 size="lg"
-
-                styles={{
-                  root: {
-                    textTransform: 'none',
-                    fontWeight: 600,
-                    padding: '8px 16px',
-                    height: 'auto',
-                    fontSize: 'var(--mantine-font-size-sm)',
-                  },
-                }}
+                tt="none"
+                fw={600}
+                p="8px 16px"
+                h="auto"
+                fz="sm"
               >
                 ✦ Аналитика Telegram с искусственным интеллектом
               </Badge>
@@ -125,19 +120,15 @@ const LandingPage: React.FC = () => {
                 ))}
               </Group>
             </Stack>
-            <Box styles={{ root: { flex: '0.9 1 0', minWidth: 320 } }}>
+            <Box flex="0.9 1 0" miw={320}>
               <Card
                 padding="lg"
                 radius="lg"
-                styles={{
-                  root: {
-                    border: '1px solid var(--mantine-color-gray-3)',
-                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.06)',
-                    width: '100%',
-                    maxWidth: 430,
-                    marginLeft: 'auto',
-                  },
-                }}
+                bd="1px solid gray.3"
+                shadow="heroCard"
+                w="100%"
+                maw={430}
+                mx="auto"
               >
                 <Group justify="space-between" mb="lg">
                   <Group gap={6}>
@@ -203,19 +194,15 @@ const LandingPage: React.FC = () => {
                 key={f.title}
                 padding="lg"
                 radius="lg"
-                styles={{
-                  root: {
-                    border: '1px solid var(--mantine-color-gray-3)',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.02)',
-                  },
-                }}
+                bd="1px solid gray.3"
+                shadow="featureCard"
               >
                 <ThemeIcon
                   size={48}
                   radius="md"
                   bg={f.iconBg}
                   c={f.iconColor}
-                  styles={{ root: { marginBottom: 20 } }}
+                  mb={20}
                 >
                   <f.icon size={24} />
                 </ThemeIcon>

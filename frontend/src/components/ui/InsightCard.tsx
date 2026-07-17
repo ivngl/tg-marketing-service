@@ -37,7 +37,8 @@ export const InsightCard: React.FC<InsightCardProps> = ({ color, label, children
           fz="10px"
           fw={800}
           mb={4}
-          styles={{ root: { letterSpacing: '0.5px', color: palette.text } }}
+          lts="0.5px"
+          c={palette.text}
         >
           {label}
         </Text>

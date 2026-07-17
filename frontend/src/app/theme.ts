@@ -113,6 +113,9 @@ export const theme: MantineThemeOverride = {
     md: '0 4px 12px rgba(16,18,22,.08)',
     lg: '0 8px 24px rgba(16,18,22,.10)',
     xl: '0 24px 70px rgba(0,0,0,.3)',
+    heroCard: '0 20px 40px rgba(0, 0, 0, 0.06)',
+    featureCard: '0 4px 12px rgba(0, 0, 0, 0.02)',
+    tariffHighlight: '0 12px 24px rgba(34, 158, 217, 0.08)',
   },
   spacing: {
     xs: '4px',

@@ -11,7 +11,7 @@ export const AiDemoBlock: React.FC = () => {
     <Box component="section" w="100%" p={40}>
       <Container px="md">
         <Group align="stretch" gap="xl" wrap="wrap">
-          <Box styles={{ root: { flex: '1 1 0', minWidth: 300 } }}>
+          <Box flex="1 1 0" miw={300}>
             <Title order={2} mb="md">ИИ-помощник редактора</Title>
             <AiDemoText
               {...data}
@@ -20,7 +20,7 @@ export const AiDemoBlock: React.FC = () => {
             />
           </Box>
 
-          <Box styles={{ root: { flex: '1 1 0', minWidth: 300, display: 'flex' } }}>
+          <Box flex="1 1 0" miw={300} display="flex">
             <AiDemoWindow demoTitle={data.demoTitle} />
           </Box>
         </Group>

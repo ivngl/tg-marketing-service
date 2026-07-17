@@ -21,12 +21,12 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       onClick={onClick}
       padding="xl"
       radius="lg"
+      display="flex"
+      direction="column"
+      justify="space-between"
+      pos="relative"
       styles={{
         root: {
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          position: 'relative',
           overflow: 'visible',
           cursor: 'pointer',
           transition: 'border 150ms ease, box-shadow 150ms ease',
@@ -35,7 +35,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
                 border: '1px solid var(--mantine-color-tgblue-5)',
                 outline: '2px solid var(--mantine-color-tgblue-5)',
                 outlineOffset: '-1px',
-                boxShadow: '0 12px 24px rgba(34, 158, 217, 0.08)',
+                boxShadow: 'var(--mantine-shadow-tariffHighlight)',
               }
             : {
                 border: '1px solid var(--mantine-color-gray-3)',
@@ -47,27 +47,22 @@ export const TariffCard: React.FC<TariffCardProps> = ({
     >
       {isPopular && (
         <Box
-          styles={{
-            root: {
-              position: 'absolute',
-              top: -14,
-              left: 80,
-              transform: 'translateX(-50%)',
-              backgroundColor: 'var(--mantine-color-tgblue-5)',
-              color: 'var(--mantine-color-white)',
-              padding: '4px 14px',
-              borderRadius: 12,
-              fontSize: 'var(--mantine-font-size-xs)',
-              fontWeight: 800,
-              zIndex: 2,
-            },
-          }}
+          pos="absolute"
+          top={-14}
+          left={80}
+          bg="tgblue.5"
+          c="white"
+          p="4px 14px"
+          radius={12}
+          fz="xs"
+          fw={800}
+          styles={{ root: { transform: 'translateX(-50%)', zIndex: 2 } }}
         >
           Популярный
         </Box>
       )}
 
-      <Stack styles={{ root: { flex: 1 } }}>
+      <Stack flex={1}>
         <Text size="md" fw={800} c="primary">{name}</Text>
 
         <Stack gap={2}>
@@ -93,7 +88,9 @@ export const TariffCard: React.FC<TariffCardProps> = ({
         size="md"
         color="tgblue"
         fw={700}
-        styles={{ root: { height: 44, marginTop: 'auto', visibility: isHighlighted ? 'visible' : 'hidden' } }}
+        h={44}
+        mt="auto"
+        styles={{ root: { visibility: isHighlighted ? 'visible' : 'hidden' } }}
       >
         {button.label}
       </Button>

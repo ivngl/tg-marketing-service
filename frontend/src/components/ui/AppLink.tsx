@@ -57,7 +57,8 @@ const AppLink: React.FC<AppLinkProps> = ({
       display="inline-flex"
       align="center"
       gap={6}
-      styles={{ root: { pointerEvents: isDisabled ? 'none' : undefined, opacity: isDisabled ? 0.5 : undefined } }}
+      opacity={isDisabled ? 0.5 : undefined}
+      styles={{ root: { pointerEvents: isDisabled ? 'none' : undefined } }}
       {...rest}
     >
       {leftIcon}

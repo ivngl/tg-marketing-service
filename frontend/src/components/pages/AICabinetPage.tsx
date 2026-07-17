@@ -201,7 +201,9 @@ const AICabinetPage: React.FC = () => {
               <Box styles={{ root: { overflowX: 'auto' } }}>
                 <Box
                   display="grid"
-                  styles={{ root: { gridTemplateColumns: '32px repeat(24, 1fr)', gap: 2, minWidth: 500 } }}
+                  gap={2}
+                  miw={500}
+                  styles={{ root: { gridTemplateColumns: '32px repeat(24, 1fr)' } }}
                 >
                   <div />
                   {hours.filter((h) => h >= 8 && h <= 22).map((h) => (
