@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, TextInput, Title, Paper, Stack, Group, Button } from '@mantine/core';
+import { Text, TextInput, Title, Paper, Stack, Group, Button, Box } from '@mantine/core';
 import { useUserProfileForm } from '../model/useUserProfileForm';
-import classes from './ProfileForm.module.css';
 
 export const ProfileForm: React.FC = () => {
   const { data, setData, errors, setErrors, handleSubmit, processing } =
@@ -15,9 +14,10 @@ export const ProfileForm: React.FC = () => {
   return (
     <Stack gap="lg">
       <Group grow wrap="wrap">
-        <form
+        <Box
+          component="form"
           onSubmit={handleSubmit}
-          className={classes.form}
+          style={{ flex: '2 1 0', minWidth: 0 }}
         >
           <Paper p="lg" radius="sm">
             <Title order={3} mb="md" ta="left">Информация о профиле</Title>
@@ -56,21 +56,21 @@ export const ProfileForm: React.FC = () => {
               </Button>
             </Stack>
           </Paper>
-        </form>
+        </Box>
 
-        <Paper p="lg" radius="sm" className={classes.colNarrow}>
+        <Paper p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Подписка Pro</Title>
           <Text c="dimmed">Заглушка для формы подписки.</Text>
         </Paper>
       </Group>
 
       <Group grow wrap="wrap">
-        <Paper p="lg" radius="sm" className={classes.colWide}>
+        <Paper p="lg" radius="sm" style={{ flex: '2 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Уведомления</Title>
           <Text c="dimmed">Заглушка для формы уведомлений.</Text>
         </Paper>
 
-        <Paper p="lg" radius="sm" className={classes.colNarrow}>
+        <Paper p="lg" radius="sm" style={{ flex: '1 1 0', minWidth: 0 }}>
           <Title order={3} mb="md" ta="left">Статистика использования</Title>
           <Text c="dimmed">Заглушка для статистики.</Text>
         </Paper>

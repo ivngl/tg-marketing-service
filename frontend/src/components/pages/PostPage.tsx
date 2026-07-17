@@ -14,7 +14,6 @@ import {
 import { InsightCard } from '@/components/ui/InsightCard';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
-import classes from './PostPage.module.css';
 
 const reactions = [
   { emoji: '🔥', label: 'Огонь', percent: 42, count: 374 },
@@ -85,7 +84,7 @@ const PostPage: React.FC = () => {
                 </div>
               ))}
             </Stack>
-            <Group justify="space-between" mt="md" pt="md" className={classes.divider}>
+            <Group justify="space-between" mt="md" pt="md" bd="1px solid gray.2">
               <Text fw={600}>ER</Text>
               <Badge size="lg" color="green">
                 31.2%

@@ -22,7 +22,7 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
           Тарифы
         </Title>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} className={classes.grid}>
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} align="stretch">
           {tariffs.map((tariff) => (
             <TariffCard
               key={tariff.id}

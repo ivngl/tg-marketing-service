@@ -9,7 +9,7 @@ export const AiDemoBlock: React.FC = () => {
   const { data, activeButton, handleButtonClick } = useAiDemo();
 
   return (
-    <section className={classes.section}>
+    <Box component="section" w="100%" p={40}>
       <Container px="md">
         <Group align="stretch" gap="xl" wrap="wrap">
           <Box className={classes.leftBox}>
@@ -26,6 +26,6 @@ export const AiDemoBlock: React.FC = () => {
           </Box>
         </Group>
       </Container>
-    </section>
+    </Box>
   );
 };

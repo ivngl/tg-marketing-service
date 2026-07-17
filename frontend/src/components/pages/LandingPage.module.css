@@ -29,19 +29,6 @@
   margin-bottom: 20px;
 }
 
-.footerSection {
-  border-top: 1px solid var(--mantine-color-gray-3);
-}
-
-.footerLogoText {
-  font-size: var(--mantine-font-size-xs);
-  font-weight: 800;
-}
-
-.clickable {
-  cursor: pointer;
-}
-
 .bold {
   font-weight: 700;
 }
