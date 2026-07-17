@@ -1,0 +1,70 @@
+import { Avatar, Card, Grid, Group, Stack, Text } from "@mantine/core";
+
+export default function CollectionChannelCard(props: {
+  initials: string;
+  color: string;
+  name: string;
+  username: string;
+  subs: string;
+  er: string;
+  growth: string;
+}) {
+  return (
+    <Card withBorder shadow="xs" p="md">
+      <Group align="flex-start" mb="lg">
+        <Avatar
+          radius="lg"
+          color="white"
+          style={{
+            background: props.color,
+            fontWeight: 700,
+          }}
+        >
+          {props.initials}
+        </Avatar>
+
+        <Stack gap={0}>
+          <Text fw={700} size="lg">
+            {props.name}
+          </Text>
+
+          <Text size="sm" c="dimmed">
+            {props.username}
+          </Text>
+        </Stack>
+      </Group>
+
+      <Grid gutter="md">
+        <Grid.Col span={4}>
+          <Text size="xs" c="dimmed">
+            Подписчики
+          </Text>
+
+          <Text fw={700} size="xl">
+            {props.subs}
+          </Text>
+        </Grid.Col>
+
+        <Grid.Col span={4}>
+          <Text size="xs" c="dimmed">
+            ER
+          </Text>
+
+          <Text fw={700} c="green">
+            {props.er}
+          </Text>
+        </Grid.Col>
+
+        <Grid.Col span={4}>
+          <Text size="xs" c="dimmed" ta="right">
+            30д
+          </Text>
+
+          <Text fw={700} c="green" ta="right">
+            {props.growth}
+          </Text>
+        </Grid.Col>
+      </Grid>
+    </Card>
+  );
+}

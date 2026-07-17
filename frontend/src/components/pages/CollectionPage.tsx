@@ -1,8 +1,6 @@
+import CollectionChannelCard from "@/components/ui/CollectionChannelCard";
 import {
-    Avatar,
-    Card,
     Container,
-    Grid,
     Group,
     Paper,
     SimpleGrid,
@@ -10,29 +8,8 @@ import {
     Text,
     Title
 } from "@mantine/core";
-import {
-    IconBook,
-    IconChartBar,
-    IconChevronLeft,
-    IconFolder,
-    IconLayoutDashboard,
-    IconScale,
-    IconSettings,
-    IconSparkles,
-    IconUsers
-} from "@tabler/icons-react";
-
-const sidebar = [
-    { icon: IconFolder, label: "Главная" },
-    { icon: IconBook, label: "Каталог каналов" },
-    { icon: IconUsers, label: "Подборки", active: true },
-    { icon: IconLayoutDashboard, label: "Дашборд канала" },
-    { icon: IconScale, label: "Сравнение" },
-    { icon: IconSparkles, label: "AI-кабинет" },
-    { icon: IconBook, label: "Блог" },
-    { icon: IconSettings, label: "Личный кабинет" },
-    { icon: IconChartBar, label: "Админка" },
-];
+import { IconChevronLeft } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 const channels = [
     {
@@ -65,76 +42,13 @@ const channels = [
 ];
 
 
-function ChannelCard(props: (typeof channels)[0]) {
-    return (
-        <Card
-            withBorder
-            shadow="xs"
-            p="md"
-        >
-            <Group align="flex-start" mb="lg">
-                <Avatar
-                    radius="lg"
-                    color="white"
-                    style={{
-                        background: props.color,
-                        fontWeight: 700,
-                    }}
-                >
-                    {props.initials}
-                </Avatar>
-
-                <Stack gap={0}>
-                    <Text fw={700} size="lg">
-                        {props.name}
-                    </Text>
-
-                    <Text size="sm" c="dimmed">
-                        {props.username}
-                    </Text>
-                </Stack>
-            </Group>
-
-            <Grid gutter="md">
-                <Grid.Col span={4}>
-                    <Text size="xs" c="dimmed">
-                        Подписчики
-                    </Text>
-
-                    <Text fw={700} size="xl">
-                        {props.subs}
-                    </Text>
-                </Grid.Col>
-
-                <Grid.Col span={4}>
-                    <Text size="xs" c="dimmed">
-                        ER
-                    </Text>
-
-                    <Text fw={700} c="green">
-                        {props.er}
-                    </Text>
-                </Grid.Col>
-
-                <Grid.Col span={4}>
-                    <Text size="xs" c="dimmed" ta="right">
-                        30д
-                    </Text>
-
-                    <Text fw={700} c="green" ta="right">
-                        {props.growth}
-                    </Text>
-                </Grid.Col>
-            </Grid>
-        </Card>
-    );
-}
-
 export default function CollectionPage() {
+    const navigate = useNavigate();
+
     return (
         <Container size="xl" py={40}>
             <Stack gap="xl">
-                <Group gap={4}>
+                <Group gap={4} style={{ cursor: 'pointer' }} onClick={() => navigate('/collections')}>
                     <IconChevronLeft
                         size={14}
                         color="gray"
@@ -176,7 +90,7 @@ export default function CollectionPage() {
                     spacing="lg"
                 >
                     {channels.map((channel) => (
-                        <ChannelCard
+                        <CollectionChannelCard
                             key={channel.name}
                             {...channel}
                         />
