@@ -1,10 +1,7 @@
-import { Avatar, Badge, Divider, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { Avatar, Badge, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 
 export function Footer() {
   return (
-    <>
-      <Divider />
-
       <Paper bg="white" p={48}>
         <SimpleGrid cols={4}>
           <Stack gap={6}>
@@ -51,6 +48,5 @@ export function Footer() {
           <Badge variant="light">Пример страницы 404 →</Badge>
         </Group>
       </Paper>
-    </>
   );
 }

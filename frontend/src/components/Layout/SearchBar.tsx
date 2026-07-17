@@ -9,14 +9,14 @@ interface SearchBarProps {
 
 export function SearchBar({ opened, onToggle }: SearchBarProps) {
   return (
-    <Group justify="space-between" mb="xl">
+    <Group justify="space-between" px="md" py="sm">
       <Burger
         hiddenFrom="sm"
         opened={opened}
         onClick={onToggle}
       />
 
-      <Group ml="auto">
+      <Group>
         <SearchInput
           flex={1}
           w={420}
