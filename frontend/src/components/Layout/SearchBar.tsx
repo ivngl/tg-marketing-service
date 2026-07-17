@@ -1,6 +1,5 @@
-import { Avatar, Burger, Button, Container, Group } from '@mantine/core';
+import { Avatar, Burger, Button, Container, Group, TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
-import { SearchInput } from '../ui';
 
 interface SearchBarProps {
   opened: boolean;
@@ -17,7 +16,7 @@ export function SearchBar({ opened, onToggle }: SearchBarProps) {
       />
 
       <Group>
-        <SearchInput
+        <TextInput
           flex={1}
           w={420}
           placeholder="Поиск канала по @username, названию или теме..."

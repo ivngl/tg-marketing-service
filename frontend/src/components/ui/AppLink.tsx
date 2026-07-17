@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom';
 import type { LinkProps } from 'react-router-dom';
 import { Anchor } from '@mantine/core';
 
-type Size = 'sm' | 'md' | 'lg';
-
-interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size' | 'className'> {
+interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'className'> {
   to: string;
   label?: string | React.ReactElement;
-  size?: Size;
   isDisabled?: boolean;
   variant?: 'solid' | 'outline' | 'text';
   leftIcon?: React.ReactElement;
@@ -16,12 +13,6 @@ interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'size' | 'clas
   scheme?: 'primary' | 'accent' | 'danger' | 'default';
   children?: React.ReactNode;
 }
-
-const mantineSize: Record<Size, 'sm' | 'md' | 'lg'> = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg',
-};
 
 const schemeColor: Record<string, string | undefined> = {
   primary: 'blue.6',
@@ -49,7 +40,7 @@ const AppLink: React.FC<AppLinkProps> = ({
     <Anchor
       component={Link}
       to={isDisabled ? '#' : to}
-      size={mantineSize[size]}
+      size={size}
       underline={variant === 'text' ? 'hover' : 'never'}
       c={schemeColor[scheme]}
       fw={scheme !== 'default' ? 500 : undefined}

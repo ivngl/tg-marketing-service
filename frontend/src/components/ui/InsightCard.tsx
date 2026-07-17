@@ -23,11 +23,11 @@ export const InsightCard: React.FC<InsightCardProps> = ({ color, label, children
     <Paper
       p="sm"
       radius="md"
+      bg={palette.bg}
       styles={{
         root: {
           borderLeft: '4px solid',
           borderLeftColor: palette.border,
-          backgroundColor: palette.bg,
           borderRadius: '0 8px 8px 0',
         },
       }}
