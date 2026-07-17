@@ -43,7 +43,7 @@ const UserProfilePage: React.FC = () => {
               </Button>
               <Button
                 size="sm"
-               
+
                 color="red"
                 leftSection={<IconLogout size={14} />}
                 onClick={() => navigate('/auth')}

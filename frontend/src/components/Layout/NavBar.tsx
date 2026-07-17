@@ -5,6 +5,7 @@ import {
   IconSparkles, IconBooks, IconNews, IconUser,
   IconSettings,
 } from '@tabler/icons-react';
+import classes from './Layout.module.css';
 
 const menu = [
   { label: 'Главная', path: '/', icon: IconHome },
@@ -18,61 +19,47 @@ const menu = [
   { label: 'Админка', path: '/admin', icon: IconSettings },
 ];
 
-interface NavBarProps {
-  onClose?: () => void;
-}
-
-export function NavBar({ onClose }: NavBarProps) {
+export function NavBar() {
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
-    <Stack h="100%" justify="space-between">
-      <Box>
-        <Group mb="xl">
-          <Avatar color="blue" radius="md">
-            t
-          </Avatar>
-          <Title order={3}>tgpulse</Title>
-        </Group>
+    <Stack className={classes.sidebar} p="md" gap="xl">
+      <Group>
+        <Avatar color="blue" radius="md">t</Avatar>
+        <Title order={3}>tgpulse</Title>
+      </Group>
 
-        <Stack gap={4}>
-          {menu.map((item) => {
-            const active = location.pathname === item.path;
-            return (
-              <NavLink
-                key={item.label}
-                label={item.label}
-                leftSection={
-                  <ThemeIcon
-                    variant={active ? 'filled' : 'light'}
-                    radius="xl"
-                    size="sm"
-                  >
-                    <item.icon size={16} />
-                  </ThemeIcon>
-                }
-                active={active}
-                onClick={() => {
-                  navigate(item.path);
-                  onClose?.();
-                }}
-              />
-            );
-          })}
-        </Stack>
-      </Box>
+      <Stack gap={4}>
+        {menu.map((item) => {
+          const active = location.pathname === item.path;
+          return (
+            <NavLink
+              key={item.label}
+              label={item.label}
+              leftSection={
+                <ThemeIcon
+                  variant={active ? 'filled' : 'light'}
+                  radius="xl"
+                  size="sm"
+                >
+                  <item.icon size={16} />
+                </ThemeIcon>
+              }
+              active={active}
+              onClick={() => navigate(item.path)}
+            />
+          );
+        })}
+      </Stack>
 
-      <Card withBorder radius="lg">
+      <Card withBorder radius="lg" mt="auto">
         <Stack gap="xs">
           <Text fw={700}>Тариф Free</Text>
-
           <Text size="sm" c="dimmed">
             3 из 15 AI-разборов в этом месяце
           </Text>
-
           <Progress value={20} radius="xl" />
-
           <Button fullWidth radius="md">
             Улучшить тариф
           </Button>
