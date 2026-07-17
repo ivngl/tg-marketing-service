@@ -34,7 +34,7 @@ export default function CollectionChannelCard(props: {
         </Stack>
       </Group>
 
-      <Grid gutter="md">
+      <Grid gap="md">
         <Grid.Col span={4}>
           <Text size="xs" c="dimmed">
             Подписчики

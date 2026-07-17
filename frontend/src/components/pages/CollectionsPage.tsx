@@ -11,7 +11,7 @@ import CollectionCard from "../ui/CollectionCard";
 
 
 
-const collections = [
+export const collections = [
   {
     id: 1,
     title: "Топ IT-каналов",

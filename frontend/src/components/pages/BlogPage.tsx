@@ -53,7 +53,7 @@ export default function BlogPage() {
         </Box>
 
           <Card withBorder padding={0} onClick={() => navigate('/blog/kak-ai-pomogaet-avtoram-rasti-v-2-raza-bystree')} style={{ cursor: 'pointer' }}>
-            <Grid gutter={0}>
+            <Grid>
               <Grid.Col span={{ base: 12, md: 7 }}>
                 <Box
                   h={320}
