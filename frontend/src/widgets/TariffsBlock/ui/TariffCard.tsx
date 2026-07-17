@@ -24,7 +24,6 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       pos="relative"
       withBorder
       bd={isHighlighted ? "1px solid var(--mantine-color-tgblue-5)" : "1px solid var(--mantine-color-gray-3)"}
-
       styles={{ root: { overflow: 'visible', cursor: 'pointer', transition: 'border 150ms ease, box-shadow 150ms ease' } }}
     >
       {isPopular && (
