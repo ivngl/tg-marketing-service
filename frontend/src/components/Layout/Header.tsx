@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Bars3Icon } from '@heroicons/react/24/outline';
-import Tooltip from '@/components/ui/Tooltip';
+import { Menu, Burger, Group, Box, Stack, Anchor, Tooltip } from '@mantine/core';
+import { IconUser } from '@tabler/icons-react';
 import AppLink from '../ui/AppLink';
 
 const Header: React.FC = () => {
@@ -8,16 +8,15 @@ const Header: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const menuItems = [
-    { to: '/compare-pages', label: 'Сравнить две страницы' },
-    { to: '/compare-products', label: 'Сравнить несколько товаров' },
-    { to: '/mass-parsing', label: 'Массовый парсинг каталога' },
     { to: '/channels', label: 'Каталог каналов' },
+    { to: '/compare', label: 'Сравнение' },
+    { to: '/ai-cabinet', label: 'AI-кабинет' },
     { to: '/auth', label: 'Войти' },
   ];
   const profileMenuItems = [
     { to: '/profile', label: 'Профиль' },
     { to: '/settings', label: 'Настройки' },
-    { to: '/logout', label: 'Выход' },
+    { to: '/auth', label: 'Выход' },
   ];
 
   const toggleProfileMenu = () => setProfileOpen(!isProfileOpen);
@@ -26,88 +25,68 @@ const Header: React.FC = () => {
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const profileMenu = document.getElementById('profile-menu');
-      if (profileMenu && !profileMenu.contains(event.target as Node)) {
-        closeProfileMenu();
-      }
-    };
-
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeProfileMenu();
+        closeMenu();
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
     };
   }, []);
 
   return (
-    <header className="w-full bg-white border-1">
-      <div className="w-full mx-auto max-w-7xl flex">
-        <div className="w-full px-4 flex items-center justify-between">
-          <AppLink
-            to="/"
-            className="text-xl font-bold"
-            variant="text"
-            scheme="default"
-          >
-            PriceAggregator — B2B Сравнение
-          </AppLink>
-          <Tooltip text="Меню">
-            <button onClick={toggleMenu} className="md:hidden">
-              <Bars3Icon className="h-6 w-6" />
-            </button>
+    <Box component="header" w="100%" bd="1px solid gray.3">
+      <Group w="100%" maw={1280} mx="auto" px="md" justify="space-between">
+        <AppLink to="/" variant="text" scheme="default" size="md">
+          TG Pulse
+        </AppLink>
+
+        <Group visibleFrom="md" gap="lg">
+          {menuItems.map(({ to, label }) => (
+            <AppLink key={to} to={to} variant="text" scheme="default" onClick={closeMenu}>
+              {label}
+            </AppLink>
+          ))}
+        </Group>
+
+        <Group gap="sm" hiddenFrom="md">
+          <Tooltip label="Меню">
+            <Burger opened={isMenuOpen} onClick={toggleMenu} size="sm" />
           </Tooltip>
-          <Tooltip text="Профиль">
-            <button
-              onClick={toggleProfileMenu}
-              className="flex items-center md:hidden"
-            >
-              Профиль ▾
-            </button>
-          </Tooltip>
-        </div>
-        <div className={`relative ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
-          <nav className="flex flex-col md:flex-row md:justify-center space-y-2 md:space-y-0 md:space-x-4 p-4 bg-gray-100 md:bg-transparent">
-            {menuItems.map(({ to, label }) => (
-              <AppLink
-                key={to}
-                to={to}
-                className="block"
-                onClick={closeMenu}
-                variant="text"
-                scheme="default"
-              >
-                {label}
-              </AppLink>
-            ))}
-          </nav>
-        </div>
-        {isProfileOpen && (
-          <div
-            id="profile-menu"
-            className="absolute right-0 mt-2 bg-white border rounded shadow-lg"
-          >
-            <ul>
+          <Menu opened={isProfileOpen} onClose={closeProfileMenu}>
+            <Menu.Target>
+              <Tooltip label="Профиль">
+                <Anchor component="button" onClick={toggleProfileMenu}>
+                  <IconUser size={20} />
+                </Anchor>
+              </Tooltip>
+            </Menu.Target>
+            <Menu.Dropdown>
               {profileMenuItems.map(({ to, label }) => (
-                <li>
-                  <AppLink key={to} to={to}>
-                    {label}
-                  </AppLink>
-                </li>
+                <Menu.Item key={to} component={AppLink} to={to}>
+                  {label}
+                </Menu.Item>
               ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </header>
+            </Menu.Dropdown>
+          </Menu>
+        </Group>
+      </Group>
+
+      {isMenuOpen && (
+        <Stack gap="xs" p="md" hiddenFrom="md" bg="gray.1">
+          {menuItems.map(({ to, label }) => (
+            <AppLink key={to} to={to} variant="text" scheme="default" onClick={closeMenu}>
+              {label}
+            </AppLink>
+          ))}
+        </Stack>
+      )}
+    </Box>
   );
 };
 
