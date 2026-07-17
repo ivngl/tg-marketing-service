@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Card,
+  Grid,
   Group,
   Paper,
   SimpleGrid,
@@ -187,43 +188,39 @@ const AICabinetPage: React.FC = () => {
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
               <ScrollArea>
-                <Paper
-                  p={0}
-                  shadow="none"
-                  withBorder={false}
-                  bg="transparent"
-                  display="grid"
-                  miw={500}
-                  styles={{ root: { gap: 2, gridTemplateColumns: '32px repeat(24, 1fr)' } }}
-                >
-                  <div />
+                <Grid columns={16} gap={2} maw={580}>
+                  <Grid.Col span={1} />
                   {hours.filter((h) => h >= 8 && h <= 22).map((h) => (
-                    <Box key={h} ta="center" fz="10px" c="dimmed">
-                      {h}
-                    </Box>
+                    <Grid.Col key={h} span={1}>
+                      <Box ta="center" fz="10px" c="dimmed">
+                        {h}
+                      </Box>
+                    </Grid.Col>
                   ))}
                   {daysOfWeek.map((day) => (
                     <React.Fragment key={day}>
-                      <Text fz="10px" c="dimmed">{day}</Text>
+                      <Grid.Col span={1}>
+                        <Text fz="10px" c="dimmed">
+                          {day}
+                        </Text>
+                      </Grid.Col>
                       {hours.filter((h) => h >= 8 && h <= 22).map((h) => {
                         const val = heatmapData[day]?.[h] ?? 0;
                         return (
-                          <Paper
-                            key={`${day}-${h}`}
-                            p={0}
-                            shadow="none"
-                            withBorder={false}
-                            title={`${day} ${h}:00 — ${val > 0 ? `${val}/10 активность` : 'нет данных'}`}
-                            bdrs={3}
-                            miw={12}
-                            bg={getHeatColor(val)}
-                            styles={{ root: { aspectRatio: '1' } }}
-                          />
+                          <Grid.Col key={`${day}-${h}`} span={1}>
+                            <Box
+                              h={24}
+                              bdrs={3}
+                              bg={getHeatColor(val)}
+                              title={`${day} ${h}:00 — ${val > 0 ? `${val}/10 активность` : 'нет данных'}`}
+                              style={{ aspectRatio: '1' }}
+                            />
+                          </Grid.Col>
                         );
                       })}
                     </React.Fragment>
                   ))}
-                </Paper>
+                </Grid>
               </ScrollArea>
               <Group mt="sm" gap="xs">
                 <Text size="xs" c="dimmed">Меньше</Text>

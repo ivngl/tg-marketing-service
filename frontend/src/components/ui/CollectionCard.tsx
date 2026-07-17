@@ -26,10 +26,8 @@ export default function CollectionCard(props: (typeof collections)[0] & { onClic
             <Box
                 p="md"
                 h={116}
-                style={{
-                    background: props.gradient,
-                    color: "white",
-                }}
+                c="white"
+                bg={props.gradient}
             >
                 <Stack justify="space-between" h="100%">
                     {props.editorial ? (
@@ -37,12 +35,8 @@ export default function CollectionCard(props: (typeof collections)[0] & { onClic
                             leftSection={<IconStarFilled size={10} />}
                             color="white"
                             variant="filled"
-                            styles={{
-                                root: {
-                                    color: "#0B84F3",
-                                    width: "fit-content",
-                                },
-                            }}
+                            c="#0B84F3"
+                            w="fit-content"
                         >
                             Редакция
                         </Badge>

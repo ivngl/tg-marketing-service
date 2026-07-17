@@ -6,6 +6,7 @@ import {
     Card,
     Container,
     Group,
+    Paper,
     Stack,
     Text,
     Title
@@ -52,13 +53,10 @@ export default function BlogPostPage() {
                     </Text>
                 </Stack>
 
-                <Box
+                <Paper
                     h={380}
-                    style={{
-                        borderRadius: 20,
-                        background:
-                            "linear-gradient(135deg,#6D28D9,#2D9CDB)",
-                    }}
+                    radius={20}
+                    bg="linear-gradient(135deg,#6D28D9,#2D9CDB)" 
                 />
 
                 <Stack gap="lg">
