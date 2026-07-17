@@ -7,6 +7,7 @@ import ComparePage from '@/components/pages/ComparePage';
 import PostPage from '@/components/pages/PostPage';
 import AICabinetPage from '@/components/pages/AICabinetPage';
 import CollectionsPage from '@/components/pages/CollectionsPage';
+import CollectionPage from '@/components/pages/CollectionPage';
 import BlogPage from '@/components/pages/BlogPage';
 import BlogPostPage from '@/components/pages/BlogPostPage';
 import LegalPage from '@/components/pages/LegalPage';
@@ -24,6 +25,7 @@ const routes = [
   { path: '/post', element: <PostPage /> },
   { path: '/ai-cabinet', element: <AICabinetPage /> },
   { path: '/collections', element: <CollectionsPage /> },
+  { path: '/collections/:id', element: <CollectionPage /> },
   { path: '/blog', element: <BlogPage /> },
   { path: '/blog/:slug', element: <BlogPostPage /> },
   { path: '/legal', element: <LegalPage /> },
