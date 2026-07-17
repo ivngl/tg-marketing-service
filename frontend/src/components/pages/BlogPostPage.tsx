@@ -11,31 +11,15 @@ import {
     Title
 } from "@mantine/core";
 import {
-    IconBook,
-    IconChartBar,
-    IconChevronLeft,
-    IconFolder,
-    IconLayoutDashboard,
-    IconScale,
-    IconSettings,
-    IconSparkles,
-    IconUsers
+    IconChevronLeft
 } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
-const menu = [
-    { icon: IconFolder, label: "Главная" },
-    { icon: IconBook, label: "Каталог каналов" },
-    { icon: IconUsers, label: "Подборки" },
-    { icon: IconLayoutDashboard, label: "Дашборд канала" },
-    { icon: IconScale, label: "Сравнение" },
-    { icon: IconSparkles, label: "AI-кабинет" },
-    { icon: IconBook, label: "Блог", active: true },
-    { icon: IconSettings, label: "Личный кабинет" },
-    { icon: IconChartBar, label: "Админка" },
-];
 
 
 export default function BlogPostPage() {
+    const navigate = useNavigate();
+
     return (
         <Container size="md" py={48}>
             <Stack gap="xl">
@@ -44,6 +28,8 @@ export default function BlogPostPage() {
                         c="dimmed"
                         underline="never"
                         size="sm"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() => navigate('/blog')}
                     >
                         <Group gap={4}>
                             <IconChevronLeft size={14} />
