@@ -1,20 +1,29 @@
-import { Avatar, Button, Group } from '@mantine/core';
-import { IconSparkles } from '@tabler/icons-react';
+import { Avatar, Burger, Button, Container, Group } from '@mantine/core';
+import { IconSearch } from '@tabler/icons-react';
 import { SearchInput } from '../ui';
 
-export function SearchBar() {
+interface SearchBarProps {
+  opened: boolean;
+  onToggle: () => void;
+}
+
+export function SearchBar({ opened, onToggle }: SearchBarProps) {
   return (
-    <Group justify="flex-end" mb="xl">
-      <SearchInput
-        placeholder="Поиск канала по @username, названию или теме..."
-        w={420}
+    <Group justify="space-between" mb="xl">
+      <Burger
+        hiddenFrom="sm"
+        opened={opened}
+        onClick={onToggle}
       />
-      <Button radius="xl" leftSection={<IconSparkles size={16} />}>
-        AI-разбор
-      </Button>
-      <Button variant="subtle">Войти</Button>
-      <Group gap={8}>
-        <span style={{ fontWeight: 500 }}>Мария Л.</span>
+
+      <Group ml="auto">
+        <SearchInput
+          w={420}
+          placeholder="Поиск канала по @username, названию или теме..."
+          leftSection={<IconSearch size={16} />}
+        />
+        <Button radius="xl">AI-разбор</Button>
+        <Button variant="subtle">Войти</Button>
         <Avatar color="pink">M</Avatar>
       </Group>
     </Group>

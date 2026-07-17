@@ -5,7 +5,6 @@ import {
   IconSparkles, IconBooks, IconNews, IconUser,
   IconSettings,
 } from '@tabler/icons-react';
-import classes from './Layout.module.css';
 
 const menu = [
   { label: 'Главная', path: '/', icon: IconHome },
@@ -28,39 +27,41 @@ export function NavBar({ onClose }: NavBarProps) {
   const navigate = useNavigate();
 
   return (
-    <Stack className={classes.sidebar} p="md" gap="xl">
-      <Group>
-        <Avatar color="blue" radius="md">t</Avatar>
-        <Title order={3}>tgpulse</Title>
-      </Group>
+    <Stack h="100%" justify="space-between">
+      <Box>
+        <Group mb="xl">
+          <Avatar color="blue" radius="md">t</Avatar>
+          <Title order={3}>tgpulse</Title>
+        </Group>
 
-      <Stack gap={4}>
-        {menu.map((item) => {
-          const active = location.pathname === item.path;
-          return (
-            <NavLink
-              key={item.label}
-              label={item.label}
-              leftSection={
-                <ThemeIcon
-                  variant={active ? 'filled' : 'light'}
-                  radius="xl"
-                  size="sm"
-                >
-                  <item.icon size={16} />
-                </ThemeIcon>
-              }
-              active={active}
-              onClick={() => {
-                navigate(item.path);
-                onClose?.();
-              }}
-            />
-          );
-        })}
-      </Stack>
+        <Stack gap={4}>
+          {menu.map((item) => {
+            const active = location.pathname === item.path;
+            return (
+              <NavLink
+                key={item.label}
+                label={item.label}
+                leftSection={
+                  <ThemeIcon
+                    variant={active ? 'filled' : 'light'}
+                    radius="xl"
+                    size="sm"
+                  >
+                    <item.icon size={16} />
+                  </ThemeIcon>
+                }
+                active={active}
+                onClick={() => {
+                  navigate(item.path);
+                  onClose?.();
+                }}
+              />
+            );
+          })}
+        </Stack>
+      </Box>
 
-      <Card withBorder radius="lg" mt="auto">
+      <Card withBorder radius="lg">
         <Stack gap="xs">
           <Text fw={700}>Тариф Free</Text>
           <Text size="sm" c="dimmed">
