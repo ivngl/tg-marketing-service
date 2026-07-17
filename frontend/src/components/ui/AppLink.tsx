@@ -11,6 +11,7 @@ interface AppLinkProps extends Omit<LinkProps, 'href' | 'label' | 'className'> {
   leftIcon?: React.ReactElement;
   rightIcon?: React.ReactElement;
   scheme?: 'primary' | 'accent' | 'danger' | 'default';
+  size?: string;
   children?: React.ReactNode;
 }
 
@@ -46,10 +47,8 @@ const AppLink: React.FC<AppLinkProps> = ({
       fw={scheme !== 'default' ? 500 : undefined}
       onClick={isDisabled ? undefined : onClick}
       display="inline-flex"
-      align="center"
-      gap={6}
       opacity={isDisabled ? 0.5 : undefined}
-      styles={{ root: { pointerEvents: isDisabled ? 'none' : undefined } }}
+      style={{ alignItems: 'center', gap: 6, pointerEvents: isDisabled ? 'none' : undefined }}
       {...rest}
     >
       {leftIcon}

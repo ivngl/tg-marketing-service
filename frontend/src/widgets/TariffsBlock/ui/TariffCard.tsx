@@ -22,8 +22,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       padding="xl"
       radius="lg"
       display="flex"
-      direction="column"
-      justify="space-between"
+      style={{ flexDirection: 'column', justifyContent: 'space-between' }}
       pos="relative"
       styles={{
         root: {
@@ -53,10 +52,10 @@ export const TariffCard: React.FC<TariffCardProps> = ({
           bg="tgblue.5"
           c="white"
           p="4px 14px"
-          radius={12}
+          bdrs={12}
           fz="xs"
           fw={800}
-          styles={{ root: { transform: 'translateX(-50%)', zIndex: 2 } }}
+          style={{ transform: 'translateX(-50%)', zIndex: 2 }}
         >
           Популярный
         </Box>

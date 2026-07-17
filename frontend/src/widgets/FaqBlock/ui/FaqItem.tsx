@@ -9,12 +9,11 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
   onToggle,
 }) => {
   return (
-    <Box styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-2)' } }}>
+    <Box style={{ borderBottom: '1px solid var(--mantine-color-gray-2)' }}>
       <UnstyledButton
         onClick={onToggle}
         display="flex"
-        align="center"
-        justify="space-between"
+        style={{ alignItems: 'center', justifyContent: 'space-between' }}
         w="100%"
         ta="left"
         p="12px 16px"

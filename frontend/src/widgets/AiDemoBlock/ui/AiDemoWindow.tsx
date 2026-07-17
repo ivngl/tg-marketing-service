@@ -17,11 +17,10 @@ export const AiDemoWindow: React.FC<AiDemoBlockProps> = (props) => {
         w="100%"
         h="100%"
         display="flex"
-        align="center"
-        justify="center"
+        style={{ alignItems: 'center', justifyContent: 'center' }}
         p={16}
         bg="#F8F9FB"
-        radius={8}
+        bdrs={8}
       >
         <Text fz={48} c="dimmed">{demoTitle || 'AI Assistant Chat'}</Text>
       </Box>

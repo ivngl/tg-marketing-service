@@ -62,7 +62,7 @@ const LandingPage: React.FC = () => {
         component="section"
         bg="white"
         py={80}
-        styles={{ root: { borderBottom: '1px solid var(--mantine-color-gray-3)' } }}
+        style={{ borderBottom: '1px solid var(--mantine-color-gray-3)' }}
       >
         <Container>
           <Group gap={60} align="center" wrap="wrap">

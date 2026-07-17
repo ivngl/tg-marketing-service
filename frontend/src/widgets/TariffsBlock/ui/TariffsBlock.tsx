@@ -19,14 +19,14 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
       component="section"
       bg="white"
       py={80}
-      styles={{ root: { borderTop: '1px solid var(--mantine-color-gray-3)', borderBottom: '1px solid var(--mantine-color-gray-3)' } }}
+      style={{ borderTop: '1px solid var(--mantine-color-gray-3)', borderBottom: '1px solid var(--mantine-color-gray-3)' }}
     >
       <Container>
         <Title order={2} fw={800} c="primary" ta="center" mb={60} fz="32px">
           Тарифы
         </Title>
 
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} align="stretch">
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32}>
           {tariffs.map((tariff) => (
             <TariffCard
               key={tariff.id}

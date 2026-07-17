@@ -198,12 +198,11 @@ const AICabinetPage: React.FC = () => {
               <Text size="xs" c="dimmed" mb="sm">
                 Тепловая карта активности подписчиков по дням и часам
               </Text>
-              <Box styles={{ root: { overflowX: 'auto' } }}>
+              <Box style={{ overflowX: 'auto' }}>
                 <Box
                   display="grid"
-                  gap={2}
                   miw={500}
-                  styles={{ root: { gridTemplateColumns: '32px repeat(24, 1fr)' } }}
+                  style={{ gap: 2, gridTemplateColumns: '32px repeat(24, 1fr)' }}
                 >
                   <div />
                   {hours.filter((h) => h >= 8 && h <= 22).map((h) => (
@@ -213,7 +212,7 @@ const AICabinetPage: React.FC = () => {
                   ))}
                   {daysOfWeek.map((day) => (
                     <React.Fragment key={day}>
-                      <Box fz="10px" c="dimmed" display="flex" align="center">
+                      <Box fz="10px" c="dimmed" display="flex" style={{ alignItems: 'center' }}>
                         {day}
                       </Box>
                       {hours.filter((h) => h >= 8 && h <= 22).map((h) => {
@@ -222,7 +221,7 @@ const AICabinetPage: React.FC = () => {
                           <Box
                             key={`${day}-${h}`}
                             title={`${day} ${h}:00 — ${val > 0 ? `${val}/10 активность` : 'нет данных'}`}
-                            styles={{ root: heatmapCellStyles(val) }}
+                            style={heatmapCellStyles(val)}
                           />
                         );
                       })}
@@ -233,7 +232,7 @@ const AICabinetPage: React.FC = () => {
               <Group mt="sm" gap="xs">
                 <Text size="xs" c="dimmed">Меньше</Text>
                 {[0, 3, 5, 7, 9, 10].map((v) => (
-                  <Box key={v} styles={{ root: heatmapLegendCellStyles(v) }} />
+                  <Box key={v} style={heatmapLegendCellStyles(v)} />
                 ))}
                 <Text size="xs" c="dimmed">Больше</Text>
               </Group>
@@ -275,7 +274,7 @@ const AICabinetPage: React.FC = () => {
                 onChange={(e) => setQuestionText(e.currentTarget.value)}
                 rightSection={
                   <Box
-                    styles={{ root: { cursor: 'pointer' } }}
+                    style={{ cursor: 'pointer' }}
                     onClick={() => {
                       if (questionText.trim()) {
                         console.log('AI question:', questionText);

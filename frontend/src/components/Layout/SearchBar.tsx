@@ -1,4 +1,4 @@
-import { Avatar, Burger, Button, Container, Group, TextInput } from '@mantine/core';
+import { Avatar, Burger, Button, Group, TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 
 interface SearchBarProps {

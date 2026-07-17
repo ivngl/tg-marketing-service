@@ -31,8 +31,7 @@ const FormRegistration: React.FC = () => {
         mx="auto"
         h="100vh"
         display="flex"
-        direction="column"
-        justify="center"
+        style={{ flexDirection: 'column', justifyContent: 'center' }}
         p={20}
       >
         <Stack>

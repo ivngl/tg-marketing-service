@@ -1,4 +1,4 @@
-import { ActionIcon, Avatar, Box, Button, Card, CloseButton, Group, NavLink, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Avatar, Box, Button, Card, CloseButton, Group, NavLink, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   IconHome, IconLayoutGrid, IconChartBar, IconArrowsExchange,
