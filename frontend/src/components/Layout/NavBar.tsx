@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Card, Group, NavLink, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { ActionIcon, Avatar, Box, Button, Card, CloseButton, Group, NavLink, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   IconHome, IconLayoutGrid, IconChartBar, IconArrowsExchange,
@@ -29,9 +29,12 @@ export function NavBar({ onClose }: NavBarProps) {
   return (
     <Stack h="100%" justify="space-between">
       <Box>
-        <Group mb="xl">
-          <Avatar color="blue" radius="md">t</Avatar>
-          <Title order={3}>tgpulse</Title>
+        <Group mb="xl" justify="space-between">
+          <Group gap="sm">
+            <Avatar color="blue" radius="md">t</Avatar>
+            <Title order={3}>tgpulse</Title>
+          </Group>
+          <CloseButton hiddenFrom="sm" onClick={onClose} />
         </Group>
 
         <Stack gap={4}>
