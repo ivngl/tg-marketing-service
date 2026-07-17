@@ -18,6 +18,7 @@ export function SearchBar({ opened, onToggle }: SearchBarProps) {
 
       <Group ml="auto">
         <SearchInput
+          flex={1}
           w={420}
           placeholder="Поиск канала по @username, названию или теме..."
           leftSection={<IconSearch size={16} />}
