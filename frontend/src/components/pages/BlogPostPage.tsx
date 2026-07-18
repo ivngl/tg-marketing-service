@@ -1,6 +1,5 @@
 import {
     Anchor,
-    Box,
     Breadcrumbs,
     Button,
     Card,

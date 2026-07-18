@@ -16,7 +16,7 @@ export default function SmallArticle({
   onClick?: () => void;
 }) {
   return (
-    <Card withBorder radius="lg" padding={0} overflow="hidden" onClick={onClick} style={{ cursor: 'pointer' }}>
+    <Card withBorder radius="lg" padding={0} onClick={onClick} style={{ cursor: 'pointer', overflow: 'hidden' }}>
       <Box h={150} bg={color} />
 
       <Stack p="md" gap="xs">
