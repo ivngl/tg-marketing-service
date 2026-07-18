@@ -1,6 +1,8 @@
 import { Button, Container, Group, Stack, Text, Title } from "@mantine/core";
+import { useNavigate } from 'react-router-dom';
 
 export default function NotFoundPage() {
+  const navigate = useNavigate();
   return (
     <Container py={40} px="md">
     <Stack align="center" gap="xs" py={80}>
@@ -22,8 +24,8 @@ export default function NotFoundPage() {
       </Text>
 
       <Group mt="md">
-        <Button radius="md">На главную</Button>
-        <Button variant="default" radius="md">
+        <Button radius="md" onClick={() => navigate('/')}>На главную</Button>
+        <Button variant="default" radius="md" onClick={() => navigate('/channels')}>
           В каталог
         </Button>
       </Group>

@@ -1,4 +1,4 @@
-import { Avatar } from '@mantine/core';
+import { Avatar, Flex } from '@mantine/core';
 import React from 'react';
 
 interface BrandAvatarProps {
@@ -11,7 +11,7 @@ export const BrandAvatar: React.FC<BrandAvatarProps> = ({ name, size = 46 }) => 
 
   return (
     <Avatar size={size} radius="xl" variant="gradient" gradient={{ from: '#229ED9', to: '#6741d9', deg: 135 }}>
-      {initial}
+      <Flex align="center" justify="center" lh={1}>{initial}</Flex>
     </Avatar>
   );
 };

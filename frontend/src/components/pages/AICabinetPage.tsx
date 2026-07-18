@@ -249,14 +249,14 @@ const AICabinetPage: React.FC = () => {
             <SectionCard title="Спросить AI о канале">
               <Group gap="xs" mb="md" wrap="wrap">
                 {quickQuestions.map((q) => (
-                  <UnstyledButton key={q} onClick={() => setQuestionText(q)}>
-                    <Badge
-                      size="md"
-                      color="tgpurple"
-                    >
-                      {q}
-                    </Badge>
-                  </UnstyledButton>
+                  <Button
+                    key={q}
+                    variant="ghost"
+                    color="tgpurple"
+                    onClick={() => setQuestionText(q)}
+                  >
+                    {q}
+                  </Button>
                 ))}
               </Group>
               <TextInput

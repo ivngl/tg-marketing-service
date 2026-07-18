@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Anchor, Button, Box, Flex } from '@mantine/core';
+import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Button, Box, Flex } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';
@@ -29,19 +29,18 @@ const FormRegistration: React.FC = () => {
         onSubmit={form.onSubmit(onSubmit)}
         maw={380}
         mx="auto"
-        h="100vh"
         p={20}
       >
-        <Flex direction="column" justify="center" h="100%" gap="md">
+        <Flex direction="column" gap="md">
           <Box ta="center">
             <Title order={2} fw={700}>Войти в систему</Title>
             <Text c="dimmed">Используйте привычный способ входа</Text>
           </Box>
 
           <Group justify="center" gap="sm">
-            <Anchor href="#"><Box w={40} h={40}><SocialIcon network="yandex" /></Box></Anchor>
-            <Anchor href="#"><Box w={40} h={40}><SocialIcon network="vk" /></Box></Anchor>
-            <Anchor href="#"><Box w={40} h={40}><SocialIcon network="github" /></Box></Anchor>
+            <Box w={40} h={40}><SocialIcon network="yandex" /></Box>
+            <Box w={40} h={40}><SocialIcon network="vk" /></Box>
+            <Box w={40} h={40}><SocialIcon network="github" /></Box>
           </Group>
 
           <Divider label="или" labelPosition="center" />

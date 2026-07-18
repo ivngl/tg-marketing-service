@@ -127,8 +127,6 @@ export const theme: MantineThemeOverride = {
   components: {
     Button: Button.extend({
       defaultProps: {
-        radius: 'md',
-        size: 'md',
         variant: 'primary',
       },
       styles: (theme, props) => {
@@ -198,15 +196,9 @@ export const theme: MantineThemeOverride = {
         size: 'xl',
       },
     },
-    Stack: {
-      defaultProps: {
-        gap: 'md',
-      },
-    },
     Paper: {
       defaultProps: {
         withBorder: true,
-        radius: 'md',
       },
     },
     Badge: {
@@ -235,16 +227,6 @@ export const theme: MantineThemeOverride = {
     Group: {
       defaultProps: {
         gap: 'sm',
-      },
-    },
-    TextInput: {
-      defaultProps: {
-        radius: 'md',
-      },
-    },
-    Select: {
-      defaultProps: {
-        radius: 'md',
       },
     },
   },
