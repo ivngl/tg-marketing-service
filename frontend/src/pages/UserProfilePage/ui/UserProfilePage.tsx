@@ -16,6 +16,12 @@ import { SectionCard } from '@/components/ui/SectionCard';
 import { IconEdit, IconLogout, IconPlus } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
+const notifications = [
+  { label: 'Email-уведомления', defaultChecked: true },
+  { label: 'AI-рекомендации', defaultChecked: true },
+  { label: 'Обновления тарифов', defaultChecked: false },
+];
+
 const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
 
@@ -82,18 +88,12 @@ const UserProfilePage: React.FC = () => {
 
           <SectionCard title="Уведомления">
             <Stack>
-              <Group justify="space-between">
-                <Text size="sm">Email-уведомления</Text>
-                <Switch size="sm" defaultChecked />
-              </Group>
-              <Group justify="space-between">
-                <Text size="sm">AI-рекомендации</Text>
-                <Switch size="sm" defaultChecked />
-              </Group>
-              <Group justify="space-between">
-                <Text size="sm">Обновления тарифов</Text>
-                <Switch size="sm" />
-              </Group>
+              {notifications.map((n, i) => (
+                <Group key={i} justify="space-between">
+                  <Text size="sm">{n.label}</Text>
+                  <Switch size="sm" defaultChecked={n.defaultChecked} />
+                </Group>
+              ))}
             </Stack>
           </SectionCard>
         </SimpleGrid>
