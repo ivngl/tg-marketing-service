@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Button, Box, Flex } from '@mantine/core';
+import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Button, Box, Flex, Anchor } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
 import PasswordRecovery from '../modals/PasswordRecovery';
@@ -65,9 +65,9 @@ const FormRegistration: React.FC = () => {
             <Button type="submit" fullWidth color="blue">
               Войти
             </Button>
-            <Button variant="subtle" onClick={openModal}>
+            <Anchor component="button" size="sm" onClick={openModal}>
               Забыли пароль?
-            </Button>
+            </Anchor>
           </Stack>
         </Flex>
       </Box>
