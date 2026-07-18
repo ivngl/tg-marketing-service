@@ -1,52 +1,83 @@
-import { Avatar, Badge, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { Anchor, Avatar, Badge, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
+
+const data = [
+  {
+    title: 'Продукт',
+    links: [
+      { label: 'Каталог каналов', link: '#' },
+      { label: 'Подборки', link: '#' },
+      { label: 'Сравнение', link: '#' },
+      { label: 'AI-кабинет', link: '#' },
+    ],
+  },
+  {
+    title: 'Компания',
+    links: [
+      { label: 'Блог', link: '#' },
+      { label: 'О сервисе', link: '#' },
+      { label: 'Регистрация', link: '#' },
+      { label: 'Войти', link: '#' },
+    ],
+  },
+  {
+    title: 'Правовое',
+    links: [
+      { label: 'Конфиденциальность', link: '#' },
+      { label: 'Соглашение', link: '#' },
+      { label: 'Публичная оферта', link: '#' },
+    ],
+  },
+];
 
 export function Footer() {
+  const navigate = useNavigate();
+  const groups = data.map((group) => {
+    const links = group.links.map((link, index) => (
+      <Anchor
+        key={index}
+        c="dimmed"
+        href={link.link}
+        size="sm"
+        onClick={(event) => event.preventDefault()}
+      >
+        {link.label}
+      </Anchor>
+    ));
+
+    return (
+      <Stack gap={8} key={group.title}>
+        <Text fw={700}>{group.title}</Text>
+        {links}
+      </Stack>
+    );
+  });
+
   return (
-      <Paper bg="white" p={{ base: 24, md: 48 }}>
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }}>
-          <Stack gap={6}>
-            <Group>
-              <Avatar color="blue">t</Avatar>
-              <Title order={4}>tgpulse</Title>
-            </Group>
-
-            <Text size="sm" c="dimmed">
-              Аналитика Telegram-каналов с искусственным интеллектом.
-              Знайте о своём канале больше, чем вы сами.
-            </Text>
-          </Stack>
-
-          <Stack gap={8}>
-            <Text fw={700}>Продукт</Text>
-            <Text c="dimmed">Каталог каналов</Text>
-            <Text c="dimmed">Подборки</Text>
-            <Text c="dimmed">Сравнение</Text>
-            <Text c="dimmed">AI-кабинет</Text>
-          </Stack>
-
-          <Stack gap={8}>
-            <Text fw={700}>Компания</Text>
-            <Text c="dimmed">Блог</Text>
-            <Text c="dimmed">О сервисе</Text>
-            <Text c="dimmed">Регистрация</Text>
-            <Text c="dimmed">Войти</Text>
-          </Stack>
-
-          <Stack gap={8}>
-            <Text fw={700}>Правовое</Text>
-            <Text c="dimmed">Конфиденциальность</Text>
-            <Text c="dimmed">Соглашение</Text>
-            <Text c="dimmed">Публичная оферта</Text>
-          </Stack>
-        </SimpleGrid>
-
-        <Group justify="space-between" mt={48} wrap="wrap" gap="md">
+    <Paper bg="white" p={{ base: 24, md: 48 }}>
+      <SimpleGrid cols={{ base: 2, sm: 2, md: 4 }}>
+        <Stack gap={6}>
+          <Group>
+            <Avatar color="blue">t</Avatar>
+            <Title order={4}>tgpulse</Title>
+          </Group>
           <Text size="sm" c="dimmed">
-            © 2026 tgpulse · Прототип
+            Аналитика Telegram-каналов с искусственным интеллектом.
+            Знайте о своём канале больше, чем вы сами.
           </Text>
+        </Stack>
 
-          <Badge variant="light">Пример страницы 404 →</Badge>
-        </Group>
-      </Paper>
+        {groups}
+      </SimpleGrid>
+
+      <Group justify="space-between" mt={48} wrap="wrap" gap="md">
+        <Text size="sm" c="dimmed">
+          © 2026 tgpulse · Прототип
+        </Text>
+        <Badge variant="light" onClick={() => navigate('/nonexistent')} style={{ cursor: 'pointer' }}>
+          Пример страницы 404 →
+        </Badge>
+      </Group>
+    </Paper>
   );
 }
