@@ -13,11 +13,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <AppShell
-      padding={{ base: 'xs', sm: 'md' }}
+      px={{ base: 0, sm: 'md' }}
       px={{ base: 0 }}
       header={{ height: '100px' }}
       navbar={{
-        width: 260,
+        width: 'auto',
         breakpoint: 'sm',
         collapsed: { mobile: !opened },
       }}
