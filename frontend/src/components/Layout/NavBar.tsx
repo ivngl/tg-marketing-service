@@ -25,21 +25,25 @@ const menu = [
 
 interface NavBarProps {
   onClose?: () => void;
+  opened: boolean;
 }
 
-export function NavBar({ onClose }: NavBarProps) {
+export function NavBar({ onClose, opened }: NavBarProps) {
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
     <Stack h="100%" justify="space-between">
       <Box>
+        {opened && (
         <Group mb="xl" justify="space-between">
           <Group gap="sm">
             <Avatar color="blue" radius="md">t</Avatar>
             <Title order={3}>tgpulse</Title>
           </Group>
         </Group>
+        )}
+
 
         <Stack gap={4}>
           {menu.map((item) => {

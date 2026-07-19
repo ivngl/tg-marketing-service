@@ -25,7 +25,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <NavBar onClose={close} />
+        <NavBar onClose={close} opened={opened} />
       </AppShell.Navbar>
 
 
