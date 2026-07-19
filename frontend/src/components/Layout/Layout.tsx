@@ -1,22 +1,20 @@
 import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import React from 'react';
-import { useLocation, matchPath } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { NavBar } from './NavBar';
-import { SearchBar } from '@/components/ui/SearchBar';
-import { knownPaths } from '@/app/routes/routes';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [opened, { close, toggle }] = useDisclosure(false);
   const { pathname } = useLocation();
-  const showSearchBar = pathname !== '/auth' && knownPaths.some((p) => matchPath(p, pathname));
+  const showSearchBar = pathname !== '/auth';
 
   return (
     <AppShell
       padding={{ base: 'xs', sm: 'md' }}
-      py={{ base: 0}}
+      px={{ base: 0 }}
       header={{ height: '100px' }}
       navbar={{
         width: 260,
@@ -25,8 +23,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }}
     >
       <AppShell.Header>
-        <Header opened={opened} onToggle={toggle} />
-        {showSearchBar && <SearchBar />}
+          <Header opened={opened} onToggle={toggle} showSearchBar={showSearchBar} />
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
