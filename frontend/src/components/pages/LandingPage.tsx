@@ -57,13 +57,11 @@ const LandingPage: React.FC = () => {
 
   return (
     <>
-
       <Box
         component="section"
         bg="white"
         py={80}
       >
-
         <Container>
           <Group gap={60} align="center" wrap="wrap">
             <Stack flex="1.1 1 0" miw={320} gap="xl">

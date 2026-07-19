@@ -6,7 +6,7 @@ export function SearchBar() {
   const navigate = useNavigate();
 
   return (
-    <Flex gap="sm" justify="flex-end">
+    <Flex gap="sm">
       <TextInput
         w="100%"
         maw="420"
