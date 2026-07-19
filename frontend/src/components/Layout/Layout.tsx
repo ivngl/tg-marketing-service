@@ -14,7 +14,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <AppShell
       px={{ base: 0, sm: 'md' }}
-      px={{ base: 0 }}
       header={{ height: '100px' }}
       navbar={{
         width: 'auto',
@@ -23,7 +22,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }}
     >
       <AppShell.Header>
-          <Header opened={opened} onToggle={toggle} showSearchBar={showSearchBar} />
+        <Header opened={opened} onToggle={toggle} showSearchBar={showSearchBar} />
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
