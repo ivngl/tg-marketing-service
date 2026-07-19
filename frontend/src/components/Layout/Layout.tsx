@@ -1,9 +1,9 @@
-import React from 'react';
-import { AppShell, Box } from '@mantine/core';
+import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { SearchBar } from './SearchBar';
-import { NavBar } from './NavBar';
+import React from 'react';
 import { Footer } from './Footer';
+import { NavBar } from './NavBar';
+import { SearchBar } from './SearchBar';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [opened, { close, toggle }] = useDisclosure(false);
@@ -17,15 +17,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         collapsed: { mobile: !opened },
       }}
     >
+
+
+      <AppShell.Header>
+        <SearchBar opened={opened} onToggle={toggle} />
+      </AppShell.Header>
+
       <AppShell.Navbar p="md">
         <NavBar onClose={close} />
       </AppShell.Navbar>
 
-      <AppShell.Main bg="#f5f7fb">
-        <SearchBar opened={opened} onToggle={toggle} />
-        <Box bg="gray.0" mih="100vh">
-          {children}
-        </Box>
+
+      <AppShell.Main bg="gray.0" mih="100vh">
+        {children}
         <Footer />
       </AppShell.Main>
     </AppShell>
