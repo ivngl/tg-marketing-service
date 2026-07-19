@@ -1,9 +1,10 @@
-import { Button, Group, Stack, Text, Title } from "@mantine/core";
+import { Button, Container, Group, Stack, Text, Title } from "@mantine/core";
 import { useNavigate } from 'react-router-dom';
 
 export default function NotFoundPage() {
   const navigate = useNavigate();
   return (
+    <Container>
     <Stack align="center" gap="xs" py={80}>
       <Title
         order={1}
@@ -29,5 +30,6 @@ export default function NotFoundPage() {
         </Button>
       </Group>
     </Stack>
+    </Container>
   );
 }

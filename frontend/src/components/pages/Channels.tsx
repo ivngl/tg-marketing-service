@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Group,
   SegmentedControl,
   SimpleGrid,
@@ -47,7 +48,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
   }, [sortedChannels, typeFilter, activeCategory]);
 
   return (
-    <>
+    <Container>
       <Group justify="space-between" mb="md">
         <Title order={1}>Каталог каналов и групп</Title>
         <Text c="dimmed" size="sm">
@@ -96,7 +97,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
           ))}
         </SimpleGrid>
       )}
-    </>
+    </Container>
   );
 };
 

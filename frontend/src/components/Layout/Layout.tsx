@@ -13,7 +13,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <AppShell
-      px={{ base: 0, sm: 0 }}
+      p={0}
       header={{ height: { base: 100, sm: 60 } }}
       navbar={{
         width: 260,
@@ -29,10 +29,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <NavBar onClose={close} />
       </AppShell.Navbar>
 
-      <AppShell.Main bg="gray.0" mih="100vh" py={40}>
-
+      <AppShell.Main bg="gray.0" mih="100vh">
           {children}
-
         <Footer />
       </AppShell.Main>
     </AppShell>

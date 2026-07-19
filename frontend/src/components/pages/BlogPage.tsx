@@ -2,6 +2,7 @@ import {
   Box,
   Card,
   Badge,
+  Container,
   Grid,
   SimpleGrid,
   Stack,
@@ -42,7 +43,8 @@ export default function BlogPage() {
   const navigate = useNavigate();
 
   return (
-    <Stack gap="xl">
+    <Container>
+      <Stack gap="xl">
       <Box>
         <Title order={1}>Блог</Title>
         <Text c="dimmed">
@@ -89,6 +91,7 @@ export default function BlogPage() {
           <SmallArticle key={article.id} {...article} onClick={() => navigate(`/blog/${article.id}`)} />
         ))}
       </SimpleGrid>
-    </Stack>
+      </Stack>
+    </Container>
   );
 }

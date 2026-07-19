@@ -2,6 +2,7 @@ import {
     Anchor,
     Breadcrumbs,
     Button,
+    Container,
     Group,
     Paper,
     Stack,
@@ -19,7 +20,8 @@ export default function BlogPostPage() {
     const navigate = useNavigate();
 
     return (
-        <Stack gap="xl">
+        <Container>
+            <Stack gap="xl">
             <Breadcrumbs separator="">
                 <Anchor
                     c="dimmed"
@@ -101,6 +103,7 @@ export default function BlogPostPage() {
                     </Button>
                 </Group>
             </Paper>
-        </Stack>
+            </Stack>
+        </Container>
     );
 }

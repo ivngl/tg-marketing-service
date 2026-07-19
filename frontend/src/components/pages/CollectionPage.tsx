@@ -1,5 +1,6 @@
 import CollectionChannelCard from "@/components/ui/CollectionChannelCard";
 import {
+    Container,
     Group,
     Paper,
     SimpleGrid,
@@ -45,7 +46,8 @@ export default function CollectionPage() {
     const navigate = useNavigate();
 
     return (
-        <Stack gap="xl">
+        <Container>
+            <Stack gap="xl">
             <Group gap={4} style={{ cursor: 'pointer' }} onClick={() => navigate('/collections')}>
                 <IconChevronLeft
                     size={14}
@@ -94,6 +96,7 @@ export default function CollectionPage() {
                     />
                 ))}
             </SimpleGrid>
-        </Stack>
+            </Stack>
+        </Container>
     );
 }

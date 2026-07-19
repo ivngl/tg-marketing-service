@@ -1,4 +1,4 @@
-import { Anchor, Avatar, Badge, Box, Divider, Group, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { Anchor, Avatar, Badge, Box, Group, SimpleGrid, Stack, Text, Title } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 
 const data = [
@@ -54,38 +54,36 @@ export function Footer() {
   });
 
   return (
-    <>
-      <Divider mt={40} />
-      <Box
-        component="section"
-        bg="white"
-        p={{ base: 24, md: 48 }}
-      >
-        <SimpleGrid cols={{ base: 2, sm: 2, md: 4 }}>
-          <Stack gap={6}>
-            <Group>
-              <Avatar color="blue">t</Avatar>
-              <Title order={4}>tgpulse</Title>
-            </Group>
-            <Text size="sm" c="dimmed">
-              Аналитика Telegram-каналов с искусственным интеллектом.
-              Знайте о своём канале больше, чем вы сами.
-            </Text>
-          </Stack>
-
-          {groups}
-        </SimpleGrid>
-
-        <Group justify="space-between" mt={48} wrap="wrap" gap="md">
+    <Box
+      component="section"
+      mt={40}
+      bg="white"
+      p={{ base: 24, md: 48 }}
+    >
+      <SimpleGrid cols={{ base: 2, sm: 2, md: 4 }}>
+        <Stack gap={6}>
+          <Group>
+            <Avatar color="blue">t</Avatar>
+            <Title order={4}>tgpulse</Title>
+          </Group>
           <Text size="sm" c="dimmed">
-            © 2026 tgpulse · Прототип
+            Аналитика Telegram-каналов с искусственным интеллектом.
+            Знайте о своём канале больше, чем вы сами.
           </Text>
-          <Badge variant="light" onClick={() => navigate('/nonexistent')} style={{ cursor: 'pointer' }}>
-            Пример страницы 404 →
-          </Badge>
-        </Group>
+        </Stack>
 
-      </Box>
-    </>
+        {groups}
+      </SimpleGrid>
+
+      <Group justify="space-between" mt={48} wrap="wrap" gap="md">
+        <Text size="sm" c="dimmed">
+          © 2026 tgpulse · Прототип
+        </Text>
+        <Badge variant="light" onClick={() => navigate('/nonexistent')} style={{ cursor: 'pointer' }}>
+          Пример страницы 404 →
+        </Badge>
+      </Group>
+
+    </Box>
   );
 }

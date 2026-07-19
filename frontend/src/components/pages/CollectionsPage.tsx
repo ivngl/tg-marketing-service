@@ -1,5 +1,6 @@
 import {
   Box,
+  Container,
   SimpleGrid,
   Stack,
   Text,
@@ -78,7 +79,8 @@ export default function CollectionsPage() {
   const navigate = useNavigate();
 
   return (
-    <Stack gap="xl">
+    <Container>
+      <Stack gap="xl">
       <Box>
         <Title order={1}>
           Подборки каналов
@@ -102,6 +104,7 @@ export default function CollectionsPage() {
           />
         ))}
       </SimpleGrid>
-    </Stack>
+      </Stack>
+    </Container>
   );
 }

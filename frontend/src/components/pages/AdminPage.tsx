@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   Button,
+  Container,
   Group,
   Paper,
   ScrollArea,
@@ -57,7 +58,7 @@ const rows = [
 
 export default function AdminPage() {
   return (
-    <>
+    <Container>
       <Group mb={8}>
         <ThemeIcon color="orange" radius="md">
           <IconShield size={18} />
@@ -164,6 +165,6 @@ export default function AdminPage() {
           </Table>
         </ScrollArea>
       </Paper>
-    </>
+    </Container>
   );
 }

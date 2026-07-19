@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   Button,
+  Container,
   Grid,
   Group,
   Paper,
@@ -94,7 +95,7 @@ const AICabinetPage: React.FC = () => {
   const [questionText, setQuestionText] = useState('');
 
   return (
-    <>
+    <Container>
       <Group gap="sm" mb="lg">
         <ThemeIcon size={36} variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
           <IconSparkles size={20} />
@@ -279,7 +280,7 @@ const AICabinetPage: React.FC = () => {
           </SectionCard>
         </Stack>
       </SimpleGrid>
-    </>
+    </Container>
   );
 };
 

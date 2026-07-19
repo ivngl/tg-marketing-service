@@ -74,5 +74,11 @@ export const theme: MantineThemeOverride = {
       },
     },
 
+    Container: {
+      defaultProps: {
+        p: { base: 20 },
+      },
+    },
+
   },
 };

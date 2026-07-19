@@ -12,7 +12,7 @@ export function Header({ opened, onToggle, showSearchBar = true }: HeaderProps) 
     const navigate = useNavigate();
 
     return (
-        <Flex px="md" py="sm" gap="sm" justify="space-between" >
+        <Flex px="md" py="sm" gap="sm" justify="space-between">
             <Box>
                 <Burger
                     hiddenFrom="sm"

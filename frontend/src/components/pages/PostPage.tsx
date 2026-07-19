@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Badge,
   Button,
+  Container,
   Group,
   Paper,
   Progress,
@@ -25,7 +26,7 @@ const PostPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <Container>
       <Button
         variant="subtle"
         color="tgblue"
@@ -115,7 +116,7 @@ const PostPage: React.FC = () => {
           </Text>
         </InsightCard>
       </SimpleGrid>
-    </>
+    </Container>
   );
 };
 
