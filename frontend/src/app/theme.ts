@@ -190,6 +190,11 @@ export const theme: MantineThemeOverride = {
         padding: 'lg',
         withBorder: true,
       },
+      styles: {
+        root: {
+          cursor: 'pointer',
+        },
+      },
     },
     Container: {
       defaultProps: {

@@ -3,7 +3,6 @@ import {
   Badge,
   Box,
   Button,
-  Card,
   Grid,
   Group,
   Paper,
@@ -143,7 +142,7 @@ const AICabinetPage: React.FC = () => {
               </Stack>
             </SectionCard>
 
-            <Card p="lg">
+            <Paper p="lg">
               <Title order={3} mb="md">
                 Конкуренты
               </Title>
@@ -181,7 +180,7 @@ const AICabinetPage: React.FC = () => {
                   Сравнить все каналы
                 </Button>
               </Group>
-            </Card>
+            </Paper>
 
             <SectionCard title="Лучшее время для публикаций">
               <Text size="xs" c="dimmed" mb="sm">

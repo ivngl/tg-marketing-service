@@ -43,7 +43,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
 
   return (
     <Card
-      padding="sm"
+      padding="md"
       radius="md"
       withBorder
     >

@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Card, CloseButton, Group, NavLink, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Avatar, Box, Button, CloseButton, Group, NavLink, Paper, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   IconHome, IconLayoutGrid, IconChartBar, IconArrowsExchange,
@@ -64,7 +64,7 @@ export function NavBar({ onClose }: NavBarProps) {
         </Stack>
       </Box>
 
-      <Card withBorder radius="lg">
+      <Paper withBorder radius="lg">
         <Stack gap="xs">
           <Text fw={700}>Тариф Free</Text>
           <Text size="sm" c="dimmed">
@@ -75,7 +75,7 @@ export function NavBar({ onClose }: NavBarProps) {
             Улучшить тариф
           </Button>
         </Stack>
-      </Card>
+      </Paper>
     </Stack>
   );
 }

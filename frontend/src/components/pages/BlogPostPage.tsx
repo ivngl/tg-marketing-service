@@ -2,7 +2,6 @@ import {
     Anchor,
     Breadcrumbs,
     Button,
-    Card,
     Container,
     Group,
     Paper,
@@ -82,7 +81,7 @@ export default function BlogPostPage() {
                     </Text>
                 </Stack>
 
-                <Card
+                <Paper
                     withBorder
                     radius="xl"
                     bg="blue.0"
@@ -103,7 +102,7 @@ export default function BlogPostPage() {
                             Разобрать канал
                         </Button>
                     </Group>
-                </Card>
+                </Paper>
             </Stack>
         </Container>
     );

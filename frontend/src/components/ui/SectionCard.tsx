@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Group, Title } from '@mantine/core';
+import { Group, Paper, Title } from '@mantine/core';
 import type { MantineSpacing } from '@mantine/core';
 
 interface SectionCardProps {
@@ -18,12 +18,12 @@ export const SectionCard: React.FC<SectionCardProps> = ({
   children,
 }) => {
   return (
-    <Card withBorder p={padding} radius="md">
+    <Paper withBorder p={padding} radius="md">
       <Group justify="space-between" mb="md">
         <Title order={titleOrder}>{title}</Title>
         {action}
       </Group>
       {children}
-    </Card>
+    </Paper>
   );
 };

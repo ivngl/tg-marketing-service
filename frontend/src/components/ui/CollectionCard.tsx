@@ -20,7 +20,7 @@ export default function CollectionCard(props: (typeof collections)[0] & { onClic
             withBorder
             shadow="xs"
             p={0}
-            style={{ overflow: "hidden", cursor: 'pointer' }}
+            style={{ overflow: "hidden" }}
             onClick={props.onClick}
         >
             <Box

@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Badge,
   Button,
-  Card,
   Container,
   Group,
+  Paper,
   SegmentedControl,
   SimpleGrid,
   Box,
@@ -82,7 +82,7 @@ const DashboardPage: React.FC = () => {
 
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="md" mb="lg">
           {kpis.map((kpi) => (
-            <Card key={kpi.label} p="md" radius="md" withBorder>
+            <Paper key={kpi.label} p="md" radius="md" withBorder>
               <Text size="xs" c="dimmed" mb={4}>
                 {kpi.label}
               </Text>
@@ -96,12 +96,12 @@ const DashboardPage: React.FC = () => {
               >
                 {kpi.positive ? '▲' : '▼'} {kpi.delta}
               </Text>
-            </Card>
+            </Paper>
           ))}
         </SimpleGrid>
 
         <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg" mb="lg">
-          <Card p="md" radius="md" withBorder>
+          <Paper p="md" radius="md" withBorder>
             <Title order={3} mb="md">
               Рост подписчиков
             </Title>
@@ -118,9 +118,9 @@ const DashboardPage: React.FC = () => {
               withDots={false}
               strokeWidth={2}
             />
-          </Card>
+          </Paper>
 
-          <Card p="md" radius="md" withBorder>
+          <Paper p="md" radius="md" withBorder>
             <Title order={3} mb="md">
               AI-советы
             </Title>
@@ -146,10 +146,10 @@ const DashboardPage: React.FC = () => {
             >
               Открыть AI-кабинет
             </Button>
-          </Card>
+          </Paper>
         </SimpleGrid>
 
-        <Card p="md" radius="md" withBorder>
+        <Paper p="md" radius="md" withBorder>
           <Title order={3} mb="md">
             Последние посты
           </Title>
@@ -189,7 +189,7 @@ const DashboardPage: React.FC = () => {
               ))}
             </Table.Tbody>
           </Table>
-        </Card>
+        </Paper>
     </Container>
   );
 };

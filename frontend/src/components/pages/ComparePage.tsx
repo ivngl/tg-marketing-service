@@ -1,9 +1,9 @@
 import React from 'react';
 import {
   Badge,
-  Card,
   Container,
   Group,
+  Paper,
   Table,
   Text,
   Title,
@@ -75,7 +75,7 @@ const ComparePage: React.FC = () => {
           ))}
         </Group>
 
-        <Card withBorder radius="md" mb="lg">
+        <Paper withBorder radius="md" mb="lg">
           <Table>
             <Table.Thead>
               <Table.Tr>
@@ -113,9 +113,9 @@ const ComparePage: React.FC = () => {
               })}
             </Table.Tbody>
           </Table>
-        </Card>
+        </Paper>
 
-        <Card withBorder radius="md" p="md">
+        <Paper withBorder radius="md" p="md">
           <Title order={3} mb="sm">
             AI-вердикт
           </Title>
@@ -123,7 +123,7 @@ const ComparePage: React.FC = () => {
             Для рекламы лучше всего подходит канал «{channels[0].name}» — у него наивысшая вовлечённость
             и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
           </Text>
-        </Card>
+        </Paper>
     </Container>
   );
 };

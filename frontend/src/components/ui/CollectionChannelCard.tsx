@@ -1,4 +1,4 @@
-import { Avatar, Card, Grid, Group, Stack, Text } from "@mantine/core";
+import { Avatar, Grid, Group, Paper, Stack, Text } from "@mantine/core";
 
 export default function CollectionChannelCard(props: {
   initials: string;
@@ -10,7 +10,7 @@ export default function CollectionChannelCard(props: {
   growth: string;
 }) {
   return (
-    <Card withBorder shadow="xs" p="md">
+    <Paper withBorder shadow="xs" p="md">
       <Group align="flex-start" mb="lg">
         <Avatar
           radius="lg"
@@ -63,6 +63,6 @@ export default function CollectionChannelCard(props: {
           </Text>
         </Grid.Col>
       </Grid>
-    </Card>
+    </Paper>
   );
 }

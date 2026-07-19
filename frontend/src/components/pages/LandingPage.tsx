@@ -2,7 +2,6 @@ import {
   Badge,
   Box,
   Button,
-  Card,
   Container,
   Group,
   Paper,
@@ -124,8 +123,8 @@ const LandingPage: React.FC = () => {
               </Group>
             </Stack>
             <Box flex="0.9 1 0" miw={320}>
-              <Card
-                padding="lg"
+              <Paper
+                p="lg"
                 radius="lg"
                 bd="1px solid gray.3"
                 shadow="heroCard"
@@ -174,7 +173,7 @@ const LandingPage: React.FC = () => {
                     </Group>
                   </InsightCard>
                 </Stack>
-              </Card>
+              </Paper>
             </Box>
           </Group>
         </Container>
@@ -193,9 +192,9 @@ const LandingPage: React.FC = () => {
 
           <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl">
             {features.map((f) => (
-              <Card
+              <Paper
                 key={f.title}
-                padding="lg"
+                p="lg"
                 radius="lg"
                 bd="1px solid gray.3"
                 shadow="featureCard"
@@ -215,7 +214,7 @@ const LandingPage: React.FC = () => {
                 <Text size="sm" c="dimmed">
                   {f.description}
                 </Text>
-              </Card>
+              </Paper>
             ))}
           </SimpleGrid>
         </Container>

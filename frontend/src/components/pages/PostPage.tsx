@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Badge,
   Button,
-  Card,
   Container,
   Group,
+  Paper,
   Progress,
   SimpleGrid,
   Stack,
@@ -38,7 +38,7 @@ const PostPage: React.FC = () => {
         </Button>
 
         <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg" mb="lg">
-          <Card withBorder p="lg" radius="md">
+          <Paper withBorder p="lg" radius="md">
             <Title order={3} mb="md">
               Обзор нового iPhone 16 Pro
             </Title>
@@ -58,9 +58,9 @@ const PostPage: React.FC = () => {
               <Text size="sm">↗ 234</Text>
               <Text size="sm">💬 45</Text>
             </Group>
-          </Card>
+          </Paper>
 
-          <Card withBorder p="lg" radius="md">
+          <Paper withBorder p="lg" radius="md">
             <Title order={3} mb="md">
               Разбивка реакций
             </Title>
@@ -90,7 +90,7 @@ const PostPage: React.FC = () => {
                 31.2%
               </Badge>
             </Group>
-          </Card>
+          </Paper>
         </SimpleGrid>
 
         <Title order={3} mb="md">

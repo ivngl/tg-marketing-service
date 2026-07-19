@@ -3,14 +3,14 @@ import {
   Badge,
   Box,
   Button,
-  Card,
   Group,
+  Paper,
   SimpleGrid,
   Stack,
   Switch,
   Text,
   Title,
-} from '@mantine/core';;
+} from '@mantine/core';
 import {   BrandAvatar } from '@/components/ui/BrandAvatar';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconEdit, IconLogout, IconPlus } from '@tabler/icons-react';
@@ -33,7 +33,7 @@ const UserProfilePage: React.FC = () => {
           <Text c="dimmed">Управление аккаунтом и подпиской</Text>
         </Box>
         <SimpleGrid cols={{ base: 1, md: 2 }}>
-          <Card withBorder p="lg" radius="md">
+          <Paper withBorder p="lg" radius="md">
             <Title order={3} mb="md">Профиль</Title>
             <Group gap="md" mb="lg">
               <BrandAvatar name="Алексей Иванов" size={58} />
@@ -55,19 +55,19 @@ const UserProfilePage: React.FC = () => {
                 Выйти
               </Button>
             </Group>
-          </Card>
+          </Paper>
 
           <SectionCard
             title="Подписка"
             action={<Badge size="lg" color="gray">Free</Badge>}
           >
-            <Card p="md" radius="md" bg="tgblue.0" mb="md">
+            <Paper p="md" radius="md" bg="tgblue.0" mb="md">
               <Text size="sm" fw={600} mb="xs">Получите больше возможностей</Text>
               <Text size="xs" c="dimmed" mb="sm">AI-инсайты, сравнение каналов, экспорт данных</Text>
               <Button size="sm" variant="filled" color="tgblue" onClick={() => navigate('/')}>
                 Перейти на Pro
               </Button>
-            </Card>
+            </Paper>
             <Button size="sm" variant="subtle" color="tgblue">
               История платежей
             </Button>
