@@ -120,70 +120,10 @@ export const theme: MantineThemeOverride = {
   spacing: {
     xs: '4px',
     sm: '8px',
-    md: '16px',
     lg: '24px',
     xl: '32px',
   },
   components: {
-    Button: Button.extend({
-      defaultProps: {
-        variant: 'primary',
-      },
-      styles: (theme, props) => {
-        const base = { fontWeight: 600 };
-        switch (String(props.variant)) {
-          case 'primary':
-            return {
-              root: {
-                ...base,
-                backgroundColor: theme.colors.tgblue[5],
-                color: 'white',
-                '&:hover': { backgroundColor: theme.colors.tgblue[6] },
-              },
-            };
-          case 'secondary':
-            return {
-              root: {
-                ...base,
-                border: `1px solid ${theme.colors.tgblue[3]}`,
-                color: theme.colors.tgblue[7],
-                backgroundColor: 'transparent',
-                '&:hover': { backgroundColor: theme.colors.tgblue[0] },
-              },
-            };
-          case 'ghost':
-            return {
-              root: {
-                ...base,
-                color: theme.colors.tgblue[7],
-                backgroundColor: 'transparent',
-                '&:hover': { backgroundColor: theme.colors.tgblue[0] },
-              },
-            };
-          case 'danger':
-            return {
-              root: {
-                ...base,
-                backgroundColor: theme.colors.tgred[0],
-                color: theme.colors.tgred[6],
-                '&:hover': { backgroundColor: theme.colors.tgred[1] },
-              },
-            };
-          case 'default':
-            return {
-              root: {
-                ...base,
-                backgroundColor: theme.colors.gray[0],
-                borderColor: theme.colors.gray[3],
-                color: theme.colors.primary[5],
-                '&:hover': { backgroundColor: theme.colors.gray[1] },
-              },
-            };
-          default:
-            return { root: base };
-        }
-      },
-    }),
     Card: {
       defaultProps: {
         radius: 'lg',
