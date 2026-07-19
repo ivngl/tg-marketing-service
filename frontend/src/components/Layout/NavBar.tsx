@@ -1,4 +1,4 @@
-import { Box, Button, NavLink, Paper, Progress, Stack, Text, ThemeIcon } from '@mantine/core';
+import { Avatar, Box, Button, CloseButton, Group, NavLink, Paper, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import {
   IconArrowsExchange,
   IconBooks,
@@ -34,6 +34,8 @@ export function NavBar({ onClose }: NavBarProps) {
   return (
     <Stack h="100%" justify="space-between">
       <Box>
+
+
         <Stack gap={4}>
           {menu.map((item) => {
             const active = location.pathname === item.path;

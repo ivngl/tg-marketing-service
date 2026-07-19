@@ -11,7 +11,6 @@ import {
 } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import SmallArticle from "@/components/ui/SmallArticle";
-import { SearchBar } from '@/components/ui/SearchBar';
 
 const articles = [
   {
@@ -43,8 +42,7 @@ const articles = [
 export default function BlogPage() {
   const navigate = useNavigate();
 
-  return (<>
-    <SearchBar />
+  return (
     <Container py={40} px="md">
       <Stack gap="xl">
         <Box>
@@ -95,6 +93,5 @@ export default function BlogPage() {
         </SimpleGrid>
       </Stack>
     </Container>
-  </>
   );
 }

@@ -1,4 +1,3 @@
-import { SearchBar } from '@/components/ui/SearchBar';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import channelsCol from '@/fixtures/channelsCollection';
 import {
@@ -60,8 +59,7 @@ const ComparePage: React.FC = () => {
     return bestIdx;
   };
 
-  return (<>
-    <SearchBar />
+  return (
     <Container py={40} px="md">
       <Title order={1} mb="lg">
         Сравнение каналов
@@ -127,7 +125,6 @@ const ComparePage: React.FC = () => {
         </Text>
       </Paper>
     </Container>
-  </>
   );
 };
 

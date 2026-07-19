@@ -10,6 +10,7 @@ export function Header({ opened, onToggle }: HeaderProps) {
     const navigate = useNavigate();
 
     return (
+        <>
         <Flex px="md" py="sm" gap=
             "sm" justify="space-between">
             <Burger
@@ -29,7 +30,8 @@ export function Header({ opened, onToggle }: HeaderProps) {
                 <Avatar color="pink">M</Avatar>
             </Flex>
 
-        </Flex>
+            </Flex>
+            </>
     )
 
 }

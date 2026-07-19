@@ -15,7 +15,6 @@ import {   BrandAvatar } from '@/components/ui/BrandAvatar';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconEdit, IconLogout, IconPlus } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
-import { SearchBar } from '@/components/ui/SearchBar';
 
 const notifications = [
   { label: 'Email-уведомления', defaultChecked: true },
@@ -26,8 +25,7 @@ const notifications = [
 const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
 
-  return (<>
-    <SearchBar />
+  return (
     <Box bg="gray.0" mih="100vh">
       <Box p="md" maw={960} mx="auto">
         <Box mb="md">
@@ -101,7 +99,6 @@ const UserProfilePage: React.FC = () => {
         </SimpleGrid>
       </Box>
     </Box>
-  </>
   );
 };
 

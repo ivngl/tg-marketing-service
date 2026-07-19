@@ -17,6 +17,8 @@ import Auth from '@/components/pages/Auth';
 import UserProfilePage from '@/pages/UserProfilePage/ui/UserProfilePage';
 import channelsCol from '@/fixtures/channelsCollection';
 
+export const knownPaths = ['/', '/channels', '/dashboard', '/compare', '/post', '/ai-cabinet', '/collections', '/blog', '/legal', '/admin', '/auth', '/profile'];
+
 const routes = [
   { path: '/', element: <LandingPage /> },
   { path: '/channels', element: <Channels channels={channelsCol} /> },

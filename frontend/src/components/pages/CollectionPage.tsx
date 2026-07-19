@@ -10,7 +10,6 @@ import {
 } from "@mantine/core";
 import { IconChevronLeft } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
-import { SearchBar } from '@/components/ui/SearchBar';
 
 const channels = [
     {
@@ -46,8 +45,7 @@ const channels = [
 export default function CollectionPage() {
     const navigate = useNavigate();
 
-    return (<>
-        <SearchBar />
+    return (
         <Container size="xl" py={40}>
             <Stack gap="xl">
                 <Group gap={4} style={{ cursor: 'pointer' }} onClick={() => navigate('/collections')}>
@@ -100,6 +98,5 @@ export default function CollectionPage() {
                 </SimpleGrid>
             </Stack>
         </Container>
-    </>
     );
 }

@@ -13,15 +13,13 @@ import {
     IconChevronLeft
 } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
-import { SearchBar } from '@/components/ui/SearchBar';
 
 
 
 export default function BlogPostPage() {
     const navigate = useNavigate();
 
-    return (<>
-        <SearchBar />
+    return (
         <Container size="md" py={48}>
             <Stack gap="xl">
                 <Breadcrumbs separator="">
@@ -107,6 +105,5 @@ export default function BlogPostPage() {
                 </Paper>
             </Stack>
         </Container>
-    </>
     );
 }

@@ -1,3 +1,5 @@
+import { InsightCard } from '@/components/ui/InsightCard';
+import { TariffsBlock } from '@/widgets/TariffsBlock';
 import {
   Badge,
   Box,
@@ -11,8 +13,6 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
-import { InsightCard } from '@/components/ui/InsightCard';
-import { TariffsBlock } from '@/widgets/TariffsBlock';
 import {
   IconPresentationAnalytics,
   IconScale,
@@ -20,7 +20,6 @@ import {
 } from '@tabler/icons-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SearchBar } from '../ui/SearchBar';
 
 const stats = [
   { value: '2.4M', label: 'каналов в базе' },
@@ -58,14 +57,13 @@ const LandingPage: React.FC = () => {
 
   return (
     <>
-      <SearchBar />
-      <Paper
+
+      <Box
         component="section"
         bg="white"
-        shadow="none"
-        withBorder={false}
-        radius={0}
+        py={80}
       >
+
         <Container>
           <Group gap={60} align="center" wrap="wrap">
             <Stack flex="1.1 1 0" miw={320} gap="xl">
@@ -177,7 +175,7 @@ const LandingPage: React.FC = () => {
             </Box>
           </Group>
         </Container>
-      </Paper>
+      </Box>
 
       <Box component="section" bg="gray.0" py={80}>
         <Container>

@@ -1,4 +1,3 @@
-import { SearchBar } from '@/components/ui/SearchBar';
 import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { InsightCard } from '@/components/ui/InsightCard';
 import channelsCol from '@/fixtures/channelsCollection';
@@ -51,9 +50,9 @@ const posts = [
 const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
-  return (<>
-    <SearchBar />
+  return (
     <Container py={40} px="md">
+
       <Group justify="space-between" mb="md">
         <Group gap="md">
           <BrandAvatar name={channel.name} size={58} />
@@ -196,7 +195,6 @@ const DashboardPage: React.FC = () => {
         </ScrollArea>
       </Paper>
     </Container>
-  </>
   );
 };
 
