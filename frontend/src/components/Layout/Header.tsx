@@ -1,4 +1,4 @@
-import { Avatar, Burger, Button, Flex } from '@mantine/core';
+import { Avatar, Burger, Button, Flex, Text } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 
 interface HeaderProps {
@@ -17,10 +17,11 @@ export function Header({ opened, onToggle }: HeaderProps) {
                 opened={opened}
                 onClick={onToggle}
             />
-                <Flex align="center" gap="sm" ml="auto">
-                    <Button variant="subtle" onClick={() => navigate('/auth')}>Войти</Button>
-                    <Avatar color="pink">M</Avatar>
-                </Flex>
+            <Flex align="center" gap="sm" ml="auto">
+                <Button variant="subtle" onClick={() => navigate('/auth')}>Войти</Button>
+                <Text>Мария Л.</Text>
+                <Avatar color="pink">M</Avatar>
+            </Flex>
 
         </Flex>
     )

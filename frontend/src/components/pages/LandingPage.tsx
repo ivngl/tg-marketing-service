@@ -57,7 +57,6 @@ const LandingPage: React.FC = () => {
 
   return (
     <>
-      {/* HERO SECTION */}
       <Paper
         component="section"
         bg="white"

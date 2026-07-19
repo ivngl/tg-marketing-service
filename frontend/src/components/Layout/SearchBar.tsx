@@ -6,12 +6,14 @@ export function SearchBar() {
   const navigate = useNavigate();
 
   return (
-    <Flex gap="sm">
+    <Flex p="sm" gap="sm">
       <TextInput
+        w="100%"
+        maw="420"
         placeholder="Поиск канала по @username, названию или теме..."
         leftSection={<IconSearch size={16} />}
       />
-      <Button radius="xl" onClick={() => navigate('/ai-cabinet')}>AI-разбор</Button>
+      <Button radius="xl" style={{ flexShrink: 0 }} onClick={() => navigate('/ai-cabinet')}>AI-разбор</Button>
     </Flex>
 
   );
