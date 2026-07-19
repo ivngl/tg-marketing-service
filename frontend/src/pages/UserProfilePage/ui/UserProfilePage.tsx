@@ -43,7 +43,7 @@ const UserProfilePage: React.FC = () => {
               </div>
             </Group>
             <Group gap="sm">
-              <Button size="sm" color="tgblue" leftSection={<IconEdit size={14} />}>
+              <Button size="sm" leftSection={<IconEdit size={14} />}>
                 Редактировать
               </Button>
               <Button

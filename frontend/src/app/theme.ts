@@ -1,88 +1,34 @@
-import { Button, type MantineThemeOverride } from '@mantine/core';
-
-const solid = (hex: string) =>
-  Array(10).fill(hex) as [string, string, string, string, string, string, string, string, string, string];
+import { type MantineThemeOverride } from '@mantine/core';
 
 export const theme: MantineThemeOverride = {
-  primaryColor: 'tgblue',
-  primaryShade: { light: 5, dark: 5 },
   colors: {
-    primary: solid('#111113'),
-    secondary: solid('#2D3748'),
-    muted: solid('#4A5568'),
-    gray: [
-      '#F8F9FB',
-      '#F1F3F5',
-      '#E9ECEF',
-      '#DEE2E6',
-      '#CED4DA',
-      '#ADB5BD',
-      '#868E96',
-      '#495057',
-      '#343A40',
-      '#212529',
-    ],
     tgblue: [
-      '#E7F5FB',
-      '#d0ebf9',
-      '#9ddeed',
-      '#5cc8e0',
-      '#33b5d5',
-      '#229ED9',
-      '#1B87BC',
-      '#1662a3',
-      '#124f85',
-      '#0f3d68',
+      '#E7F5FB', '#D0EBF9', '#A8D8F0', '#7CC3E6', '#4DADD9',
+      '#229ED9', '#1B87BC', '#166FA3', '#115888', '#0B4F6A',
     ],
     tgpurple: [
-      '#faf9ff',
-      '#f3f0ff',
-      '#e6e0fb',
-      '#d0bdf4',
-      '#b699ec',
-      '#9775e3',
-      '#7c5cdb',
-      '#7048e8',
-      '#6741d9',
-      '#5334b5',
+      '#F3F0FF', '#E6E0FB', '#D0CCF5', '#B5ABED', '#9584E4',
+      '#7048E8', '#5F35D6', '#4E28BF', '#3F1FA5', '#3B1F8E',
     ],
     tggreen: [
-      '#f4fbf6',
-      '#e6fcf5',
-      '#c3fae8',
-      '#96f2d7',
-      '#63e6be',
-      '#38d9a9',
-      '#20c997',
-      '#12b886',
-      '#0ca678',
-      '#099268',
+      '#E6FCF5', '#C3F0D9', '#93E2B8', '#66D399', '#3FC47B',
+      '#2F9E44', '#27923B', '#1F7E33', '#1A6D2B', '#1B5E20',
     ],
     tgred: [
-      '#fff5f5',
-      '#ffe3e3',
-      '#ffc9c9',
-      '#ffa8a8',
-      '#ff8787',
-      '#ff6b6b',
-      '#f85149',
-      '#f03e3e',
-      '#e03131',
-      '#c92a2a',
+      '#FFF5F5', '#FFE3E3', '#FFC9C9', '#FFA8A8', '#FF8787',
+      '#E03131', '#C92A2A', '#B02525', '#982020', '#8B1A1A',
     ],
     tgorange: [
-      '#fff9f0',
-      '#fff4e6',
-      '#ffe8cc',
-      '#ffd8a8',
-      '#ffc078',
-      '#ffa94d',
-      '#f08c00',
-      '#e8590c',
-      '#d9480f',
-      '#b35c00',
+      '#FFF4E6', '#FFE8CC', '#FFD8A8', '#FFC078', '#FFA94D',
+      '#F08C00', '#E8590C', '#D9480F', '#C2410C', '#8B4000',
     ],
   },
+
+  shadows: {
+    heroCard: '0 8px 24px rgba(16,18,22,.10)',
+    featureCard: '0 1px 3px rgba(16,18,22,.06)',
+  },
+
   fontFamily: "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
   headings: {
     fontFamily: "'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
@@ -93,41 +39,10 @@ export const theme: MantineThemeOverride = {
       h4: { fontSize: '14px', fontWeight: '700', lineHeight: '1.4' },
     },
   },
-  fontSizes: {
-    xs: '11px',
-    sm: '13px',
-    md: '14px',
-    lg: '16px',
-    xl: '20px',
-  },
-  radius: {
-    xs: '4px',
-    sm: '6px',
-    md: '8px',
-    lg: '16px',
-    xl: '99px',
-  },
-  shadows: {
-    xs: '0 1px 2px rgba(16,18,22,.04)',
-    sm: '0 1px 3px rgba(16,18,22,.06)',
-    md: '0 4px 12px rgba(16,18,22,.08)',
-    lg: '0 8px 24px rgba(16,18,22,.10)',
-    xl: '0 24px 70px rgba(0,0,0,.3)',
-    heroCard: '0 20px 40px rgba(0, 0, 0, 0.06)',
-    featureCard: '0 4px 12px rgba(0, 0, 0, 0.02)',
-    tariffHighlight: '0 12px 24px rgba(34, 158, 217, 0.08)',
-  },
-  spacing: {
-    xs: '4px',
-    sm: '8px',
-    lg: '24px',
-    xl: '32px',
-  },
+
   components: {
     Card: {
       defaultProps: {
-        radius: 'lg',
-        padding: 'lg',
         withBorder: true,
       },
       styles: {
@@ -136,42 +51,16 @@ export const theme: MantineThemeOverride = {
         },
       },
     },
-    Container: {
-      defaultProps: {
-        size: 'xl',
-      },
-    },
+
     Paper: {
       defaultProps: {
         withBorder: true,
       },
     },
+
     Badge: {
       defaultProps: {
-        radius: 'sm',
         variant: 'light',
-      },
-    },
-    ThemeIcon: {
-      defaultProps: {
-        radius: 'xl',
-      },
-    },
-    Text: {
-      styles: {
-        root: {
-          lineHeight: '1.5',
-        },
-      },
-    },
-    SimpleGrid: {
-      defaultProps: {
-        spacing: 'lg',
-      },
-    },
-    Group: {
-      defaultProps: {
-        gap: 'sm',
       },
     },
   },
