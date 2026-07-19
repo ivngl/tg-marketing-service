@@ -5,7 +5,7 @@ export default function NotFoundPage() {
   const navigate = useNavigate();
   return (
     <Container>
-    <Stack align="center" gap="xs" py={80}>
+    <Stack align="center" gap="xs">
       <Title
         order={1}
         c="blue"

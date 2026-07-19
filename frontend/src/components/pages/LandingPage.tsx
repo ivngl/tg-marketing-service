@@ -169,7 +169,7 @@ const LandingPage: React.FC = () => {
           </Group>
       </Container>
 
-      <Box component="section" bg="gray.0" py={80}>
+      <Box component="section" bg="gray.0" px="md" py={80}>
         <Box>
           <Stack gap={10} align="center" mb={50}>
             <Title order={2} ta="center">
