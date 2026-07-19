@@ -20,6 +20,7 @@ import {
 } from '@tabler/icons-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SearchBar } from '../Layout/SearchBar';
 
 const stats = [
   { value: '2.4M', label: 'каналов в базе' },
@@ -60,12 +61,14 @@ const LandingPage: React.FC = () => {
       <Paper
         component="section"
         bg="white"
-        py={80}
+        pb={80}
         shadow="none"
         withBorder={false}
         bd="1px solid var(--mantine-color-gray-3)"
       >
+         <SearchBar />
         <Container>
+
           <Group gap={60} align="center" wrap="wrap">
             <Stack flex="1.1 1 0" miw={320} gap="xl">
               <Badge
