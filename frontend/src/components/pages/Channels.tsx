@@ -11,6 +11,7 @@ import React, { useMemo, useState } from 'react';
 import ChannelCard from '../ui/ChannelCard';
 import type { ChannelsProps } from '@/types/channel';
 import channelsCol from '@/fixtures/channelsCollection';
+import { SearchBar } from '../ui/SearchBar';
 
 const defaultChannels = channelsCol;
 
@@ -47,7 +48,8 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
     return result;
   }, [sortedChannels, typeFilter, activeCategory]);
 
-  return (
+  return (<>
+    <SearchBar />
     <Container py={40} px="md">
         <Group justify="space-between" mb="md">
           <Title order={1}>Каталог каналов и групп</Title>
@@ -98,6 +100,7 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
           </SimpleGrid>
         )}
     </Container>
+  </>
   );
 };
 

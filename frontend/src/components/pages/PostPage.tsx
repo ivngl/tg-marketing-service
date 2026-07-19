@@ -14,6 +14,7 @@ import {
 import { InsightCard } from '@/components/ui/InsightCard';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+import { SearchBar } from '@/components/ui/SearchBar';
 
 const reactions = [
   { emoji: '🔥', label: 'Огонь', percent: 42, count: 374 },
@@ -25,7 +26,8 @@ const reactions = [
 const PostPage: React.FC = () => {
   const navigate = useNavigate();
 
-  return (
+  return (<>
+    <SearchBar />
     <Container py={40} px="md">
         <Button
           variant="subtle"
@@ -117,6 +119,7 @@ const PostPage: React.FC = () => {
           </InsightCard>
         </SimpleGrid>
     </Container>
+  </>
   );
 };
 

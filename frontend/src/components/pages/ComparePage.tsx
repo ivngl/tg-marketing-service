@@ -1,4 +1,6 @@
-import React from 'react';
+import { SearchBar } from '@/components/ui/SearchBar';
+import { BrandAvatar } from '@/components/ui/BrandAvatar';
+import channelsCol from '@/fixtures/channelsCollection';
 import {
   Badge,
   Container,
@@ -8,9 +10,8 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import { IconTrophy } from '@tabler/icons-react';
-import channelsCol from '@/fixtures/channelsCollection';
+import React from 'react';
 
 const channels = channelsCol.slice(0, 3);
 
@@ -59,72 +60,74 @@ const ComparePage: React.FC = () => {
     return bestIdx;
   };
 
-  return (
+  return (<>
+    <SearchBar />
     <Container py={40} px="md">
-        <Title order={1} mb="lg">
-          Сравнение каналов
+      <Title order={1} mb="lg">
+        Сравнение каналов
+      </Title>
+
+      <Group gap="sm" mb="lg">
+        {channels.map((ch) => (
+          <Badge key={ch.id} size="lg" color="tgblue" leftSection={
+            <BrandAvatar name={ch.name} size={18} />
+          }>
+            {ch.name}
+          </Badge>
+        ))}
+      </Group>
+
+      <Paper withBorder radius="md" mb="lg">
+        <Table>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Метрика</Table.Th>
+              {channels.map((ch) => (
+                <Table.Th key={ch.id}>
+                  <Group gap="xs">
+                    <BrandAvatar name={ch.name} size={24} />
+                    <Text fw={600} size="sm">{ch.name}</Text>
+                  </Group>
+                </Table.Th>
+              ))}
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+            {metrics.map((m) => {
+              const bestIdx = getBest(m.key);
+              return (
+                <Table.Tr key={m.key}>
+                  <Table.Td fw={600}>{m.label}</Table.Td>
+                  {channels.map((ch, i) => (
+                    <Table.Td key={ch.id}>
+                      <Group gap="xs">
+                        {m.format(getVal(ch, m.key))}
+                        {i === bestIdx && (
+                          <Badge size="xs" variant="filled" color="green" leftSection={<IconTrophy size={10} />}>
+                            лучший
+                          </Badge>
+                        )}
+                      </Group>
+                    </Table.Td>
+                  ))}
+                </Table.Tr>
+              );
+            })}
+          </Table.Tbody>
+        </Table>
+      </Paper>
+
+      <Paper withBorder radius="md" p="md">
+        <Title order={3} mb="sm">
+          AI-вердикт
         </Title>
-
-        <Group gap="sm" mb="lg">
-          {channels.map((ch) => (
-            <Badge key={ch.id} size="lg" color="tgblue" leftSection={
-              <BrandAvatar name={ch.name} size={18} />
-            }>
-              {ch.name}
-            </Badge>
-          ))}
-        </Group>
-
-        <Paper withBorder radius="md" mb="lg">
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Метрика</Table.Th>
-                {channels.map((ch) => (
-                  <Table.Th key={ch.id}>
-                    <Group gap="xs">
-                      <BrandAvatar name={ch.name} size={24} />
-                      <Text fw={600} size="sm">{ch.name}</Text>
-                    </Group>
-                  </Table.Th>
-                ))}
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {metrics.map((m) => {
-                const bestIdx = getBest(m.key);
-                return (
-                  <Table.Tr key={m.key}>
-                    <Table.Td fw={600}>{m.label}</Table.Td>
-                    {channels.map((ch, i) => (
-                      <Table.Td key={ch.id}>
-                        <Group gap="xs">
-                          {m.format(getVal(ch, m.key))}
-                          {i === bestIdx && (
-                            <Badge size="xs" variant="filled" color="green" leftSection={<IconTrophy size={10} />}>
-                              лучший
-                            </Badge>
-                          )}
-                        </Group>
-                      </Table.Td>
-                    ))}
-                  </Table.Tr>
-                );
-              })}
-            </Table.Tbody>
-          </Table>
-        </Paper>
-
-        <Paper withBorder radius="md" p="md">
-          <Title order={3} mb="sm">
-            AI-вердикт
-          </Title>
-          <Text size="sm" c="dimmed">
-            Для рекламы лучше всего подходит канал «{channels[0].name}» — у него наивысшая вовлечённость
-            и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
-          </Text>
-        </Paper>
+        <Text size="sm" c="dimmed">
+          Для рекламы лучше всего подходит канал «{channels[0].name}» — у него наивысшая вовлечённость
+          и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
+        </Text>
+      </Paper>
     </Container>
+  </>
   );
 };
 

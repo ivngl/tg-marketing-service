@@ -17,6 +17,7 @@ import {
 import {
   IconShield,
 } from "@tabler/icons-react";
+import { SearchBar } from '@/components/ui/SearchBar';
 
 const rows = [
   {
@@ -58,7 +59,8 @@ const rows = [
 ];
 
 export default function AdminPage() {
-  return (
+  return (<>
+    <SearchBar />
     <Container py={40} px="md">
       <Group mb={8}>
         <ThemeIcon color="orange" radius="md">
@@ -167,5 +169,6 @@ export default function AdminPage() {
         </ScrollArea>
       </Paper>
     </Container>
+  </>
   );
 }

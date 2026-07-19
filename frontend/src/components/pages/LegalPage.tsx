@@ -6,6 +6,7 @@ import {
   Title,
 } from '@mantine/core';
 import React from 'react';
+import { SearchBar } from '@/components/ui/SearchBar';
 
 const legalContent: Record<string, { title: string; text: string }> = {
   privacy: {
@@ -25,7 +26,8 @@ const legalContent: Record<string, { title: string; text: string }> = {
 const LegalPage: React.FC = () => {
   const [tab, setTab] = React.useState('privacy');
 
-  return (
+  return (<>
+    <SearchBar />
     <Container py={40} px="md">
       <Title order={1} mb="lg">
         Правовая информация
@@ -53,6 +55,7 @@ const LegalPage: React.FC = () => {
         })()}
       </Paper>
     </Container>
+  </>
   );
 };
 

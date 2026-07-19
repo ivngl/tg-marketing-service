@@ -8,6 +8,7 @@ import {
 } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import CollectionCard from "../ui/CollectionCard";
+import { SearchBar } from '../ui/SearchBar';
 
 
 
@@ -78,7 +79,8 @@ export const collections = [
 export default function CollectionsPage() {
   const navigate = useNavigate();
 
-  return (
+  return (<>
+    <SearchBar />
     <Container size="xl" py={40}>
       <Stack gap="xl">
         <Box>
@@ -106,5 +108,6 @@ export default function CollectionsPage() {
         </SimpleGrid>
       </Stack>
     </Container>
+  </>
   );
 }

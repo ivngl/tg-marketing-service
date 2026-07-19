@@ -1,25 +1,26 @@
-import React from 'react';
+import { SearchBar } from '@/components/ui/SearchBar';
+import { BrandAvatar } from '@/components/ui/BrandAvatar';
+import { InsightCard } from '@/components/ui/InsightCard';
+import channelsCol from '@/fixtures/channelsCollection';
+import { AreaChart } from '@mantine/charts';
 import {
   Badge,
+  Box,
   Button,
   Container,
   Group,
   Paper,
+  ScrollArea,
   SegmentedControl,
   SimpleGrid,
-  Box,
   Stack,
   Table,
-  ScrollArea,
   Text,
   Title,
 } from '@mantine/core';
-import { InsightCard } from '@/components/ui/InsightCard';
-import { BrandAvatar } from '@/components/ui/BrandAvatar';
-import { AreaChart } from '@mantine/charts';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import channelsCol from '@/fixtures/channelsCollection';
 
 const channel = channelsCol[0];
 
@@ -50,112 +51,113 @@ const posts = [
 const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
-  return (
+  return (<>
+    <SearchBar />
     <Container py={40} px="md">
-    <Group justify="space-between" mb="md">
-          <Group gap="md">
-            <BrandAvatar name={channel.name} size={58} />
-            <div>
-              <Group gap={4}>
-                <Title order={2}>{channel.name}</Title>
-                {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
-              </Group>
-              <Box c="dimmed" fz="sm">
-                {channel.username} · <Badge size="xs">{channel.category}</Badge>
-              </Box>
-            </div>
-          </Group>
-          <Group gap="sm">
-            <SegmentedControl
-              data={[
-                { label: '7д', value: '7d' },
-                { label: '30д', value: '30d' },
-                { label: '90д', value: '90d' },
-              ]}
-              defaultValue="30d"
-              size="sm"
-            />
-            <Button variant="outline" leftSection={<IconDownload size={16} />} size="sm">
-              Экспорт
-            </Button>
-          </Group>
+      <Group justify="space-between" mb="md">
+        <Group gap="md">
+          <BrandAvatar name={channel.name} size={58} />
+          <div>
+            <Group gap={4}>
+              <Title order={2}>{channel.name}</Title>
+              {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
+            </Group>
+            <Box c="dimmed" fz="sm">
+              {channel.username} · <Badge size="xs">{channel.category}</Badge>
+            </Box>
+          </div>
         </Group>
+        <Group gap="sm">
+          <SegmentedControl
+            data={[
+              { label: '7д', value: '7d' },
+              { label: '30д', value: '30d' },
+              { label: '90д', value: '90d' },
+            ]}
+            defaultValue="30d"
+            size="sm"
+          />
+          <Button variant="outline" leftSection={<IconDownload size={16} />} size="sm">
+            Экспорт
+          </Button>
+        </Group>
+      </Group>
 
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="md" mb="lg">
-          {kpis.map((kpi) => (
-            <Paper key={kpi.label} p="md" radius="md" withBorder>
-              <Text size="xs" c="dimmed" mb={4}>
-                {kpi.label}
-              </Text>
-              <Text fw={800} size="xl" mb={4}>
-                {kpi.value}
-              </Text>
-              <Text
-                size="xs"
-                fw={600}
-                c={kpi.positive ? 'green' : 'red'}
-              >
-                {kpi.positive ? '▲' : '▼'} {kpi.delta}
-              </Text>
-            </Paper>
-          ))}
-        </SimpleGrid>
-
-        <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg" mb="lg">
-          <Paper p="md" radius="md" withBorder>
-            <Title order={3} mb="md">
-              Рост подписчиков
-            </Title>
-            <AreaChart
-              h={200}
-              data={growthData}
-              dataKey="date"
-              series={[{ name: 'подписчики', color: 'tgblue.5' }]}
-              curveType="monotone"
-              withGradient
-              withYAxis={false}
-              withXAxis
-              withTooltip
-              withDots={false}
-              strokeWidth={2}
-            />
-          </Paper>
-
-          <Paper p="md" radius="md" withBorder>
-            <Title order={3} mb="md">
-              AI-советы
-            </Title>
-            <Stack gap="sm">
-              <InsightCard color="green" label="Рекомендация">
-                <Text size="xs" c="dimmed">
-                  Публикуйте посты в среду в 19:00 — ваша аудитория наиболее активна
-                </Text>
-              </InsightCard>
-              <InsightCard color="blue" label="Тренд">
-                <Text size="xs" c="dimmed">
-                  Вовлечённость выросла на 12% за последние 30 дней
-                </Text>
-              </InsightCard>
-            </Stack>
-            <Button
-
-              color="tgblue"
-              size="sm"
-              mt="md"
-              fullWidth
-              onClick={() => navigate('/ai-cabinet')}
+      <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }} spacing="md" mb="lg">
+        {kpis.map((kpi) => (
+          <Paper key={kpi.label} p="md" radius="md" withBorder>
+            <Text size="xs" c="dimmed" mb={4}>
+              {kpi.label}
+            </Text>
+            <Text fw={800} size="xl" mb={4}>
+              {kpi.value}
+            </Text>
+            <Text
+              size="xs"
+              fw={600}
+              c={kpi.positive ? 'green' : 'red'}
             >
-              Открыть AI-кабинет
-            </Button>
+              {kpi.positive ? '▲' : '▼'} {kpi.delta}
+            </Text>
           </Paper>
-        </SimpleGrid>
+        ))}
+      </SimpleGrid>
 
-        <Paper p="sm" radius="md" withBorder>
+      <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg" mb="lg">
+        <Paper p="md" radius="md" withBorder>
           <Title order={3} mb="md">
-            Последние посты
+            Рост подписчиков
           </Title>
-          <ScrollArea>
-            <Table striped highlightOnHover>
+          <AreaChart
+            h={200}
+            data={growthData}
+            dataKey="date"
+            series={[{ name: 'подписчики', color: 'tgblue.5' }]}
+            curveType="monotone"
+            withGradient
+            withYAxis={false}
+            withXAxis
+            withTooltip
+            withDots={false}
+            strokeWidth={2}
+          />
+        </Paper>
+
+        <Paper p="md" radius="md" withBorder>
+          <Title order={3} mb="md">
+            AI-советы
+          </Title>
+          <Stack gap="sm">
+            <InsightCard color="green" label="Рекомендация">
+              <Text size="xs" c="dimmed">
+                Публикуйте посты в среду в 19:00 — ваша аудитория наиболее активна
+              </Text>
+            </InsightCard>
+            <InsightCard color="blue" label="Тренд">
+              <Text size="xs" c="dimmed">
+                Вовлечённость выросла на 12% за последние 30 дней
+              </Text>
+            </InsightCard>
+          </Stack>
+          <Button
+
+            color="tgblue"
+            size="sm"
+            mt="md"
+            fullWidth
+            onClick={() => navigate('/ai-cabinet')}
+          >
+            Открыть AI-кабинет
+          </Button>
+        </Paper>
+      </SimpleGrid>
+
+      <Paper p="sm" radius="md" withBorder>
+        <Title order={3} mb="md">
+          Последние посты
+        </Title>
+        <ScrollArea>
+          <Table striped highlightOnHover>
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>Пост</Table.Th>
@@ -190,10 +192,11 @@ const DashboardPage: React.FC = () => {
                 </Table.Tr>
               ))}
             </Table.Tbody>
-            </Table>
-          </ScrollArea>
-        </Paper>
+          </Table>
+        </ScrollArea>
+      </Paper>
     </Container>
+  </>
   );
 };
 

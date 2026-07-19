@@ -20,6 +20,7 @@ import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
+import { SearchBar } from '@/components/ui/SearchBar';
 
 const ideas = [
   {
@@ -94,8 +95,9 @@ const AICabinetPage: React.FC = () => {
   const navigate = useNavigate();
   const [questionText, setQuestionText] = useState('');
 
-  return (
-    <Container py={40} px="md">
+  return (<>
+    <SearchBar />
+    <Container py={40}>
         <Group gap="sm" mb="lg">
           <ThemeIcon size={36} variant="gradient" gradient={{ from: 'tgblue', to: 'tgpurple', deg: 135 }}>
             <IconSparkles size={20} />
@@ -281,6 +283,7 @@ const AICabinetPage: React.FC = () => {
           </Stack>
         </SimpleGrid>
     </Container>
+  </>
   );
 };
 
