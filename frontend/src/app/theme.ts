@@ -1,7 +1,21 @@
 import { type MantineThemeOverride } from '@mantine/core';
 
 export const theme: MantineThemeOverride = {
+  primaryColor: 'tgblue',
+
   colors: {
+    primary: [
+      '#f1f3f5', '#e9ecef', '#dee2e6', '#ced4da', '#adb5bd',
+      '#1a1b1e', '#151619', '#111214', '#0d0e10', '#101216',
+    ],
+    secondary: [
+      '#f8f9fa', '#f1f3f5', '#e9ecef', '#dee2e6', '#ced4da',
+      '#495057', '#414850', '#3a3f47', '#33383e', '#2c3036',
+    ],
+    muted: [
+      '#f8f9fa', '#f1f3f5', '#e9ecef', '#dee2e6', '#adb5bd',
+      '#868e96', '#7a828a', '#6e767e', '#636a72', '#585f67',
+    ],
     tgblue: [
       '#E7F5FB', '#D0EBF9', '#A8D8F0', '#7CC3E6', '#4DADD9',
       '#229ED9', '#1B87BC', '#166FA3', '#115888', '#0B4F6A',
@@ -44,6 +58,7 @@ export const theme: MantineThemeOverride = {
     Card: {
       defaultProps: {
         withBorder: true,
+        radius: 'lg',
       },
       styles: {
         root: {
@@ -55,13 +70,9 @@ export const theme: MantineThemeOverride = {
     Paper: {
       defaultProps: {
         withBorder: true,
+        radius: 'lg',
       },
     },
 
-    Badge: {
-      defaultProps: {
-        variant: 'light',
-      },
-    },
   },
 };
