@@ -16,7 +16,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       px={{ base: 0, sm: 'md' }}
       header={{ height: '100px' }}
       navbar={{
-        width: 'auto',
+        width: 260,
         breakpoint: 'sm',
         collapsed: { mobile: !opened },
       }}

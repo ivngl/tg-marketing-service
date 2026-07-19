@@ -30,7 +30,7 @@ export function Header({ opened, onToggle, showSearchBar = true }: HeaderProps) 
 
             <Flex wrap="wrap-reverse" gap="5px">
                 {showSearchBar && (
-                    <Box style={{ flex: '1 1 0', minWidth: 300 }}>
+                    <Box ml={{ base: 0, sm: 200 }}>
                         <SearchBar />
                     </Box>
                 )}
