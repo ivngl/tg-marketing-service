@@ -62,10 +62,9 @@ const LandingPage: React.FC = () => {
       <Paper
         component="section"
         bg="white"
-        py={80}
         shadow="none"
         withBorder={false}
-        bd="1px solid var(--mantine-color-gray-3)"
+        radius={0}
       >
         <Container>
           <Group gap={60} align="center" wrap="wrap">

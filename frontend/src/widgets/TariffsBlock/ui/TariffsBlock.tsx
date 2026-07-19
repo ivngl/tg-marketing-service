@@ -21,7 +21,6 @@ export const TariffsBlock: React.FC<TariffsBlockProps> = ({ tariffs: propsTariff
       py={80}
       shadow="none"
       withBorder={false}
-      bd="1px solid var(--mantine-color-gray-3)"
     >
       <Container>
         <Title order={2} fw={800} c="primary" ta="center" mb={60} fz="32px">
