@@ -46,16 +46,6 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
       padding="sm"
       radius="md"
       withBorder
-      styles={{
-        root: {
-          cursor: 'pointer',
-          transition: 'transform 150ms, box-shadow 150ms',
-          '&:hover': {
-            transform: 'translateY(-2px)',
-            boxShadow: '0 8px 24px rgba(16, 18, 22, 0.10)',
-          },
-        },
-      }}
     >
       <Group gap="sm" wrap="nowrap" mb="sm">
         <Avatar
