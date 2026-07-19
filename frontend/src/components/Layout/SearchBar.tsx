@@ -1,35 +1,18 @@
-import { Avatar, Burger, Button, Flex, TextInput } from '@mantine/core';
+import { Button, Flex, TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
-interface SearchBarProps {
-  opened: boolean;
-  onToggle: () => void;
-}
-
-export function SearchBar({ opened, onToggle }: SearchBarProps) {
+export function SearchBar() {
   const navigate = useNavigate();
 
   return (
-    <Flex px="md" py="sm" gap="sm">
-      <Burger
-        hiddenFrom="sm"
-        opened={opened}
-        onClick={onToggle}
+    <Flex gap="sm">
+      <TextInput
+        placeholder="Поиск канала по @username, названию или теме..."
+        leftSection={<IconSearch size={16} />}
       />
-      <Flex align="center" gap="sm" wrap="wrap-reverse" >
-        <Flex gap="sm">
-          <TextInput
-            placeholder="Поиск канала по @username, названию или теме..."
-            leftSection={<IconSearch size={16} />}
-          />
-          <Button radius="xl" onClick={() => navigate('/ai-cabinet')}>AI-разбор</Button>
-        </Flex>
-        <Flex gap="sm" ml="auto">
-          <Button variant="subtle" onClick={() => navigate('/auth')}>Войти</Button>
-          <Avatar color="pink">M</Avatar>
-        </Flex>
-      </Flex>
+      <Button radius="xl" onClick={() => navigate('/ai-cabinet')}>AI-разбор</Button>
     </Flex>
+
   );
 }

@@ -1,10 +1,15 @@
-import { Avatar, Box, Button, CloseButton, Group, NavLink, Paper, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Avatar, Box, Button, Group, NavLink, Paper, Progress, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import {
-  IconHome, IconLayoutGrid, IconChartBar, IconArrowsExchange,
-  IconSparkles, IconBooks, IconNews, IconUser,
+  IconArrowsExchange,
+  IconBooks,
+  IconChartBar,
+  IconHome, IconLayoutGrid,
+  IconNews,
   IconSettings,
+  IconSparkles,
+  IconUser,
 } from '@tabler/icons-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const menu = [
   { label: 'Главная', path: '/', icon: IconHome },
@@ -34,7 +39,6 @@ export function NavBar({ onClose }: NavBarProps) {
             <Avatar color="blue" radius="md">t</Avatar>
             <Title order={3}>tgpulse</Title>
           </Group>
-          <CloseButton hiddenFrom="sm" onClick={onClose} />
         </Group>
 
         <Stack gap={4}>
