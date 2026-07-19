@@ -6,7 +6,6 @@ import {
   Badge,
   Box,
   Button,
-  Container,
   Group,
   Paper,
   ScrollArea,
@@ -51,8 +50,7 @@ const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Container py={40} px="md">
-
+    <>
       <Group justify="space-between" mb="md">
         <Group gap="md">
           <BrandAvatar name={channel.name} size={58} />
@@ -194,7 +192,7 @@ const DashboardPage: React.FC = () => {
           </Table>
         </ScrollArea>
       </Paper>
-    </Container>
+    </>
   );
 };
 

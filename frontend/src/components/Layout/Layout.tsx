@@ -29,10 +29,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <NavBar onClose={close} />
       </AppShell.Navbar>
 
-      <AppShell.Main bg="gray.0" mih="100vh">
-        <Container py={40} px="md">
+      <AppShell.Main bg="gray.0" mih="100vh" py={40}>
+
           {children}
-        </Container>
+
         <Footer />
       </AppShell.Main>
     </AppShell>

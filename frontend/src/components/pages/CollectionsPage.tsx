@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   SimpleGrid,
   Stack,
   Text,
@@ -79,32 +78,30 @@ export default function CollectionsPage() {
   const navigate = useNavigate();
 
   return (
-    <Container size="xl" py={40}>
-      <Stack gap="xl">
-        <Box>
-          <Title order={1}>
-            Подборки каналов
-          </Title>
+    <Stack gap="xl">
+      <Box>
+        <Title order={1}>
+          Подборки каналов
+        </Title>
 
-          <Text c="dimmed" mt={4}>
-            Готовые тематические списки от редакции и
-            авторов
-          </Text>
-        </Box>
+        <Text c="dimmed" mt={4}>
+          Готовые тематические списки от редакции и
+          авторов
+        </Text>
+      </Box>
 
-        <SimpleGrid
-          cols={{ base: 1, sm: 2, lg: 3 }}
-          spacing="lg"
-        >
-          {collections.map((collection) => (
-            <CollectionCard
-              key={collection.id}
-              {...collection}
-              onClick={() => navigate(`/collections/${collection.id}`)}
-            />
-          ))}
-        </SimpleGrid>
-      </Stack>
-    </Container>
+      <SimpleGrid
+        cols={{ base: 1, sm: 2, lg: 3 }}
+        spacing="lg"
+      >
+        {collections.map((collection) => (
+          <CollectionCard
+            key={collection.id}
+            {...collection}
+            onClick={() => navigate(`/collections/${collection.id}`)}
+          />
+        ))}
+      </SimpleGrid>
+    </Stack>
   );
 }

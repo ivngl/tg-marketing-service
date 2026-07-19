@@ -1,5 +1,4 @@
 import {
-  Container,
   Paper,
   SegmentedControl,
   Text,
@@ -26,7 +25,7 @@ const LegalPage: React.FC = () => {
   const [tab, setTab] = React.useState('privacy');
 
   return (
-    <Container py={40} px="md">
+    <>
       <Title order={1} mb="lg">
         Правовая информация
       </Title>
@@ -52,7 +51,7 @@ const LegalPage: React.FC = () => {
           );
         })()}
       </Paper>
-    </Container>
+    </>
   );
 };
 

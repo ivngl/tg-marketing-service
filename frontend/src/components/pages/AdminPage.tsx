@@ -12,7 +12,6 @@ import {
   Text,
   ThemeIcon,
   Title,
-  Container,
 } from "@mantine/core";
 import {
   IconShield,
@@ -58,7 +57,7 @@ const rows = [
 
 export default function AdminPage() {
   return (
-    <Container py={40} px="md">
+    <>
       <Group mb={8}>
         <ThemeIcon color="orange" radius="md">
           <IconShield size={18} />
@@ -165,6 +164,6 @@ export default function AdminPage() {
           </Table>
         </ScrollArea>
       </Paper>
-    </Container>
+    </>
   );
 }

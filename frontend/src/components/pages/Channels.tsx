@@ -1,6 +1,5 @@
 import {
   Button,
-  Container,
   Group,
   SegmentedControl,
   SimpleGrid,
@@ -48,56 +47,56 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
   }, [sortedChannels, typeFilter, activeCategory]);
 
   return (
-    <Container py={40} px="md">
-        <Group justify="space-between" mb="md">
-          <Title order={1}>Каталог каналов и групп</Title>
-          <Text c="dimmed" size="sm">
-            Найдено: {filtered.length} из {channels.length}
-          </Text>
-        </Group>
+    <>
+      <Group justify="space-between" mb="md">
+        <Title order={1}>Каталог каналов и групп</Title>
+        <Text c="dimmed" size="sm">
+          Найдено: {filtered.length} из {channels.length}
+        </Text>
+      </Group>
 
-        <Group mb="md" gap="md" wrap="wrap" align="center">
-          <SegmentedControl
-            data={[
-              { label: 'Все', value: 'all' },
-              { label: 'Каналы', value: 'channel' },
-              { label: 'Группы', value: 'group' },
-            ]}
-            value={typeFilter}
-            onChange={(val) => setTypeFilter(val as TypeFilter)}
-          />
-        </Group>
+      <Group mb="md" gap="md" wrap="wrap" align="center">
+        <SegmentedControl
+          data={[
+            { label: 'Все', value: 'all' },
+            { label: 'Каналы', value: 'channel' },
+            { label: 'Группы', value: 'group' },
+          ]}
+          value={typeFilter}
+          onChange={(val) => setTypeFilter(val as TypeFilter)}
+        />
+      </Group>
 
-        <Group gap="xs" mb="lg" wrap="wrap">
+      <Group gap="xs" mb="lg" wrap="wrap">
+        <Button
+          variant={activeCategory === null ? 'gradient' : 'white'}
+          onClick={() => setActiveCategory(null)}
+        >
+          Все
+        </Button>
+        {categories.map(([cat, count]) => (
           <Button
-            variant={activeCategory === null ? 'gradient' : 'white'}
-            onClick={() => setActiveCategory(null)}
+            key={cat}
+            variant={activeCategory === cat ? 'gradient' : 'white'}
+            onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
           >
-            Все
+            {cat} ({count})
           </Button>
-          {categories.map(([cat, count]) => (
-            <Button
-              key={cat}
-              variant={activeCategory === cat ? 'gradient' : 'white'}
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-            >
-              {cat} ({count})
-            </Button>
-          ))}
-        </Group>
+        ))}
+      </Group>
 
-        {filtered.length === 0 ? (
-          <Text c="dimmed" ta="center" py="xl" size="lg">
-            Ничего не найдено
-          </Text>
-        ) : (
-          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={16}>
-            {filtered.map((channel) => (
-              <ChannelCard key={channel.id} channel={channel} />
-            ))}
-          </SimpleGrid>
-        )}
-    </Container>
+      {filtered.length === 0 ? (
+        <Text c="dimmed" ta="center" py="xl" size="lg">
+          Ничего не найдено
+        </Text>
+      ) : (
+        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing={16}>
+          {filtered.map((channel) => (
+            <ChannelCard key={channel.id} channel={channel} />
+          ))}
+        </SimpleGrid>
+      )}
+    </>
   );
 };
 

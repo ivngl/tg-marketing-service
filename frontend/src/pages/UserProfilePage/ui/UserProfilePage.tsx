@@ -27,7 +27,7 @@ const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Container py={40} px="md">
+    <>
       <Box mb="md">
         <Title order={2}>Личный кабинет</Title>
         <Text c="dimmed">Управление аккаунтом и подпиской</Text>
@@ -97,9 +97,7 @@ const UserProfilePage: React.FC = () => {
           </Stack>
         </SectionCard>
       </SimpleGrid>
-
-
-    </Container>
+    </>
   );
 };
 

@@ -2,7 +2,6 @@ import { BrandAvatar } from '@/components/ui/BrandAvatar';
 import channelsCol from '@/fixtures/channelsCollection';
 import {
   Badge,
-  Container,
   Group,
   Paper,
   Table,
@@ -60,7 +59,7 @@ const ComparePage: React.FC = () => {
   };
 
   return (
-    <Container py={40} px="md">
+    <>
       <Title order={1} mb="lg">
         Сравнение каналов
       </Title>
@@ -124,7 +123,7 @@ const ComparePage: React.FC = () => {
           и стабильный рост. Рекомендуемая стоимость размещения: от 15 000 ₽ за пост.
         </Text>
       </Paper>
-    </Container>
+    </>
   );
 };
 
