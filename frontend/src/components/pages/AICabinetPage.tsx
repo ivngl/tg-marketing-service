@@ -250,7 +250,7 @@ const AICabinetPage: React.FC = () => {
                 {quickQuestions.map((q) => (
                   <Button
                     key={q}
-                    variant="ghost"
+                    variant="light"
                     color="tgpurple"
                     onClick={() => setQuestionText(q)}
                   >
@@ -266,7 +266,6 @@ const AICabinetPage: React.FC = () => {
                   <UnstyledButton
                     onClick={() => {
                       if (questionText.trim()) {
-                        console.log('AI question:', questionText);
                         setQuestionText('');
                       }
                     }}

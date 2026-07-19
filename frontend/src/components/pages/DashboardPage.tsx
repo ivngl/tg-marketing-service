@@ -10,6 +10,7 @@ import {
   Box,
   Stack,
   Table,
+  ScrollArea,
   Text,
   Title,
 } from '@mantine/core';
@@ -149,11 +150,12 @@ const DashboardPage: React.FC = () => {
           </Paper>
         </SimpleGrid>
 
-        <Paper p="md" radius="md" withBorder>
+        <Paper p="sm" radius="md" withBorder>
           <Title order={3} mb="md">
             Последние посты
           </Title>
-          <Table striped highlightOnHover>
+          <ScrollArea>
+            <Table striped highlightOnHover>
             <Table.Thead>
               <Table.Tr>
                 <Table.Th>Пост</Table.Th>
@@ -188,7 +190,8 @@ const DashboardPage: React.FC = () => {
                 </Table.Tr>
               ))}
             </Table.Tbody>
-          </Table>
+            </Table>
+          </ScrollArea>
         </Paper>
     </Container>
   );

@@ -65,7 +65,7 @@ export function NavBar({ onClose }: NavBarProps) {
       </Box>
 
       <Paper withBorder radius="lg">
-        <Stack gap="xs">
+        <Stack gap="xs" p="sm">
           <Text fw={700}>Тариф Free</Text>
           <Text size="sm" c="dimmed">
             3 из 15 AI-разборов в этом месяце

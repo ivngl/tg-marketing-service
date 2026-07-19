@@ -5,6 +5,7 @@ import {
   Button,
   Group,
   Paper,
+  ScrollArea,
   Select,
   Table,
   Tabs,
@@ -103,7 +104,7 @@ export default function AdminPage() {
           </Text>
         </Box>
 
-        <Box p="lg">
+        <ScrollArea p="sm">
           <Table highlightOnHover verticalSpacing="md">
             <Table.Thead>
               <Table.Tr>
@@ -151,7 +152,7 @@ export default function AdminPage() {
                   </Table.Td>
 
                   <Table.Td>
-                    <Group justify="flex-end" wrap="nowrap">
+                    <Group>
                       <Button color="green">Одобрить</Button>
 
                       <Button variant="outline" color="red">
@@ -163,7 +164,7 @@ export default function AdminPage() {
               ))}
             </Table.Tbody>
           </Table>
-        </Box>
+        </ScrollArea>
       </Paper>
     </Container>
   );

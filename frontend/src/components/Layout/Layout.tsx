@@ -10,7 +10,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <AppShell
-      padding="md"
+      padding={{ base: 'xs', sm: 'md' }}
       navbar={{
         width: 260,
         breakpoint: 'sm',
