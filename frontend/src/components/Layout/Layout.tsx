@@ -1,4 +1,4 @@
-import { AppShell } from '@mantine/core';
+import { AppShell, Container } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
@@ -13,8 +13,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   return (
     <AppShell
-      px={{ base: 0, sm: 'md' }}
-      header={{ height: '100px' }}
+      px={{ base: 0, sm: 0 }}
+      header={{ height: { base: 100, sm: 60 } }}
       navbar={{
         width: 260,
         breakpoint: 'sm',
@@ -30,7 +30,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </AppShell.Navbar>
 
       <AppShell.Main bg="gray.0" mih="100vh">
-        {children}
+        <Container py={40} px="md">
+          {children}
+        </Container>
         <Footer />
       </AppShell.Main>
     </AppShell>

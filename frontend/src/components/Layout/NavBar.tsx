@@ -1,4 +1,4 @@
-import { Box, Button, NavLink, Paper, Progress, Stack, Text, ThemeIcon } from '@mantine/core';
+import { Button, NavLink, Paper, Progress, ScrollArea, Stack, Text, ThemeIcon } from '@mantine/core';
 import {
   IconArrowsExchange,
   IconBooks,
@@ -32,8 +32,10 @@ export function NavBar({ onClose }: NavBarProps) {
   const navigate = useNavigate();
 
   return (
+
     <Stack h="100%" justify="space-between">
-      <Box>
+      <ScrollArea>
+
         <Stack gap={4}>
           {menu.map((item) => {
             const active = location.pathname === item.path;
@@ -59,7 +61,7 @@ export function NavBar({ onClose }: NavBarProps) {
             );
           })}
         </Stack>
-      </Box>
+      </ScrollArea>
 
       <Paper withBorder radius="lg">
         <Stack gap="xs" p="sm">
@@ -73,6 +75,9 @@ export function NavBar({ onClose }: NavBarProps) {
           </Button>
         </Stack>
       </Paper>
+
+
     </Stack>
+
   );
 }

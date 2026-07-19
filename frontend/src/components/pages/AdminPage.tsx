@@ -103,7 +103,7 @@ export default function AdminPage() {
           </Text>
         </Box>
 
-        <ScrollArea p="sm">
+        <ScrollArea p="xs">
           <Table highlightOnHover verticalSpacing="md">
             <Table.Thead>
               <Table.Tr>

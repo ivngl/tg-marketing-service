@@ -61,6 +61,7 @@ const LandingPage: React.FC = () => {
         component="section"
         bg="white"
         py={80}
+        pt={40}
       >
         <Container>
           <Group gap={60} align="center" wrap="wrap">
