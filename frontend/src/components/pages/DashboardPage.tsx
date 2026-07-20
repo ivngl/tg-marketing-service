@@ -58,7 +58,7 @@ const DashboardPage: React.FC = () => {
           <div>
             <Group gap={4}>
               <Title order={2}>{channel.name}</Title>
-              {channel.verified && <IconCheck size={18} color="var(--mantine-color-blue-5)" />}
+              {channel.verified && <IconCheck size={18} color="var(--mantine-color-tgblue-5)" />}
             </Group>
             <Box c="dimmed" fz="sm">
               {channel.username} · <Badge size="xs">{channel.category}</Badge>
@@ -93,7 +93,7 @@ const DashboardPage: React.FC = () => {
             <Text
               size="xs"
               fw={600}
-              c={kpi.positive ? 'green' : 'red'}
+              c={kpi.positive ? 'tggreen' : 'tgred'}
             >
               {kpi.positive ? '▲' : '▼'} {kpi.delta}
             </Text>
@@ -174,7 +174,7 @@ const DashboardPage: React.FC = () => {
                 >
                   <Table.Td>{post.title}</Table.Td>
                   <Table.Td ta="right">{post.views}</Table.Td>
-                  <Table.Td ta="right" c="green">
+                  <Table.Td ta="right" c="tggreen">
                     {post.reactions}
                   </Table.Td>
                   <Table.Td ta="right">{post.forwards}</Table.Td>
@@ -182,7 +182,7 @@ const DashboardPage: React.FC = () => {
                     <Badge
                       size="sm"
 
-                      color={post.er >= 25 ? 'green' : post.er >= 15 ? 'yellow' : 'red'}
+                      color={post.er >= 25 ? 'tggreen' : post.er >= 15 ? 'tgorange' : 'tgred'}
                     >
                       {post.er}%
                     </Badge>

@@ -13,7 +13,7 @@ export function SearchBar() {
         placeholder="Поиск канала по @username, названию или теме..."
         leftSection={<IconSearch size={16} />}
       />
-      <Button radius="xl" style={{ flexShrink: 0 }} onClick={() => navigate('/ai-cabinet')}>AI-разбор</Button>
+      <Button radius="xl" color="tgpurple" style={{ flexShrink: 0 }} onClick={() => navigate('/ai-cabinet')}>AI-разбор</Button>
     </Flex>
 
   );

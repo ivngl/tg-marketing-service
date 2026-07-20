@@ -70,7 +70,8 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
 
       <Group gap="xs" mb="lg" wrap="wrap">
         <Button
-          variant={activeCategory === null ? 'gradient' : 'white'}
+          variant={activeCategory === null ? 'filled' : 'light'}
+          color="tgblue"
           onClick={() => setActiveCategory(null)}
         >
           Все
@@ -78,7 +79,8 @@ const Channels: React.FC<ChannelsProps> = ({ channels = defaultChannels }) => {
         {categories.map(([cat, count]) => (
           <Button
             key={cat}
-            variant={activeCategory === cat ? 'gradient' : 'white'}
+            variant={activeCategory === cat ? 'filled' : 'light'}
+            color="tgblue"
             onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
           >
             {cat} ({count})

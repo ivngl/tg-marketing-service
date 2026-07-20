@@ -36,7 +36,7 @@ export default function BlogPostPage() {
                     </Group>
                 </Anchor>
 
-                <Text size="sm" c="blue" fw={600}>
+                <Text size="sm" c="tgblue" fw={600}>
                     AI
                 </Text>
             </Breadcrumbs>
@@ -54,7 +54,7 @@ export default function BlogPostPage() {
             <Paper
                 h={380}
                 radius={20}
-                bg="linear-gradient(135deg,#6D28D9,#2D9CDB)"
+                bg="linear-gradient(135deg,var(--mantine-color-tgpurple-6),var(--mantine-color-tgblue-4))"
             />
 
             <Stack gap="lg">
@@ -84,7 +84,7 @@ export default function BlogPostPage() {
             <Paper
                 withBorder
                 radius="xl"
-                bg="blue.0"
+                bg="tgblue.0"
                 p="lg"
             >
                 <Group justify="space-between" align="center">

@@ -65,7 +65,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
             {verified && (
               <IconCheck
                 size={14}
-                color="var(--mantine-color-blue-5)"
+                color="var(--mantine-color-tgblue-5)"
               />
             )}
           </Group>
@@ -98,13 +98,13 @@ const ChannelCard: React.FC<ChannelCardProps> = ({ channel }) => {
         <Text size="xs" c="dimmed">
           {formatNumberShort(subscribers)} {type === 'channel' ? 'подписчиков' : 'участников'}
         </Text>
-        <Text size="xs" fw={600} c="green">
+        <Text size="xs" fw={600} c="tggreen">
           ER {er.toFixed(1)}%
         </Text>
         <Text
           size="xs"
           fw={600}
-          c={growth30d >= 0 ? 'green' : 'red'}
+          c={growth30d >= 0 ? 'tggreen' : 'tgred'}
         >
           {growth30d >= 0 ? '+' : ''}
           {growth30d.toFixed(1)}%

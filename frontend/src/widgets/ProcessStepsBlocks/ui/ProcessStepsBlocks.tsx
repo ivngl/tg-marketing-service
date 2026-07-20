@@ -9,7 +9,7 @@ export const ProcessStepsBlocks: React.FC<ProcessStepsBlocksProps> = ({ steps: p
   const steps = propsSteps ?? stepsFromPage;
 
   return (
-    <Box component="section" w="100%" bg="#F8F9FB" p={48}>
+    <Box component="section" w="100%" bg="muted.0" p={48}>
       <Container px="md">
         <Title order={2} fw={700} mb="xl" ta="left">Как это работает</Title>
 

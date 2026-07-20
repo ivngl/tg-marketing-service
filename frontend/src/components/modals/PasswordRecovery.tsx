@@ -31,7 +31,7 @@ const PasswordRecovery: React.FC<PasswordRecoveryProps> = ({ isVisible, onClose 
             placeholder="E-mail"
           />
           <Group justify="space-between">
-            <Button type="submit" color="blue">Отправить ссылку</Button>
+            <Button type="submit" color="tgblue">Отправить ссылку</Button>
             <Button variant="subtle" onClick={onClose}>Отмена</Button>
           </Group>
         </Stack>

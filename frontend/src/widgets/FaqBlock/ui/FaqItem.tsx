@@ -9,16 +9,16 @@ export const FaqItem: React.FC<FaqAccordionItemProps> = ({
   onToggle,
 }) => {
   return (
-    <Stack gap={0} bd="1px solid var(--mantine-color-gray-2)">
+    <Stack gap={0} bd="1px solid var(--mantine-color-muted-3)">
       <UnstyledButton onClick={onToggle} w="100%" ta="left" p="12px 16px" bg="white">
         <Flex align="center" justify="space-between" w="100%">
           <Text fw={700} size="base">
             {question}
           </Text>
           {isOpen ? (
-            <IconChevronUp size={16} color="var(--mantine-color-gray-7)" />
+            <IconChevronUp size={16} color="var(--mantine-color-muted-5)" />
           ) : (
-            <IconChevronDown size={16} color="var(--mantine-color-gray-7)" />
+            <IconChevronDown size={16} color="var(--mantine-color-muted-5)" />
           )}
         </Flex>
       </UnstyledButton>

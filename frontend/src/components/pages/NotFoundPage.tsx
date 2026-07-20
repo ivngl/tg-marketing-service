@@ -8,7 +8,7 @@ export default function NotFoundPage() {
     <Stack align="center" gap="xs">
       <Title
         order={1}
-        c="blue"
+        c="tgblue"
         fz={120}
         lh={1}
         fw={700}

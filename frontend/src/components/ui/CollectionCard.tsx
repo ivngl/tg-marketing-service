@@ -35,7 +35,7 @@ export default function CollectionCard(props: (typeof collections)[0] & { onClic
                             leftSection={<IconStarFilled size={10} />}
                             color="white"
                             variant="filled"
-                            c="#0B84F3"
+                            c="var(--mantine-color-tgblue-5)"
                             w="fit-content"
                         >
                             Редакция
@@ -60,7 +60,7 @@ export default function CollectionCard(props: (typeof collections)[0] & { onClic
                         {props.author}
                     </Text>
 
-                    <Text fw={600} c="blue">
+                    <Text fw={600} c="tgblue">
                         {props.channels}{" "}
                         {props.channels === 1 ? "канал" : "канала"}
                     </Text>

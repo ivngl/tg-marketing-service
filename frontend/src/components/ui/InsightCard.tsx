@@ -4,10 +4,10 @@ import { Paper, Text } from '@mantine/core';
 type InsightColor = 'green' | 'blue' | 'purple' | 'orange';
 
 const colorMap: Record<InsightColor, { bg: string; border: string; text: string }> = {
-  green:  { bg: '#F4FBF6', border: '#40C057', text: '#40C057' },
-  blue:   { bg: '#E7F5FB', border: '#1B87BC', text: '#1182C5' },
-  purple: { bg: '#F3F0FF', border: '#7c5cdb', text: '#7c5cdb' },
-  orange: { bg: '#FFF4E6', border: '#FD7E14', text: '#FD7E14' },
+  green:  { bg: 'var(--mantine-color-tggreen-0)', border: 'var(--mantine-color-tggreen-5)', text: 'var(--mantine-color-tggreen-5)' },
+  blue:   { bg: 'var(--mantine-color-tgblue-0)', border: 'var(--mantine-color-tgblue-6)', text: 'var(--mantine-color-tgblue-6)' },
+  purple: { bg: 'var(--mantine-color-tgpurple-0)', border: 'var(--mantine-color-tgpurple-5)', text: 'var(--mantine-color-tgpurple-5)' },
+  orange: { bg: 'var(--mantine-color-tgorange-0)', border: 'var(--mantine-color-tgorange-6)', text: 'var(--mantine-color-tgorange-6)' },
 };
 
 interface InsightCardProps {

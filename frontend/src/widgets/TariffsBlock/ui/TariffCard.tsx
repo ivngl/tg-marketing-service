@@ -56,7 +56,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
           <Stack gap="sm" mt="md" mb="xl">
             {features.map((feat) => (
               <Group key={feat.id} gap={8} wrap="nowrap" align="flex-start">
-                <Text size="sm" fw={600} c="#10B981">✓</Text>
+                <Text size="sm" fw={600} c="tggreen.5">✓</Text>
                 <Text size="sm" c="muted">{feat.text}</Text>
               </Group>
             ))}

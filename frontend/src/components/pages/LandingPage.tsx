@@ -30,22 +30,22 @@ const stats = [
 const features = [
   {
     icon: IconPresentationAnalytics,
-    iconColor: '#F85149',
-    iconBg: '#FFF5F5',
+    iconColor: 'var(--mantine-color-tgred-5)',
+    iconBg: 'var(--mantine-color-tgred-0)',
     title: 'Статистика каналов',
     description: 'Подписчики, охваты, ER, индекс цитирования, прирост по дням и вовлечённость каждого поста.',
   },
   {
     icon: IconSparkles,
-    iconColor: '#7c5cdb',
-    iconBg: '#F3F0FF',
+    iconColor: 'var(--mantine-color-tgpurple-5)',
+    iconBg: 'var(--mantine-color-tgpurple-0)',
     title: 'AI: о чём писать',
     description: 'ИИ анализирует реакции и спрос, предлагает темы постов и лучшее время публикации для роста.',
   },
   {
     icon: IconScale,
-    iconColor: '#12b886',
-    iconBg: '#E6FCF5',
+    iconColor: 'var(--mantine-color-tggreen-6)',
+    iconBg: 'var(--mantine-color-tggreen-0)',
     title: 'Сравнение и подбор',
     description: 'Сравнивайте каналы для закупки рекламы: цена контакта, накрутки, пересечение аудиторий.',
   },

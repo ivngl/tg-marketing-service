@@ -48,7 +48,7 @@ export default function CollectionChannelCard(props: {
             ER
           </Text>
 
-          <Text fw={700} c="green">
+          <Text fw={700} c="tggreen">
             {props.er}
           </Text>
         </Grid.Col>
@@ -58,7 +58,7 @@ export default function CollectionChannelCard(props: {
             30д
           </Text>
 
-          <Text fw={700} c="green" ta="right">
+          <Text fw={700} c="tggreen" ta="right">
             {props.growth}
           </Text>
         </Grid.Col>

@@ -17,7 +17,7 @@ const articles = [
     id: "er-err-i-ohvat",
     title: "ER, ERR и охват: какие метрики Telegram реально важны",
     category: "Аналитика",
-    color: "#2D9CDB",
+    color: "var(--mantine-color-tgblue-5)",
     date: "21 июня 2026",
     time: "8 мин",
   },
@@ -25,7 +25,7 @@ const articles = [
     id: "kak-vybrat-kanal-dlya-reklamy",
     title: "Как выбрать канал для рекламы и не слить бюджет",
     category: "Реклама",
-    color: "#27AE60",
+    color: "var(--mantine-color-tggreen-5)",
     date: "14 июня 2026",
     time: "5 мин",
   },
@@ -33,7 +33,7 @@ const articles = [
     id: "luchshee-vremya-dlya-postov",
     title: "Лучшее время для постов: миф или реальность",
     category: "Практика",
-    color: "#F97316",
+    color: "var(--mantine-color-tgorange-5)",
     date: "7 июня 2026",
     time: "4 мин",
   },
@@ -59,7 +59,7 @@ export default function BlogPage() {
                 h={320}
                 style={{
                   background:
-                    "linear-gradient(135deg,#6D28D9,#22A6F2)",
+                    "linear-gradient(135deg,var(--mantine-color-tgpurple-6),var(--mantine-color-tgblue-4))",
                 }}
               />
             </Grid.Col>

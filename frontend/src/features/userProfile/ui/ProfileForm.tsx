@@ -50,7 +50,7 @@ export const ProfileForm: React.FC = () => {
                 type="submit"
                 loading={processing}
                 variant="gradient"
-                gradient={{ from: 'blue.5', to: 'blue.6' }}
+                gradient={{ from: 'tgblue', to: 'tgblue.7' }}
                 w="fit-content"
               >
                 {processing ? 'Сохранение...' : 'Сохранить изменения'}

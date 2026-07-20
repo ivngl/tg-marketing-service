@@ -60,7 +60,7 @@ export default function AdminPage() {
   return (
     <Container>
       <Group mb={8}>
-        <ThemeIcon color="orange" radius="md">
+        <ThemeIcon color="tgorange" radius="md">
           <IconShield size={18} />
         </ThemeIcon>
 
@@ -77,7 +77,7 @@ export default function AdminPage() {
           <Tabs.Tab
             value="moderation"
             rightSection={
-              <Badge color="orange" size="xs">
+              <Badge color="tgorange" size="xs">
                 4
               </Badge>
             }
@@ -152,9 +152,9 @@ export default function AdminPage() {
 
                   <Table.Td>
                     <Group>
-                      <Button color="green">Одобрить</Button>
+                      <Button color="tggreen">Одобрить</Button>
 
-                      <Button variant="outline" color="red">
+                      <Button variant="outline" color="tgred">
                         Отклонить
                       </Button>
                     </Group>

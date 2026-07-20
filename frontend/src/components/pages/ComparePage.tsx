@@ -101,7 +101,7 @@ const ComparePage: React.FC = () => {
                       <Group gap="xs">
                         {m.format(getVal(ch, m.key))}
                         {i === bestIdx && (
-                          <Badge size="xs" variant="filled" color="green" leftSection={<IconTrophy size={10} />}>
+                          <Badge size="xs" variant="filled" color="tggreen" leftSection={<IconTrophy size={10} />}>
                             лучший
                           </Badge>
                         )}

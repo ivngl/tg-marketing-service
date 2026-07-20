@@ -62,7 +62,7 @@ const FormRegistration: React.FC = () => {
           />
 
           <Stack gap="sm" align="center">
-            <Button type="submit" fullWidth color="blue">
+            <Button type="submit" fullWidth color="tgblue">
               Войти
             </Button>
             <Anchor component="button" size="sm" onClick={openModal}>

@@ -10,7 +10,7 @@ export const FaqBlock: React.FC<FaqBlockProps> = ({ faqs: propsFaqs }) => {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <Box component="section" bg="#f8f9fb" p={48}>
+    <Box component="section" bg="muted.0" p={48}>
       <Container size="md" px="md">
         <Title order={2} ta="center" mb="lg">Частые вопросы</Title>
 

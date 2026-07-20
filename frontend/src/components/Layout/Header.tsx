@@ -22,7 +22,7 @@ export function Header({ opened, onToggle, showSearchBar = true }: HeaderProps) 
 
                 <Box visibleFrom="sm">
                     <Flex gap="sm" align="center">
-                        <Avatar color="blue" radius="md">t</Avatar>
+                        <Avatar color="tgblue" radius="md">t</Avatar>
                         <Title order={3}>tgpulse</Title>
                     </Flex>
                 </Box>

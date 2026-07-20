@@ -86,7 +86,7 @@ const PostPage: React.FC = () => {
           </Stack>
           <Group justify="space-between" mt="md" pt="md" bd="1px solid gray.2">
             <Text fw={600}>ER</Text>
-            <Badge size="lg" color="green">
+            <Badge size="lg" color="tggreen">
               31.2%
             </Badge>
           </Group>

@@ -49,10 +49,10 @@ const insightColorMap: Record<string, 'green' | 'blue' | 'orange' | 'purple'> = 
 };
 
 const insights = [
-  { type: 'recommendation', icon: IconBulb, color: 'green', bg: '#e6fcf5', text: 'Публикуйте посты в среду в 19:00 — пик активности' },
-  { type: 'trend', icon: IconTrendingUp, color: 'tgblue', bg: '#E7F5FB', text: 'Вовлечённость выросла на 12% за месяц' },
-  { type: 'warning', icon: IconAlertTriangle, color: 'orange', bg: '#fff4e6', text: 'Частота публикаций упала — рекомендуем 3-4 поста в неделю' },
-  { type: 'positive', icon: IconThumbUp, color: 'green', bg: '#e6fcf5', text: 'Новых подписчиков больше, чем отписок в 3.2 раза' },
+  { type: 'recommendation', icon: IconBulb, color: 'green', bg: 'var(--mantine-color-tggreen-0)', text: 'Публикуйте посты в среду в 19:00 — пик активности' },
+  { type: 'trend', icon: IconTrendingUp, color: 'tgblue', bg: 'var(--mantine-color-tgblue-0)', text: 'Вовлечённость выросла на 12% за месяц' },
+  { type: 'warning', icon: IconAlertTriangle, color: 'orange', bg: 'var(--mantine-color-tgorange-0)', text: 'Частота публикаций упала — рекомендуем 3-4 поста в неделю' },
+  { type: 'positive', icon: IconThumbUp, color: 'green', bg: 'var(--mantine-color-tggreen-0)', text: 'Новых подписчиков больше, чем отписок в 3.2 раза' },
 ];
 
 const competitors = [

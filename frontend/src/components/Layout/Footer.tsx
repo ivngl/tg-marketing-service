@@ -63,7 +63,7 @@ export function Footer() {
       <SimpleGrid cols={{ base: 2, sm: 2, md: 4 }}>
         <Stack gap={6}>
           <Group>
-            <Avatar color="blue">t</Avatar>
+            <Avatar color="tgblue">t</Avatar>
             <Title order={4}>tgpulse</Title>
           </Group>
           <Text size="sm" c="dimmed">

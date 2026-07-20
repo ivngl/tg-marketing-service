@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 const channels = [
     {
         initials: "PR",
-        color: "#3B82F6",
+        color: "var(--mantine-color-tgblue-5)",
         name: "Product Radar",
         username: "@product_radar",
         subs: "142K",
@@ -23,7 +23,7 @@ const channels = [
     },
     {
         initials: "AI",
-        color: "#7C3AED",
+        color: "var(--mantine-color-tgpurple-5)",
         name: "Тренды AI",
         username: "@ai_trends",
         subs: "98.3K",
@@ -32,7 +32,7 @@ const channels = [
     },
     {
         initials: "KH",
-        color: "#4F6EF7",
+        color: "var(--mantine-color-tgblue-4)",
         name: "Код на ночь",
         username: "@night_code",
         subs: "47.8K",
@@ -63,7 +63,7 @@ export default function CollectionPage() {
                 p={32}
                 style={{
                     background:
-                        "linear-gradient(90deg,#2D9CDB,#6D28D9)",
+                        "linear-gradient(90deg,var(--mantine-color-tgblue-5),var(--mantine-color-tgpurple-6))",
                 }}
             >
                 <Stack gap="sm">
