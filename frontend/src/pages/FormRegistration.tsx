@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TextInput, PasswordInput, Checkbox, Stack, Divider, Group, Title, Button, Box, Flex, Anchor } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { SocialIcon } from 'react-social-icons';
-import PasswordRecovery from '../modals/PasswordRecovery';
+import PasswordRecovery from '@/components/modals/PasswordRecovery';
 
 const FormRegistration: React.FC = () => {
   const form = useForm({

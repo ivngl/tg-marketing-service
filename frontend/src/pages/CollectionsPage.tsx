@@ -7,7 +7,7 @@ import {
   Title
 } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import CollectionCard from "../ui/CollectionCard";
+import CollectionCard from "@/components/ui/CollectionCard";
 
 
 

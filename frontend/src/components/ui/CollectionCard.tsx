@@ -10,7 +10,7 @@ import {
 import {
     IconStarFilled
 } from "@tabler/icons-react";
-import type { collections } from "../pages/CollectionsPage";
+import type { collections } from "@/pages/CollectionsPage";
 
 
 

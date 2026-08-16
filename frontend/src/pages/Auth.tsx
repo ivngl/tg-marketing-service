@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "@mantine/core";
-import FormRegistration from "../ui/FormRegistration";
+import FormRegistration from "./FormRegistration";
 
 const Auth: React.FC = () => {
   return (

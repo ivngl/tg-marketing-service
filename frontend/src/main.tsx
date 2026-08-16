@@ -1,9 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import type { ComponentType } from "react";
 import "@mantine/core/styles.css";
 import App from "./app/App.tsx";
 import "vite/modulepreload-polyfill";
 import { createInertiaApp } from "@inertiajs/react";
+
+const pages = import.meta.glob("./pages/**/*.tsx");
 
 createRoot(document.getElementById("root")!).render(
  <StrictMode>
@@ -13,30 +16,13 @@ createRoot(document.getElementById("root")!).render(
 document.addEventListener("DOMContentLoaded", () => {
  createInertiaApp({
   resolve: (name: string) => {
-   switch (name) {
-    case "Home":
-     return import("./components/pages/LandingPage.tsx").then((m) => m.default);
-    case "Auth":
-     return import("./components/pages/Auth.tsx").then((m) => m.default);
-    case "ComparePages":
-     return import("./components/pages/ComparePage.tsx").then((m) => m.default);
-    case "MassParsing":
-     return import("./components/pages/Channels.tsx").then((m) => m.default);
-    case "PasswordRecovery":
-     return import("./components/modals/PasswordRecovery.tsx").then(
-      (m) => m.default,
-     );
-    case "Header":
-     return import("./components/Layout/Header.tsx").then((m) => m.default);
-    case "Layout":
-     return import("./components/Layout/Layout.tsx").then((m) => m.default);
-    case "FormRegistration":
-     return import("./components/ui/FormRegistration.tsx").then(
-      (m) => m.default,
-     );
-    default:
-     throw new Error(`Page ${name} not found`);
+   const importPage = pages[`./pages/${name}.tsx`];
+   if (!importPage) {
+    throw new Error(`Page ${name} not found`);
    }
+   return importPage().then(
+    (module) => (module as { default: ComponentType }).default,
+   );
   },
   setup({ el, App, props }) {
    const root = createRoot(el);
