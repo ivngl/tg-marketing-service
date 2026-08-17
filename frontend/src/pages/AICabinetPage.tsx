@@ -19,7 +19,7 @@ import {
 import { InsightCard } from '@/components/ui/InsightCard';
 import { SectionCard } from '@/components/ui/SectionCard';
 import { IconBulb, IconSend, IconSparkles, IconTrendingUp, IconAlertTriangle, IconThumbUp } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { router } from '@inertiajs/react';
 
 const ideas = [
   {
@@ -91,7 +91,6 @@ const getHeatColor = (value: number) => {
 };
 
 const AICabinetPage: React.FC = () => {
-  const navigate = useNavigate();
   const [questionText, setQuestionText] = useState('');
 
   return (
@@ -175,7 +174,7 @@ const AICabinetPage: React.FC = () => {
                 size="xs"
                 variant="subtle"
                 color="tgblue"
-                onClick={() => navigate('/compare')}
+                onClick={() => router.visit('/compare')}
               >
                 Сравнить все каналы
               </Button>

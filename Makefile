@@ -10,6 +10,12 @@ collectstatic:
 dev:
 	uv run python manage.py runserver
 
+frontend-dev:
+	cd frontend && npm run dev
+
+frontend-install:
+	cd frontend && npm install
+
 prod-run:
 	uv run gunicorn -b 0.0.0.0:$(PORT) config.wsgi
 

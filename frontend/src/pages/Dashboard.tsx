@@ -19,7 +19,7 @@ import {
 } from '@mantine/core';
 import { IconCheck, IconDownload } from '@tabler/icons-react';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { router } from '@inertiajs/react';
 
 const channel = channelsCol[0];
 
@@ -48,7 +48,6 @@ const posts = [
 ];
 
 const DashboardPage: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <Container>
@@ -143,7 +142,7 @@ const DashboardPage: React.FC = () => {
             size="sm"
             mt="md"
             fullWidth
-            onClick={() => navigate('/ai-cabinet')}
+            onClick={() => router.visit('/ai-cabinet')}
           >
             Открыть AI-кабинет
           </Button>
@@ -170,7 +169,7 @@ const DashboardPage: React.FC = () => {
                 <Table.Tr
                   key={post.title}
                   styles={{ tr: { cursor: 'pointer' } }}
-                  onClick={() => navigate('/post')}
+                  onClick={() => router.visit('/post')}
                 >
                   <Table.Td>{post.title}</Table.Td>
                   <Table.Td ta="right">{post.views}</Table.Td>

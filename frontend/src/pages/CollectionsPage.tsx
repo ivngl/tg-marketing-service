@@ -6,7 +6,7 @@ import {
   Text,
   Title
 } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
+import { router } from "@inertiajs/react";
 import CollectionCard from "@/components/ui/CollectionCard";
 
 
@@ -76,7 +76,6 @@ export const collections = [
 
 
 export default function CollectionsPage() {
-  const navigate = useNavigate();
 
   return (
     <Container>
@@ -100,7 +99,7 @@ export default function CollectionsPage() {
           <CollectionCard
             key={collection.id}
             {...collection}
-            onClick={() => navigate(`/collections/${collection.id}`)}
+            onClick={() => router.visit(`/collections/${collection.id}`)}
           />
         ))}
       </SimpleGrid>

@@ -13,7 +13,6 @@ import {
 } from '@mantine/core';
 import { InsightCard } from '@/components/ui/InsightCard';
 import { IconArrowLeft } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
 
 const reactions = [
   { emoji: '🔥', label: 'Огонь', percent: 42, count: 374 },
@@ -23,7 +22,6 @@ const reactions = [
 ];
 
 const PostPage: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <Container>
@@ -32,7 +30,7 @@ const PostPage: React.FC = () => {
         color="tgblue"
         leftSection={<IconArrowLeft size={16} />}
         mb="md"
-        onClick={() => navigate(-1)}
+        onClick={() => history.back()}
       >
         Назад к каналу
       </Button>

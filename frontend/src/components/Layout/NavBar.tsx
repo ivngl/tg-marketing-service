@@ -9,7 +9,7 @@ import {
   IconSparkles,
   IconUser,
 } from '@tabler/icons-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { router, usePage } from '@inertiajs/react';
 
 const menu = [
   { label: 'Главная', path: '/', icon: IconHome },
@@ -28,8 +28,7 @@ interface NavBarProps {
 }
 
 export function NavBar({ onClose }: NavBarProps) {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const { url } = usePage();
 
   return (
 
@@ -38,7 +37,7 @@ export function NavBar({ onClose }: NavBarProps) {
 
         <Stack gap={4}>
           {menu.map((item) => {
-            const active = location.pathname === item.path;
+            const active = url === item.path || url === item.path + '/';
             return (
               <NavLink
                 key={item.label}
@@ -54,7 +53,7 @@ export function NavBar({ onClose }: NavBarProps) {
                 }
                 active={active}
                 onClick={() => {
-                  navigate(item.path);
+                  router.visit(item.path);
                   onClose?.();
                 }}
               />

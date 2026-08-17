@@ -230,6 +230,9 @@ celerybeat-schedule.*
 dump.rdb
 staticfiles/
 
+# frontend build output
+frontend/static/
+
 # local only
 telegram_session_string.py
 

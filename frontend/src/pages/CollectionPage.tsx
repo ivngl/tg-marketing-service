@@ -9,7 +9,7 @@ import {
     Title
 } from "@mantine/core";
 import { IconChevronLeft } from "@tabler/icons-react";
-import { useNavigate } from "react-router-dom";
+import { router } from "@inertiajs/react";
 
 const channels = [
     {
@@ -43,12 +43,11 @@ const channels = [
 
 
 export default function CollectionPage() {
-    const navigate = useNavigate();
 
     return (
         <Container>
             <Stack gap="xl">
-            <Group gap={4} style={{ cursor: 'pointer' }} onClick={() => navigate('/collections')}>
+            <Group gap={4} style={{ cursor: 'pointer' }} onClick={() => router.visit('/collections')}>
                 <IconChevronLeft
                     size={14}
                     color="gray"

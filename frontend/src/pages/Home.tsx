@@ -19,7 +19,7 @@ import {
   IconSparkles,
 } from '@tabler/icons-react';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { router } from '@inertiajs/react';
 
 const stats = [
   { value: '2.4M', label: 'каналов в базе' },
@@ -53,7 +53,6 @@ const features = [
 
 
 const LandingPage: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <Box component="section" bg="white">
@@ -87,14 +86,14 @@ const LandingPage: React.FC = () => {
               <Group gap="md">
                 <Button
                   size="md"
-                  onClick={() => navigate('/channels')}
+                  onClick={() => router.visit('/channels')}
                 >
                   Добавить свой канал
                 </Button>
                 <Button
                   variant="default"
                   size="md"
-                  onClick={() => navigate('/channels')}
+                  onClick={() => router.visit('/channels')}
                 >
                   Каталог каналов
                 </Button>

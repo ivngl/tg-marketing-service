@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.12"
 resolution-markers = [
     "python_full_version >= '3.15'",
@@ -432,6 +432,19 @@ wheels = [
 ]
 
 [[package]]
+name = "django-cors-headers"
+version = "4.9.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "asgiref" },
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/21/39/55822b15b7ec87410f34cd16ce04065ff390e50f9e29f31d6d116fc80456/django_cors_headers-4.9.0.tar.gz", hash = "sha256:fe5d7cb59fdc2c8c646ce84b727ac2bca8912a247e6e68e1fb507372178e59e8", size = 21458, upload-time = "2025-09-18T10:40:52.326Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/30/d8/19ed1e47badf477d17fb177c1c19b5a21da0fd2d9f093f23be3fb86c5fab/django_cors_headers-4.9.0-py3-none-any.whl", hash = "sha256:15c7f20727f90044dcee2216a9fd7303741a864865f0c3657e28b7056f61b449", size = 12809, upload-time = "2025-09-18T10:40:50.843Z" },
+]
+
+[[package]]
 name = "django-guardian"
 version = "3.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -574,6 +587,7 @@ dependencies = [
     { name = "django" },
     { name = "django-allauth" },
     { name = "django-bootstrap5" },
+    { name = "django-cors-headers" },
     { name = "django-guardian" },
     { name = "django-vite" },
     { name = "django-widget-tweaks" },
@@ -611,13 +625,14 @@ requires-dist = [
     { name = "django", specifier = ">=6.0.7" },
     { name = "django-allauth", specifier = ">=65.14.1" },
     { name = "django-bootstrap5", specifier = ">=25.1" },
+    { name = "django-cors-headers", specifier = ">=4.7.0" },
     { name = "django-guardian", specifier = ">=3.2.0" },
     { name = "django-vite", specifier = ">=3.1.0" },
     { name = "django-widget-tweaks", specifier = ">=1.5.0" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "flower", specifier = ">=2.0.1" },
     { name = "gunicorn", specifier = ">=23.0.0" },
-    { name = "inertia-django", specifier = ">=1.2.0" },
+    { name = "inertia-django", specifier = ">=2.0.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "redis", specifier = ">=6.2.0" },
@@ -696,15 +711,14 @@ wheels = [
 
 [[package]]
 name = "inertia-django"
-version = "1.2.0"
+version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
-    { name = "requests" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c0/8c/cd86eb4ed94b5f4e7476865710665f41adc71f15cf76537964665aad2388/inertia_django-1.2.0.tar.gz", hash = "sha256:36511038caf2cbb6f54a08f17dc18fe1dd1b30c712a616672704e395b984f250", size = 20119, upload-time = "2025-03-25T04:37:09.462Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/51/ae/abfa389f0944526a813e9c3ab644de091b22c7cf8b5284f4381e066509db/inertia_django-2.0.0.tar.gz", hash = "sha256:89ab1ea1a1f45c3441010ecb3d0bca0b0256404d1b1f84e1f1abd734e21006f5", size = 62091, upload-time = "2026-08-16T19:59:18.291Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a1/bf/04d7c45249338b09034017e7c3e49c83d4aea77748b9e7b09dd73566b4c3/inertia_django-1.2.0-py3-none-any.whl", hash = "sha256:95c99b6dd9e4ba0717a6f0efba048345f306133cc24f04038f30d3e07d847806", size = 22733, upload-time = "2025-03-25T04:37:07.902Z" },
+    { url = "https://files.pythonhosted.org/packages/ab/6a/1c28b9b189b1dc5767b34165b01f65ef46aaab6a38ccc5254a0e3717ccf2/inertia_django-2.0.0-py3-none-any.whl", hash = "sha256:0d8d2200b0d273c39939015d9a2a42b69b7744e2e3b2a9a875bc9fa81df90e73", size = 73300, upload-time = "2026-08-16T19:59:17.082Z" },
 ]
 
 [[package]]
