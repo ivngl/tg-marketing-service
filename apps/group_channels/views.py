@@ -53,7 +53,7 @@ class CreateGroupView(UserAuthenticationCheckMixin, View):
                     "description": form.data.get("description", ""),
                     "image_url": form.data.get("image_url", ""),
                 },
-                "errors": form.errors,
+                "errors": form.errors.get_json_data(),
             },
         )
 
@@ -84,7 +84,7 @@ class UpdateGroupView(UserAuthenticationCheckMixin, View):
                     "description": form.data.get("description"),
                     "image_url": request.POST.get("image_url", ""),
                 },
-                "errors": form.errors,
+                "errors": form.errors.get_json_data(),
             },
         )
 
@@ -194,7 +194,12 @@ class AddChannelsView(UserAuthenticationCheckMixin, UserPassesTestMixin, View):
         return inertia_render(
             request,
             "GroupDetail",
-            props={"form": {"errors": form.errors, "values": form.data}},
+            props={
+                "form": {
+                    "errors": form.errors.get_json_data(),
+                    "values": form.data,
+                }
+            },
         )
 
 
