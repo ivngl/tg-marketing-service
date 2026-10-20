@@ -684,9 +684,11 @@ Props описаны DTO `apps/group_channels/dto/collections_dto.py`
 }
 ```
 
-- только `is_published=True`;
-- `featured` — последняя `is_featured=True`, может быть `null`;
-- `articles` — остальные, `published_at desc`.
+- контент всегда моковый (реестр `apps/blog/mock_data.py`), БД
+  не используется (DB-логика оставлена в вьюхе/сервисе для
+  prod-переключения позже);
+- `featured` — статья с `is_featured=True` (всегда заполнена);
+- `articles` — остальные моковые статьи, `published_at desc`.
 
 `ArticleCardDTO`: `id:int`, `slug:str`, `title:str`, `excerpt:str`,
 `cover_image:str`, `category:str`, `tags:list[str]`, `read_time:int`,
@@ -721,11 +723,15 @@ Props описаны DTO `apps/group_channels/dto/collections_dto.py`
 
 Примечания:
 
+- контент всегда моковый (реестр `apps/blog/mock_data.py`), страница
+  рендерится всегда (200); slug вне реестра — featured-демо с
+  подставленным `slug`;
+- DB-логика оставлена в вьюхе/сервисе для prod-переключения позже
+  (там отсутствующая/неопубликованная статья — 404, `views_count`
+  растёт только при полной загрузке);
 - `body` — Markdown, HTML собирает frontend;
 - `cta` — дескриптор CTA-кнопки (`{label:str, url:str}`);
-- `related` — не более 3 статей (`ArticleCardDTO`);
-- `views_count` растёт только при полной загрузке (не Inertia-навигации);
-- неопубликованная/отсутствующая статья — 404.
+- `related` — не более 3 других статей (`ArticleCardDTO`).
 
 ## Legal — `/legal/`
 
