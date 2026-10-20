@@ -7,9 +7,8 @@ import {
 } from '@mantine/core';
 import React from 'react';
 import type { LegalPageProps } from '@/types/legal';
-import mockLegalContent from '@/shared/mocks/legalContent';
 
-const LegalPage = ({ legalContent = mockLegalContent }: LegalPageProps) => {
+const LegalPage = ({ documents }: LegalPageProps) => {
   const [tab, setTab] = React.useState('privacy');
 
   return (
@@ -20,7 +19,7 @@ const LegalPage = ({ legalContent = mockLegalContent }: LegalPageProps) => {
       <SegmentedControl
         data={[
           { label: 'Конфиденциальность', value: 'privacy' },
-          { label: 'Соглашение', value: 'terms' },
+          { label: 'Соглашение', value: 'agreement' },
           { label: 'Оферта', value: 'offer' },
         ]}
         value={tab}
@@ -30,7 +29,7 @@ const LegalPage = ({ legalContent = mockLegalContent }: LegalPageProps) => {
       />
       <Paper p="lg">
         {(() => {
-          const content = legalContent[tab];
+          const content = documents[tab];
           return (
             <>
               <Title order={3} mb="md">{content.title}</Title>
