@@ -44,7 +44,7 @@ const data = [
  * и нижнюю строку с копирайтом и бейджем-ссылкой на пример страницы 404.
  * 
  * Обработчик клика по ссылкам вызывает preventDefault.
- * Затем идет переход через navigate только для внутренних маршрутов (начинающихся с /).
+ * Затем идет переход через router.visit только для внутренних маршрутов (начинающихся с /).
  * Это предотвращает переход по ссылкам-заглушкам (#).
  */
 export function Footer() {
@@ -58,7 +58,7 @@ export function Footer() {
         onClick={(event) => {
           event.preventDefault();
           if (link.link.startsWith('/')) {
-            navigate(link.link);
+            router.visit(link.link);
           }
         }}
       >
