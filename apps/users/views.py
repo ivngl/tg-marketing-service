@@ -272,7 +272,7 @@ class LoginView(View):
                             "email": request.POST.get("email", ""),
                             "password": "",
                         },
-                        "errors": form.errors,
+                        "errors": form.errors.get_json_data(),
                     },
                     "next": self._get_next_url(request),
                 },
@@ -533,7 +533,7 @@ class UserUpdate(UserAuthenticationCheckMixin, View):
         'avatar_image': .......,
     }
     нформацию об ошибке:
-    "errors": form.errors
+    "errors": form.errors.get_json_data()
 
     """
 
@@ -598,7 +598,7 @@ class UserUpdate(UserAuthenticationCheckMixin, View):
         return inertia_render(
             request,
             "UpdateUserProfile",
-            props={"form": data, "errors": form.errors},
+            props={"form": data, "errors": form.errors.get_json_data()},
         )
 
 
@@ -678,7 +678,7 @@ class RestorePasswordRequestView(View):
             "RestorePasswordRequest",
             props={
                 "email": request.POST.get("email", ""),
-                "errors": form.errors,
+                "errors": form.errors.get_json_data(),
             },
         )
 
@@ -812,6 +812,6 @@ class RestorePasswordView(View):
                 "new_password2": "",
                 "uid": uid,
                 "token": token,
-                "errors": form.errors,
+                "errors": form.errors.get_json_data(),
             },
         )
